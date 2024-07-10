@@ -1,0 +1,1 @@
+# iq-capitalist.github.io
