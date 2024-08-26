@@ -1,5 +1,9 @@
+/* Стили для кнопок уровней */
 #levelButtons {
     margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .level-btn {
@@ -9,26 +13,32 @@
     background-color: var(--primary-color);
     color: white;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
     border-radius: 5px;
+    font-size: 14px;
 }
 
 .level-btn:hover {
     background-color: var(--secondary-color);
+    transform: translateY(-2px);
 }
 
 .level-btn.active {
     background-color: var(--secondary-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
+/* Стили для поля поиска */
 #searchInput {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid var(--primary-color);
     border-radius: 5px;
+    font-size: 16px;
 }
 
+/* Стили для таблицы рейтингов */
 .table-responsive {
     overflow-x: auto;
 }
@@ -37,6 +47,7 @@ table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0 8px;
+    margin-bottom: 20px;
 }
 
 th, td {
@@ -49,42 +60,53 @@ th {
     background-color: var(--primary-color);
     color: white;
     cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+th:hover {
+    background-color: var(--secondary-color);
 }
 
 tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: rgba(52, 152, 219, 0.1);
 }
 
 tr:hover {
-    background-color: #ddd;
+    background-color: rgba(52, 152, 219, 0.2);
 }
 
+/* Стили для пагинации */
 .pagination {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    flex-wrap: wrap;
 }
 
 .pagination button {
-    margin: 0 5px;
-    padding: 5px 10px;
+    margin: 5px;
+    padding: 8px 12px;
     border: none;
     background-color: var(--primary-color);
     color: white;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
     border-radius: 3px;
+    font-size: 14px;
 }
 
 .pagination button:hover {
     background-color: var(--secondary-color);
+    transform: translateY(-2px);
 }
 
 .pagination button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
+    transform: none;
 }
 
+/* Медиа-запросы для адаптивности */
 @media (max-width: 768px) {
     table {
         font-size: 14px;
@@ -92,5 +114,43 @@ tr:hover {
 
     th, td {
         padding: 8px;
+    }
+
+    .level-btn {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+
+    #searchInput {
+        font-size: 14px;
+    }
+
+    .pagination button {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 6px;
+    }
+
+    .level-btn {
+        font-size: 11px;
+        padding: 6px 10px;
+    }
+
+    #searchInput {
+        font-size: 12px;
+    }
+
+    .pagination button {
+        font-size: 11px;
+        padding: 5px 8px;
     }
 }
