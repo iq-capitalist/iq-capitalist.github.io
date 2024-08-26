@@ -2,7 +2,7 @@ let currentLevel = 'Знаток';
 let currentSort = { column: 'points', direction: 'desc' };
 let globalData;
 let currentPage = 1;
-const itemsPerPage = 10;
+const itemsPerPage = 20;
 
 function loadData() {
     console.log('Attempting to load data...');
