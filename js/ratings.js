@@ -25,7 +25,7 @@ function loadData() {
     .then(data => {
         console.log('Data loaded successfully:', data);
         globalData = data;
-        document.getElementById('lastUpdate').textContent = `Последнее обновление: ${data.lastUpdate}`;
+        updateLastUpdate(data.lastUpdate);
         createLevelButtons(Object.keys(data.ratings));
         displayRatings(data.ratings[currentLevel]);
 
@@ -34,10 +34,40 @@ function loadData() {
     })
     .catch(error => {
         console.error('Error loading data:', error);
-        document.getElementById('ratingTable').innerHTML = `
-            <p class="text-danger">Ошибка загрузки данных: ${error.message}</p>
-            <p>Пожалуйста, убедитесь, что файл data.json существует и доступен.</p>
-        `;
+        const ratingTable = document.getElementById('ratingTable');
+        if (ratingTable) {
+            ratingTable.innerHTML = `
+                <p class="text-danger">Ошибка загрузки данных: ${error.message}</p>
+                <p>Пожалуйста, убедитесь, что файл data.json существует и доступен.</p>
+            `;
+        } else {
+            console.error('Rating table element not found');
+        }
+    });
+}
+
+function updateLastUpdate(lastUpdate) {
+    const lastUpdateElement = document.getElementById('lastUpdate');
+    if (lastUpdateElement) {
+        lastUpdateElement.textContent = `Последнее обновление: ${lastUpdate}`;
+    } else {
+        console.warn('Last update element not found');
+    }
+}
+
+function createLevelButtons(levels) {
+    const buttonsContainer = document.getElementById('levelButtons');
+    if (!buttonsContainer) {
+        console.warn('Level buttons container not found');
+        return;
+    }
+    buttonsContainer.innerHTML = '';
+    levels.forEach(level => {
+        const button = document.createElement('button');
+        button.textContent = level;
+        button.className = `btn btn-outline-primary level-btn ${level === currentLevel ? 'active' : ''}`;
+        button.onclick = () => changeLevel(level);
+        buttonsContainer.appendChild(button);
     });
 }
 
@@ -186,7 +216,16 @@ function searchPlayers() {
 
 document.getElementById('searchInput').addEventListener('input', searchPlayers);
 
-// Вызов функции загрузки данных при загрузке страницы
-document.addEventListener('DOMContentLoaded', loadData);
+// Инициализация после загрузки DOM
+document.addEventListener('DOMContentLoaded', () => {
+    loadData();
+
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        searchInput.addEventListener('input', searchPlayers);
+    } else {
+        console.warn('Search input element not found');
+    }
+});
 
 window.onload = loadData;
