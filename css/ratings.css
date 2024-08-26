@@ -102,35 +102,38 @@ tr:hover {
     flex-wrap: wrap;
 }
 
-.pagination button {
-    margin: 5px;
+.pagination .page-item {
+    margin: 0 2px;
+}
+
+.pagination .page-link {
     padding: 8px 12px;
     border: 1px solid var(--primary-color);
-    background-color: #2c3e50;
+    background-color: white;
     color: var(--primary-color);
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s, transform 0.2s;
     border-radius: 3px;
     font-size: 14px;
     font-weight: bold;
+    text-decoration: none;
 }
 
-.pagination button:hover {
-    background-color: #2c3e50;
+.pagination .page-link:hover {
+    background-color: var(--primary-color);
     color: white;
     transform: translateY(-2px);
 }
 
-.pagination button:disabled {
-    background-color: #2c3e50;
+.pagination .page-item.disabled .page-link {
+    background-color: #f4f4f4;
     color: #aaa;
     border-color: #ddd;
     cursor: not-allowed;
     transform: none;
 }
 
-/* Стиль для активной кнопки страницы */
-.pagination button.active {
+.pagination .page-item.active .page-link {
     background-color: var(--primary-color);
     color: white;
 }
