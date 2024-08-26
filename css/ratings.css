@@ -105,11 +105,11 @@ tr:hover {
 .pagination button {
     margin: 5px;
     padding: 8px 12px;
-    border: none;
-    background-color: #f4f4f4;
-    color: var(--secondary-color);
+    border: 1px solid var(--primary-color);
+    background-color: white;
+    color: var(--primary-color);
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
     border-radius: 3px;
     font-size: 14px;
     font-weight: bold;
@@ -117,15 +117,22 @@ tr:hover {
 
 .pagination button:hover {
     background-color: var(--primary-color);
-    color: var(--secondary-color);
+    color: white;
     transform: translateY(-2px);
 }
 
 .pagination button:disabled {
-    background-color: #ccc;
-    color: var(--secondary-color);
+    background-color: #f4f4f4;
+    color: #aaa;
+    border-color: #ddd;
     cursor: not-allowed;
     transform: none;
+}
+
+/* Стиль для активной кнопки страницы */
+.pagination button.active {
+    background-color: var(--primary-color);
+    color: white;
 }
 
 /* Медиа-запросы для адаптивности */

@@ -191,6 +191,24 @@ function displayRatings(ratings) {
     tableContainer.innerHTML = html;
 }
 
+function updatePagination(currentPage, totalPages) {
+    const paginationContainer = document.querySelector('.pagination');
+    let paginationHTML = '';
+
+    // Кнопка "Предыдущая"
+    paginationHTML += `<button ${currentPage === 1 ? 'disabled' : ''} onclick="changePage(${currentPage - 1})">Предыдущая</button>`;
+
+    // Номера страниц
+    for (let i = 1; i <= totalPages; i++) {
+        paginationHTML += `<button class="${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">${i}</button>`;
+    }
+
+    // Кнопка "Следующая"
+    paginationHTML += `<button ${currentPage === totalPages ? 'disabled' : ''} onclick="changePage(${currentPage + 1})">Следующая</button>`;
+
+    paginationContainer.innerHTML = paginationHTML;
+}
+
 function sortTable(column) {
     if (currentSort.column === column) {
         currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
