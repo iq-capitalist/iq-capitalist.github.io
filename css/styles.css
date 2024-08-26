@@ -1,8 +1,8 @@
 :root {
     --primary-color: #3498db;
     --secondary-color: #2c3e50;
-    --background-color: #ecf0f1;
-    --text-color: #34495e;
+    --background-color: #f4f4f4;
+    --text-color: #333;
     --header-height: 60px;
 }
 
@@ -17,7 +17,7 @@ body {
 
 .container {
     width: 90%;
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -39,6 +39,7 @@ nav ul {
     padding: 0;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 nav ul li {
@@ -50,10 +51,12 @@ nav ul li a {
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
+    padding: 5px 10px;
+    border-radius: 5px;
 }
 
-nav ul li a:hover {
-    color: var(--secondary-color);
+nav ul li a:hover, nav ul li a.active {
+    background-color: rgba(255,255,255,0.2);
 }
 
 main {
@@ -80,7 +83,28 @@ footer {
     margin-top: 20px;
 }
 
-/* Responsive design */
+/* Улучшенная типографика */
+p {
+    margin-bottom: 1.5em;
+    font-size: 16px;
+}
+
+/* Стили для кнопок */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Медиа-запросы для адаптивности */
 @media (max-width: 768px) {
     nav ul {
         flex-direction: column;
@@ -93,5 +117,23 @@ footer {
 
     .container {
         width: 95%;
+        padding: 10px;
     }
+
+    .page-title {
+        font-size: 2em;
+    }
+
+    header {
+        position: static;
+    }
+
+    main {
+        padding-top: 20px;
+    }
+}
+
+/* Плавные переходы для интерактивных элементов */
+a, button, .btn {
+    transition: all 0.3s ease;
 }
