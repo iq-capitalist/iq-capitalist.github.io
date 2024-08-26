@@ -5,11 +5,10 @@
     flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
-    gap: 10px; /* Добавляем расстояние между кнопками */
+    gap: 10px;
 }
 
 .level-btn {
-    margin: 0; /* Убираем margin, так как теперь используем gap */
     padding: 10px 15px;
     border: none;
     background-color: var(--primary-color);
@@ -59,7 +58,7 @@ table {
 th, td {
     padding: 12px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+    border-bottom: none; /* Убираем горизонтальные линии */
 }
 
 th {
@@ -73,12 +72,26 @@ th:hover {
     background-color: var(--secondary-color);
 }
 
+/* Выравнивание колонок вправо, кроме первых двух */
+td:nth-child(n+3),
+th:nth-child(n+3) {
+    text-align: right;
+}
+
 tr:nth-child(even) {
     background-color: rgba(52, 152, 219, 0.1);
 }
 
 tr:hover {
     background-color: rgba(52, 152, 219, 0.2);
+}
+
+/* Добавляем стиль для даты обновления */
+#lastUpdate {
+    text-align: center;
+    margin-bottom: 20px;
+    font-style: italic;
+    color: var(--secondary-color);
 }
 
 /* Стили для пагинации */
@@ -93,8 +106,8 @@ tr:hover {
     margin: 5px;
     padding: 8px 12px;
     border: none;
-    background-color: var(--primary-color);
-    color: white;
+    background-color: #f4f4f4;
+    color: var(--text-color); /* Изменяем цвет текста на основной цвет текста */
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
     border-radius: 3px;
@@ -103,7 +116,8 @@ tr:hover {
 }
 
 .pagination button:hover {
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
+    color: white;
     transform: translateY(-2px);
 }
 
@@ -161,11 +175,4 @@ tr:hover {
         font-size: 11px;
         padding: 5px 8px;
     }
-}
-
-#lastUpdate {
-    text-align: center;
-    margin-bottom: 20px;
-    font-style: italic;
-    color: var(--secondary-color);
 }
