@@ -160,25 +160,6 @@ function displayRatings(ratings) {
         </table>
     `;
 
-    currentPageRatings.forEach((player, index) => {
-        html += `
-            <tr>
-                <td>${startIndex + index + 1}</td>
-                <td>${player.username}</td>
-                <td class="text-end">${player.capital.toLocaleString('ru-RU')}</td>
-                <td class="text-end">${player.points.toLocaleString('ru-RU', {minimumFractionDigits: 1, maximumFractionDigits: 1})}</td>
-                <td class="text-end">${player.winnings.toLocaleString('ru-RU')}</td>
-                <td class="text-end">${player.remaining_boosters}</td>
-                <td class="text-end">${player.wallet.toLocaleString('ru-RU')}</td>
-            </tr>
-        `;
-    });
-
-    html += `
-            </tbody>
-        </table>
-    `;
-
     // Добавление пагинации
     const totalPages = Math.ceil(ratingsWithWinnings.length / itemsPerPage);
     html += `
