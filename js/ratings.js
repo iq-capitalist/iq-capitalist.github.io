@@ -138,11 +138,26 @@ function displayRatings(ratings) {
                     <th class="text-end" onclick="sortTable('capital')">Капитал</th>
                     <th class="text-end" onclick="sortTable('points')">Очки</th>
                     <th class="text-end" onclick="sortTable('winnings')">Выигрыш</th>
-                    <th class="text-end" onclick="sortTable('remaining_boosters')">Бустеры</th>
-                    <th class="text-end" onclick="sortTable('wallet')">Кошелёк</th>
                 </tr>
             </thead>
             <tbody>
+    `;
+
+    currentPageRatings.forEach((player, index) => {
+        html += `
+            <tr>
+                <td>${startIndex + index + 1}</td>
+                <td>${player.username}</td>
+                <td class="text-end">${player.capital.toLocaleString('ru-RU')}</td>
+                <td class="text-end">${player.points.toLocaleString('ru-RU', {minimumFractionDigits: 1, maximumFractionDigits: 1})}</td>
+                <td class="text-end">${player.winnings.toLocaleString('ru-RU')}</td>
+            </tr>
+        `;
+    });
+
+    html += `
+            </tbody>
+        </table>
     `;
 
     currentPageRatings.forEach((player, index) => {
