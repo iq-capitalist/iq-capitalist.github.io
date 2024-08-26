@@ -1,9 +1,9 @@
 :root {
-    --primary-color: #3498db;
+    --primary-color: #34495e;
     --secondary-color: #2c3e50;
     --background-color: #f4f4f4;
     --text-color: #333;
-    --header-height: 60px;
+    --header-height: 80px;
     --max-width: 900px;
 }
 
@@ -36,10 +36,15 @@ header {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-header .container {
+.header-content {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+}
+
+.site-title {
+    margin: 0;
+    font-size: 1.5em;
 }
 
 nav ul {
@@ -85,7 +90,7 @@ h1, h2, h3 {
 }
 
 footer {
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
     color: white;
     text-align: center;
     padding: 1rem 0;
@@ -115,13 +120,22 @@ p {
 
 /* Медиа-запросы для адаптивности */
 @media (max-width: 768px) {
-    nav ul {
+    .header-content {
         flex-direction: column;
         align-items: center;
     }
 
+    .site-title {
+        margin-bottom: 1rem;
+    }
+
+    nav ul {
+        flex-direction: row;
+        justify-content: center;
+    }
+
     nav ul li {
-        margin: 10px 0;
+        margin: 10px;
     }
 
     .container {
