@@ -49,7 +49,7 @@ function loadData() {
 function updateLastUpdate(lastUpdate) {
     const lastUpdateElement = document.getElementById('lastUpdate');
     if (lastUpdateElement) {
-        lastUpdateElement.textContent = `Последнее обновление: ${lastUpdate}`;
+        lastUpdateElement.textContent = `По состоянию на ${lastUpdate}`;
     } else {
         console.warn('Last update element not found');
     }

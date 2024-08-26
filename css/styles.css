@@ -5,7 +5,7 @@
     --text-color: #333;
     --header-height: 80px;
     --max-width: 900px;
-    --accent-color: #e74c3c;
+    --accent-color: #3498db; /* Изменяем accent-color на более подходящий */
 }
 
 body {

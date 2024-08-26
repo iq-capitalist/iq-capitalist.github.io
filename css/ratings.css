@@ -5,10 +5,11 @@
     flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
+    gap: 10px; /* Добавляем расстояние между кнопками */
 }
 
 .level-btn {
-    margin: 5px 0;
+    margin: 0; /* Убираем margin, так как теперь используем gap */
     padding: 10px 15px;
     border: none;
     background-color: var(--primary-color);
@@ -160,4 +161,11 @@ tr:hover {
         font-size: 11px;
         padding: 5px 8px;
     }
+}
+
+#lastUpdate {
+    text-align: center;
+    margin-bottom: 20px;
+    font-style: italic;
+    color: var(--secondary-color);
 }
