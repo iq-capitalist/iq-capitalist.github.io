@@ -107,7 +107,7 @@ tr:hover {
     padding: 8px 12px;
     border: none;
     background-color: #f4f4f4;
-    color: var(--text-color); /* Изменяем цвет текста на основной цвет текста */
+    color: var(--secondary-color);
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
     border-radius: 3px;
