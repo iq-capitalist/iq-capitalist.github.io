@@ -8,23 +8,18 @@
     <link rel="stylesheet" href="css/ratings.css">
 </head>
 <body>
-    <div id="header"></div>
+    <header id="header"></header>
 
     <main>
-        <h1 id="iq-capitalist-рейтинги" class="text-center mb-4">IQ Capitalist Рейтинги</h1>
-
-        <p id="lastUpdate" class="text-center mb-3"></p>
-
-        <div id="levelButtons" class="d-flex flex-wrap justify-content-center mb-4"></div>
-
-        <div class="mb-3">
-            <input type="text" id="searchInput" class="form-control" placeholder="Поиск игрока...">
+        <div class="container">
+            <h1 class="page-title">IQ Capitalist Рейтинги</h1>
+            <div id="levelButtons"></div>
+            <input type="text" id="searchInput" placeholder="Поиск игрока...">
+            <div id="ratingTable"></div>
         </div>
-
-        <div id="ratingTable" class="table-responsive"></div>
     </main>
 
-    <div id="footer"></div>
+    <footer id="footer"></footer>
 
     <script src="js/main.js"></script>
     <script src="js/ratings.js"></script>

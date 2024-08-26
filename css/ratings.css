@@ -36,11 +36,13 @@
     border: 1px solid var(--primary-color);
     border-radius: 5px;
     font-size: 16px;
+    box-sizing: border-box;
 }
 
 /* Стили для таблицы рейтингов */
 .table-responsive {
     overflow-x: auto;
+    width: 100%;
 }
 
 table {

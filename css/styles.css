@@ -4,6 +4,7 @@
     --background-color: #f4f4f4;
     --text-color: #333;
     --header-height: 60px;
+    --max-width: 900px;
 }
 
 body {
@@ -16,16 +17,17 @@ body {
 }
 
 .container {
-    width: 90%;
-    max-width: 900px;
+    width: 100%;
+    max-width: var(--max-width);
     margin: 0 auto;
-    padding: 20px;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 header {
     background-color: var(--primary-color);
     color: white;
-    padding: 1rem;
+    padding: 1rem 0;
     position: fixed;
     top: 0;
     left: 0;
@@ -34,12 +36,19 @@ header {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+header .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 nav ul {
     list-style-type: none;
     padding: 0;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    margin: 0;
 }
 
 nav ul li {
@@ -79,7 +88,7 @@ footer {
     background-color: var(--secondary-color);
     color: white;
     text-align: center;
-    padding: 1rem;
+    padding: 1rem 0;
     margin-top: 20px;
 }
 
@@ -116,8 +125,7 @@ p {
     }
 
     .container {
-        width: 95%;
-        padding: 10px;
+        padding: 0 10px;
     }
 
     .page-title {
