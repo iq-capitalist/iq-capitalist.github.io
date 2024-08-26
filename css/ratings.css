@@ -130,7 +130,7 @@ tr:hover {
     color: #aaa;
     border-color: #ddd;
     cursor: not-allowed;
-    transform: none;
+    pointer-events: none;
 }
 
 .pagination .page-item.active .page-link {

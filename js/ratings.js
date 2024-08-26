@@ -192,15 +192,30 @@ function updatePagination(currentPage, totalPages) {
     let paginationHTML = '';
 
     // Кнопка "Предыдущая"
-    paginationHTML += `<button ${currentPage === 1 ? 'disabled' : ''} onclick="changePage(${currentPage - 1})">Предыдущая</button>`;
+    const prevDisabled = currentPage === 1;
+    paginationHTML += `
+        <li class="page-item ${prevDisabled ? 'disabled' : ''}">
+            <a class="page-link" href="#" ${prevDisabled ? '' : `onclick="changePage(${currentPage - 1})"`}>Предыдущая</a>
+        </li>
+    `;
 
     // Номера страниц
     for (let i = 1; i <= totalPages; i++) {
-        paginationHTML += `<button class="${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">${i}</button>`;
+        const isCurrentPage = i === currentPage;
+        paginationHTML += `
+            <li class="page-item ${isCurrentPage ? 'active' : ''}">
+                <a class="page-link" href="#" ${isCurrentPage ? '' : `onclick="changePage(${i})"`}>${i}</a>
+            </li>
+        `;
     }
 
     // Кнопка "Следующая"
-    paginationHTML += `<button ${currentPage === totalPages ? 'disabled' : ''} onclick="changePage(${currentPage + 1})">Следующая</button>`;
+    const nextDisabled = currentPage === totalPages;
+    paginationHTML += `
+        <li class="page-item ${nextDisabled ? 'disabled' : ''}">
+            <a class="page-link" href="#" ${nextDisabled ? '' : `onclick="changePage(${currentPage + 1})"`}>Следующая</a>
+        </li>
+    `;
 
     paginationContainer.innerHTML = paginationHTML;
 }
@@ -216,8 +231,13 @@ function sortTable(column) {
 }
 
 function changePage(page) {
+    const totalPages = Math.ceil(globalData.ratings[currentLevel].length / itemsPerPage);
+    if (page < 1 || page > totalPages) {
+        return; // Не делаем ничего, если запрошенная страница недействительна
+    }
     currentPage = page;
     displayRatings(globalData.ratings[currentLevel]);
+    updatePagination(currentPage, totalPages);
 }
 
 function searchPlayers() {
