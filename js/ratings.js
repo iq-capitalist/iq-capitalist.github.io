@@ -7,22 +7,52 @@ const itemsPerPage = 20;
 function loadData() {
     console.log('Attempting to load data...');
     const timestamp = new Date().getTime();
-    fetch(`data/data.json?t=${timestamp}`)
-        .then(response => response.json())
-        .then(data => {
-            console.log('Data loaded successfully:', data);
-            globalData = data;
-            document.getElementById('lastUpdate').textContent = `Последнее обновление: ${data.lastUpdate}`;
-            createLevelButtons(Object.keys(data.ratings));
-            displayRatings(data.ratings[currentLevel]);
-        })
-        .catch(error => {
-            console.error('Error loading data:', error);
-            document.getElementById('ratingTable').innerHTML = `
-                <p class="text-danger">Ошибка загрузки данных: ${error.message}</p>
-                <p>Пожалуйста, убедитесь, что файл data.json существует и доступен.</p>
-            `;
-        });
+    fetch(`data/data.json?t=${timestamp}`, {
+        method: 'GET',
+        headers: {
+            'Cache-Control': 'no-cache, no-store, must-revalidate',
+            'Pragma': 'no-cache',
+            'Expires': '0'
+        }
+    })
+    .then(response => {
+        const lastModified = response.headers.get('Last-Modified');
+        if (lastModified) {
+            localStorage.setItem('lastModified', lastModified);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Data loaded successfully:', data);
+        globalData = data;
+        document.getElementById('lastUpdate').textContent = `Последнее обновление: ${data.lastUpdate}`;
+        createLevelButtons(Object.keys(data.ratings));
+        displayRatings(data.ratings[currentLevel]);
+
+        // Проверка необходимости принудительного обновления
+        checkForForceUpdate(data.lastUpdate);
+    })
+    .catch(error => {
+        console.error('Error loading data:', error);
+        document.getElementById('ratingTable').innerHTML = `
+            <p class="text-danger">Ошибка загрузки данных: ${error.message}</p>
+            <p>Пожалуйста, убедитесь, что файл data.json существует и доступен.</p>
+        `;
+    });
+}
+
+function checkForForceUpdate(lastUpdate) {
+    const storedLastUpdate = localStorage.getItem('lastUpdate');
+    if (storedLastUpdate && new Date(lastUpdate) > new Date(storedLastUpdate)) {
+        const forceUpdateBtn = document.createElement('button');
+        forceUpdateBtn.textContent = 'Обновить данные';
+        forceUpdateBtn.onclick = () => {
+            localStorage.setItem('lastUpdate', lastUpdate);
+            location.reload();
+        };
+        document.body.insertBefore(forceUpdateBtn, document.body.firstChild);
+    }
+    localStorage.setItem('lastUpdate', lastUpdate);
 }
 
 function createLevelButtons(levels) {
@@ -155,5 +185,8 @@ function searchPlayers() {
 }
 
 document.getElementById('searchInput').addEventListener('input', searchPlayers);
+
+// Вызов функции загрузки данных при загрузке страницы
+document.addEventListener('DOMContentLoaded', loadData);
 
 window.onload = loadData;
