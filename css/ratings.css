@@ -117,13 +117,13 @@ tr:hover {
 
 .pagination button:hover {
     background-color: var(--primary-color);
-    color: white;
+    color: var(--secondary-color);
     transform: translateY(-2px);
 }
 
 .pagination button:disabled {
     background-color: #ccc;
-    color: #666;
+    color: var(--secondary-color);
     cursor: not-allowed;
     transform: none;
 }
