@@ -137,7 +137,7 @@ function displayRatings(ratings) {
                     <th onclick="sortTable('username')">Игрок</th>
                     <th class="text-end" onclick="sortTable('capital')">Капитал</th>
                     <th class="text-end" onclick="sortTable('points')">Очки</th>
-                    <th class="text-end" onclick="sortTable('winnings')">Выигрыш</th>
+                    <th class="text-end" onclick="sortTable('winnings')">Выигрыш*</th>
                 </tr>
             </thead>
             <tbody>
@@ -158,6 +158,7 @@ function displayRatings(ratings) {
     html += `
             </tbody>
         </table>
+        <p class="winnings-note">* потенциальный выигрыш по состоянию на момент расчёта рейтинга. Окончательный выигрыш может быть другим.</p>
     `;
 
     // Добавление пагинации

@@ -186,3 +186,10 @@ tr:hover {
         padding: 5px 8px;
     }
 }
+
+.winnings-note {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 10px;
+    font-style: italic;
+}
