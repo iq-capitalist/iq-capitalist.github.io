@@ -182,7 +182,7 @@ tr:hover {
     color: white;
 }
 
-/* Медиа-запросы для адаптивности пагинации */
+/* Медиа-запросы для адаптивности */
 @media (max-width: 768px) {
     .pagination .page-link {
         font-size: 12px;
