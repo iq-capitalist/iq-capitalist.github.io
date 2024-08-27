@@ -44,6 +44,7 @@ function updateTournamentInfo(activeTournament, questionsAsked) {
     const tournamentInfoElement = document.getElementById('tournamentInfo');
     if (tournamentInfoElement) {
         tournamentInfoElement.textContent = `Турнир ${activeTournament}, после вопроса ${questionsAsked}`;
+        tournamentInfoElement.classList.add('tournament-info');
     } else {
         console.warn('Tournament info element not found');
     }

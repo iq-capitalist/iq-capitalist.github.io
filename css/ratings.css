@@ -86,8 +86,8 @@ tr:hover {
     background-color: rgba(52, 152, 219, 0.2);
 }
 
-/* Добавляем стиль для даты обновления */
-#lastUpdate {
+/* Стили для информации о турнире */
+.tournament-info {
     text-align: center;
     margin-bottom: 20px;
     font-style: italic;
