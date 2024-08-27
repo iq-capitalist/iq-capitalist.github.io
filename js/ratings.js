@@ -119,19 +119,19 @@ function calculatePotentialWinnings(ratings) {
 }
 
 function displayRatings(ratings) {
+    const tournamentInfoContainer = document.getElementById('tournamentInfo');
     const tableContainer = document.getElementById('ratingTable');
-    let html = '';
 
-    // Добавляем информацию о турнире или специальное сообщение
+    // Обновляем информацию о турнире
     if (isActiveTournament()) {
-        html += `
+        tournamentInfoContainer.innerHTML = `
             <div class="tournament-info">
                 <p>Активный турнир: ${globalData.activeTournament}</p>
                 <p>Заданных вопросов: ${globalData.questionsAsked}</p>
             </div>
         `;
     } else {
-        html += `
+        tournamentInfoContainer.innerHTML = `
             <div class="tournament-info">
                 <p>На данный момент нет активного турнира</p>
             </div>
@@ -150,7 +150,7 @@ function displayRatings(ratings) {
         const endIndex = startIndex + itemsPerPage;
         const currentPageRatings = ratingsWithWinnings.slice(startIndex, endIndex);
 
-        html += `
+        let html = `
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -205,9 +205,11 @@ function displayRatings(ratings) {
                 </ul>
             </nav>
         `;
-    }
 
-    tableContainer.innerHTML = html;
+        tableContainer.innerHTML = html;
+    } else {
+        tableContainer.innerHTML = '';
+    }
 }
 
 function updatePagination(currentPage, totalPages) {
