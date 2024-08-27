@@ -1,6 +1,7 @@
 let currentLevel = 'Знаток';
 let currentSort = { column: 'points', direction: 'desc' };
 let globalData;
+let globalWinnings = {};
 let currentPage = 1;
 const itemsPerPage = 20;
 
@@ -21,9 +22,14 @@ function loadData() {
         globalData = data;
         updateTournamentInfo(data.activeTournament, data.questionsAsked);
         createLevelButtons(Object.keys(data.ratings));
+
+        // Рассчитаем выигрыши для всех уровней
+        Object.keys(data.ratings).forEach(level => {
+            calculatePotentialWinnings(level, data.ratings[level]);
+        });
+
         displayRatings(data.ratings[currentLevel]);
 
-        // Проверка необходимости принудительного обновления
         checkForForceUpdate(data.lastUpdate);
     })
     .catch(error => {
@@ -39,6 +45,8 @@ function loadData() {
         }
     });
 }
+
+
 
 function updateTournamentInfo(activeTournament, questionsAsked) {
     const tournamentInfoElement = document.getElementById('tournamentInfo');
@@ -110,11 +118,12 @@ function changeLevel(level) {
     displayRatings(globalData.ratings[currentLevel]);
 }
 
-function calculatePotentialWinnings(ratings) {
-    const prizePool = currentLevel === 'Знаток' ? globalData.prizePoolAma : globalData.prizePoolPro;
+function calculatePotentialWinnings(level, ratings) {
+    const prizePool = level === 'Знаток' ? globalData.prizePoolAma : globalData.prizePoolPro;
     const positivePointsPlayers = ratings.filter(player => player.points > 0);
     const totalPositivePoints = positivePointsPlayers.reduce((sum, player) => sum + player.points, 0);
-    return ratings.map(player => {
+
+    globalWinnings[level] = ratings.map(player => {
         if (player.points <= 0) return 0;
         const share = player.points / totalPositivePoints;
         return Math.max(Math.round(prizePool * share), 0);
@@ -123,7 +132,7 @@ function calculatePotentialWinnings(ratings) {
 
 function displayRatings(ratings) {
     const tableContainer = document.getElementById('ratingTable');
-    const winnings = calculatePotentialWinnings(ratings);
+    const winnings = globalWinnings[currentLevel];
     const ratingsWithWinnings = ratings.map((player, index) => ({...player, winnings: winnings[index]}));
 
     ratingsWithWinnings.sort((a, b) => b[currentSort.column] - a[currentSort.column]);
