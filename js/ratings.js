@@ -15,17 +15,11 @@ function loadData() {
             'Expires': '0'
         }
     })
-    .then(response => {
-        const lastModified = response.headers.get('Last-Modified');
-        if (lastModified) {
-            localStorage.setItem('lastModified', lastModified);
-        }
-        return response.json();
-    })
+    .then(response => response.json())
     .then(data => {
         console.log('Data loaded successfully:', data);
         globalData = data;
-        updateLastUpdate(data.lastUpdate);
+        updateTournamentInfo(data.activeTournament, data.questionsAsked);
         createLevelButtons(Object.keys(data.ratings));
         displayRatings(data.ratings[currentLevel]);
 
@@ -44,6 +38,15 @@ function loadData() {
             console.error('Rating table element not found');
         }
     });
+}
+
+function updateTournamentInfo(activeTournament, questionsAsked) {
+    const tournamentInfoElement = document.getElementById('tournamentInfo');
+    if (tournamentInfoElement) {
+        tournamentInfoElement.textContent = `Турнир ${activeTournament}, после вопроса ${questionsAsked}`;
+    } else {
+        console.warn('Tournament info element not found');
+    }
 }
 
 function updateLastUpdate(lastUpdate) {
