@@ -196,3 +196,11 @@ tr:hover {
         padding: 5px 8px;
     }
 }
+
+/* Убираем любые псевдоэлементы, которые могут добавлять точки */
+.pagination li::before,
+.pagination li::after,
+.pagination .page-link::before,
+.pagination .page-link::after {
+    display: none;
+}
