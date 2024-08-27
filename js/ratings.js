@@ -126,8 +126,7 @@ function displayRatings(ratings) {
     if (isActiveTournament()) {
         tournamentInfoContainer.innerHTML = `
             <div class="tournament-info">
-                <p>Активный турнир: ${globalData.activeTournament}</p>
-                <p>Заданных вопросов: ${globalData.questionsAsked}</p>
+                <p>Турнир: ${globalData.activeTournament}. Задано вопросов: ${globalData.questionsAsked}</p>
             </div>
         `;
     } else {
