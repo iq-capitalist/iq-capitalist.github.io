@@ -96,7 +96,7 @@ function displayPlayers(players) {
 function updatePagination(totalPlayers) {
     const totalPages = Math.ceil(totalPlayers / itemsPerPage);
     const paginationContainer = document.getElementById('pagination');
-    let paginationHTML = '<ul class="pagination">';
+    let paginationHTML = '';
 
     // Кнопка "Предыдущая"
     paginationHTML += `
@@ -121,7 +121,6 @@ function updatePagination(totalPlayers) {
         </li>
     `;
 
-    paginationHTML += '</ul>';
     paginationContainer.innerHTML = paginationHTML;
 }
 
