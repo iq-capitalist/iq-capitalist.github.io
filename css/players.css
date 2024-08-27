@@ -137,3 +137,62 @@ tr:hover {
         padding: 5px 8px;
     }
 }
+
+/* Стили для пагинации */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.pagination .page-item {
+    margin: 0 2px;
+}
+
+.pagination .page-link {
+    padding: 8px 12px;
+    border: 1px solid var(--primary-color);
+    background-color: white;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.pagination .page-link:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.pagination .page-item.disabled .page-link {
+    background-color: #f4f4f4;
+    color: #aaa;
+    border-color: #ddd;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Медиа-запросы для адаптивности пагинации */
+@media (max-width: 768px) {
+    .pagination .page-link {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pagination .page-link {
+        font-size: 11px;
+        padding: 5px 8px;
+    }
+}
