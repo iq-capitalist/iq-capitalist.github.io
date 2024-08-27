@@ -90,7 +90,6 @@ function displayPlayers(players) {
     const playersTable = document.getElementById('playersTable');
     playersTable.innerHTML = html;
 
-    updatePagination(players.length);
 }
 
 function updatePagination(totalPlayers) {
@@ -141,6 +140,7 @@ function changePage(page) {
     }
     currentPage = page;
     displayPlayers(globalData.players);
+    updatePagination(currentPage, totalPages);
 }
 
 function searchPlayers() {
