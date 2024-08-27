@@ -92,31 +92,34 @@ function displayPlayers(players) {
 
 }
 
-function updatePagination(totalPlayers) {
+function updatePagination(currentPage, totalPlayers) {
     const totalPages = Math.ceil(totalPlayers / itemsPerPage);
-    const paginationContainer = document.getElementById('pagination');
+    const paginationContainer = document.querySelector('.pagination');
     let paginationHTML = '';
 
     // Кнопка "Предыдущая"
+    const prevDisabled = currentPage === 1;
     paginationHTML += `
-        <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
-            <a class="page-link" href="#" onclick="changePage(${currentPage - 1})">Предыдущая</a>
+        <li class="page-item ${prevDisabled ? 'disabled' : ''}">
+            <a class="page-link" href="#" ${prevDisabled ? '' : `onclick="changePage(${currentPage - 1})"`}>Предыдущая</a>
         </li>
     `;
 
     // Номера страниц
     for (let i = 1; i <= totalPages; i++) {
+        const isCurrentPage = i === currentPage;
         paginationHTML += `
-            <li class="page-item ${i === currentPage ? 'active' : ''}">
-                <a class="page-link" href="#" onclick="changePage(${i})">${i}</a>
+            <li class="page-item ${isCurrentPage ? 'active' : ''}">
+                <a class="page-link" href="#" ${isCurrentPage ? '' : `onclick="changePage(${i})"`}>${i}</a>
             </li>
         `;
     }
 
     // Кнопка "Следующая"
+    const nextDisabled = currentPage === totalPages;
     paginationHTML += `
-        <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
-            <a class="page-link" href="#" onclick="changePage(${currentPage + 1})">Следующая</a>
+        <li class="page-item ${nextDisabled ? 'disabled' : ''}">
+            <a class="page-link" href="#" ${nextDisabled ? '' : `onclick="changePage(${currentPage + 1})"`}>Следующая</a>
         </li>
     `;
 
