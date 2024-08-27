@@ -87,9 +87,32 @@ function displayPlayers(players) {
         </table>
     `;
 
+    // Добавление пагинации
+    const totalPages = Math.ceil(players.length / itemsPerPage);
+    html += `
+        <nav>
+            <ul class="pagination justify-content-center">
+                <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
+                    <a class="page-link" href="#" onclick="changePage(${currentPage - 1})">Предыдущая</a>
+                </li>
+    `;
+    for (let i = 1; i <= totalPages; i++) {
+        html += `
+            <li class="page-item ${i === currentPage ? 'active' : ''}">
+                <a class="page-link" href="#" onclick="changePage(${i})">${i}</a>
+            </li>
+        `;
+    }
+    html += `
+                <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
+                    <a class="page-link" href="#" onclick="changePage(${currentPage + 1})">Следующая</a>
+                </li>
+            </ul>
+        </nav>
+    `;
+
     const playersTable = document.getElementById('playersTable');
     playersTable.innerHTML = html;
-
 }
 
 function updatePagination(currentPage, totalPlayers) {
@@ -143,7 +166,6 @@ function changePage(page) {
     }
     currentPage = page;
     displayPlayers(globalData.players);
-    updatePagination(currentPage, totalPages);
 }
 
 function searchPlayers() {
