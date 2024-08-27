@@ -54,7 +54,6 @@ function displayPlayers(players) {
 
     let html = `
         <div class="table-responsive">
-            <div class="swipe-hint">Swipe для прокрутки таблицы</div>
             <table class="table table-hover">
                 <thead>
                     <tr>
