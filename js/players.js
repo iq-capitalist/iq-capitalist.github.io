@@ -53,19 +53,21 @@ function displayPlayers(players) {
     const currentPagePlayers = players.slice(startIndex, endIndex);
 
     let html = `
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th onclick="sortTable('username')">Игрок</th>
-                    <th onclick="sortTable('level')">Уровень</th>
-                    <th class="text-end" onclick="sortTable('capital')">Капитал</th>
-                    <th class="text-end" onclick="sortTable('wallet')">Кошелёк</th>
-                    <th class="text-end" onclick="sortTable('all_questions')">Ответы</th>
-                    <th class="text-end" onclick="sortTable('remaining_boosters')">Бустеры</th>
-                </tr>
-            </thead>
-            <tbody>
+        <div class="table-responsive">
+            <div class="swipe-hint">Swipe для прокрутки таблицы</div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th onclick="sortTable('username')">Игрок</th>
+                        <th onclick="sortTable('level')">Уровень</th>
+                        <th class="text-end" onclick="sortTable('capital')">Капитал</th>
+                        <th class="text-end" onclick="sortTable('wallet')">Кошелёк</th>
+                        <th class="text-end" onclick="sortTable('all_questions')">Ответы</th>
+                        <th class="text-end" onclick="sortTable('remaining_boosters')">Бустеры</th>
+                    </tr>
+                </thead>
+                <tbody>
     `;
 
     currentPagePlayers.forEach((player, index) => {
@@ -83,8 +85,9 @@ function displayPlayers(players) {
     });
 
     html += `
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     `;
 
     // Добавление пагинации
