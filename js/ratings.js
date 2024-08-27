@@ -3,7 +3,7 @@ let currentSort = { column: 'points', direction: 'desc' };
 let globalData;
 let globalWinnings = {};
 let currentPage = 1;
-const itemsPerPage = 20;
+const itemsPerPage = 10;
 
 function loadData() {
     console.log('Attempting to load data...');
