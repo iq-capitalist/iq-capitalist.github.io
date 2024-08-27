@@ -1,9 +1,12 @@
 let currentLevel = 'Знаток';
 let currentSort = { column: 'points', direction: 'desc' };
 let globalData;
-let globalWinnings = {};
 let currentPage = 1;
 const itemsPerPage = 20;
+
+function isActiveTournament() {
+    return globalData.activeTournament !== null && globalData.questionsAsked !== null;
+}
 
 function loadData() {
     console.log('Attempting to load data...');
@@ -16,20 +19,26 @@ function loadData() {
             'Expires': '0'
         }
     })
-    .then(response => response.json())
+    .then(response => {
+        const lastModified = response.headers.get('Last-Modified');
+        if (lastModified) {
+            localStorage.setItem('lastModified', lastModified);
+        }
+        return response.json();
+    })
     .then(data => {
         console.log('Data loaded successfully:', data);
         globalData = data;
-        updateTournamentInfo(data.activeTournament, data.questionsAsked);
+        updateLastUpdate(data.lastUpdate);
         createLevelButtons(Object.keys(data.ratings));
 
-        // Рассчитаем выигрыши для всех уровней
-        Object.keys(data.ratings).forEach(level => {
-            calculatePotentialWinnings(level, data.ratings[level]);
-        });
+        if (isActiveTournament()) {
+            displayRatings(data.ratings[currentLevel]);
+        } else {
+            displayRatings([]);  // Передаем пустой массив, когда нет активного турнира
+        }
 
-        displayRatings(data.ratings[currentLevel]);
-
+        // Проверка необходимости принудительного обновления
         checkForForceUpdate(data.lastUpdate);
     })
     .catch(error => {
@@ -44,18 +53,6 @@ function loadData() {
             console.error('Rating table element not found');
         }
     });
-}
-
-
-
-function updateTournamentInfo(activeTournament, questionsAsked) {
-    const tournamentInfoElement = document.getElementById('tournamentInfo');
-    if (tournamentInfoElement) {
-        tournamentInfoElement.textContent = `Турнир ${activeTournament}, после вопроса ${questionsAsked}`;
-        tournamentInfoElement.classList.add('tournament-info');
-    } else {
-        console.warn('Tournament info element not found');
-    }
 }
 
 function updateLastUpdate(lastUpdate) {
@@ -97,33 +94,24 @@ function checkForForceUpdate(lastUpdate) {
     localStorage.setItem('lastUpdate', lastUpdate);
 }
 
-function createLevelButtons(levels) {
-    const buttonsContainer = document.getElementById('levelButtons');
-    buttonsContainer.innerHTML = '';
-    levels.forEach(level => {
-        const button = document.createElement('button');
-        button.textContent = level;
-        button.className = `btn btn-outline-primary level-btn ${level === currentLevel ? 'active' : ''}`;
-        button.onclick = () => changeLevel(level);
-        buttonsContainer.appendChild(button);
-    });
-}
-
 function changeLevel(level) {
     currentLevel = level;
     currentPage = 1;
     document.querySelectorAll('.level-btn').forEach(btn => {
         btn.classList.toggle('active', btn.textContent === level);
     });
-    displayRatings(globalData.ratings[currentLevel]);
+    if (isActiveTournament()) {
+        displayRatings(globalData.ratings[currentLevel]);
+    } else {
+        displayRatings([]);
+    }
 }
 
-function calculatePotentialWinnings(level, ratings) {
-    const prizePool = level === 'Знаток' ? globalData.prizePoolAma : globalData.prizePoolPro;
+function calculatePotentialWinnings(ratings) {
+    const prizePool = currentLevel === 'Знаток' ? globalData.prizePoolAma : globalData.prizePoolPro;
     const positivePointsPlayers = ratings.filter(player => player.points > 0);
     const totalPositivePoints = positivePointsPlayers.reduce((sum, player) => sum + player.points, 0);
-
-    globalWinnings[level] = ratings.map(player => {
+    return ratings.map(player => {
         if (player.points <= 0) return 0;
         const share = player.points / totalPositivePoints;
         return Math.max(Math.round(prizePool * share), 0);
@@ -132,71 +120,92 @@ function calculatePotentialWinnings(level, ratings) {
 
 function displayRatings(ratings) {
     const tableContainer = document.getElementById('ratingTable');
-    const winnings = globalWinnings[currentLevel];
-    const ratingsWithWinnings = ratings.map((player, index) => ({...player, winnings: winnings[index]}));
+    let html = '';
 
-    ratingsWithWinnings.sort((a, b) => b[currentSort.column] - a[currentSort.column]);
-    if (currentSort.direction === 'asc') ratingsWithWinnings.reverse();
-
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    const currentPageRatings = ratingsWithWinnings.slice(startIndex, endIndex);
-
-    let html = `
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th onclick="sortTable('username')">Игрок</th>
-                    <th class="text-end" onclick="sortTable('capital')">Капитал</th>
-                    <th class="text-end" onclick="sortTable('points')">Очки</th>
-                    <th class="text-end" onclick="sortTable('winnings')">Выигрыш*</th>
-                </tr>
-            </thead>
-            <tbody>
-    `;
-
-    currentPageRatings.forEach((player, index) => {
+    // Добавляем информацию о турнире или специальное сообщение
+    if (isActiveTournament()) {
         html += `
-            <tr>
-                <td>${startIndex + index + 1}</td>
-                <td>${player.username}</td>
-                <td class="text-end">${player.capital.toLocaleString('ru-RU')}</td>
-                <td class="text-end">${player.points.toLocaleString('ru-RU', {minimumFractionDigits: 1, maximumFractionDigits: 1})}</td>
-                <td class="text-end">${player.winnings.toLocaleString('ru-RU')}</td>
-            </tr>
+            <div class="tournament-info">
+                <p>Активный турнир: ${globalData.activeTournament}</p>
+                <p>Заданных вопросов: ${globalData.questionsAsked}</p>
+            </div>
         `;
-    });
-
-    html += `
-            </tbody>
-        </table>
-        <p class="winnings-note">* потенциальный выигрыш по состоянию на момент расчёта рейтинга. Окончательный выигрыш может быть другим.</p>
-    `;
-
-    // Добавление пагинации
-    const totalPages = Math.ceil(ratingsWithWinnings.length / itemsPerPage);
-    html += `
-        <nav>
-            <ul class="pagination justify-content-center">
-                <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
-                    <a class="page-link" href="#" onclick="changePage(${currentPage - 1})">Предыдущая</a>
-                </li>
-    `;
-    for (let i = 1; i <= totalPages; i++) {
+    } else {
         html += `
-            <li class="page-item ${i === currentPage ? 'active' : ''}">
-                <a class="page-link" href="#" onclick="changePage(${i})">${i}</a>
-            </li>
+            <div class="tournament-info">
+                <p>На данный момент нет активного турнира</p>
+            </div>
         `;
     }
-    html += `
-                <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
-                    <a class="page-link" href="#" onclick="changePage(${currentPage + 1})">Следующая</a>
+
+    // Отображаем таблицу только если есть активный турнир
+    if (isActiveTournament()) {
+        const winnings = calculatePotentialWinnings(ratings);
+        const ratingsWithWinnings = ratings.map((player, index) => ({...player, winnings: winnings[index]}));
+
+        ratingsWithWinnings.sort((a, b) => b[currentSort.column] - a[currentSort.column]);
+        if (currentSort.direction === 'asc') ratingsWithWinnings.reverse();
+
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const currentPageRatings = ratingsWithWinnings.slice(startIndex, endIndex);
+
+        html += `
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th onclick="sortTable('username')">Игрок</th>
+                        <th class="text-end" onclick="sortTable('capital')">Капитал</th>
+                        <th class="text-end" onclick="sortTable('points')">Очки</th>
+                        <th class="text-end" onclick="sortTable('winnings')">Выигрыш*</th>
+                    </tr>
+                </thead>
+                <tbody>
+        `;
+
+        currentPageRatings.forEach((player, index) => {
+            html += `
+                <tr>
+                    <td>${startIndex + index + 1}</td>
+                    <td>${player.username}</td>
+                    <td class="text-end">${player.capital.toLocaleString('ru-RU')}</td>
+                    <td class="text-end">${player.points.toLocaleString('ru-RU', {minimumFractionDigits: 1, maximumFractionDigits: 1})}</td>
+                    <td class="text-end">${player.winnings.toLocaleString('ru-RU')}</td>
+                </tr>
+            `;
+        });
+
+        html += `
+                </tbody>
+            </table>
+            <p class="winnings-note">* потенциальный выигрыш по состоянию на момент расчёта рейтинга. Окончательный выигрыш может быть другим.</p>
+        `;
+
+        // Добавление пагинации
+        const totalPages = Math.ceil(ratingsWithWinnings.length / itemsPerPage);
+        html += `
+            <nav>
+                <ul class="pagination justify-content-center">
+                    <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
+                        <a class="page-link" href="#" onclick="changePage(${currentPage - 1})">Предыдущая</a>
+                    </li>
+        `;
+        for (let i = 1; i <= totalPages; i++) {
+            html += `
+                <li class="page-item ${i === currentPage ? 'active' : ''}">
+                    <a class="page-link" href="#" onclick="changePage(${i})">${i}</a>
                 </li>
-            </ul>
-        </nav>
-    `;
+            `;
+        }
+        html += `
+                    <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
+                        <a class="page-link" href="#" onclick="changePage(${currentPage + 1})">Следующая</a>
+                    </li>
+                </ul>
+            </nav>
+        `;
+    }
 
     tableContainer.innerHTML = html;
 }
