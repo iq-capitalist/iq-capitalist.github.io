@@ -21,6 +21,8 @@ function highlightCurrentPage() {
     navLinks.forEach(link => {
         if (link.getAttribute('href') === currentPage) {
             link.classList.add('active');
+        } else {
+            link.classList.remove('active');
         }
     });
 }
