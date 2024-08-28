@@ -1,6 +1,7 @@
 let currentLevel = 'Знаток';
 let currentSort = { column: 'points', direction: 'desc' };
 let globalData;
+let globalWinnings = {};
 let currentPage = 1;
 const itemsPerPage = 20;
 
@@ -33,6 +34,10 @@ function loadData() {
         createLevelButtons(Object.keys(data.ratings));
 
         if (isActiveTournament()) {
+            // Рассчитываем выигрыши для всех уровней
+            Object.keys(data.ratings).forEach(level => {
+                globalWinnings[level] = calculatePotentialWinnings(data.ratings[level], level);
+            });
             displayRatings(data.ratings[currentLevel]);
         } else {
             displayRatings([]);  // Передаем пустой массив, когда нет активного турнира
@@ -107,8 +112,8 @@ function changeLevel(level) {
     }
 }
 
-function calculatePotentialWinnings(ratings) {
-    const prizePool = currentLevel === 'Знаток' ? globalData.prizePoolAma : globalData.prizePoolPro;
+function calculatePotentialWinnings(ratings, level) {
+    const prizePool = level === 'Знаток' ? globalData.prizePoolAma : globalData.prizePoolPro;
     const positivePointsPlayers = ratings.filter(player => player.points > 0);
     const totalPositivePoints = positivePointsPlayers.reduce((sum, player) => sum + player.points, 0);
     return ratings.map(player => {
@@ -139,8 +144,11 @@ function displayRatings(ratings) {
 
     // Отображаем таблицу только если есть активный турнир
     if (isActiveTournament()) {
-        const winnings = calculatePotentialWinnings(ratings);
-        const ratingsWithWinnings = ratings.map((player, index) => ({...player, winnings: winnings[index]}));
+        const winnings = globalWinnings[currentLevel];
+        const ratingsWithWinnings = ratings.map((player, index) => {
+            const winningIndex = globalData.ratings[currentLevel].findIndex(p => p.username === player.username);
+            return {...player, winnings: winnings[winningIndex]};
+        });
 
         ratingsWithWinnings.sort((a, b) => b[currentSort.column] - a[currentSort.column]);
         if (currentSort.direction === 'asc') ratingsWithWinnings.reverse();
