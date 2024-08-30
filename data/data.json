@@ -1,18 +1,18 @@
 {
-  "lastUpdate": "2024-08-30 15:45:02 UTC",
+  "lastUpdate": "2024-08-30 16:15:01 UTC",
   "ratings": {
     "Знаток": [
       {
         "username": "1032851815",
         "capital": 100.0,
-        "points": 18.0,
+        "points": 21.0,
         "remaining_boosters": 0,
         "wallet": 1069.0
       },
       {
         "username": "1642969389",
         "capital": 100.0,
-        "points": 18.0,
+        "points": 21.0,
         "remaining_boosters": 0,
         "wallet": 270.0
       },
@@ -24,18 +24,18 @@
         "wallet": 359.0
       },
       {
+        "username": "5656992330",
+        "capital": 100.0,
+        "points": 12.0,
+        "remaining_boosters": 0,
+        "wallet": 537.0
+      },
+      {
         "username": "5296247997",
         "capital": 100.0,
         "points": 9.0,
         "remaining_boosters": 0,
         "wallet": 425.0
-      },
-      {
-        "username": "5656992330",
-        "capital": 100.0,
-        "points": 9.0,
-        "remaining_boosters": 0,
-        "wallet": 537.0
       },
       {
         "username": "76376886",
@@ -91,8 +91,8 @@
       {
         "username": "2008333185",
         "capital": 1484.0,
-        "points": 267.12,
-        "remaining_boosters": 18,
+        "points": 356.15999999999997,
+        "remaining_boosters": 17,
         "wallet": 782.0
       },
       {
@@ -116,14 +116,14 @@
       {
         "username": "Константин",
         "capital": 4490.0,
-        "points": 1077.6,
-        "remaining_boosters": 20,
+        "points": 1347.0,
+        "remaining_boosters": 19,
         "wallet": 543.0
       },
       {
         "username": "Mark Levin",
         "capital": 6763.0,
-        "points": 1014.4499999999999,
+        "points": 1217.34,
         "remaining_boosters": 0,
         "wallet": 0.0
       }
@@ -135,10 +135,10 @@
     "IQ Капиталист": []
   },
   "totalPoints": {
-    "Знаток": 90.0,
-    "Эксперт": 466.32,
+    "Знаток": 99.0,
+    "Эксперт": 555.3599999999999,
     "Мастер": 306.0,
-    "Босс": 2092.0499999999997,
+    "Босс": 2564.34,
     "Титан": 0,
     "Легенда": 0,
     "Корифей": 0,
@@ -148,5 +148,5 @@
   "prizePoolPro": 500.0,
   "prizePoolAma": 2500.0,
   "activeTournament": 11,
-  "questionsAsked": 7
+  "questionsAsked": 8
 }
