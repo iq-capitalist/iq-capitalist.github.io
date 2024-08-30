@@ -1,27 +1,27 @@
 {
-  "lastUpdate": "2024-08-30 13:45:01 UTC",
+  "lastUpdate": "2024-08-30 14:00:02 UTC",
   "ratings": {
     "Знаток": [
       {
-        "username": "543037553",
-        "capital": 100.0,
-        "points": 12.0,
-        "remaining_boosters": 0,
-        "wallet": 359.0
-      },
-      {
         "username": "1032851815",
         "capital": 100.0,
-        "points": 9.0,
+        "points": 12.0,
         "remaining_boosters": 0,
         "wallet": 1069.0
       },
       {
         "username": "1642969389",
         "capital": 100.0,
-        "points": 9.0,
+        "points": 12.0,
         "remaining_boosters": 0,
         "wallet": 270.0
+      },
+      {
+        "username": "543037553",
+        "capital": 100.0,
+        "points": 9.0,
+        "remaining_boosters": 0,
+        "wallet": 359.0
       },
       {
         "username": "5296247997",
@@ -91,8 +91,8 @@
       {
         "username": "2008333185",
         "capital": 1484.0,
-        "points": 267.12,
-        "remaining_boosters": 20,
+        "points": 178.08,
+        "remaining_boosters": 19,
         "wallet": 782.0
       },
       {
@@ -135,8 +135,8 @@
     "IQ Капиталист": []
   },
   "totalPoints": {
-    "Знаток": 54.0,
-    "Эксперт": 386.64,
+    "Знаток": 57.0,
+    "Эксперт": 297.6,
     "Мастер": 229.5,
     "Босс": 1416.87,
     "Титан": 0,
@@ -148,5 +148,5 @@
   "prizePoolPro": 500.0,
   "prizePoolAma": 2500.0,
   "activeTournament": 11,
-  "questionsAsked": 4
+  "questionsAsked": 5
 }
