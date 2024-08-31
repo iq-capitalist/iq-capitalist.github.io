@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2024-08-31 10:15:02 UTC",
+  "lastUpdate": "2024-08-31 10:30:02 UTC",
   "ratings": {
     "Знаток": [
       {
@@ -12,7 +12,7 @@
       {
         "username": "1642969389",
         "capital": 100.0,
-        "points": 33.0,
+        "points": 36.0,
         "remaining_boosters": 0,
         "wallet": 270.0
       },
@@ -47,7 +47,7 @@
       {
         "username": "823073015",
         "capital": 100.0,
-        "points": 12.0,
+        "points": 15.0,
         "remaining_boosters": 0,
         "wallet": 984.0
       },
@@ -94,26 +94,26 @@
         "wallet": 21.0
       },
       {
-        "username": "706844077",
-        "capital": 100.0,
-        "points": -3.0,
-        "remaining_boosters": 0,
-        "wallet": 676.0
-      },
-      {
         "username": "2091908459",
         "capital": 100.0,
         "points": -3.0,
         "remaining_boosters": 0,
         "wallet": 41.0
+      },
+      {
+        "username": "706844077",
+        "capital": 100.0,
+        "points": -6.0,
+        "remaining_boosters": 0,
+        "wallet": 676.0
       }
     ],
     "Эксперт": [
       {
         "username": "2008333185",
         "capital": 1484.0,
-        "points": 890.3999999999997,
-        "remaining_boosters": 5,
+        "points": 801.3599999999998,
+        "remaining_boosters": 4,
         "wallet": 782.0
       },
       {
@@ -128,25 +128,25 @@
       {
         "username": "575990386",
         "capital": 2550.0,
-        "points": 612.0,
+        "points": 688.5,
         "remaining_boosters": 0,
         "wallet": 139.0
       }
     ],
     "Босс": [
       {
-        "username": "Константин",
-        "capital": 4490.0,
-        "points": 3232.8000000000006,
-        "remaining_boosters": 8,
-        "wallet": 543.0
-      },
-      {
         "username": "Mark Levin",
         "capital": 6663.0,
-        "points": 3037.3499999999995,
-        "remaining_boosters": 29,
+        "points": 3437.129999999999,
+        "remaining_boosters": 28,
         "wallet": 0.0
+      },
+      {
+        "username": "Константин",
+        "capital": 4490.0,
+        "points": 2963.4000000000005,
+        "remaining_boosters": 7,
+        "wallet": 543.0
       }
     ],
     "Титан": [],
@@ -156,10 +156,10 @@
     "IQ Капиталист": []
   },
   "totalPoints": {
-    "Знаток": 180.0,
-    "Эксперт": 1169.2799999999997,
-    "Мастер": 612.0,
-    "Босс": 6270.15,
+    "Знаток": 183.0,
+    "Эксперт": 1080.2399999999998,
+    "Мастер": 688.5,
+    "Босс": 6400.53,
     "Титан": 0,
     "Легенда": 0,
     "Корифей": 0,
