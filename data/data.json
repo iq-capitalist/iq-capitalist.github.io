@@ -1,10 +1,84 @@
 {
-  "lastUpdate": "2024-09-04 13:15:02 UTC",
+  "lastUpdate": "2024-09-04 13:30:02 UTC",
   "ratings": {
-    "Знаток": [],
-    "Эксперт": [],
-    "Мастер": [],
-    "Босс": [],
+    "Знаток": [
+      {
+        "username": "823073015",
+        "capital": 100.0,
+        "points": 3.0,
+        "remaining_boosters": 0,
+        "wallet": 1138.0
+      },
+      {
+        "username": "1642969389",
+        "capital": 100.0,
+        "points": 3.0,
+        "remaining_boosters": 0,
+        "wallet": 732.0
+      },
+      {
+        "username": "5656992330",
+        "capital": 100.0,
+        "points": 3.0,
+        "remaining_boosters": 0,
+        "wallet": 883.0
+      },
+      {
+        "username": "224225728",
+        "capital": 100.0,
+        "points": -3.0,
+        "remaining_boosters": 0,
+        "wallet": 72.0
+      },
+      {
+        "username": "1008454702",
+        "capital": 100.0,
+        "points": -3.0,
+        "remaining_boosters": 0,
+        "wallet": 1.0
+      }
+    ],
+    "Эксперт": [
+      {
+        "username": "345149114",
+        "capital": 1228.0,
+        "points": 73.67999999999999,
+        "remaining_boosters": 29,
+        "wallet": 329.0
+      },
+      {
+        "username": "1032851815",
+        "capital": 1746.0,
+        "points": 52.379999999999995,
+        "remaining_boosters": 0,
+        "wallet": 0.0
+      },
+      {
+        "username": "2008333185",
+        "capital": 1484.0,
+        "points": 44.519999999999996,
+        "remaining_boosters": 0,
+        "wallet": 71.0
+      }
+    ],
+    "Мастер": [
+      {
+        "username": "Константин",
+        "capital": 3990.0,
+        "points": 239.39999999999998,
+        "remaining_boosters": 152,
+        "wallet": 961.0
+      }
+    ],
+    "Босс": [
+      {
+        "username": "Mark Levin",
+        "capital": 6563.0,
+        "points": 393.78,
+        "remaining_boosters": 54,
+        "wallet": 500.0
+      }
+    ],
     "Титан": [],
     "Легенда": [],
     "Корифей": [],
@@ -12,10 +86,10 @@
     "IQ Капиталист": []
   },
   "totalPoints": {
-    "Знаток": 0,
-    "Эксперт": 0,
-    "Мастер": 0,
-    "Босс": 0,
+    "Знаток": 3.0,
+    "Эксперт": 170.57999999999998,
+    "Мастер": 239.39999999999998,
+    "Босс": 393.78,
     "Титан": 0,
     "Легенда": 0,
     "Корифей": 0,
