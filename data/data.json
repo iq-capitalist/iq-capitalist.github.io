@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2024-09-05 14:45:01 UTC",
+  "lastUpdate": "2024-09-05 15:15:01 UTC",
   "ratings": {
     "Знаток": [
       {
@@ -29,6 +29,13 @@
         "points": 21.0,
         "remaining_boosters": 0,
         "wallet": 507.0
+      },
+      {
+        "username": "1802192306",
+        "capital": 100.0,
+        "points": 18.0,
+        "remaining_boosters": 9,
+        "wallet": 1338.0
       },
       {
         "username": "171775368",
@@ -66,13 +73,6 @@
         "wallet": 551.0
       },
       {
-        "username": "1802192306",
-        "capital": 100.0,
-        "points": 12.0,
-        "remaining_boosters": 10,
-        "wallet": 1338.0
-      },
-      {
         "username": "5253427596",
         "capital": 100.0,
         "points": 12.0,
@@ -87,18 +87,18 @@
         "wallet": 1433.0
       },
       {
+        "username": "706844077",
+        "capital": 100.0,
+        "points": 6.0,
+        "remaining_boosters": 0,
+        "wallet": 676.0
+      },
+      {
         "username": "339898202",
         "capital": 100.0,
         "points": 3.0,
         "remaining_boosters": 0,
         "wallet": 21.0
-      },
-      {
-        "username": "706844077",
-        "capital": 100.0,
-        "points": 3.0,
-        "remaining_boosters": 0,
-        "wallet": 676.0
       },
       {
         "username": "1747828905",
@@ -122,18 +122,18 @@
         "wallet": 72.0
       },
       {
+        "username": "1008454702",
+        "capital": 100.0,
+        "points": 0.0,
+        "remaining_boosters": 0,
+        "wallet": 1.0
+      },
+      {
         "username": "5547289083",
         "capital": 100.0,
         "points": 0.0,
         "remaining_boosters": 0,
         "wallet": 30.0
-      },
-      {
-        "username": "1008454702",
-        "capital": 100.0,
-        "points": -3.0,
-        "remaining_boosters": 0,
-        "wallet": 1.0
       },
       {
         "username": "5148231537",
@@ -205,7 +205,7 @@
     "IQ Капиталист": []
   },
   "totalPoints": {
-    "Знаток": 240.0,
+    "Знаток": 252.0,
     "Эксперт": 2552.7599999999993,
     "Мастер": 4700.700000000001,
     "Босс": 3150.24,
@@ -218,5 +218,5 @@
   "prizePoolPro": 1000.0,
   "prizePoolAma": 2500.0,
   "activeTournament": 12,
-  "questionsAsked": 37
+  "questionsAsked": 38
 }
