@@ -1,18 +1,18 @@
 {
-  "lastUpdate": "2024-09-05 18:30:01 UTC",
+  "lastUpdate": "2024-09-05 18:45:01 UTC",
   "ratings": {
     "Знаток": [
       {
         "username": "1642969389",
         "capital": 100.0,
-        "points": 42.0,
+        "points": 45.0,
         "remaining_boosters": 0,
         "wallet": 732.0
       },
       {
         "username": "5656992330",
         "capital": 100.0,
-        "points": 42.0,
+        "points": 45.0,
         "remaining_boosters": 0,
         "wallet": 883.0
       },
@@ -26,8 +26,8 @@
       {
         "username": "1802192306",
         "capital": 100.0,
-        "points": 24.0,
-        "remaining_boosters": 8,
+        "points": 30.0,
+        "remaining_boosters": 7,
         "wallet": 1338.0
       },
       {
@@ -61,7 +61,7 @@
       {
         "username": "76376886",
         "capital": 100.0,
-        "points": 12.0,
+        "points": 15.0,
         "remaining_boosters": 0,
         "wallet": 1433.0
       },
@@ -101,18 +101,18 @@
         "wallet": 676.0
       },
       {
+        "username": "1747828905",
+        "capital": 100.0,
+        "points": 6.0,
+        "remaining_boosters": 0,
+        "wallet": 59.0
+      },
+      {
         "username": "339898202",
         "capital": 100.0,
         "points": 3.0,
         "remaining_boosters": 0,
         "wallet": 21.0
-      },
-      {
-        "username": "1747828905",
-        "capital": 100.0,
-        "points": 3.0,
-        "remaining_boosters": 0,
-        "wallet": 59.0
       },
       {
         "username": "6188391457",
@@ -154,14 +154,14 @@
       {
         "username": "345149114",
         "capital": 1228.0,
-        "points": 1178.8799999999999,
-        "remaining_boosters": 8,
+        "points": 1252.56,
+        "remaining_boosters": 7,
         "wallet": 329.0
       },
       {
         "username": "1032851815",
         "capital": 1746.0,
-        "points": 995.2199999999999,
+        "points": 1047.6,
         "remaining_boosters": 0,
         "wallet": 0.0
       },
@@ -182,18 +182,18 @@
         "wallet": 961.0
       },
       {
+        "username": "Losos",
+        "capital": 2700.0,
+        "points": 243.0,
+        "remaining_boosters": 0,
+        "wallet": 592.0
+      },
+      {
         "username": "575990386",
         "capital": 2550.0,
         "points": 229.5,
         "remaining_boosters": 0,
         "wallet": 221.0
-      },
-      {
-        "username": "Losos",
-        "capital": 2700.0,
-        "points": 162.0,
-        "remaining_boosters": 0,
-        "wallet": 592.0
       }
     ],
     "Босс": [
@@ -212,9 +212,9 @@
     "IQ Капиталист": []
   },
   "totalPoints": {
-    "Знаток": 297.0,
-    "Эксперт": 3109.0199999999995,
-    "Мастер": 5658.299999999999,
+    "Знаток": 315.0,
+    "Эксперт": 3235.0799999999995,
+    "Мастер": 5739.299999999999,
     "Босс": 3544.0199999999995,
     "Титан": 0,
     "Легенда": 0,
@@ -225,5 +225,5 @@
   "prizePoolPro": 1000.0,
   "prizePoolAma": 2500.0,
   "activeTournament": 12,
-  "questionsAsked": 43
+  "questionsAsked": 44
 }
