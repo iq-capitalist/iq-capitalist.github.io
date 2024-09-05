@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2024-09-05 19:45:01 UTC",
+  "lastUpdate": "2024-09-05 20:00:02 UTC",
   "ratings": {
     "Знаток": [
       {
@@ -68,7 +68,7 @@
       {
         "username": "171775368",
         "capital": 100.0,
-        "points": 12.0,
+        "points": 15.0,
         "remaining_boosters": 0,
         "wallet": 307.0
       },
@@ -87,13 +87,6 @@
         "wallet": 174.0
       },
       {
-        "username": "1747828905",
-        "capital": 100.0,
-        "points": 9.0,
-        "remaining_boosters": 0,
-        "wallet": 59.0
-      },
-      {
         "username": "2091908459",
         "capital": 100.0,
         "points": 9.0,
@@ -101,11 +94,11 @@
         "wallet": 41.0
       },
       {
-        "username": "706844077",
+        "username": "1747828905",
         "capital": 100.0,
         "points": 6.0,
         "remaining_boosters": 0,
-        "wallet": 676.0
+        "wallet": 59.0
       },
       {
         "username": "339898202",
@@ -113,6 +106,13 @@
         "points": 3.0,
         "remaining_boosters": 0,
         "wallet": 21.0
+      },
+      {
+        "username": "706844077",
+        "capital": 100.0,
+        "points": 3.0,
+        "remaining_boosters": 0,
+        "wallet": 676.0
       },
       {
         "username": "6188391457",
@@ -200,8 +200,8 @@
       {
         "username": "Mark Levin",
         "capital": 6563.0,
-        "points": 3544.0199999999995,
-        "remaining_boosters": 46,
+        "points": 3937.7999999999993,
+        "remaining_boosters": 45,
         "wallet": 500.0
       }
     ],
@@ -212,10 +212,10 @@
     "IQ Капиталист": []
   },
   "totalPoints": {
-    "Знаток": 330.0,
+    "Знаток": 327.0,
     "Эксперт": 3308.7599999999998,
     "Мастер": 5739.299999999999,
-    "Босс": 3544.0199999999995,
+    "Босс": 3937.7999999999993,
     "Титан": 0,
     "Легенда": 0,
     "Корифей": 0,
@@ -225,5 +225,5 @@
   "prizePoolPro": 1000.0,
   "prizePoolAma": 2500.0,
   "activeTournament": 12,
-  "questionsAsked": 45
+  "questionsAsked": 46
 }
