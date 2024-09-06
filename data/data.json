@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2024-09-06 04:45:01 UTC",
+  "lastUpdate": "2024-09-06 05:00:01 UTC",
   "ratings": {
     "Знаток": [
       {
@@ -10,25 +10,18 @@
         "wallet": 883.0
       },
       {
-        "username": "1642969389",
-        "capital": 100.0,
-        "points": 48.0,
-        "remaining_boosters": 0,
-        "wallet": 732.0
-      },
-      {
         "username": "823073015",
         "capital": 100.0,
-        "points": 42.0,
+        "points": 45.0,
         "remaining_boosters": 0,
         "wallet": 1138.0
       },
       {
-        "username": "1802192306",
+        "username": "1642969389",
         "capital": 100.0,
-        "points": 30.0,
-        "remaining_boosters": 7,
-        "wallet": 1338.0
+        "points": 45.0,
+        "remaining_boosters": 0,
+        "wallet": 732.0
       },
       {
         "username": "1879077527",
@@ -57,6 +50,13 @@
         "points": 24.0,
         "remaining_boosters": 0,
         "wallet": 162.0
+      },
+      {
+        "username": "1802192306",
+        "capital": 100.0,
+        "points": 24.0,
+        "remaining_boosters": 6,
+        "wallet": 1338.0
       },
       {
         "username": "5296247997",
@@ -101,11 +101,11 @@
         "wallet": 59.0
       },
       {
-        "username": "339898202",
+        "username": "706844077",
         "capital": 100.0,
         "points": 3.0,
         "remaining_boosters": 0,
-        "wallet": 21.0
+        "wallet": 676.0
       },
       {
         "username": "6188391457",
@@ -122,11 +122,11 @@
         "wallet": 72.0
       },
       {
-        "username": "706844077",
+        "username": "339898202",
         "capital": 100.0,
         "points": 0.0,
         "remaining_boosters": 0,
-        "wallet": 676.0
+        "wallet": 21.0
       },
       {
         "username": "1008454702",
@@ -212,7 +212,7 @@
     "IQ Капиталист": []
   },
   "totalPoints": {
-    "Знаток": 351.0,
+    "Знаток": 345.0,
     "Эксперт": 3618.8399999999997,
     "Мастер": 6140.699999999999,
     "Босс": 4331.579999999999,
@@ -225,5 +225,5 @@
   "prizePoolPro": 1000.0,
   "prizePoolAma": 2500.0,
   "activeTournament": 12,
-  "questionsAsked": 58
+  "questionsAsked": 59
 }
