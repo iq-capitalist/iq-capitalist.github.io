@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2024-09-06 01:15:01 UTC",
+  "lastUpdate": "2024-09-06 01:30:01 UTC",
   "ratings": {
     "Знаток": [
       {
@@ -19,7 +19,7 @@
       {
         "username": "823073015",
         "capital": 100.0,
-        "points": 39.0,
+        "points": 42.0,
         "remaining_boosters": 0,
         "wallet": 1138.0
       },
@@ -61,7 +61,7 @@
       {
         "username": "5296247997",
         "capital": 100.0,
-        "points": 21.0,
+        "points": 18.0,
         "remaining_boosters": 0,
         "wallet": 540.0
       },
@@ -101,13 +101,6 @@
         "wallet": 59.0
       },
       {
-        "username": "224225728",
-        "capital": 100.0,
-        "points": 3.0,
-        "remaining_boosters": 0,
-        "wallet": 72.0
-      },
-      {
         "username": "339898202",
         "capital": 100.0,
         "points": 3.0,
@@ -120,6 +113,13 @@
         "points": 3.0,
         "remaining_boosters": 0,
         "wallet": 70.0
+      },
+      {
+        "username": "224225728",
+        "capital": 100.0,
+        "points": 0.0,
+        "remaining_boosters": 0,
+        "wallet": 72.0
       },
       {
         "username": "706844077",
@@ -212,7 +212,7 @@
     "IQ Капиталист": []
   },
   "totalPoints": {
-    "Знаток": 345.0,
+    "Знаток": 342.0,
     "Эксперт": 3397.7999999999997,
     "Мастер": 6059.699999999999,
     "Босс": 4331.579999999999,
@@ -225,5 +225,5 @@
   "prizePoolPro": 1000.0,
   "prizePoolAma": 2500.0,
   "activeTournament": 12,
-  "questionsAsked": 53
+  "questionsAsked": 54
 }
