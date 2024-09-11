@@ -1,13 +1,27 @@
 {
-  "lastUpdate": "2024-09-11 10:45:02 UTC",
+  "lastUpdate": "2024-09-11 11:00:02 UTC",
   "ratings": {
     "Знаток": [
       {
-        "username": "76376886",
+        "username": "823073015",
         "capital": 100.0,
         "points": 3.0,
         "remaining_boosters": 0,
+        "wallet": 1416.0
+      },
+      {
+        "username": "76376886",
+        "capital": 100.0,
+        "points": 0.0,
+        "remaining_boosters": 0,
         "wallet": 1594.0
+      },
+      {
+        "username": "543037553",
+        "capital": 100.0,
+        "points": -3.0,
+        "remaining_boosters": 0,
+        "wallet": 639.0
       }
     ],
     "Эксперт": [
@@ -19,14 +33,43 @@
         "wallet": 309.0
       },
       {
+        "username": "2008333185",
+        "capital": 1484.0,
+        "points": 44.519999999999996,
+        "remaining_boosters": 0,
+        "wallet": 353.0
+      },
+      {
         "username": "1642969389",
         "capital": 1100.0,
-        "points": 33.0,
+        "points": 0.0,
         "remaining_boosters": 0,
         "wallet": 39.0
+      },
+      {
+        "username": "345149114",
+        "capital": 1128.0,
+        "points": -67.67999999999999,
+        "remaining_boosters": 29,
+        "wallet": 739.0
       }
     ],
-    "Мастер": [],
+    "Мастер": [
+      {
+        "username": "Константин",
+        "capital": 3990.0,
+        "points": 239.39999999999998,
+        "remaining_boosters": 120,
+        "wallet": 1852.0
+      },
+      {
+        "username": "575990386",
+        "capital": 2550.0,
+        "points": 76.5,
+        "remaining_boosters": 0,
+        "wallet": 249.0
+      }
+    ],
     "Босс": [],
     "Титан": [],
     "Легенда": [],
@@ -35,9 +78,9 @@
     "IQ Капиталист": []
   },
   "totalPoints": {
-    "Знаток": 3.0,
-    "Эксперт": 85.38,
-    "Мастер": 0,
+    "Знаток": 0.0,
+    "Эксперт": 29.22,
+    "Мастер": 315.9,
     "Босс": 0,
     "Титан": 0,
     "Легенда": 0,
@@ -48,5 +91,5 @@
   "prizePoolPro": 1000.0,
   "prizePoolAma": 2500.0,
   "activeTournament": 13,
-  "questionsAsked": 1
+  "questionsAsked": 2
 }
