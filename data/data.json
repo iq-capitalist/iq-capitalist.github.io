@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2024-09-12 21:30:02 UTC",
+  "lastUpdate": "2024-09-12 21:45:01 UTC",
   "ratings": {
     "Знаток": [
       {
@@ -80,6 +80,13 @@
         "wallet": 88.0
       },
       {
+        "username": "224225728",
+        "capital": 100.0,
+        "points": 3.0,
+        "remaining_boosters": 0,
+        "wallet": 116.0
+      },
+      {
         "username": "287002169",
         "capital": 100.0,
         "points": 3.0,
@@ -115,13 +122,6 @@
         "wallet": 0.0
       },
       {
-        "username": "224225728",
-        "capital": 100.0,
-        "points": 0.0,
-        "remaining_boosters": 0,
-        "wallet": 116.0
-      },
-      {
         "username": "706844077",
         "capital": 100.0,
         "points": -6.0,
@@ -154,15 +154,15 @@
       {
         "username": "2008333185",
         "capital": 1484.0,
-        "points": 890.3999999999997,
+        "points": 934.9199999999997,
         "remaining_boosters": 0,
         "wallet": 353.0
       },
       {
         "username": "345149114",
         "capital": 1128.0,
-        "points": 812.1599999999997,
-        "remaining_boosters": 14,
+        "points": 879.8399999999997,
+        "remaining_boosters": 13,
         "wallet": 739.0
       },
       {
@@ -191,8 +191,8 @@
       {
         "username": "Константин",
         "capital": 3990.0,
-        "points": 5745.5999999999985,
-        "remaining_boosters": 93,
+        "points": 5984.999999999998,
+        "remaining_boosters": 92,
         "wallet": 1852.0
       },
       {
@@ -226,9 +226,9 @@
     "IQ Капиталист": []
   },
   "totalPoints": {
-    "Знаток": 225.0,
-    "Эксперт": 4281.12,
-    "Мастер": 6902.0999999999985,
+    "Знаток": 228.0,
+    "Эксперт": 4393.320000000001,
+    "Мастер": 7141.499999999998,
     "Босс": 1968.8999999999999,
     "Титан": 0,
     "Легенда": 0,
@@ -239,5 +239,5 @@
   "prizePoolPro": 1000.0,
   "prizePoolAma": 2500.0,
   "activeTournament": 13,
-  "questionsAsked": 53
+  "questionsAsked": 54
 }
