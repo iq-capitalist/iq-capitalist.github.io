@@ -163,8 +163,6 @@ a, button, .btn {
     transition: all 0.3s ease;
 }
 
-/* Добавьте эти стили в конец файла styles.css */
-
 .lead {
     font-size: 1.2em;
     font-weight: 300;
@@ -189,21 +187,25 @@ li {
 
 .button-container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     gap: 20px;
-    margin-top: 50px; /* Увеличенное расстояние от текста */
+    margin-top: 50px;
+    width: 100%; /* Убедимся, что контейнер кнопок не шире родителя */
 }
 
 .btn-primary, .btn-secondary {
-    flex: 1; /* Кнопки займут всю доступную ширину */
+    width: 100%; /* Кнопки будут шириной с родительский контейнер */
+    max-width: 100%; /* Ограничиваем максимальную ширину */
     padding: 15px 20px;
     font-size: 1.1em;
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 1px;
     text-align: center;
-    white-space: nowrap;
+    white-space: normal;
+    word-wrap: break-word;
     transition: all 0.3s ease;
+    box-sizing: border-box; /* Учитываем padding в общей ширине */
 }
 
 .btn-primary {
@@ -222,11 +224,19 @@ li {
 }
 
 @media (max-width: 768px) {
-    .button-container {
-        flex-direction: column;
+    .container {
+        padding: 0 15px; /* Немного уменьшаем отступы на мобильных устройствах */
     }
 
     .btn-primary, .btn-secondary {
-        width: 100%;
+        padding: 12px 15px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 360px) {
+    .btn-primary, .btn-secondary {
+        font-size: 0.8em;
+        padding: 10px 12px;
     }
 }
