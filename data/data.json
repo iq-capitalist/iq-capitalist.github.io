@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2024-09-12 22:15:01 UTC",
+  "lastUpdate": "2024-09-12 22:30:02 UTC",
   "ratings": {
     "Знаток": [
       {
@@ -45,13 +45,6 @@
         "wallet": 409.0
       },
       {
-        "username": "1879077527",
-        "capital": 100.0,
-        "points": 12.0,
-        "remaining_boosters": 0,
-        "wallet": 726.0
-      },
-      {
         "username": "2091908459",
         "capital": 100.0,
         "points": 12.0,
@@ -64,6 +57,13 @@
         "points": 9.0,
         "remaining_boosters": 0,
         "wallet": 458.0
+      },
+      {
+        "username": "1879077527",
+        "capital": 100.0,
+        "points": 9.0,
+        "remaining_boosters": 0,
+        "wallet": 726.0
       },
       {
         "username": "339898202",
@@ -226,7 +226,7 @@
     "IQ Капиталист": []
   },
   "totalPoints": {
-    "Знаток": 228.0,
+    "Знаток": 225.0,
     "Эксперт": 4393.320000000001,
     "Мастер": 7141.499999999998,
     "Босс": 1968.8999999999999,
