@@ -88,7 +88,7 @@ tr:hover {
 
 /* Стили для информации о турнире */
 .tournament-info {
-    text-align: center;
+    text-align: left;
     margin-bottom: 20px;
     font-style: italic;
     color: var(--secondary-color);
