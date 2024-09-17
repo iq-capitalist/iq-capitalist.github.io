@@ -1,29 +1,36 @@
 {
-  "lastUpdate": "2024-09-17 10:30:01 UTC",
+  "lastUpdate": "2024-09-17 10:45:01 UTC",
   "ratings": {
     "Знаток": [
-      {
-        "username": "171775368",
-        "capital": 100.0,
-        "points": -3.0,
-        "remaining_boosters": 0,
-        "wallet": 537.0
-      },
       {
         "username": "543037553",
         "capital": 100.0,
         "points": -3.0,
         "remaining_boosters": 0,
         "wallet": 665.0
+      },
+      {
+        "username": "171775368",
+        "capital": 100.0,
+        "points": -6.0,
+        "remaining_boosters": 0,
+        "wallet": 537.0
       }
     ],
     "Эксперт": [
       {
         "username": "2008333185",
         "capital": 1484.0,
-        "points": 44.519999999999996,
+        "points": 89.03999999999999,
         "remaining_boosters": 0,
         "wallet": 577.0
+      },
+      {
+        "username": "1032851815",
+        "capital": 1746.0,
+        "points": 52.379999999999995,
+        "remaining_boosters": 0,
+        "wallet": 648.0
       },
       {
         "username": "823073015",
@@ -51,8 +58,8 @@
       {
         "username": "Константин",
         "capital": 3990.0,
-        "points": 239.39999999999998,
-        "remaining_boosters": 83,
+        "points": 478.79999999999995,
+        "remaining_boosters": 82,
         "wallet": 2724.0
       }
     ],
@@ -64,9 +71,9 @@
     "IQ Капиталист": []
   },
   "totalPoints": {
-    "Знаток": -6.0,
-    "Эксперт": -89.16,
-    "Мастер": 239.39999999999998,
+    "Знаток": -9.0,
+    "Эксперт": 7.739999999999995,
+    "Мастер": 478.79999999999995,
     "Босс": 0,
     "Титан": 0,
     "Легенда": 0,
@@ -77,5 +84,5 @@
   "prizePoolPro": 1000.0,
   "prizePoolAma": 2500.0,
   "activeTournament": 14,
-  "questionsAsked": 1
+  "questionsAsked": 2
 }
