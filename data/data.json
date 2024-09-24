@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2024-09-24 08:30:01 UTC",
+  "lastUpdate": "2024-09-24 09:20:59 UTC",
   "ratings": {
     "Знаток": [
       {
@@ -17,18 +17,18 @@
         "wallet": 152.0
       },
       {
-        "username": "375155317",
-        "capital": 100.0,
-        "points": 3.0,
-        "remaining_boosters": 0,
-        "wallet": 158.0
-      },
-      {
         "username": "475380048",
         "capital": 100.0,
         "points": 3.0,
         "remaining_boosters": 0,
         "wallet": 6.0
+      },
+      {
+        "username": "753535370",
+        "capital": 100.0,
+        "points": 3.0,
+        "remaining_boosters": 0,
+        "wallet": 55.0
       },
       {
         "username": "974932560",
@@ -38,27 +38,76 @@
         "wallet": 158.0
       },
       {
+        "username": "1031487037",
+        "capital": 100.0,
+        "points": 3.0,
+        "remaining_boosters": 0,
+        "wallet": 639.0
+      },
+      {
+        "username": "1879077527",
+        "capital": 100.0,
+        "points": 3.0,
+        "remaining_boosters": 0,
+        "wallet": 968.0
+      },
+      {
         "username": "161264173",
+        "capital": 100.0,
+        "points": 0.0,
+        "remaining_boosters": 0,
+        "wallet": 121.0
+      },
+      {
+        "username": "375155317",
+        "capital": 100.0,
+        "points": 0.0,
+        "remaining_boosters": 0,
+        "wallet": 158.0
+      },
+      {
+        "username": "1283538913",
         "capital": 100.0,
         "points": -3.0,
         "remaining_boosters": 0,
-        "wallet": 121.0
+        "wallet": 61.0
+      },
+      {
+        "username": "1957787357",
+        "capital": 100.0,
+        "points": -3.0,
+        "remaining_boosters": 0,
+        "wallet": 294.0
+      },
+      {
+        "username": "5296247997",
+        "capital": 100.0,
+        "points": -3.0,
+        "remaining_boosters": 0,
+        "wallet": 914.0
       }
     ],
     "Эксперт": [
+      {
+        "username": "2008333185",
+        "capital": 1484.0,
+        "points": 89.03999999999999,
+        "remaining_boosters": 0,
+        "wallet": 776.0
+      },
+      {
+        "username": "345149114",
+        "capital": 1028.0,
+        "points": 61.68,
+        "remaining_boosters": 6,
+        "wallet": 1128.0
+      },
       {
         "username": "1032851815",
         "capital": 1746.0,
         "points": 52.379999999999995,
         "remaining_boosters": 0,
         "wallet": 882.0
-      },
-      {
-        "username": "2008333185",
-        "capital": 1484.0,
-        "points": 44.519999999999996,
-        "remaining_boosters": 0,
-        "wallet": 776.0
       },
       {
         "username": "1642969389",
@@ -68,7 +117,15 @@
         "wallet": 286.0
       }
     ],
-    "Мастер": [],
+    "Мастер": [
+      {
+        "username": "823073015",
+        "capital": 2100.0,
+        "points": 63.0,
+        "remaining_boosters": 0,
+        "wallet": 90.0
+      }
+    ],
     "Босс": [],
     "Титан": [
       {
@@ -86,8 +143,8 @@
   },
   "totalPoints": {
     "Знаток": 12.0,
-    "Эксперт": 129.89999999999998,
-    "Мастер": 0,
+    "Эксперт": 236.1,
+    "Мастер": 63.0,
     "Босс": 0,
     "Титан": 449.4,
     "Легенда": 0,
@@ -96,7 +153,7 @@
     "IQ Капиталист": 0
   },
   "prizePoolPro": 1000.0,
-  "prizePoolAma": 2500.0,
+  "prizePoolAma": 4000.0,
   "activeTournament": 15,
-  "questionsAsked": 1
+  "questionsAsked": 2
 }
