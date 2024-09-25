@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2024-09-24 23:34:57 UTC",
+  "lastUpdate": "2024-09-25 00:11:00 UTC",
   "ratings": {
     "Знаток": [
       {
@@ -283,11 +283,11 @@
         "wallet": 24.0
       },
       {
-        "username": "6085248373",
+        "username": "5253427596",
         "capital": 100.0,
         "points": 0.0,
         "remaining_boosters": 0,
-        "wallet": 12.0
+        "wallet": 315.0
       },
       {
         "username": "78145441",
@@ -318,13 +318,6 @@
         "wallet": 61.0
       },
       {
-        "username": "5253427596",
-        "capital": 100.0,
-        "points": -3.0,
-        "remaining_boosters": 0,
-        "wallet": 315.0
-      },
-      {
         "username": "5260819882",
         "capital": 100.0,
         "points": -3.0,
@@ -337,6 +330,13 @@
         "points": -3.0,
         "remaining_boosters": 0,
         "wallet": 914.0
+      },
+      {
+        "username": "6085248373",
+        "capital": 100.0,
+        "points": -3.0,
+        "remaining_boosters": 0,
+        "wallet": 12.0
       }
     ],
     "Эксперт": [
@@ -436,5 +436,5 @@
   "prizePoolPro": 1000.0,
   "prizePoolAma": 4000.0,
   "activeTournament": 15,
-  "questionsAsked": 24
+  "questionsAsked": 25
 }
