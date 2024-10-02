@@ -1,11 +1,11 @@
 {
-  "lastUpdate": "2024-10-02 19:55:48 UTC",
+  "lastUpdate": "2024-10-02 20:45:49 UTC",
   "ratings": {
     "Знаток": [
       {
         "username": "642861216",
         "capital": 100.0,
-        "points": 72.0,
+        "points": 75.0,
         "remaining_boosters": 0,
         "wallet": 755.0
       },
@@ -31,25 +31,25 @@
         "wallet": 93.0
       },
       {
-        "username": "312278349",
-        "capital": 100.0,
-        "points": 45.0,
-        "remaining_boosters": 0,
-        "wallet": 291.0
-      },
-      {
         "username": "426773971",
         "capital": 100.0,
-        "points": 45.0,
+        "points": 48.0,
         "remaining_boosters": 0,
         "wallet": 224.0
       },
       {
         "username": "455681558",
         "capital": 100.0,
-        "points": 45.0,
+        "points": 48.0,
         "remaining_boosters": 0,
         "wallet": 132.0
+      },
+      {
+        "username": "312278349",
+        "capital": 100.0,
+        "points": 45.0,
+        "remaining_boosters": 0,
+        "wallet": 291.0
       },
       {
         "username": "128456942",
@@ -82,14 +82,14 @@
       {
         "username": "1765257700",
         "capital": 100.0,
-        "points": 33.0,
+        "points": 36.0,
         "remaining_boosters": 0,
         "wallet": 239.0
       },
       {
         "username": "76376886",
         "capital": 100.0,
-        "points": 30.0,
+        "points": 33.0,
         "remaining_boosters": 0,
         "wallet": 1996.0
       },
@@ -110,9 +110,16 @@
       {
         "username": "2011852440",
         "capital": 100.0,
-        "points": 27.0,
+        "points": 30.0,
         "remaining_boosters": 0,
         "wallet": 78.0
+      },
+      {
+        "username": "5324624745",
+        "capital": 100.0,
+        "points": 24.0,
+        "remaining_boosters": 0,
+        "wallet": 70.0
       },
       {
         "username": "1087832623",
@@ -127,13 +134,6 @@
         "points": 21.0,
         "remaining_boosters": 0,
         "wallet": 304.0
-      },
-      {
-        "username": "5324624745",
-        "capital": 100.0,
-        "points": 21.0,
-        "remaining_boosters": 0,
-        "wallet": 70.0
       },
       {
         "username": "475380048",
@@ -248,6 +248,13 @@
         "wallet": 30.0
       },
       {
+        "username": "943804447",
+        "capital": 100.0,
+        "points": 3.0,
+        "remaining_boosters": 0,
+        "wallet": 0.0
+      },
+      {
         "username": "5253427596",
         "capital": 100.0,
         "points": 3.0,
@@ -295,13 +302,6 @@
         "points": 0.0,
         "remaining_boosters": 0,
         "wallet": 801.0
-      },
-      {
-        "username": "943804447",
-        "capital": 100.0,
-        "points": 0.0,
-        "remaining_boosters": 0,
-        "wallet": 0.0
       },
       {
         "username": "1203707055",
@@ -378,7 +378,7 @@
       {
         "username": "2008333185",
         "capital": 1484.0,
-        "points": 667.7999999999998,
+        "points": 712.3199999999998,
         "remaining_boosters": 0,
         "wallet": 997.0
       },
@@ -392,7 +392,7 @@
       {
         "username": "1879077527",
         "capital": 1200.0,
-        "points": 324.0,
+        "points": 360.0,
         "remaining_boosters": 0,
         "wallet": 46.0
       },
@@ -447,8 +447,8 @@
       {
         "username": "Константин",
         "capital": 7390.0,
-        "points": 7537.799999999997,
-        "remaining_boosters": 54,
+        "points": 7981.199999999997,
+        "remaining_boosters": 53,
         "wallet": 234.0
       }
     ],
@@ -458,11 +458,11 @@
     "IQ Капиталист": []
   },
   "totalPoints": {
-    "Знаток": 861.0,
-    "Эксперт": 2916.54,
+    "Знаток": 885.0,
+    "Эксперт": 2997.06,
     "Мастер": 3418.8600000000006,
     "Босс": 3871.1399999999985,
-    "Титан": 7537.799999999997,
+    "Титан": 7981.199999999997,
     "Легенда": 0,
     "Корифей": 0,
     "Гуру": 0,
@@ -471,5 +471,5 @@
   "prizePoolPro": 1000.0,
   "prizePoolAma": 4000.0,
   "activeTournament": 16,
-  "questionsAsked": 50
+  "questionsAsked": 51
 }
