@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2024-10-02 23:28:58 UTC",
+  "lastUpdate": "2024-10-02 23:59:01 UTC",
   "ratings": {
     "Знаток": [
       {
@@ -26,7 +26,7 @@
       {
         "username": "130651807",
         "capital": 100.0,
-        "points": 54.0,
+        "points": 57.0,
         "remaining_boosters": 0,
         "wallet": 93.0
       },
@@ -164,13 +164,6 @@
         "wallet": 0.0
       },
       {
-        "username": "5296247997",
-        "capital": 100.0,
-        "points": 12.0,
-        "remaining_boosters": 0,
-        "wallet": 960.0
-      },
-      {
         "username": "1110023669",
         "capital": 100.0,
         "points": 9.0,
@@ -183,6 +176,20 @@
         "points": 9.0,
         "remaining_boosters": 0,
         "wallet": 15.0
+      },
+      {
+        "username": "5296247997",
+        "capital": 100.0,
+        "points": 9.0,
+        "remaining_boosters": 0,
+        "wallet": 960.0
+      },
+      {
+        "username": "247594680",
+        "capital": 100.0,
+        "points": 6.0,
+        "remaining_boosters": 0,
+        "wallet": 0.0
       },
       {
         "username": "1747828905",
@@ -211,13 +218,6 @@
         "points": 3.0,
         "remaining_boosters": 0,
         "wallet": 51.0
-      },
-      {
-        "username": "247594680",
-        "capital": 100.0,
-        "points": 3.0,
-        "remaining_boosters": 0,
-        "wallet": 0.0
       },
       {
         "username": "265588842",
@@ -253,13 +253,6 @@
         "points": 3.0,
         "remaining_boosters": 0,
         "wallet": 801.0
-      },
-      {
-        "username": "871578838",
-        "capital": 100.0,
-        "points": 3.0,
-        "remaining_boosters": 0,
-        "wallet": 12.0
       },
       {
         "username": "5253427596",
@@ -302,6 +295,13 @@
         "points": 0.0,
         "remaining_boosters": 0,
         "wallet": 0.0
+      },
+      {
+        "username": "871578838",
+        "capital": 100.0,
+        "points": 0.0,
+        "remaining_boosters": 0,
+        "wallet": 12.0
       },
       {
         "username": "943804447",
@@ -429,7 +429,7 @@
       {
         "username": "823073015",
         "capital": 2100.0,
-        "points": 567.0,
+        "points": 504.0,
         "remaining_boosters": 0,
         "wallet": 639.0
       },
@@ -474,7 +474,7 @@
   "totalPoints": {
     "Знаток": 906.0,
     "Эксперт": 3033.06,
-    "Мастер": 3292.8600000000006,
+    "Мастер": 3229.8600000000006,
     "Босс": 4317.809999999999,
     "Титан": 7981.199999999997,
     "Легенда": 0,
@@ -485,5 +485,5 @@
   "prizePoolPro": 1000.0,
   "prizePoolAma": 4000.0,
   "activeTournament": 16,
-  "questionsAsked": 55
+  "questionsAsked": 56
 }
