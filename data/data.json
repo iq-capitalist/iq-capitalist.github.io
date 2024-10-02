@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2024-10-02 21:58:53 UTC",
+  "lastUpdate": "2024-10-02 22:45:55 UTC",
   "ratings": {
     "Знаток": [
       {
@@ -192,13 +192,6 @@
         "wallet": 0.0
       },
       {
-        "username": "295315917",
-        "capital": 100.0,
-        "points": 6.0,
-        "remaining_boosters": 0,
-        "wallet": 72.0
-      },
-      {
         "username": "1747828905",
         "capital": 100.0,
         "points": 6.0,
@@ -232,6 +225,13 @@
         "points": 3.0,
         "remaining_boosters": 0,
         "wallet": 0.0
+      },
+      {
+        "username": "295315917",
+        "capital": 100.0,
+        "points": 3.0,
+        "remaining_boosters": 0,
+        "wallet": 72.0
       },
       {
         "username": "379849460",
@@ -297,13 +297,6 @@
         "wallet": 0.0
       },
       {
-        "username": "943804447",
-        "capital": 100.0,
-        "points": 0.0,
-        "remaining_boosters": 0,
-        "wallet": 0.0
-      },
-      {
         "username": "1203707055",
         "capital": 100.0,
         "points": 0.0,
@@ -333,6 +326,13 @@
       },
       {
         "username": "444852392",
+        "capital": 100.0,
+        "points": -3.0,
+        "remaining_boosters": 0,
+        "wallet": 0.0
+      },
+      {
+        "username": "943804447",
         "capital": 100.0,
         "points": -3.0,
         "remaining_boosters": 0,
@@ -415,7 +415,7 @@
       {
         "username": "823073015",
         "capital": 2100.0,
-        "points": 693.0,
+        "points": 630.0,
         "remaining_boosters": 0,
         "wallet": 639.0
       },
@@ -458,9 +458,9 @@
     "IQ Капиталист": []
   },
   "totalPoints": {
-    "Знаток": 909.0,
+    "Знаток": 903.0,
     "Эксперт": 3033.06,
-    "Мастер": 3418.8600000000006,
+    "Мастер": 3355.8600000000006,
     "Босс": 4317.809999999999,
     "Титан": 7981.199999999997,
     "Легенда": 0,
@@ -471,5 +471,5 @@
   "prizePoolPro": 1000.0,
   "prizePoolAma": 4000.0,
   "activeTournament": 16,
-  "questionsAsked": 53
+  "questionsAsked": 54
 }
