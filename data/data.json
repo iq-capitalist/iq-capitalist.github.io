@@ -1,11 +1,11 @@
 {
-  "lastUpdate": "2024-10-03 03:51:15 UTC",
+  "lastUpdate": "2024-10-03 04:23:17 UTC",
   "ratings": {
     "Знаток": [
       {
         "username": "642861216",
         "capital": 100.0,
-        "points": 84.0,
+        "points": 81.0,
         "remaining_boosters": 0,
         "wallet": 755.0
       },
@@ -87,13 +87,6 @@
         "wallet": 817.0
       },
       {
-        "username": "853175665",
-        "capital": 100.0,
-        "points": 33.0,
-        "remaining_boosters": 0,
-        "wallet": 62.0
-      },
-      {
         "username": "1489492992",
         "capital": 100.0,
         "points": 33.0,
@@ -106,6 +99,13 @@
         "points": 30.0,
         "remaining_boosters": 0,
         "wallet": 1996.0
+      },
+      {
+        "username": "853175665",
+        "capital": 100.0,
+        "points": 30.0,
+        "remaining_boosters": 0,
+        "wallet": 62.0
       },
       {
         "username": "2011852440",
@@ -276,13 +276,6 @@
         "wallet": 0.0
       },
       {
-        "username": "247594680",
-        "capital": 100.0,
-        "points": 0.0,
-        "remaining_boosters": 0,
-        "wallet": 0.0
-      },
-      {
         "username": "251075871",
         "capital": 100.0,
         "points": 0.0,
@@ -323,6 +316,13 @@
         "points": 0.0,
         "remaining_boosters": 0,
         "wallet": 116.0
+      },
+      {
+        "username": "247594680",
+        "capital": 100.0,
+        "points": -3.0,
+        "remaining_boosters": 0,
+        "wallet": 0.0
       },
       {
         "username": "413886729",
@@ -392,7 +392,7 @@
       {
         "username": "2008333185",
         "capital": 1484.0,
-        "points": 712.3199999999998,
+        "points": 667.7999999999998,
         "remaining_boosters": 0,
         "wallet": 997.0
       },
@@ -472,8 +472,8 @@
     "IQ Капиталист": []
   },
   "totalPoints": {
-    "Знаток": 939.0,
-    "Эксперт": 3137.82,
+    "Знаток": 930.0,
+    "Эксперт": 3093.3,
     "Мастер": 3499.7400000000007,
     "Босс": 4317.809999999999,
     "Титан": 7981.199999999997,
@@ -485,5 +485,5 @@
   "prizePoolPro": 1000.0,
   "prizePoolAma": 4000.0,
   "activeTournament": 16,
-  "questionsAsked": 62
+  "questionsAsked": 63
 }
