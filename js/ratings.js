@@ -21,7 +21,7 @@ function updateLevelHeader(level) {
     const levelHeader = document.getElementById('levelHeader');
     const range = levelRanges[level];
     const maxText = range.max === Infinity ? '+' : '-' + range.max;
-    levelHeader.innerHTML = `<h2>Уровень ${level} (${range.min} ${maxText})</h2>`;
+    levelHeader.innerHTML = `<h2>Уровень ${level} (${range.min}${maxText})</h2>`;
 }
 
 function isActiveTournament() {
