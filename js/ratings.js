@@ -19,9 +19,21 @@ const levelRanges = {
 
 function updateLevelHeader(level) {
     const levelHeader = document.getElementById('levelHeader');
-    const range = levelRanges[level];
-    const maxText = range.max === Infinity ? '+' : '-' + range.max;
-    levelHeader.innerHTML = `<h2>Уровень ${level} (${range.min}${maxText})</h2>`;
+    if (levelHeader) {
+        const range = levelRanges[level];
+        let headerText;
+        
+        if (level === 'Знаток') {
+            headerText = `<h2>Уровень ${level} (${range.min}+)</h2>`;
+        } else {
+            const maxText = range.max === Infinity ? '+' : '-' + range.max;
+            headerText = `<h2>Уровень ${level} (${range.min}${maxText})</h2>`;
+        }
+        
+        levelHeader.innerHTML = headerText;
+    } else {
+        console.warn('Element with id "levelHeader" not found');
+    }
 }
 
 function isActiveTournament() {
