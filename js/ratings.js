@@ -24,7 +24,7 @@ function updateLevelHeader(level) {
         let headerText;
         
         if (level === 'Знаток') {
-            headerText = `<h2>Уровень ${level} (${range.min}+)</h2>`;
+            headerText = `<h2>Уровень ${level} (${range.min})</h2>`;
         } else {
             const maxText = range.max === Infinity ? '+' : '-' + range.max;
             headerText = `<h2>Уровень ${level} (${range.min}${maxText})</h2>`;
