@@ -5,6 +5,25 @@ let globalWinnings = {};
 let currentPage = 1;
 const itemsPerPage = 20;
 
+const levelRanges = {
+    'Знаток': { min: 100, max: 999 },
+    'Эксперт': { min: 1000, max: 1999 },
+    'Мастер': { min: 2000, max: 3999 },
+    'Босс': { min: 4000, max: 6999 },
+    'Титан': { min: 7000, max: 10999 },
+    'Легенда': { min: 11000, max: 15999 },
+    'Корифей': { min: 16000, max: 21999 },
+    'Гуру': { min: 22000, max: 29999 },
+    'IQ Капиталист': { min: 30000, max: Infinity }
+};
+
+function updateLevelHeader(level) {
+    const levelHeader = document.getElementById('levelHeader');
+    const range = levelRanges[level];
+    const maxText = range.max === Infinity ? '+' : '-' + range.max;
+    levelHeader.innerHTML = `<h2>Уровень ${level} (${range.min} ${maxText})</h2>`;
+}
+
 function isActiveTournament() {
     return globalData.activeTournament !== null && globalData.questionsAsked !== null;
 }
@@ -32,6 +51,7 @@ function loadData() {
         globalData = data;
         updateLastUpdate(data.lastUpdate);
         createLevelButtons(Object.keys(data.ratings));
+        updateLevelHeader(currentLevel);
 
         if (isActiveTournament()) {
             // Рассчитываем выигрыши для всех уровней
@@ -105,6 +125,7 @@ function changeLevel(level) {
     document.querySelectorAll('.level-btn').forEach(btn => {
         btn.classList.toggle('active', btn.textContent === level);
     });
+    updateLevelHeader(level);
     if (isActiveTournament()) {
         displayRatings(globalData.ratings[currentLevel]);
     } else {
