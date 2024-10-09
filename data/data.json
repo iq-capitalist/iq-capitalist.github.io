@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2024-10-08 23:51:18 UTC",
+  "lastUpdate": "2024-10-09 00:27:22 UTC",
   "ratings": {
     "Знаток": [
       {
@@ -59,13 +59,6 @@
         "wallet": 204.0
       },
       {
-        "username": "5296247997",
-        "capital": 100.0,
-        "points": 12.0,
-        "remaining_boosters": 0,
-        "wallet": 999.0
-      },
-      {
         "username": "400985905",
         "capital": 100.0,
         "points": 9.0,
@@ -92,6 +85,13 @@
         "points": 9.0,
         "remaining_boosters": 0,
         "wallet": 391.0
+      },
+      {
+        "username": "5296247997",
+        "capital": 100.0,
+        "points": 9.0,
+        "remaining_boosters": 0,
+        "wallet": 999.0
       },
       {
         "username": "7146636662",
@@ -234,13 +234,6 @@
         "wallet": 46.0
       },
       {
-        "username": "247594680",
-        "capital": 100.0,
-        "points": -3.0,
-        "remaining_boosters": 0,
-        "wallet": 16.0
-      },
-      {
         "username": "295315917",
         "capital": 100.0,
         "points": -3.0,
@@ -281,6 +274,20 @@
         "points": -3.0,
         "remaining_boosters": 0,
         "wallet": 0.0
+      },
+      {
+        "username": "6085248373",
+        "capital": 100.0,
+        "points": -3.0,
+        "remaining_boosters": 0,
+        "wallet": 12.0
+      },
+      {
+        "username": "247594680",
+        "capital": 100.0,
+        "points": -6.0,
+        "remaining_boosters": 0,
+        "wallet": 16.0
       },
       {
         "username": "1283538913",
@@ -345,7 +352,7 @@
       {
         "username": "823073015",
         "capital": 2100.0,
-        "points": 315.0,
+        "points": 252.0,
         "remaining_boosters": 0,
         "wallet": 817.0
       }
@@ -362,7 +369,7 @@
       {
         "username": "Mark Levin",
         "capital": 10463.0,
-        "points": 3138.899999999999,
+        "points": 3452.789999999999,
         "remaining_boosters": 0,
         "wallet": 0.0
       }
@@ -373,11 +380,11 @@
     "IQ Капиталист": []
   },
   "totalPoints": {
-    "Знаток": 291.0,
+    "Знаток": 282.0,
     "Эксперт": 2058.12,
-    "Мастер": 1199.8200000000002,
+    "Мастер": 1136.8200000000002,
     "Босс": 0,
-    "Титан": 6686.099999999999,
+    "Титан": 6999.99,
     "Легенда": 0,
     "Корифей": 0,
     "Гуру": 0,
@@ -386,5 +393,5 @@
   "prizePoolPro": 600.0,
   "prizePoolAma": 2500.0,
   "activeTournament": 17,
-  "questionsAsked": 21
+  "questionsAsked": 22
 }
