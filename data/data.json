@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2024-10-16 00:14:46 UTC",
+  "lastUpdate": "2024-10-16 00:52:49 UTC",
   "ratings": {
     "Знаток": [
       {
@@ -24,6 +24,13 @@
         "wallet": 603.0
       },
       {
+        "username": "130651807",
+        "capital": 100.0,
+        "points": 21.0,
+        "remaining_boosters": 0,
+        "wallet": 503.0
+      },
+      {
         "username": "2011852440",
         "capital": 100.0,
         "points": 21.0,
@@ -36,13 +43,6 @@
         "points": 18.0,
         "remaining_boosters": 0,
         "wallet": 2114.0
-      },
-      {
-        "username": "130651807",
-        "capital": 100.0,
-        "points": 18.0,
-        "remaining_boosters": 0,
-        "wallet": 503.0
       },
       {
         "username": "974932560",
@@ -64,6 +64,13 @@
         "points": 18.0,
         "remaining_boosters": 0,
         "wallet": 55.0
+      },
+      {
+        "username": "247594680",
+        "capital": 100.0,
+        "points": 15.0,
+        "remaining_boosters": 0,
+        "wallet": 48.0
       },
       {
         "username": "1031487037",
@@ -92,13 +99,6 @@
         "points": 12.0,
         "remaining_boosters": 0,
         "wallet": 449.0
-      },
-      {
-        "username": "247594680",
-        "capital": 100.0,
-        "points": 12.0,
-        "remaining_boosters": 0,
-        "wallet": 48.0
       },
       {
         "username": "1087832623",
@@ -211,6 +211,13 @@
         "points": 3.0,
         "remaining_boosters": 0,
         "wallet": 46.0
+      },
+      {
+        "username": "2079716630",
+        "capital": 100.0,
+        "points": 3.0,
+        "remaining_boosters": 0,
+        "wallet": 0.0
       },
       {
         "username": "5253427596",
@@ -367,7 +374,7 @@
     "IQ Капиталист": []
   },
   "totalPoints": {
-    "Знаток": 375.0,
+    "Знаток": 384.0,
     "Эксперт": 1969.4999999999998,
     "Мастер": 1544.7,
     "Босс": 1677.6,
@@ -380,5 +387,5 @@
   "prizePoolPro": 600.0,
   "prizePoolAma": 4000.0,
   "activeTournament": 18,
-  "questionsAsked": 17
+  "questionsAsked": 18
 }
