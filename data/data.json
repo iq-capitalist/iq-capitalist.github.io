@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2024-10-15 23:26:44 UTC",
+  "lastUpdate": "2024-10-16 00:14:46 UTC",
   "ratings": {
     "Знаток": [
       {
@@ -38,6 +38,13 @@
         "wallet": 2114.0
       },
       {
+        "username": "130651807",
+        "capital": 100.0,
+        "points": 18.0,
+        "remaining_boosters": 0,
+        "wallet": 503.0
+      },
+      {
         "username": "974932560",
         "capital": 100.0,
         "points": 18.0,
@@ -57,13 +64,6 @@
         "points": 18.0,
         "remaining_boosters": 0,
         "wallet": 55.0
-      },
-      {
-        "username": "130651807",
-        "capital": 100.0,
-        "points": 15.0,
-        "remaining_boosters": 0,
-        "wallet": 503.0
       },
       {
         "username": "1031487037",
@@ -94,6 +94,13 @@
         "wallet": 449.0
       },
       {
+        "username": "247594680",
+        "capital": 100.0,
+        "points": 12.0,
+        "remaining_boosters": 0,
+        "wallet": 48.0
+      },
+      {
         "username": "1087832623",
         "capital": 100.0,
         "points": 12.0,
@@ -106,13 +113,6 @@
         "points": 12.0,
         "remaining_boosters": 0,
         "wallet": 370.0
-      },
-      {
-        "username": "247594680",
-        "capital": 100.0,
-        "points": 9.0,
-        "remaining_boosters": 0,
-        "wallet": 48.0
       },
       {
         "username": "295315917",
@@ -211,6 +211,13 @@
         "points": 3.0,
         "remaining_boosters": 0,
         "wallet": 46.0
+      },
+      {
+        "username": "5253427596",
+        "capital": 100.0,
+        "points": 3.0,
+        "remaining_boosters": 0,
+        "wallet": 354.0
       },
       {
         "username": "5296247997",
@@ -360,7 +367,7 @@
     "IQ Капиталист": []
   },
   "totalPoints": {
-    "Знаток": 366.0,
+    "Знаток": 375.0,
     "Эксперт": 1969.4999999999998,
     "Мастер": 1544.7,
     "Босс": 1677.6,
@@ -373,5 +380,5 @@
   "prizePoolPro": 600.0,
   "prizePoolAma": 4000.0,
   "activeTournament": 18,
-  "questionsAsked": 16
+  "questionsAsked": 17
 }
