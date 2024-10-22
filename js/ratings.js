@@ -19,21 +19,9 @@ const levelRanges = {
 
 function updateLevelHeader(level) {
     const levelHeader = document.getElementById('levelHeader');
-    if (levelHeader) {
-        const range = levelRanges[level];
-        let headerText;
-        
-        if (level === 'Знаток') {
-            headerText = `<h2>Уровень ${level} (${range.min})</h2>`;
-        } else {
-            const maxText = range.max === Infinity ? '+' : '-' + range.max;
-            headerText = `<h2>Уровень ${level} (${range.min}${maxText})</h2>`;
-        }
-        
-        levelHeader.innerHTML = headerText;
-    } else {
-        console.warn('Element with id "levelHeader" not found');
-    }
+    const range = levelRanges[level];
+    const maxText = range.max === Infinity ? '+' : '-' + range.max;
+    levelHeader.innerHTML = `<h2>Уровень ${level} (${range.min}${maxText})</h2>`;
 }
 
 function isActiveTournament() {
@@ -66,16 +54,25 @@ function loadData() {
         updateLevelHeader(currentLevel);
 
         if (isActiveTournament()) {
+            // Проверяем наличие призовых фондов
+            if (!data.prizePools) {
+                console.error('Prize pools data is missing');
+                displayRatings([]); // Показываем пустую таблицу
+                return;
+            }
+
             // Рассчитываем выигрыши для всех уровней
             Object.keys(data.ratings).forEach(level => {
+                if (!data.prizePools[level]) {
+                    console.warn(`Prize pool not found for level ${level}`);
+                }
                 globalWinnings[level] = calculatePotentialWinnings(data.ratings[level], level);
             });
             displayRatings(data.ratings[currentLevel]);
         } else {
-            displayRatings([]);  // Передаем пустой массив, когда нет активного турнира
+            displayRatings([]); // Показываем пустую таблицу, когда нет активного турнира
         }
 
-        // Проверка необходимости принудительного обновления
         checkForForceUpdate(data.lastUpdate);
     })
     .catch(error => {
@@ -86,8 +83,6 @@ function loadData() {
                 <p class="text-danger">Ошибка загрузки данных: ${error.message}</p>
                 <p>Пожалуйста, убедитесь, что файл data.json существует и доступен.</p>
             `;
-        } else {
-            console.error('Rating table element not found');
         }
     });
 }
@@ -146,9 +141,26 @@ function changeLevel(level) {
 }
 
 function calculatePotentialWinnings(ratings, level) {
-    const prizePool = level === 'Знаток' ? globalData.prizePoolAma : globalData.prizePoolPro;
+    // Проверяем наличие призового фонда для уровня
+    if (!globalData.prizePools || !globalData.prizePools[level]) {
+        console.error(`Prize pool not found for level ${level}`);
+        return ratings.map(() => 0); // Возвращаем нулевые выигрыши если нет данных
+    }
+
+    const prizePool = globalData.prizePools[level];
+
+    // Отбираем игроков с положительными очками
     const positivePointsPlayers = ratings.filter(player => player.points > 0);
+
+    // Если нет игроков с положительными очками, все получают 0
+    if (positivePointsPlayers.length === 0) {
+        return ratings.map(() => 0);
+    }
+
+    // Считаем сумму всех положительных очков
     const totalPositivePoints = positivePointsPlayers.reduce((sum, player) => sum + player.points, 0);
+
+    // Распределяем призовой фонд
     return ratings.map(player => {
         if (player.points <= 0) return 0;
         const share = player.points / totalPositivePoints;
