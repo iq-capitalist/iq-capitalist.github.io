@@ -6,7 +6,7 @@ let currentPage = 1;
 const itemsPerPage = 20;
 
 const levelRanges = {
-    'Знаток': { min: 100, max: 999 },
+    'Знаток': { min: 100, max: 100 },
     'Эксперт': { min: 1000, max: 1999 },
     'Мастер': { min: 2000, max: 3999 },
     'Босс': { min: 4000, max: 6999 },
