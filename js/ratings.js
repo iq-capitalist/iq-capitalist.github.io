@@ -21,7 +21,11 @@ function updateLevelHeader(level) {
     const levelHeader = document.getElementById('levelHeader');
     const range = levelRanges[level];
     const maxText = range.max === Infinity ? '+' : '-' + range.max;
-    levelHeader.innerHTML = `<h2>Уровень ${level} (${range.min}${maxText})</h2>`;
+    const playersCount = globalData.playersByLevel[level];
+    levelHeader.innerHTML = `
+        <h2>Уровень ${level} (${range.min}${maxText})</h2>
+        <p class="level-info">Участников: ${playersCount}</p>
+    `;
 }
 
 function isActiveTournament() {
@@ -176,7 +180,9 @@ function displayRatings(ratings) {
     if (isActiveTournament()) {
         tournamentInfoContainer.innerHTML = `
             <div class="tournament-info">
-                <p>Турнир: ${globalData.activeTournament}. Задано вопросов: ${globalData.questionsAsked}</p>
+                <p>Турнир: ${globalData.activeTournament}. 
+                   Задано вопросов: ${globalData.questionsAsked}. 
+                   Участников: ${globalData.totalPlayers}</p>
             </div>
         `;
     } else {
