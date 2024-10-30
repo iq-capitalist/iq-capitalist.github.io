@@ -193,3 +193,10 @@ tr:hover {
     margin-top: 10px;
     font-style: italic;
 }
+
+.level-info {
+    font-size: 0.9em;
+    color: var(--secondary-color);
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
