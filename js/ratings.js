@@ -197,12 +197,11 @@ function displayRatings(ratings) {
     if (isActiveTournament()) {
         const winnings = globalWinnings[currentLevel];
         const ratingsWithWinnings = ratings.map((player, index) => {
-            const playerData = globalData.ratings[currentLevel].find(p => p.username === player.username);
-            const questionsCount = globalData.playerAnswers?.[player.username] || 0;
+            // Находим полные данные игрока в globalData
             return {
                 ...player,
                 winnings: winnings[index],
-                questionsCount: questionsCount
+                questionsCount: player.tournament_questions || 0
             };
         });
 
