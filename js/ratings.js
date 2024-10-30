@@ -22,9 +22,11 @@ function updateLevelHeader(level) {
     const range = levelRanges[level];
     const maxText = range.max === Infinity ? '+' : '-' + range.max;
     const playersCount = globalData.playersByLevel[level];
+    const prizePool = globalData.prizePools[level] || 0;
     levelHeader.innerHTML = `
         <h2>Уровень ${level} (${range.min}${maxText})</h2>
         <p class="level-info">Участников: ${playersCount}</p>
+        <p class="prize-pool">Призовой фонд: ${prizePool.toLocaleString('ru-RU')} IQC</p>
     `;
 }
 
@@ -316,7 +318,7 @@ function sortTable(column) {
     }
     displayRatings(globalData.ratings[currentLevel]);
 }
-
+ 
 function changePage(page) {
     const totalPages = Math.ceil(globalData.ratings[currentLevel].length / itemsPerPage);
     if (page < 1 || page > totalPages) {
