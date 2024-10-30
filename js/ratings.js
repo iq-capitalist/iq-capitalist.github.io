@@ -197,8 +197,13 @@ function displayRatings(ratings) {
     if (isActiveTournament()) {
         const winnings = globalWinnings[currentLevel];
         const ratingsWithWinnings = ratings.map((player, index) => {
-            const winningIndex = globalData.ratings[currentLevel].findIndex(p => p.username === player.username);
-            return {...player, winnings: winnings[winningIndex]};
+            const playerData = globalData.ratings[currentLevel].find(p => p.username === player.username);
+            const questionsCount = globalData.playerAnswers?.[player.username] || 0;
+            return {
+                ...player,
+                winnings: winnings[index],
+                questionsCount: questionsCount
+            };
         });
 
         ratingsWithWinnings.sort((a, b) => b[currentSort.column] - a[currentSort.column]);
@@ -214,7 +219,7 @@ function displayRatings(ratings) {
                     <tr>
                         <th></th>
                         <th onclick="sortTable('username')">Игрок</th>
-                        <th class="text-end" onclick="sortTable('capital')">Капитал</th>
+                        <th class="text-end" onclick="sortTable('questionsCount')">Ответы</th>
                         <th class="text-end" onclick="sortTable('points')">Очки</th>
                         <th class="text-end" onclick="sortTable('winnings')">Выигрыш*</th>
                     </tr>
@@ -227,7 +232,7 @@ function displayRatings(ratings) {
                 <tr>
                     <td>${startIndex + index + 1}</td>
                     <td>${player.username}</td>
-                    <td class="text-end">${player.capital.toLocaleString('ru-RU')}</td>
+                    <td class="text-end">${player.questionsCount}</td>
                     <td class="text-end">${player.points.toLocaleString('ru-RU', {minimumFractionDigits: 1, maximumFractionDigits: 1})}</td>
                     <td class="text-end">${player.winnings.toLocaleString('ru-RU')}</td>
                 </tr>
