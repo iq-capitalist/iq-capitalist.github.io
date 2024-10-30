@@ -200,3 +200,11 @@ tr:hover {
     margin-top: 5px;
     margin-bottom: 15px;
 }
+
+.prize-pool {
+    color: var(--accent-color);
+    font-weight: 500;
+    font-size: 1.1em;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
