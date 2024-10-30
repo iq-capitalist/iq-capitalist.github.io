@@ -60,10 +60,9 @@ function loadData() {
         updateLevelHeader(currentLevel);
 
         if (isActiveTournament()) {
-            // Проверяем наличие призовых фондов
             if (!data.prizePools) {
                 console.error('Prize pools data is missing');
-                displayRatings([]); // Показываем пустую таблицу
+                displayRatings([]);
                 return;
             }
 
@@ -76,7 +75,7 @@ function loadData() {
             });
             displayRatings(data.ratings[currentLevel]);
         } else {
-            displayRatings([]); // Показываем пустую таблицу, когда нет активного турнира
+            displayRatings([]);
         }
 
         checkForForceUpdate(data.lastUpdate);
@@ -147,38 +146,39 @@ function changeLevel(level) {
 }
 
 function calculatePotentialWinnings(ratings, level) {
-    // Проверяем наличие призового фонда для уровня
     if (!globalData.prizePools || !globalData.prizePools[level]) {
         console.error(`Prize pool not found for level ${level}`);
-        return ratings.map(() => 0); // Возвращаем нулевые выигрыши если нет данных
+        return {};
     }
 
     const prizePool = globalData.prizePools[level];
-
-    // Отбираем игроков с положительными очками
     const positivePointsPlayers = ratings.filter(player => player.points > 0);
 
-    // Если нет игроков с положительными очками, все получают 0
     if (positivePointsPlayers.length === 0) {
-        return ratings.map(() => 0);
+        return ratings.reduce((acc, player) => {
+            acc[player.username] = 0;
+            return acc;
+        }, {});
     }
 
-    // Считаем сумму всех положительных очков
     const totalPositivePoints = positivePointsPlayers.reduce((sum, player) => sum + player.points, 0);
-
-    // Распределяем призовой фонд
-    return ratings.map(player => {
-        if (player.points <= 0) return 0;
-        const share = player.points / totalPositivePoints;
-        return Math.max(Math.round(prizePool * share), 0);
-    });
+    
+    // Создаём объект с выигрышами, где ключи - имена пользователей
+    return ratings.reduce((acc, player) => {
+        if (player.points <= 0) {
+            acc[player.username] = 0;
+        } else {
+            const share = player.points / totalPositivePoints;
+            acc[player.username] = Math.max(Math.round(prizePool * share), 0);
+        }
+        return acc;
+    }, {});
 }
 
 function displayRatings(ratings) {
     const tournamentInfoContainer = document.getElementById('tournamentInfo');
     const tableContainer = document.getElementById('ratingTable');
 
-    // Обновляем информацию о турнире
     if (isActiveTournament()) {
         tournamentInfoContainer.innerHTML = `
             <div class="tournament-info">
@@ -195,17 +195,13 @@ function displayRatings(ratings) {
         `;
     }
 
-    // Отображаем таблицу только если есть активный турнир
     if (isActiveTournament()) {
         const winnings = globalWinnings[currentLevel];
-        const ratingsWithWinnings = ratings.map((player, index) => {
-            // Находим полные данные игрока в globalData
-            return {
-                ...player,
-                winnings: winnings[index],
-                questionsCount: player.tournament_questions || 0
-            };
-        });
+        const ratingsWithWinnings = ratings.map(player => ({
+            ...player,
+            winnings: winnings[player.username] || 0,
+            questionsCount: player.tournament_questions || 0
+        }));
 
         ratingsWithWinnings.sort((a, b) => b[currentSort.column] - a[currentSort.column]);
         if (currentSort.direction === 'asc') ratingsWithWinnings.reverse();
@@ -248,27 +244,29 @@ function displayRatings(ratings) {
 
         // Добавление пагинации
         const totalPages = Math.ceil(ratingsWithWinnings.length / itemsPerPage);
-        html += `
-            <nav>
-                <ul class="pagination justify-content-center">
-                    <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
-                        <a class="page-link" href="#" onclick="changePage(${currentPage - 1})">Предыдущая</a>
-                    </li>
-        `;
-        for (let i = 1; i <= totalPages; i++) {
+        if (totalPages > 1) {
             html += `
-                <li class="page-item ${i === currentPage ? 'active' : ''}">
-                    <a class="page-link" href="#" onclick="changePage(${i})">${i}</a>
-                </li>
+                <nav>
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
+                            <a class="page-link" href="#" onclick="changePage(${currentPage - 1})">Предыдущая</a>
+                        </li>
+            `;
+            for (let i = 1; i <= totalPages; i++) {
+                html += `
+                    <li class="page-item ${i === currentPage ? 'active' : ''}">
+                        <a class="page-link" href="#" onclick="changePage(${i})">${i}</a>
+                    </li>
+                `;
+            }
+            html += `
+                        <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
+                            <a class="page-link" href="#" onclick="changePage(${currentPage + 1})">Следующая</a>
+                        </li>
+                    </ul>
+                </nav>
             `;
         }
-        html += `
-                    <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
-                        <a class="page-link" href="#" onclick="changePage(${currentPage + 1})">Следующая</a>
-                    </li>
-                </ul>
-            </nav>
-        `;
 
         tableContainer.innerHTML = html;
     } else {
