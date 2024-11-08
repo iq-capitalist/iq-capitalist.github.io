@@ -2,7 +2,7 @@ let globalStats;  // Данные игроков
 let levelsStats;  // Статистика по уровням
 let currentSort = { column: 'capital', direction: 'desc' };
 let currentPage = 1;
-const itemsPerPage = 20;
+const itemsPerPage = 50;
 
 function loadData() {
     console.log('Attempting to load data...');
@@ -67,7 +67,7 @@ function displayPlayers(players) {
         const levels = Object.entries(levelsStats.playersByLevel)
             .filter(([level]) => level !== 'IQ Капиталист')
             .map(([level, count]) => `${level}: ${count}`)
-            .join(' | ');
+            .join(', ');
         levelsHtml = `
             <div class="mb-4 text-center text-gray-600">
                 ${levels}
