@@ -4,6 +4,15 @@ let currentSort = { column: 'capital', direction: 'desc' };
 let currentPage = 1;
 const itemsPerPage = 50;
 
+function updateLastUpdate(lastUpdate) {
+    const lastUpdateElement = document.getElementById('lastUpdate');
+    if (lastUpdateElement) {
+        lastUpdateElement.textContent = `Данные обновлены: ${lastUpdate}`;
+    } else {
+        console.warn('Last update element not found');
+    }
+}
+
 function loadData() {
     console.log('Attempting to load data...');
     const timestamp = new Date().getTime();
@@ -22,6 +31,7 @@ function loadData() {
         .then(data => {
             console.log('Players data loaded successfully');
             globalStats = data;
+            updateLastUpdate(data.lastUpdate);
             
             // Загружаем статистику по уровням
             return fetch(`data/data.json?t=${timestamp}`, fetchOptions);
@@ -76,6 +86,7 @@ function displayPlayers(players) {
     }
 
     let html = `
+        <div id="lastUpdate" class="mb-4 text-gray-600"></div>
         ${levelsHtml}
         <div class="table-responsive">
             <table class="table table-hover">
