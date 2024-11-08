@@ -3,7 +3,7 @@ let currentSort = { column: 'points', direction: 'desc' };
 let globalData;
 let globalWinnings = {};
 let currentPage = 1;
-const itemsPerPage = 20;
+const itemsPerPage = 50;
 
 const levelRanges = {
     'Знаток': { min: 100, max: 100 },
