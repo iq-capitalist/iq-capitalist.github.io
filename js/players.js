@@ -1,4 +1,7 @@
 let globalData;
+let globalStats;
+let levelsStats;
+
 let currentSort = { column: 'capital', direction: 'desc' };
 let currentPage = 1;
 const itemsPerPage = 50;
@@ -6,21 +9,26 @@ const itemsPerPage = 50;
 async function loadData() {
     console.log('Attempting to load data...');
     try {
-        const response = await window.fs.readFile('data/data.json');
-        const text = new TextDecoder().decode(response);
-        const data = JSON.parse(text);
-        console.log('Data loaded successfully:', data);
+        // Загружаем данные игроков
+        const statsResponse = await window.fs.readFile('data/global_stats.json');
+        const statsText = new TextDecoder().decode(statsResponse);
+        globalStats = JSON.parse(statsText);
         
-        globalData = data;
-        updateLastUpdate(data.lastUpdate);
-        displayPlayers(data.players || []);
+        // Загружаем статистику уровней
+        const levelsResponse = await window.fs.readFile('data/data.json');
+        const levelsText = new TextDecoder().decode(levelsResponse);
+        levelsStats = JSON.parse(levelsText);
+        
+        console.log('Data loaded successfully');
+        updateLastUpdate(globalStats.lastUpdate);
+        displayPlayers(globalStats.players || []);
     } catch (error) {
         console.error('Error loading data:', error);
         const playersTable = document.getElementById('playersTable');
         if (playersTable) {
             playersTable.innerHTML = `
                 <p class="text-danger">Ошибка загрузки данных: ${error.message}</p>
-                <p>Пожалуйста, убедитесь, что файл data.json существует и доступен.</p>
+                <p>Пожалуйста, убедитесь, что файлы данных существуют и доступны.</p>
             `;
         }
     }
@@ -38,8 +46,8 @@ function updateLastUpdate(lastUpdate) {
 function displayPlayers(players) {
     // Добавляем статистику по уровням, если данные доступны
     let levelsHtml = '';
-    if (globalData && globalData.playersByLevel) {
-        const levels = Object.entries(globalData.playersByLevel)
+    if (levelsStats && levelsStats.playersByLevel) {
+        const levels = Object.entries(levelsStats.playersByLevel)
             .filter(([level]) => level !== 'IQ Капиталист')
             .map(([level, count]) => `${level}: ${count}`)
             .join(' | ');
@@ -88,32 +96,37 @@ function displayPlayers(players) {
             `;
         });
 
+        html += `
+                </tbody>
+            </table>
+        </div>
+        `;
+
         // Добавление пагинации
         const totalPages = Math.ceil(players.length / itemsPerPage);
-        html += `
-                    </tbody>
-                </table>
-            </div>
-            <nav>
-                <ul class="pagination justify-content-center">
-                    <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
-                        <a class="page-link" href="#" onclick="changePage(${currentPage - 1})">Предыдущая</a>
-                    </li>
-        `;
-        for (let i = 1; i <= totalPages; i++) {
+        if (totalPages > 1) {
             html += `
-                <li class="page-item ${i === currentPage ? 'active' : ''}">
-                    <a class="page-link" href="#" onclick="changePage(${i})">${i}</a>
-                </li>
+                <nav>
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
+                            <a class="page-link" href="#" onclick="changePage(${currentPage - 1})">Предыдущая</a>
+                        </li>
+            `;
+            for (let i = 1; i <= totalPages; i++) {
+                html += `
+                    <li class="page-item ${i === currentPage ? 'active' : ''}">
+                        <a class="page-link" href="#" onclick="changePage(${i})">${i}</a>
+                    </li>
+                `;
+            }
+            html += `
+                        <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
+                            <a class="page-link" href="#" onclick="changePage(${currentPage + 1})">Следующая</a>
+                        </li>
+                    </ul>
+                </nav>
             `;
         }
-        html += `
-                    <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
-                        <a class="page-link" href="#" onclick="changePage(${currentPage + 1})">Следующая</a>
-                    </li>
-                </ul>
-            </nav>
-        `;
     } else {
         html += `
                     <tr>
