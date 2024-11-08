@@ -45,14 +45,16 @@ function updateLastUpdate(lastUpdate) {
 }
 
 function displayPlayers(players) {
-    players.sort((a, b) => b[currentSort.column] - a[currentSort.column]);
-    if (currentSort.direction === 'asc') players.reverse();
-
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    const currentPagePlayers = players.slice(startIndex, endIndex);
+    // Статистика по уровням
+    const levels = Object.entries(globalData.playersByLevel)
+        .filter(([level]) => level !== 'IQ Капиталист')
+        .map(([level, count]) => `${level}: ${count}`)
+        .join(' | ');
 
     let html = `
+        <div class="mb-4 text-center text-gray-600">
+            ${levels}
+        </div>
         <div class="table-responsive">
             <table class="table table-hover">
                 <thead>
@@ -68,7 +70,14 @@ function displayPlayers(players) {
                 <tbody>
     `;
 
-    currentPagePlayers.forEach((player, index) => {
+    players.sort((a, b) => b[currentSort.column] - a[currentSort.column]);
+    if (currentSort.direction === 'asc') players.reverse();
+
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const currentPagePlayers = players.slice(startIndex, endIndex);
+
+    currentPagePlayers.forEach((player) => {
         html += `
             <tr>
                 <td>${player.username}</td>
