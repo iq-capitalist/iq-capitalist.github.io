@@ -1,8 +1,25 @@
 let globalStats;  // Данные игроков
-let levelsStats;  // Статистика по уровням
 let currentSort = { column: 'capital', direction: 'desc' };
 let currentPage = 1;
 const itemsPerPage = 50;
+
+function calculateLevelsStats(players) {
+    const levelsCount = players.reduce((acc, player) => {
+        acc[player.level] = (acc[player.level] || 0) + 1;
+        return acc;
+    }, {});
+    
+    // Определяем порядок уровней
+    const levelOrder = [
+        'Знаток', 'Эксперт', 'Мастер', 'Босс', 
+        'Титан', 'Легенда', 'Корифей', 'Гуру'
+    ];
+    
+    // Возвращаем отсортированные пары [уровень, количество]
+    return levelOrder
+        .filter(level => levelsCount[level] > 0)
+        .map(level => [level, levelsCount[level]]);
+}
 
 function updateLastUpdate(lastUpdate) {
     const lastUpdateElement = document.getElementById('lastUpdate');
@@ -16,44 +33,33 @@ function updateLastUpdate(lastUpdate) {
 function loadData() {
     console.log('Attempting to load data...');
     const timestamp = new Date().getTime();
-    const fetchOptions = {
+    fetch(`data/global_stats.json?t=${timestamp}`, {
         method: 'GET',
         headers: {
             'Cache-Control': 'no-cache, no-store, must-revalidate',
             'Pragma': 'no-cache',
             'Expires': '0'
         }
-    };
-
-    // Загружаем данные игроков
-    fetch(`data/global_stats.json?t=${timestamp}`, fetchOptions)
-        .then(response => response.json())
-        .then(data => {
-            console.log('Players data loaded successfully');
-            globalStats = data;
-            updateLastUpdate(data.lastUpdate);
-            
-            // Загружаем статистику по уровням
-            return fetch(`data/data.json?t=${timestamp}`, fetchOptions);
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Levels data loaded successfully');
-            levelsStats = data;
-            displayPlayers(globalStats.players || []);
-        })
-        .catch(error => {
-            console.error('Error loading data:', error);
-            const playersTable = document.getElementById('playersTable');
-            if (playersTable) {
-                playersTable.innerHTML = `
-                    <p class="text-danger">Ошибка загрузки данных: ${error.message}</p>
-                    <p>Пожалуйста, убедитесь, что файлы данных существуют и доступны.</p>
-                `;
-            } else {
-                console.error('Players table element not found');
-            }
-        });
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Players data loaded successfully');
+        globalStats = data;
+        updateLastUpdate(data.lastUpdate);
+        displayPlayers(globalStats.players || []);
+    })
+    .catch(error => {
+        console.error('Error loading data:', error);
+        const playersTable = document.getElementById('playersTable');
+        if (playersTable) {
+            playersTable.innerHTML = `
+                <p class="text-danger">Ошибка загрузки данных: ${error.message}</p>
+                <p>Пожалуйста, убедитесь, что файл global_stats.json существует и доступен.</p>
+            `;
+        } else {
+            console.error('Players table element not found');
+        }
+    });
 }
 
 function sortPlayers(players, column, direction) {
@@ -71,11 +77,11 @@ function sortPlayers(players, column, direction) {
 }
 
 function displayPlayers(players) {
-    // Добавляем статистику по уровням
+    // Считаем и отображаем статистику по уровням
     let levelsHtml = '';
-    if (levelsStats && levelsStats.playersByLevel) {
-        const levels = Object.entries(levelsStats.playersByLevel)
-            .filter(([level]) => level !== 'IQ Капиталист')
+    if (players && players.length > 0) {
+        const levelsStats = calculateLevelsStats(players);
+        const levels = levelsStats
             .map(([level, count]) => `${level}: ${count}`)
             .join(', ');
         levelsHtml = `
