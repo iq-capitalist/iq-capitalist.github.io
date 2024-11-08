@@ -1,55 +1,59 @@
-// Глобальные переменные и константы
 let globalStats;  // Данные игроков
 let levelsStats;  // Статистика по уровням
-let currentSort = { column: 'capital', direction: 'desc' };  // Параметры сортировки
-let currentPage = 1;  // Текущая страница
-const itemsPerPage = 20;  // Записей на странице
+let currentSort = { column: 'capital', direction: 'desc' };
+let currentPage = 1;
+const itemsPerPage = 20;
 
-async function loadData() {
+function loadData() {
     console.log('Attempting to load data...');
-    try {
-        // Загружаем данные игроков
-        const statsResponse = await window.fs.readFile('data/global_stats.json');
-        const statsText = new TextDecoder().decode(statsResponse);
-        globalStats = JSON.parse(statsText);
-        
-        // Загружаем статистику уровней
-        const levelsResponse = await window.fs.readFile('data/data.json');
-        const levelsText = new TextDecoder().decode(levelsResponse);
-        levelsStats = JSON.parse(levelsText);
-        
-        // Проверяем наличие необходимых данных
-        if (!globalStats.players) {
-            throw new Error('Отсутствуют данные игроков');
+    const timestamp = new Date().getTime();
+    const fetchOptions = {
+        method: 'GET',
+        headers: {
+            'Cache-Control': 'no-cache, no-store, must-revalidate',
+            'Pragma': 'no-cache',
+            'Expires': '0'
         }
-        if (!levelsStats.playersByLevel) {
-            throw new Error('Отсутствует статистика по уровням');
-        }
-        
-        console.log('Data loaded successfully');
-        updateLastUpdate(globalStats.lastUpdate);
-        displayPlayers(globalStats.players);
-    } catch (error) {
-        console.error('Error loading data:', error);
-        const playersTable = document.getElementById('playersTable');
-        if (playersTable) {
-            playersTable.innerHTML = `
-                <p class="text-danger">Ошибка загрузки данных: ${error.message}</p>
-                <p>Пожалуйста, убедитесь, что файлы данных существуют и доступны.</p>
-            `;
-        }
-    }
+    };
+
+    // Загружаем данные игроков
+    fetch(`data/global_stats.json?t=${timestamp}`, fetchOptions)
+        .then(response => response.json())
+        .then(data => {
+            console.log('Players data loaded successfully');
+            globalStats = data;
+            updateLastUpdate(data.lastUpdate);
+            
+            // Загружаем статистику по уровням
+            return fetch(`data/data.json?t=${timestamp}`, fetchOptions);
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Levels data loaded successfully');
+            levelsStats = data;
+            displayPlayers(globalStats.players || []);
+        })
+        .catch(error => {
+            console.error('Error loading data:', error);
+            const playersTable = document.getElementById('playersTable');
+            if (playersTable) {
+                playersTable.innerHTML = `
+                    <p class="text-danger">Ошибка загрузки данных: ${error.message}</p>
+                    <p>Пожалуйста, убедитесь, что файлы данных существуют и доступны.</p>
+                `;
+            } else {
+                console.error('Players table element not found');
+            }
+        });
 }
 
 function sortPlayers(players, column, direction) {
     return [...players].sort((a, b) => {
         if (column === 'username' || column === 'level') {
-            // Сортировка строковых полей
             return direction === 'asc' 
                 ? a[column].localeCompare(b[column])
                 : b[column].localeCompare(a[column]);
         } else {
-            // Сортировка числовых полей
             return direction === 'asc' 
                 ? a[column] - b[column]
                 : b[column] - a[column];
@@ -90,13 +94,11 @@ function displayPlayers(players) {
     `;
 
     if (players && players.length > 0) {
-        // Сортируем и получаем данные текущей страницы
         const sortedPlayers = sortPlayers(players, currentSort.column, currentSort.direction);
         const startIndex = (currentPage - 1) * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
         const currentPagePlayers = sortedPlayers.slice(startIndex, endIndex);
 
-        // Формируем строки таблицы
         currentPagePlayers.forEach((player) => {
             html += `
                 <tr>
@@ -116,7 +118,6 @@ function displayPlayers(players) {
         </div>
         `;
 
-        // Добавляем пагинацию если есть больше одной страницы
         const totalPages = Math.ceil(players.length / itemsPerPage);
         if (totalPages > 1) {
             html += `
@@ -161,11 +162,11 @@ function sortTable(column) {
         column,
         direction: currentSort.column === column && currentSort.direction === 'desc' ? 'asc' : 'desc'
     };
-    displayPlayers(globalStats.players);
+    displayPlayers(globalStats.players || []);
 }
 
 function changePage(page) {
-    if (!globalStats.players) return;
+    if (!globalStats || !globalStats.players) return;
     const totalPages = Math.ceil(globalStats.players.length / itemsPerPage);
     if (page >= 1 && page <= totalPages) {
         currentPage = page;
@@ -173,5 +174,4 @@ function changePage(page) {
     }
 }
 
-// Инициализация
 document.addEventListener('DOMContentLoaded', loadData);
