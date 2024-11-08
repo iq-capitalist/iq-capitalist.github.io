@@ -1,27 +1,34 @@
-let globalData;
-let globalStats;
-let levelsStats;
-
-let currentSort = { column: 'capital', direction: 'desc' };
-let currentPage = 1;
-const itemsPerPage = 50;
+// Глобальные переменные и константы
+let globalStats;  // Данные игроков
+let levelsStats;  // Статистика по уровням
+let currentSort = { column: 'capital', direction: 'desc' };  // Параметры сортировки
+let currentPage = 1;  // Текущая страница
+const itemsPerPage = 20;  // Записей на странице
 
 async function loadData() {
     console.log('Attempting to load data...');
     try {
         // Загружаем данные игроков
-        const statsResponse = await window.fs.readFile('global_stats.json');
+        const statsResponse = await window.fs.readFile('data/global_stats.json');
         const statsText = new TextDecoder().decode(statsResponse);
         globalStats = JSON.parse(statsText);
         
         // Загружаем статистику уровней
-        const levelsResponse = await window.fs.readFile('data.json');
+        const levelsResponse = await window.fs.readFile('data/data.json');
         const levelsText = new TextDecoder().decode(levelsResponse);
         levelsStats = JSON.parse(levelsText);
         
+        // Проверяем наличие необходимых данных
+        if (!globalStats.players) {
+            throw new Error('Отсутствуют данные игроков');
+        }
+        if (!levelsStats.playersByLevel) {
+            throw new Error('Отсутствует статистика по уровням');
+        }
+        
         console.log('Data loaded successfully');
         updateLastUpdate(globalStats.lastUpdate);
-        displayPlayers(globalStats.players || []);
+        displayPlayers(globalStats.players);
     } catch (error) {
         console.error('Error loading data:', error);
         const playersTable = document.getElementById('playersTable');
@@ -34,17 +41,24 @@ async function loadData() {
     }
 }
 
-function updateLastUpdate(lastUpdate) {
-    const lastUpdateElement = document.getElementById('lastUpdate');
-    if (lastUpdateElement) {
-        lastUpdateElement.textContent = `Данные обновлены: ${lastUpdate}`;
-    } else {
-        console.warn('Last update element not found');
-    }
+function sortPlayers(players, column, direction) {
+    return [...players].sort((a, b) => {
+        if (column === 'username' || column === 'level') {
+            // Сортировка строковых полей
+            return direction === 'asc' 
+                ? a[column].localeCompare(b[column])
+                : b[column].localeCompare(a[column]);
+        } else {
+            // Сортировка числовых полей
+            return direction === 'asc' 
+                ? a[column] - b[column]
+                : b[column] - a[column];
+        }
+    });
 }
 
 function displayPlayers(players) {
-    // Добавляем статистику по уровням, если данные доступны
+    // Добавляем статистику по уровням
     let levelsHtml = '';
     if (levelsStats && levelsStats.playersByLevel) {
         const levels = Object.entries(levelsStats.playersByLevel)
@@ -76,13 +90,13 @@ function displayPlayers(players) {
     `;
 
     if (players && players.length > 0) {
-        players.sort((a, b) => b[currentSort.column] - a[currentSort.column]);
-        if (currentSort.direction === 'asc') players.reverse();
-
+        // Сортируем и получаем данные текущей страницы
+        const sortedPlayers = sortPlayers(players, currentSort.column, currentSort.direction);
         const startIndex = (currentPage - 1) * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
-        const currentPagePlayers = players.slice(startIndex, endIndex);
+        const currentPagePlayers = sortedPlayers.slice(startIndex, endIndex);
 
+        // Формируем строки таблицы
         currentPagePlayers.forEach((player) => {
             html += `
                 <tr>
@@ -102,7 +116,7 @@ function displayPlayers(players) {
         </div>
         `;
 
-        // Добавление пагинации
+        // Добавляем пагинацию если есть больше одной страницы
         const totalPages = Math.ceil(players.length / itemsPerPage);
         if (totalPages > 1) {
             html += `
@@ -142,76 +156,22 @@ function displayPlayers(players) {
     playersTable.innerHTML = html;
 }
 
-function updatePagination(currentPage, totalPlayers) {
-    const totalPages = Math.ceil(totalPlayers / itemsPerPage);
-    const paginationContainer = document.querySelector('.pagination');
-    let paginationHTML = '';
-
-    // Кнопка "Предыдущая"
-    const prevDisabled = currentPage === 1;
-    paginationHTML += `
-        <li class="page-item ${prevDisabled ? 'disabled' : ''}">
-            <a class="page-link" href="#" ${prevDisabled ? '' : `onclick="changePage(${currentPage - 1})"`}>Предыдущая</a>
-        </li>
-    `;
-
-    // Номера страниц
-    for (let i = 1; i <= totalPages; i++) {
-        const isCurrentPage = i === currentPage;
-        paginationHTML += `
-            <li class="page-item ${isCurrentPage ? 'active' : ''}">
-                <a class="page-link" href="#" ${isCurrentPage ? '' : `onclick="changePage(${i})"`}>${i}</a>
-            </li>
-        `;
-    }
-
-    // Кнопка "Следующая"
-    const nextDisabled = currentPage === totalPages;
-    paginationHTML += `
-        <li class="page-item ${nextDisabled ? 'disabled' : ''}">
-            <a class="page-link" href="#" ${nextDisabled ? '' : `onclick="changePage(${currentPage + 1})"`}>Следующая</a>
-        </li>
-    `;
-
-    paginationContainer.innerHTML = paginationHTML;
-}
-
 function sortTable(column) {
-    if (currentSort.column === column) {
-        currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
-    } else {
-        currentSort.column = column;
-        currentSort.direction = 'desc';
-    }
-    displayPlayers(globalData.players);
+    currentSort = {
+        column,
+        direction: currentSort.column === column && currentSort.direction === 'desc' ? 'asc' : 'desc'
+    };
+    displayPlayers(globalStats.players);
 }
 
 function changePage(page) {
-    const totalPages = Math.ceil(globalData.players.length / itemsPerPage);
-    if (page < 1 || page > totalPages) {
-        return;
+    if (!globalStats.players) return;
+    const totalPages = Math.ceil(globalStats.players.length / itemsPerPage);
+    if (page >= 1 && page <= totalPages) {
+        currentPage = page;
+        displayPlayers(globalStats.players);
     }
-    currentPage = page;
-    displayPlayers(globalData.players);
 }
 
-function searchPlayers() {
-    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-    const filteredPlayers = globalData.players.filter(player =>
-        player.username.toLowerCase().includes(searchTerm)
-    );
-    displayPlayers(filteredPlayers);
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    loadData();
-
-    const searchInput = document.getElementById('searchInput');
-    if (searchInput) {
-        searchInput.addEventListener('input', searchPlayers);
-    } else {
-        console.warn('Search input element not found');
-    }
-});
-
-window.onload = loadData;
+// Инициализация
+document.addEventListener('DOMContentLoaded', loadData);
