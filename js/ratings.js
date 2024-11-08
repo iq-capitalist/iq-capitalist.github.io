@@ -197,30 +197,32 @@ function displayRatings(ratings) {
     if (isActiveTournament()) {
         const winnings = globalWinnings[currentLevel];
         
-        // Сначала создаем полный отсортированный список с позициями
-        const allRatingsWithPositions = ratings
-            .map(player => ({
-                ...player,
-                winnings: winnings[player.username] || 0,
-                questionsCount: player.tournament_questions || 0
-            }))
-            .sort((a, b) => b[currentSort.column] - a[currentSort.column]);
-            
-        if (currentSort.direction === 'asc') {
-            allRatingsWithPositions.reverse();
-        }
-        
-        // Добавляем позиции
-        allRatingsWithPositions.forEach((player, index) => {
-            player.position = index + 1;
+        // Создаем полный список с выигрышами
+        const fullRatingsList = globalData.ratings[currentLevel].map(player => ({
+            ...player,
+            winnings: winnings[player.username] || 0,
+            questionsCount: player.tournament_questions || 0
+        }));
+
+        // Сортируем полный список
+        const sortedFullList = [...fullRatingsList].sort((a, b) => {
+            const compareResult = b[currentSort.column] - a[currentSort.column];
+            return currentSort.direction === 'asc' ? -compareResult : compareResult;
         });
 
-        // Применяем фильтрацию если есть поисковый запрос
+        // Добавляем позиции к полному отсортированному списку
+        const ratingWithPositions = sortedFullList.map((player, index) => ({
+            ...player,
+            position: index + 1
+        }));
+
+        // Применяем поиск, если есть
         const searchTerm = document.getElementById('searchInput')?.value?.toLowerCase() || '';
         const filteredRatings = searchTerm 
-            ? allRatingsWithPositions.filter(player => player.username.toLowerCase().includes(searchTerm))
-            : allRatingsWithPositions;
+            ? ratingWithPositions.filter(player => player.username.toLowerCase().includes(searchTerm))
+            : ratingWithPositions;
 
+        // Пагинация
         const startIndex = (currentPage - 1) * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
         const currentPageRatings = filteredRatings.slice(startIndex, endIndex);
@@ -257,7 +259,7 @@ function displayRatings(ratings) {
             <p class="winnings-note">* потенциальный выигрыш по состоянию на момент расчёта рейтинга. Окончательный выигрыш может быть другим.</p>
         `;
 
-        // Добавление пагинации
+        // Пагинация
         const totalPages = Math.ceil(filteredRatings.length / itemsPerPage);
         if (totalPages > 1) {
             html += `
@@ -343,12 +345,8 @@ function changePage(page) {
 }
 
 function searchPlayers() {
-    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-    const filteredRatings = globalData.ratings[currentLevel].filter(player =>
-        player.username.toLowerCase().includes(searchTerm)
-    );
     currentPage = 1; // Сбрасываем на первую страницу при поиске
-    displayRatings(filteredRatings);
+    displayRatings(globalData.ratings[currentLevel]);
 }
 
 document.getElementById('searchInput').addEventListener('input', searchPlayers);
