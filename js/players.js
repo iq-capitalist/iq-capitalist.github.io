@@ -9,16 +9,14 @@ function calculateLevelsStats(players) {
         return acc;
     }, {});
     
-    // Определяем порядок уровней
+    // Определяем порядок уровней в обратном порядке
     const levelOrder = [
-        'Знаток', 'Эксперт', 'Мастер', 'Босс', 
-        'Титан', 'Легенда', 'Корифей', 'Гуру'
+        'Гуру', 'Корифей', 'Легенда', 'Титан',
+        'Босс', 'Мастер', 'Эксперт', 'Знаток'
     ];
     
-    // Возвращаем отсортированные пары [уровень, количество]
-    return levelOrder
-        .filter(level => levelsCount[level] > 0)
-        .map(level => [level, levelsCount[level]]);
+    // Возвращаем все уровни с количеством игроков (включая нули)
+    return levelOrder.map(level => [level, levelsCount[level] || 0]);
 }
 
 function updateLastUpdate(lastUpdate) {
