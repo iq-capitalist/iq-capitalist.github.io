@@ -196,18 +196,34 @@ function displayRatings(ratings) {
 
     if (isActiveTournament()) {
         const winnings = globalWinnings[currentLevel];
-        const ratingsWithWinnings = ratings.map(player => ({
-            ...player,
-            winnings: winnings[player.username] || 0,
-            questionsCount: player.tournament_questions || 0
-        }));
+        
+        // Сначала создаем полный отсортированный список с позициями
+        const allRatingsWithPositions = ratings
+            .map(player => ({
+                ...player,
+                winnings: winnings[player.username] || 0,
+                questionsCount: player.tournament_questions || 0
+            }))
+            .sort((a, b) => b[currentSort.column] - a[currentSort.column]);
+            
+        if (currentSort.direction === 'asc') {
+            allRatingsWithPositions.reverse();
+        }
+        
+        // Добавляем позиции
+        allRatingsWithPositions.forEach((player, index) => {
+            player.position = index + 1;
+        });
 
-        ratingsWithWinnings.sort((a, b) => b[currentSort.column] - a[currentSort.column]);
-        if (currentSort.direction === 'asc') ratingsWithWinnings.reverse();
+        // Применяем фильтрацию если есть поисковый запрос
+        const searchTerm = document.getElementById('searchInput')?.value?.toLowerCase() || '';
+        const filteredRatings = searchTerm 
+            ? allRatingsWithPositions.filter(player => player.username.toLowerCase().includes(searchTerm))
+            : allRatingsWithPositions;
 
         const startIndex = (currentPage - 1) * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
-        const currentPageRatings = ratingsWithWinnings.slice(startIndex, endIndex);
+        const currentPageRatings = filteredRatings.slice(startIndex, endIndex);
 
         let html = `
             <table class="table table-hover">
@@ -223,10 +239,10 @@ function displayRatings(ratings) {
                 <tbody>
         `;
 
-        currentPageRatings.forEach((player, index) => {
+        currentPageRatings.forEach(player => {
             html += `
                 <tr>
-                    <td>${startIndex + index + 1}</td>
+                    <td>${player.position}</td>
                     <td>${player.username}</td>
                     <td class="text-end">${player.questionsCount}</td>
                     <td class="text-end">${player.points.toLocaleString('ru-RU', {minimumFractionDigits: 1, maximumFractionDigits: 1})}</td>
@@ -242,7 +258,7 @@ function displayRatings(ratings) {
         `;
 
         // Добавление пагинации
-        const totalPages = Math.ceil(ratingsWithWinnings.length / itemsPerPage);
+        const totalPages = Math.ceil(filteredRatings.length / itemsPerPage);
         if (totalPages > 1) {
             html += `
                 <nav>
@@ -331,6 +347,7 @@ function searchPlayers() {
     const filteredRatings = globalData.ratings[currentLevel].filter(player =>
         player.username.toLowerCase().includes(searchTerm)
     );
+    currentPage = 1; // Сбрасываем на первую страницу при поиске
     displayRatings(filteredRatings);
 }
 
