@@ -22,7 +22,6 @@ function loadData() {
         .then(data => {
             console.log('Players data loaded successfully');
             globalStats = data;
-            updateLastUpdate(data.lastUpdate);
             
             // Загружаем статистику по уровням
             return fetch(`data/data.json?t=${timestamp}`, fetchOptions);
