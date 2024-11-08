@@ -10,12 +10,12 @@ async function loadData() {
     console.log('Attempting to load data...');
     try {
         // Загружаем данные игроков
-        const statsResponse = await window.fs.readFile('data/global_stats.json');
+        const statsResponse = await window.fs.readFile('global_stats.json');
         const statsText = new TextDecoder().decode(statsResponse);
         globalStats = JSON.parse(statsText);
         
         // Загружаем статистику уровней
-        const levelsResponse = await window.fs.readFile('data/data.json');
+        const levelsResponse = await window.fs.readFile('data.json');
         const levelsText = new TextDecoder().decode(levelsResponse);
         levelsStats = JSON.parse(levelsText);
         
