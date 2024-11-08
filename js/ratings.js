@@ -231,7 +231,7 @@ function displayRatings(ratings) {
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th></th>
+                        <th>Место</th>
                         <th onclick="sortTable('username')">Игрок</th>
                         <th class="text-end" onclick="sortTable('questionsCount')">Ответы</th>
                         <th class="text-end" onclick="sortTable('points')">Очки</th>
