@@ -3,34 +3,27 @@ let currentSort = { column: 'capital', direction: 'desc' };
 let currentPage = 1;
 const itemsPerPage = 50;
 
-function loadData() {
+async function loadData() {
     console.log('Attempting to load data...');
-    const timestamp = new Date().getTime();
-    fetch(`data/global_stats.json?t=${timestamp}`, {
-        method: 'GET',
-        headers: {
-            'Cache-Control': 'no-cache, no-store, must-revalidate',
-            'Pragma': 'no-cache',
-            'Expires': '0'
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
+    try {
+        const response = await window.fs.readFile('data/data.json');
+        const text = new TextDecoder().decode(response);
+        const data = JSON.parse(text);
         console.log('Data loaded successfully:', data);
+        
         globalData = data;
         updateLastUpdate(data.lastUpdate);
         displayPlayers(data.players || []);
-    })
-    .catch(error => {
+    } catch (error) {
         console.error('Error loading data:', error);
         const playersTable = document.getElementById('playersTable');
         if (playersTable) {
             playersTable.innerHTML = `
                 <p class="text-danger">Ошибка загрузки данных: ${error.message}</p>
-                <p>Пожалуйста, убедитесь, что файл global_stats.json существует и доступен.</p>
+                <p>Пожалуйста, убедитесь, что файл data.json существует и доступен.</p>
             `;
         }
-    });
+    }
 }
 
 function updateLastUpdate(lastUpdate) {
