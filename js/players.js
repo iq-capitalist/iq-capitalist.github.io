@@ -57,7 +57,6 @@ function displayPlayers(players) {
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th></th>
                         <th onclick="sortTable('username')">Игрок</th>
                         <th onclick="sortTable('level')">Уровень</th>
                         <th class="text-end" onclick="sortTable('capital')">Капитал</th>
@@ -72,7 +71,6 @@ function displayPlayers(players) {
     currentPagePlayers.forEach((player, index) => {
         html += `
             <tr>
-                <td>${startIndex + index + 1}</td>
                 <td>${player.username}</td>
                 <td>${player.level}</td>
                 <td class="text-end">${player.capital.toLocaleString('ru-RU')}</td>
