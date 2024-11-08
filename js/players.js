@@ -45,7 +45,7 @@ function updateLastUpdate(lastUpdate) {
 }
 
 function displayPlayers(players) {
-    // Статистика по уровням
+    // Добавляем статистику по уровням
     const levels = Object.entries(globalData.playersByLevel)
         .filter(([level]) => level !== 'IQ Капиталист')
         .map(([level, count]) => `${level}: ${count}`)
