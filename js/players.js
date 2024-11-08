@@ -1,7 +1,7 @@
 let globalData;
 let currentSort = { column: 'capital', direction: 'desc' };
 let currentPage = 1;
-const itemsPerPage = 20;
+const itemsPerPage = 50;
 
 function loadData() {
     console.log('Attempting to load data...');
