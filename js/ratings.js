@@ -30,7 +30,7 @@ function updateLevelHeader(level) {
 }
 
 function isActiveTournament() {
-    return globalData.activeTournament !== null && globalData.questionsAsked !== null;
+    return globalData.activeTournament !== null;
 }
 
 function loadData() {
@@ -179,10 +179,14 @@ function displayRatings(ratings) {
     const tableContainer = document.getElementById('ratingTable');
 
     if (isActiveTournament()) {
+        const questionsInfo = globalData.questionsAsked !== null 
+            ? `Задано вопросов: ${globalData.questionsAsked}.` 
+            : '';
+            
         tournamentInfoContainer.innerHTML = `
             <div class="tournament-info">
                 <p>Турнир: ${globalData.activeTournament}. 
-                   Задано вопросов: ${globalData.questionsAsked}. 
+                   ${questionsInfo} 
                    Участников: ${globalData.totalPlayers}</p>
             </div>
         `;
@@ -192,6 +196,8 @@ function displayRatings(ratings) {
                 <p>На данный момент нет активного турнира</p>
             </div>
         `;
+        tableContainer.innerHTML = '';
+        return;
     }
 
     if (isActiveTournament()) {
