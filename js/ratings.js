@@ -33,6 +33,16 @@ function isActiveTournament() {
     return globalData.activeTournament !== null;
 }
 
+function toggleTournamentElements(show) {
+    const elements = ['levelButtons', 'levelHeader', 'ratingTable', 'searchInput'];
+    elements.forEach(id => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.style.display = show ? '' : 'none';
+        }
+    });
+}
+
 function loadData() {
     console.log('Attempting to load data...');
     const timestamp = new Date().getTime();
@@ -56,15 +66,9 @@ function loadData() {
         globalData = data;
         updateLastUpdate(data.lastUpdate);
 
-        // Очищаем все контейнеры
-        const containers = ['levelButtons', 'levelHeader', 'ratingTable', 'tournamentInfo'];
-        containers.forEach(id => {
-            const container = document.getElementById(id);
-            if (container) container.innerHTML = '';
-        });
-
-        // Если нет активного турнира, показываем только сообщение
+        // Если нет активного турнира, скрываем элементы и показываем сообщение
         if (!data.activeTournament) {
+            toggleTournamentElements(false);
             const tournamentInfo = document.getElementById('tournamentInfo');
             tournamentInfo.innerHTML = `
                 <div class="tournament-info">
@@ -75,6 +79,7 @@ function loadData() {
         }
 
         // Если турнир есть, показываем весь интерфейс
+        toggleTournamentElements(true);
         createLevelButtons(Object.keys(data.ratings));
         updateLevelHeader(currentLevel);
         displayRatings(data.ratings[currentLevel]);
