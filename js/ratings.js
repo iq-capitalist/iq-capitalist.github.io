@@ -242,10 +242,11 @@ function displayRatings(ratings) {
         `;
 
         currentPageRatings.forEach(player => {
+            const boosterIcon = player.has_active_boosters ? ' 🚀' : '';
             html += `
                 <tr>
                     <td>${player.position}</td>
-                    <td>${player.username}</td>
+                    <td>${player.username}${boosterIcon}</td>
                     <td class="text-end">${player.questionsCount}</td>
                     <td class="text-end">${player.points.toLocaleString('ru-RU', {minimumFractionDigits: 1, maximumFractionDigits: 1})}</td>
                     <td class="text-end">${player.winnings.toLocaleString('ru-RU')}</td>
