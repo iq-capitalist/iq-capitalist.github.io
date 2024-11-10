@@ -116,7 +116,6 @@ function displayPlayers(players) {
                         <th class="text-end" onclick="sortTable('capital')">Капитал</th>
                         <th class="text-end" onclick="sortTable('wallet')">Кошелёк</th>
                         <th class="text-end" onclick="sortTable('all_questions')">Ответы</th>
-                        <th class="text-end" onclick="sortTable('remaining_boosters')">Бустеры</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -136,7 +135,6 @@ function displayPlayers(players) {
                     <td class="text-end">${player.capital.toLocaleString('ru-RU')}</td>
                     <td class="text-end">${player.wallet.toLocaleString('ru-RU')}</td>
                     <td class="text-end">${player.all_questions.toLocaleString('ru-RU')}</td>
-                    <td class="text-end">${player.remaining_boosters.toLocaleString('ru-RU')}</td>
                 </tr>
             `;
         });
@@ -174,7 +172,7 @@ function displayPlayers(players) {
     } else {
         html += `
                     <tr>
-                        <td colspan="6" class="text-center">
+                        <td colspan="5" class="text-center">
                             ${searchTerm ? 'Ничего не найдено' : 'Нет данных для отображения'}
                         </td>
                     </tr>
