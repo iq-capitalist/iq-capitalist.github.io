@@ -75,10 +75,18 @@ function sortPlayers(players, column, direction) {
 }
 
 function displayPlayers(players) {
+    const searchTerm = document.getElementById('searchInput')?.value?.toLowerCase() || '';
+    
+    // Фильтруем игроков по поисковому запросу
+    const filteredPlayers = players.filter(player => 
+        player.username.toLowerCase().includes(searchTerm) ||
+        player.level.toLowerCase().includes(searchTerm)
+    );
+
     // Считаем и отображаем статистику по уровням
     let levelsHtml = '';
-    if (players && players.length > 0) {
-        const levelsStats = calculateLevelsStats(players);
+    if (filteredPlayers && filteredPlayers.length > 0) {
+        const levelsStats = calculateLevelsStats(filteredPlayers);
         const levels = levelsStats
             .map(([level, count]) => `${level}: ${count}`)
             .join(', ');
@@ -107,8 +115,8 @@ function displayPlayers(players) {
                 <tbody>
     `;
 
-    if (players && players.length > 0) {
-        const sortedPlayers = sortPlayers(players, currentSort.column, currentSort.direction);
+    if (filteredPlayers && filteredPlayers.length > 0) {
+        const sortedPlayers = sortPlayers(filteredPlayers, currentSort.column, currentSort.direction);
         const startIndex = (currentPage - 1) * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
         const currentPagePlayers = sortedPlayers.slice(startIndex, endIndex);
@@ -132,7 +140,7 @@ function displayPlayers(players) {
         </div>
         `;
 
-        const totalPages = Math.ceil(players.length / itemsPerPage);
+        const totalPages = Math.ceil(filteredPlayers.length / itemsPerPage);
         if (totalPages > 1) {
             html += `
                 <nav>
@@ -159,7 +167,9 @@ function displayPlayers(players) {
     } else {
         html += `
                     <tr>
-                        <td colspan="6" class="text-center">Нет данных для отображения</td>
+                        <td colspan="6" class="text-center">
+                            ${searchTerm ? 'Ничего не найдено' : 'Нет данных для отображения'}
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -181,11 +191,27 @@ function sortTable(column) {
 
 function changePage(page) {
     if (!globalStats || !globalStats.players) return;
-    const totalPages = Math.ceil(globalStats.players.length / itemsPerPage);
+    const searchTerm = document.getElementById('searchInput')?.value?.toLowerCase() || '';
+    const filteredPlayers = globalStats.players.filter(player => 
+        player.username.toLowerCase().includes(searchTerm) ||
+        player.level.toLowerCase().includes(searchTerm)
+    );
+    const totalPages = Math.ceil(filteredPlayers.length / itemsPerPage);
     if (page >= 1 && page <= totalPages) {
         currentPage = page;
         displayPlayers(globalStats.players);
     }
 }
 
-document.addEventListener('DOMContentLoaded', loadData);
+function searchPlayers() {
+    currentPage = 1; // Сбрасываем на первую страницу при поиске
+    displayPlayers(globalStats.players || []);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadData();
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        searchInput.addEventListener('input', searchPlayers);
+    }
+});
