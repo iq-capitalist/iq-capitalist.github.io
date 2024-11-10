@@ -55,28 +55,30 @@ function loadData() {
         console.log('Data loaded successfully:', data);
         globalData = data;
         updateLastUpdate(data.lastUpdate);
-        createLevelButtons(Object.keys(data.ratings));
-        updateLevelHeader(currentLevel);
 
-        if (isActiveTournament()) {
-            if (!data.prizePools) {
-                console.error('Prize pools data is missing');
-                displayRatings([]);
-                return;
-            }
+        // Очищаем все контейнеры
+        const containers = ['levelButtons', 'levelHeader', 'ratingTable', 'tournamentInfo'];
+        containers.forEach(id => {
+            const container = document.getElementById(id);
+            if (container) container.innerHTML = '';
+        });
 
-            // Рассчитываем выигрыши для всех уровней
-            Object.keys(data.ratings).forEach(level => {
-                if (!data.prizePools[level]) {
-                    console.warn(`Prize pool not found for level ${level}`);
-                }
-                globalWinnings[level] = calculatePotentialWinnings(data.ratings[level], level);
-            });
-            displayRatings(data.ratings[currentLevel]);
-        } else {
-            displayRatings([]);
+        // Если нет активного турнира, показываем только сообщение
+        if (!data.activeTournament) {
+            const tournamentInfo = document.getElementById('tournamentInfo');
+            tournamentInfo.innerHTML = `
+                <div class="tournament-info">
+                    <p>На данный момент нет активного турнира</p>
+                </div>
+            `;
+            return;
         }
 
+        // Если турнир есть, показываем весь интерфейс
+        createLevelButtons(Object.keys(data.ratings));
+        updateLevelHeader(currentLevel);
+        displayRatings(data.ratings[currentLevel]);
+        
         checkForForceUpdate(data.lastUpdate);
     })
     .catch(error => {
@@ -178,62 +180,53 @@ function displayRatings(ratings) {
     const tournamentInfoContainer = document.getElementById('tournamentInfo');
     const tableContainer = document.getElementById('ratingTable');
 
-    if (isActiveTournament()) {
-        const questionsInfo = globalData.questionsAsked !== null 
-            ? `Задано вопросов: ${globalData.questionsAsked}.` 
-            : '';
-            
-        tournamentInfoContainer.innerHTML = `
-            <div class="tournament-info">
-                <p>Турнир: ${globalData.activeTournament}. 
-                   ${questionsInfo} 
-                   Участников: ${globalData.totalPlayers}</p>
-            </div>
-        `;
-    } else {
-        tournamentInfoContainer.innerHTML = `
-            <div class="tournament-info">
-                <p>На данный момент нет активного турнира</p>
-            </div>
-        `;
-        tableContainer.innerHTML = '';
-        return;
-    }
-
-    if (isActiveTournament()) {
-        const winnings = globalWinnings[currentLevel];
+    // Отображаем информацию о турнире
+    const questionsInfo = globalData.questionsAsked !== null 
+        ? `Задано вопросов: ${globalData.questionsAsked}.` 
+        : '';
         
-        // Создаем полный список с выигрышами
-        const fullRatingsList = globalData.ratings[currentLevel].map(player => ({
-            ...player,
-            winnings: winnings[player.username] || 0,
-            questionsCount: player.tournament_questions || 0
-        }));
+    tournamentInfoContainer.innerHTML = `
+        <div class="tournament-info">
+            <p>Турнир: ${globalData.activeTournament}. 
+               ${questionsInfo} 
+               Участников: ${globalData.totalPlayers}</p>
+        </div>
+    `;
 
-        // Сортируем полный список
-        const sortedFullList = [...fullRatingsList].sort((a, b) => {
-            const compareResult = b[currentSort.column] - a[currentSort.column];
-            return currentSort.direction === 'asc' ? -compareResult : compareResult;
-        });
+    const winnings = globalWinnings[currentLevel];
+    
+    // Создаем полный список с выигрышами
+    const fullRatingsList = globalData.ratings[currentLevel].map(player => ({
+        ...player,
+        winnings: winnings[player.username] || 0,
+        questionsCount: player.tournament_questions || 0
+    }));
 
-        // Добавляем позиции к полному отсортированному списку
-        const ratingWithPositions = sortedFullList.map((player, index) => ({
-            ...player,
-            position: index + 1
-        }));
+    // Сортируем полный список
+    const sortedFullList = [...fullRatingsList].sort((a, b) => {
+        const compareResult = b[currentSort.column] - a[currentSort.column];
+        return currentSort.direction === 'asc' ? -compareResult : compareResult;
+    });
 
-        // Применяем поиск, если есть
-        const searchTerm = document.getElementById('searchInput')?.value?.toLowerCase() || '';
-        const filteredRatings = searchTerm 
-            ? ratingWithPositions.filter(player => player.username.toLowerCase().includes(searchTerm))
-            : ratingWithPositions;
+    // Добавляем позиции к полному отсортированному списку
+    const ratingWithPositions = sortedFullList.map((player, index) => ({
+        ...player,
+        position: index + 1
+    }));
 
-        // Пагинация
-        const startIndex = (currentPage - 1) * itemsPerPage;
-        const endIndex = startIndex + itemsPerPage;
-        const currentPageRatings = filteredRatings.slice(startIndex, endIndex);
+    // Применяем поиск, если есть
+    const searchTerm = document.getElementById('searchInput')?.value?.toLowerCase() || '';
+    const filteredRatings = searchTerm 
+        ? ratingWithPositions.filter(player => player.username.toLowerCase().includes(searchTerm))
+        : ratingWithPositions;
 
-        let html = `
+    // Пагинация
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const currentPageRatings = filteredRatings.slice(startIndex, endIndex);
+
+    let html = `
+        <div class="table-responsive">
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -245,57 +238,57 @@ function displayRatings(ratings) {
                     </tr>
                 </thead>
                 <tbody>
-        `;
+    `;
 
-        currentPageRatings.forEach(player => {
-            const boosterIcon = player.has_active_boosters ? ' 🚀' : '';
-            html += `
-                <tr>
-                    <td>${player.position}</td>
-                    <td>${player.username}${boosterIcon}</td>
-                    <td class="text-end">${player.questionsCount}</td>
-                    <td class="text-end">${player.points.toLocaleString('ru-RU', {minimumFractionDigits: 1, maximumFractionDigits: 1})}</td>
-                    <td class="text-end">${player.winnings.toLocaleString('ru-RU')}</td>
-                </tr>
-            `;
-        });
-
+    currentPageRatings.forEach(player => {
+        const boosterIcon = player.has_active_boosters ? ' 🚀' : '';
         html += `
+            <tr>
+                <td>${player.position}</td>
+                <td>${player.username}${boosterIcon}</td>
+                <td class="text-end">${player.questionsCount}</td>
+                <td class="text-end">${player.points.toLocaleString('ru-RU', {minimumFractionDigits: 1, maximumFractionDigits: 1})}</td>
+                <td class="text-end">${player.winnings.toLocaleString('ru-RU')}</td>
+            </tr>
+        `;
+    });
+
+    html += `
                 </tbody>
             </table>
-            <p class="winnings-note">* потенциальный выигрыш по состоянию на момент расчёта рейтинга. Окончательный выигрыш может быть другим.</p>
+        </div>
+        <p class="winnings-note">* потенциальный выигрыш по состоянию на момент расчёта рейтинга. Окончательный выигрыш может быть другим.</p>
+    `;
+
+    // Пагинация
+    const totalPages = Math.ceil(filteredRatings.length / itemsPerPage);
+    if (totalPages > 1) {
+        html += `
+            <nav>
+                <ul class="pagination justify-content-center">
+                    <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
+                        <a class="page-link" href="#" onclick="changePage(${currentPage - 1})">Предыдущая</a>
+                    </li>
         `;
 
-        // Пагинация
-        const totalPages = Math.ceil(filteredRatings.length / itemsPerPage);
-        if (totalPages > 1) {
+        for (let i = 1; i <= totalPages; i++) {
             html += `
-                <nav>
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
-                            <a class="page-link" href="#" onclick="changePage(${currentPage - 1})">Предыдущая</a>
-                        </li>
-            `;
-            for (let i = 1; i <= totalPages; i++) {
-                html += `
-                    <li class="page-item ${i === currentPage ? 'active' : ''}">
-                        <a class="page-link" href="#" onclick="changePage(${i})">${i}</a>
-                    </li>
-                `;
-            }
-            html += `
-                        <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
-                            <a class="page-link" href="#" onclick="changePage(${currentPage + 1})">Следующая</a>
-                        </li>
-                    </ul>
-                </nav>
+                <li class="page-item ${i === currentPage ? 'active' : ''}">
+                    <a class="page-link" href="#" onclick="changePage(${i})">${i}</a>
+                </li>
             `;
         }
 
-        tableContainer.innerHTML = html;
-    } else {
-        tableContainer.innerHTML = '';
+        html += `
+                    <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
+                        <a class="page-link" href="#" onclick="changePage(${currentPage + 1})">Следующая</a>
+                    </li>
+                </ul>
+            </nav>
+        `;
     }
+
+    tableContainer.innerHTML = html;
 }
 
 function updatePagination(currentPage, totalPages) {
