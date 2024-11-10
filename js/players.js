@@ -67,9 +67,16 @@ function sortPlayers(players, column, direction) {
                 ? a[column].localeCompare(b[column])
                 : b[column].localeCompare(a[column]);
         } else {
-            return direction === 'asc' 
+            const primaryCompare = direction === 'asc' 
                 ? a[column] - b[column]
                 : b[column] - a[column];
+                
+            // Если капиталы равны, сортируем по кошельку
+            if (primaryCompare === 0 && column === 'capital') {
+                return b.wallet - a.wallet;
+            }
+            
+            return primaryCompare;
         }
     });
 }
