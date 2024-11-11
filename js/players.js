@@ -22,7 +22,7 @@ function calculateLevelsStats(players) {
 function updateLastUpdate(lastUpdate) {
     const lastUpdateElement = document.getElementById('lastUpdate');
     if (lastUpdateElement) {
-        lastUpdateElement.textContent = `Данные обновлены: ${lastUpdate}`;
+        lastUpdateElement.innerHTML = `Данные обновлены: ${lastUpdate} | <a href="#" onclick="downloadPlayersCSV(); return false;">Скачать csv</a>`;
     } else {
         console.warn('Last update element not found');
     }
@@ -220,3 +220,59 @@ document.addEventListener('DOMContentLoaded', () => {
         searchInput.addEventListener('input', searchPlayers);
     }
 });
+
+function generatePlayersCSV(players) {
+    // Заголовки для CSV
+    const headers = [
+        'Игрок',
+        'Уровень',
+        'Капитал',
+        'Кошелёк',
+        'Ответы'
+    ];
+
+    // Преобразуем данные в строки CSV
+    const csvRows = [];
+    
+    // Добавляем заголовки
+    csvRows.push(headers.join(','));
+    
+    // Добавляем данные игроков
+    for (const player of players) {
+        const row = [
+            `"${player.username}"`,  // Используем кавычки для имен
+            `"${player.level}"`,
+            player.capital,
+            player.wallet,
+            player.all_questions
+        ];
+        csvRows.push(row.join(','));
+    }
+    
+    return csvRows.join('\n');
+}
+
+function downloadPlayersCSV() {
+    if (!globalStats || !globalStats.players) {
+        console.error('Нет данных для скачивания');
+        return;
+    }
+    
+    const csv = generatePlayersCSV(globalStats.players);
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    
+    // Создаем имя файла с текущей датой
+    const date = new Date().toISOString().slice(0,10);
+    const filename = `players_${date}.csv`;
+    
+    // Создаем ссылку для скачивания
+    link.href = window.URL.createObjectURL(blob);
+    link.download = filename;
+    link.style.display = 'none';
+    
+    // Добавляем ссылку в документ, кликаем по ней и удаляем
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
