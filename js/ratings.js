@@ -188,26 +188,34 @@ function calculatePotentialWinnings(ratings, level) {
 }
 
 function displayRatings(ratings) {
+    if (!ratings || !Array.isArray(ratings)) {
+        console.error('Invalid ratings data');
+        return;
+    }
+
     const tournamentInfoContainer = document.getElementById('tournamentInfo');
     const tableContainer = document.getElementById('ratingTable');
 
     // Отображаем информацию о турнире
-    const questionsInfo = globalData.questionsAsked !== null 
-        ? `Задано вопросов: ${globalData.questionsAsked}.` 
-        : '';
-        
-    tournamentInfoContainer.innerHTML = `
-        <div class="tournament-info">
-            <p>Турнир: ${globalData.activeTournament}. 
-               ${questionsInfo} 
-               Участников: ${globalData.totalPlayers}</p>
-        </div>
-    `;
+    if (globalData && globalData.activeTournament) {
+        const questionsInfo = globalData.questionsAsked !== null 
+            ? `Задано вопросов: ${globalData.questionsAsked}.` 
+            : '';
+            
+        tournamentInfoContainer.innerHTML = `
+            <div class="tournament-info">
+                <p>Турнир: ${globalData.activeTournament}. 
+                   ${questionsInfo} 
+                   Участников: ${globalData.totalPlayers}</p>
+            </div>
+        `;
+    }
 
-    const winnings = globalWinnings[currentLevel];
+    // Проверяем наличие данных о выигрышах
+    const winnings = globalWinnings && globalWinnings[currentLevel] ? globalWinnings[currentLevel] : {};
     
     // Создаем полный список с выигрышами
-    const fullRatingsList = globalData.ratings[currentLevel].map(player => ({
+    const fullRatingsList = ratings.map(player => ({
         ...player,
         winnings: winnings[player.username] || 0,
         questionsCount: player.tournament_questions || 0
