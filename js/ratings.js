@@ -78,7 +78,13 @@ function loadData() {
             return;
         }
 
-        // Если турнир есть, показываем весь интерфейс
+        // Рассчитываем потенциальные выигрыши для каждого уровня
+        globalWinnings = {};
+        Object.keys(data.ratings).forEach(level => {
+            globalWinnings[level] = calculatePotentialWinnings(data.ratings[level], level);
+        });
+
+        // Если все в порядке, показываем интерфейс
         toggleTournamentElements(true);
         createLevelButtons(Object.keys(data.ratings));
         updateLevelHeader(currentLevel);
@@ -92,7 +98,7 @@ function loadData() {
         if (ratingTable) {
             ratingTable.innerHTML = `
                 <p class="text-danger">Ошибка загрузки данных: ${error.message}</p>
-                <p>Пожалуйста, убедитесь, что файл data.json существует и доступен.</p>
+                <p>Попробуйте обновить страницу. Если ошибка повторится, сообщите администратору.</p>
             `;
         }
     });
