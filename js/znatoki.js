@@ -1,5 +1,5 @@
 let globalStats;  // Данные игроков
-let currentSort = { column: 'all_questions', direction: 'desc' }; // По умолчанию сортируем по количеству ответов
+let currentSort = { column: 'wallet', direction: 'desc' }; // По умолчанию сортируем по кошельку
 let currentPage = 1;
 const itemsPerPage = 50;
 
@@ -85,8 +85,8 @@ function displayPlayers(players) {
                 <thead>
                     <tr>
                         <th onclick="sortTable('username')">Игрок</th>
-                        <th class="text-end" onclick="sortTable('all_questions')">Ответов</th>
                         <th class="text-end" onclick="sortTable('wallet')">Кошелёк</th>
+                        <th class="text-end" onclick="sortTable('all_questions')">Ответы</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -102,8 +102,8 @@ function displayPlayers(players) {
             html += `
                 <tr>
                     <td>${player.username}</td>
-                    <td class="text-end">${player.all_questions.toLocaleString('ru-RU')}</td>
                     <td class="text-end">${player.wallet.toLocaleString('ru-RU')}</td>
+                    <td class="text-end">${player.all_questions.toLocaleString('ru-RU')}</td>
                 </tr>
             `;
         });
@@ -201,8 +201,8 @@ function generateZnatokiCSV(players) {
     // Заголовки для CSV
     const headers = [
         'Игрок',
-        'Ответов',
-        'Кошелёк'
+        'Кошелёк',
+        'Ответы'
     ];
 
     // Преобразуем данные в строки CSV
