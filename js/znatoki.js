@@ -85,7 +85,7 @@ function displayPlayers(players) {
                 <thead>
                     <tr>
                         <th onclick="sortTable('username')">Игрок</th>
-                        <th class="text-end" onclick="sortTable('wallet')">Кошелёк</th>
+                        <th class="text-end" onclick="sortTable('wallet')" style="text-align: right;">Кошелёк</th>
                         <th class="text-end" onclick="sortTable('all_questions')">Ответы</th>
                     </tr>
                 </thead>
@@ -102,7 +102,7 @@ function displayPlayers(players) {
             html += `
                 <tr>
                     <td>${player.username}</td>
-                    <td class="text-end">${player.wallet.toLocaleString('ru-RU')}</td>
+                    <td class="text-end"  style="text-align: right>${player.wallet.toLocaleString('ru-RU')}</td>
                     <td class="text-end">${player.all_questions.toLocaleString('ru-RU')}</td>
                 </tr>
             `;
