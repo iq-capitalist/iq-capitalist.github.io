@@ -9,10 +9,10 @@ function calculateLevelsStats(players) {
         return acc;
     }, {});
     
-    // Определяем порядок уровней в обратном порядке
+    // Определяем порядок уровней в обратном порядке, исключая Знатоков
     const levelOrder = [
         'Гуру', 'Корифей', 'Легенда', 'Титан',
-        'Босс', 'Мастер', 'Эксперт', 'Знаток'
+        'Босс', 'Мастер', 'Эксперт'
     ];
     
     // Возвращаем все уровни с количеством игроков (включая нули)
@@ -44,7 +44,9 @@ function loadData() {
         console.log('Players data loaded successfully');
         globalStats = data;
         updateLastUpdate(data.lastUpdate);
-        displayPlayers(globalStats.players || []);
+        // Фильтруем Знатоков перед отображением
+        const filteredPlayers = (data.players || []).filter(player => player.level !== 'Знаток');
+        displayPlayers(filteredPlayers);
     })
     .catch(error => {
         console.error('Error loading data:', error);
@@ -191,26 +193,33 @@ function sortTable(column) {
         column,
         direction: currentSort.column === column && currentSort.direction === 'desc' ? 'asc' : 'desc'
     };
-    displayPlayers(globalStats.players || []);
+    // Получаем отфильтрованный список игроков без Знатоков
+    const filteredPlayers = (globalStats.players || []).filter(player => player.level !== 'Знаток');
+    displayPlayers(filteredPlayers);
 }
 
 function changePage(page) {
     if (!globalStats || !globalStats.players) return;
     const searchTerm = document.getElementById('searchInput')?.value?.toLowerCase() || '';
-    const filteredPlayers = globalStats.players.filter(player => 
-        player.username.toLowerCase().includes(searchTerm) ||
-        player.level.toLowerCase().includes(searchTerm)
-    );
+    // Фильтруем сначала по уровню, потом по поиску
+    const filteredPlayers = globalStats.players
+        .filter(player => player.level !== 'Знаток')
+        .filter(player => 
+            player.username.toLowerCase().includes(searchTerm) ||
+            player.level.toLowerCase().includes(searchTerm)
+        );
     const totalPages = Math.ceil(filteredPlayers.length / itemsPerPage);
     if (page >= 1 && page <= totalPages) {
         currentPage = page;
-        displayPlayers(globalStats.players);
+        displayPlayers(filteredPlayers);
     }
 }
 
 function searchPlayers() {
     currentPage = 1; // Сбрасываем на первую страницу при поиске
-    displayPlayers(globalStats.players || []);
+    // Получаем отфильтрованный список игроков без Знатоков
+    const filteredPlayers = (globalStats.players || []).filter(player => player.level !== 'Знаток');
+    displayPlayers(filteredPlayers);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -222,6 +231,9 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function generatePlayersCSV(players) {
+    // Фильтруем Знатоков перед генерацией CSV
+    const filteredPlayers = players.filter(player => player.level !== 'Знаток');
+    
     // Заголовки для CSV
     const headers = [
         'Игрок',
@@ -238,7 +250,7 @@ function generatePlayersCSV(players) {
     csvRows.push(headers.join(','));
     
     // Добавляем данные игроков
-    for (const player of players) {
+    for (const player of filteredPlayers) {
         const row = [
             `"${player.username}"`,  // Используем кавычки для имен
             `"${player.level}"`,
