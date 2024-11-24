@@ -102,7 +102,7 @@ function displayPlayers(players) {
             html += `
                 <tr>
                     <td>${player.username}</td>
-                    <td class="text-end"  style="text-align: right>${player.wallet.toLocaleString('ru-RU')}</td>
+                    <td class="text-end"  style="text-align: right;">${player.wallet.toLocaleString('ru-RU')}</td>
                     <td class="text-end">${player.all_questions.toLocaleString('ru-RU')}</td>
                 </tr>
             `;
