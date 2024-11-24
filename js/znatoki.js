@@ -85,9 +85,8 @@ function displayPlayers(players) {
                 <thead>
                     <tr>
                         <th onclick="sortTable('username')">Игрок</th>
-                        <th class="text-end" onclick="sortTable('all_questions')">Ответов всего</th>
-                        <th class="text-end" onclick="sortTable('right_answers')">Правильных</th>
-                        <th class="text-end" onclick="sortTable('wrong_answers')">Неправильных</th>
+                        <th class="text-end" onclick="sortTable('all_questions')">Ответов</th>
+                        <th class="text-end" onclick="sortTable('wallet')">Кошелёк</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -100,14 +99,11 @@ function displayPlayers(players) {
         const currentPagePlayers = sortedPlayers.slice(startIndex, endIndex);
 
         currentPagePlayers.forEach((player) => {
-            const rightAnswers = player.right_answers || 0;
-            const wrongAnswers = player.wrong_answers || 0;
             html += `
                 <tr>
                     <td>${player.username}</td>
                     <td class="text-end">${player.all_questions.toLocaleString('ru-RU')}</td>
-                    <td class="text-end">${rightAnswers.toLocaleString('ru-RU')}</td>
-                    <td class="text-end">${wrongAnswers.toLocaleString('ru-RU')}</td>
+                    <td class="text-end">${player.wallet.toLocaleString('ru-RU')}</td>
                 </tr>
             `;
         });
@@ -145,7 +141,7 @@ function displayPlayers(players) {
     } else {
         html += `
                     <tr>
-                        <td colspan="4" class="text-center">
+                        <td colspan="3" class="text-center">
                             ${searchTerm ? 'Ничего не найдено' : 'Нет данных для отображения'}
                         </td>
                     </tr>
@@ -205,9 +201,8 @@ function generateZnatokiCSV(players) {
     // Заголовки для CSV
     const headers = [
         'Игрок',
-        'Ответов всего',
-        'Правильных',
-        'Неправильных'
+        'Ответов',
+        'Кошелёк'
     ];
 
     // Преобразуем данные в строки CSV
@@ -218,13 +213,10 @@ function generateZnatokiCSV(players) {
     
     // Добавляем данные игроков
     for (const player of filteredPlayers) {
-        const rightAnswers = player.right_answers || 0;
-        const wrongAnswers = player.wrong_answers || 0;
         const row = [
             `"${player.username}"`,  // Используем кавычки для имен
             player.all_questions,
-            rightAnswers,
-            wrongAnswers
+            player.wallet
         ];
         csvRows.push(row.join(','));
     }
