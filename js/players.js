@@ -171,6 +171,15 @@ function displayPlayers(players) {
                 </nav>
             `;
         }
+
+        // Добавляем ссылку на страницу Знатоков
+        html += `
+            <div class="text-center mt-4">
+                <a href="znatoki.html" class="btn btn-primary">
+                    ↓ Перейти к таблице Знатоков ↓
+                </a>
+            </div>
+        `;
     } else {
         html += `
                     <tr>
