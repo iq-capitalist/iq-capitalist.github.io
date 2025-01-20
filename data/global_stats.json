@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-01-20 15:15:01 UTC",
+  "lastUpdate": "2025-01-20 15:30:01 UTC",
   "players": [
     {
       "username": "Mark Levin",
@@ -159,6 +159,14 @@
       "capital": 1400.0,
       "wallet": 12.0,
       "all_questions": 141,
+      "remaining_boosters": 0
+    },
+    {
+      "username": "771127787",
+      "level": "Эксперт",
+      "capital": 1215.0,
+      "wallet": 0.0,
+      "all_questions": 336,
       "remaining_boosters": 0
     },
     {
@@ -2215,14 +2223,6 @@
       "capital": 100,
       "wallet": 315.0,
       "all_questions": 90,
-      "remaining_boosters": 0
-    },
-    {
-      "username": "771127787",
-      "level": "Знаток",
-      "capital": 100,
-      "wallet": 1115.0,
-      "all_questions": 336,
       "remaining_boosters": 0
     },
     {
