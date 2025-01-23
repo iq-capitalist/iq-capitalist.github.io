@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-01-23 02:00:02 UTC",
+  "lastUpdate": "2025-01-23 02:15:01 UTC",
   "players": [
     {
       "username": "Mark Levin",
@@ -37,9 +37,9 @@
       "username": "1877397832",
       "level": "Мастер",
       "capital": 3118.0,
-      "wallet": 0.0,
-      "all_questions": 591,
-      "remaining_boosters": 16
+      "wallet": 10.0,
+      "all_questions": 592,
+      "remaining_boosters": 15
     },
     {
       "username": "1032851815",
@@ -110,7 +110,7 @@
       "level": "Мастер",
       "capital": 2015.0,
       "wallet": 0.0,
-      "all_questions": 377,
+      "all_questions": 378,
       "remaining_boosters": 0
     },
     {
@@ -118,7 +118,7 @@
       "level": "Мастер",
       "capital": 2000.0,
       "wallet": 123.0,
-      "all_questions": 570,
+      "all_questions": 571,
       "remaining_boosters": 0
     },
     {
@@ -134,8 +134,8 @@
       "level": "Эксперт",
       "capital": 1899.0,
       "wallet": 1139.0,
-      "all_questions": 571,
-      "remaining_boosters": 7
+      "all_questions": 572,
+      "remaining_boosters": 6
     },
     {
       "username": "38968897",
@@ -1454,7 +1454,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 537.0,
-      "all_questions": 104,
+      "all_questions": 105,
       "remaining_boosters": 0
     },
     {
@@ -3350,7 +3350,7 @@
       "level": "Знаток",
       "capital": 100,
       "wallet": 410.0,
-      "all_questions": 203,
+      "all_questions": 204,
       "remaining_boosters": 0
     },
     {
@@ -3710,7 +3710,7 @@
       "level": "Знаток",
       "capital": 100,
       "wallet": 182.0,
-      "all_questions": 90,
+      "all_questions": 91,
       "remaining_boosters": 0
     },
     {
@@ -4334,7 +4334,7 @@
       "level": "Знаток",
       "capital": 100,
       "wallet": 326.0,
-      "all_questions": 88,
+      "all_questions": 89,
       "remaining_boosters": 0
     },
     {
@@ -4663,6 +4663,14 @@
       "capital": 100,
       "wallet": 6.0,
       "all_questions": 3,
+      "remaining_boosters": 0
+    },
+    {
+      "username": "1252230168",
+      "level": "Знаток",
+      "capital": 100,
+      "wallet": 0,
+      "all_questions": 1,
       "remaining_boosters": 0
     }
   ]
