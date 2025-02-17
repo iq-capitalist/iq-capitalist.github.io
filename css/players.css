@@ -125,31 +125,78 @@ tr:hover {
 
 /* Медиа-запросы */
 @media (max-width: 768px) {
+    .container {
+        padding: 0 10px;
+    }
+
+    .level-section {
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+
+    .level-title {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+    }
+
     table, #searchInput {
         font-size: 14px;
     }
 
     th, td {
-        padding: 8px;
+        padding: 6px 4px;
     }
 
     .pagination .page-link {
         font-size: 12px;
         padding: 6px 10px;
     }
+
+    /* Оптимизация размеров колонок */
+    th:first-child, td:first-child {
+        max-width: 40%;
+    }
+
+    th:not(:first-child), td:not(:first-child) {
+        width: 30%;
+    }
 }
 
 @media (max-width: 480px) {
+    .container {
+        padding: 0 5px;
+    }
+
+    .level-section {
+        padding: 8px;
+        margin-bottom: 12px;
+    }
+
     table, #searchInput {
         font-size: 12px;
     }
 
     th, td {
-        padding: 6px;
+        padding: 4px 2px;
     }
 
     .pagination .page-link {
         font-size: 11px;
         padding: 5px 8px;
+    }
+
+    /* Дополнительная оптимизация для очень узких экранов */
+    .table-responsive {
+        margin: 0 -8px;  /* Компенсация padding секции */
+    }
+
+    /* Оптимизация размеров колонок для маленьких экранов */
+    th:first-child, td:first-child {
+        max-width: 35%;
+    }
+
+    th:not(:first-child), td:not(:first-child) {
+        width: 32.5%;
     }
 }
