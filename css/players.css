@@ -60,7 +60,7 @@ tr:hover {
 .pagination {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 20px 0;
     flex-wrap: wrap;
 }
 
