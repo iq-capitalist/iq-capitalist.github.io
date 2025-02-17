@@ -2,7 +2,7 @@ let globalStats;
 let currentSort = { column: 'capital', direction: 'desc' };
 const levelOrder = [
     'IQ Капиталист', 'Гуру', 'Корифей', 'Легенда', 'Титан',
-    'Босс', 'Мастер', 'Эксперт', 'Знаток'
+    'Босс', 'Мастер', 'Эксперт'
 ];
 
 function updateLastUpdate(lastUpdate) {
