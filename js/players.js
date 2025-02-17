@@ -135,6 +135,12 @@ function displayPlayers(players) {
         `;
     }
 
+    html += `
+        <div class="mt-4 text-center">
+            <a href="znatoki.html" class="btn btn-primary">Перейти к таблице знатоков</a>
+        </div>
+    `;
+
     const playersTable = document.getElementById('playersTable');
     playersTable.innerHTML = html;
 }
