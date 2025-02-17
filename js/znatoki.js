@@ -114,23 +114,64 @@ function displayPlayers(players) {
 
         const totalPages = Math.ceil(filteredPlayers.length / itemsPerPage);
         if (totalPages > 1) {
+            let pages = [];
+            const delta = 3;
+
+            if (currentPage <= delta) {
+                for (let i = 1; i <= Math.min(delta + 2, totalPages); i++) {
+                    pages.push(i);
+                }
+                if (totalPages > delta + 2) {
+                    pages.push('...');
+                    pages.push(totalPages - 1);
+                    pages.push(totalPages);
+                }
+            } else if (currentPage > totalPages - delta) {
+                pages.push(1);
+                pages.push(2);
+                pages.push('...');
+                for (let i = totalPages - delta; i <= totalPages; i++) {
+                    pages.push(i);
+                }
+            } else {
+                pages.push(1);
+                pages.push(2);
+                pages.push('...');
+                for (let i = currentPage - 1; i <= currentPage + 1; i++) {
+                    pages.push(i);
+                }
+                pages.push('...');
+                pages.push(totalPages - 1);
+                pages.push(totalPages);
+            }
+
             html += `
                 <nav>
                     <ul class="pagination justify-content-center">
                         <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
-                            <a class="page-link" href="#" onclick="changePage(${currentPage - 1})">Предыдущая</a>
+                            <a class="page-link" href="#" onclick="changePage(${currentPage - 1}); return false;">Предыдущая</a>
                         </li>
             `;
-            for (let i = 1; i <= totalPages; i++) {
-                html += `
-                    <li class="page-item ${i === currentPage ? 'active' : ''}">
-                        <a class="page-link" href="#" onclick="changePage(${i})">${i}</a>
-                    </li>
-                `;
-            }
+
+            pages.forEach(page => {
+                if (page === '...') {
+                    html += `
+                        <li class="page-item disabled">
+                            <span class="page-link">...</span>
+                        </li>
+                    `;
+                } else {
+                    html += `
+                        <li class="page-item ${page === currentPage ? 'active' : ''}">
+                            <a class="page-link" href="#" onclick="changePage(${page}); return false;">${page}</a>
+                        </li>
+                    `;
+                }
+            });
+
             html += `
                         <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
-                            <a class="page-link" href="#" onclick="changePage(${currentPage + 1})">Следующая</a>
+                            <a class="page-link" href="#" onclick="changePage(${currentPage + 1}); return false;">Следующая</a>
                         </li>
                     </ul>
                 </nav>
