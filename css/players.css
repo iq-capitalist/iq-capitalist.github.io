@@ -69,7 +69,10 @@ tr:hover {
     justify-content: center;
     margin: 20px 0;
     flex-wrap: wrap;
-    gap: 2px;
+}
+
+.pagination .page-item {
+    margin: 0 1px;
 }
 
 .pagination .page-item .page-link {
