@@ -1,3 +1,4 @@
+/* Поиск */
 #searchInput {
     width: 100%;
     padding: 10px;
@@ -8,9 +9,11 @@
     box-sizing: border-box;
 }
 
+/* Таблица */
 .table-responsive {
     overflow-x: auto;
     width: 100%;
+    margin-bottom: 1rem;
 }
 
 table {
@@ -37,11 +40,13 @@ th:hover {
     background-color: var(--secondary-color);
 }
 
+/* Выравнивание числовых колонок */
 td:nth-child(n+3),
 th:nth-child(n+3) {
     text-align: right;
 }
 
+/* Стили строк */
 tr:nth-child(even) {
     background-color: rgba(52, 152, 219, 0.1);
 }
@@ -50,6 +55,7 @@ tr:hover {
     background-color: rgba(52, 152, 219, 0.2);
 }
 
+/* Информация о последнем обновлении */
 #lastUpdate {
     text-align: left;
     margin-bottom: 20px;
@@ -57,28 +63,25 @@ tr:hover {
     color: var(--secondary-color);
 }
 
+/* Пагинация */
 .pagination {
     display: flex;
     justify-content: center;
-    margin-top: 20px 0;
+    margin: 20px 0;
     flex-wrap: wrap;
+    gap: 2px;
 }
 
-.pagination .page-item {
-    margin: 0 2px;
-}
-
-.pagination .page-link {
+.pagination .page-item .page-link {
     padding: 8px 12px;
     border: 1px solid var(--primary-color);
     background-color: white;
     color: var(--primary-color);
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s, transform 0.2s;
-    border-radius: 3px;
-    font-size: 14px;
     font-weight: bold;
     text-decoration: none;
+    border-radius: 3px;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
 }
 
 .pagination .page-link:hover {
@@ -100,8 +103,9 @@ tr:hover {
     color: white;
 }
 
+/* Медиа-запросы */
 @media (max-width: 768px) {
-    table {
+    table, #searchInput {
         font-size: 14px;
     }
 
@@ -109,10 +113,6 @@ tr:hover {
         padding: 8px;
     }
 
-    #searchInput {
-        font-size: 14px;
-    }
-
     .pagination .page-link {
         font-size: 12px;
         padding: 6px 10px;
@@ -120,7 +120,7 @@ tr:hover {
 }
 
 @media (max-width: 480px) {
-    table {
+    table, #searchInput {
         font-size: 12px;
     }
 
@@ -128,101 +128,8 @@ tr:hover {
         padding: 6px;
     }
 
-    #searchInput {
-        font-size: 12px;
-    }
-
     .pagination .page-link {
         font-size: 11px;
         padding: 5px 8px;
-    }
-}
-
-/* Стили для пагинации */
-.pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    flex-wrap: wrap;
-}
-
-.pagination .page-item {
-    margin: 0 2px;
-}
-
-.pagination .page-link {
-    padding: 8px 12px;
-    border: 1px solid var(--primary-color);
-    background-color: white;
-    color: var(--primary-color);
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s, transform 0.2s;
-    border-radius: 3px;
-    font-size: 14px;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.pagination .page-link:hover {
-    background-color: var(--primary-color);
-    color: white;
-    transform: translateY(-2px);
-}
-
-.pagination .page-item.disabled .page-link {
-    background-color: #f4f4f4;
-    color: #aaa;
-    border-color: #ddd;
-    cursor: not-allowed;
-    pointer-events: none;
-}
-
-.pagination .page-item.active .page-link {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-/* Медиа-запросы для адаптивности */
-@media (max-width: 768px) {
-    .pagination .page-link {
-        font-size: 12px;
-        padding: 6px 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    .pagination .page-link {
-        font-size: 11px;
-        padding: 5px 8px;
-    }
-}
-
-/* Убираем любые псевдоэлементы, которые могут добавлять точки */
-.pagination li::before,
-.pagination li::after,
-.pagination .page-link::before,
-.pagination .page-link::after {
-    display: none;
-}
-
-.table-responsive {
-    overflow-x: auto;
-    margin-bottom: 1rem;
-}
-
-.table-responsive table {
-    min-width: 100%;
-    width: auto;
-}
-
-/* Уменьшаем размер шрифта на мобильных устройствах */
-@media (max-width: 767px) {
-    .table-responsive table {
-        font-size: 14px;
-    }
-
-    .table-responsive table th,
-    .table-responsive table td {
-        padding: 0.5rem;
     }
 }
