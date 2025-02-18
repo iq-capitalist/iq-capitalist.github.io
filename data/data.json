@@ -1,17 +1,17 @@
 {
-  "lastUpdate": "2025-02-18 22:41:55 UTC",
+  "lastUpdate": "2025-02-18 23:21:57 UTC",
   "activeTournament": 34,
-  "questionsAsked": 23,
+  "questionsAsked": 24,
   "totalPlayers": 113,
   "ratings": {
     "Знаток": [
       {
         "username": "7048289770",
         "capital": 100,
-        "points": 57.0,
+        "points": 60.0,
         "remaining_boosters": 0,
         "wallet": 2119.0,
-        "tournament_questions": 19,
+        "tournament_questions": 20,
         "has_active_boosters": 0
       },
       {
@@ -474,15 +474,6 @@
         "has_active_boosters": 0
       },
       {
-        "username": "5290413112",
-        "capital": 100,
-        "points": 0.0,
-        "remaining_boosters": 0,
-        "wallet": 73.0,
-        "tournament_questions": 2,
-        "has_active_boosters": 0
-      },
-      {
         "username": "859745879",
         "capital": 100,
         "points": 0.0,
@@ -533,6 +524,15 @@
         "points": -3.0,
         "remaining_boosters": 0,
         "wallet": 345.0,
+        "tournament_questions": 3,
+        "has_active_boosters": 0
+      },
+      {
+        "username": "5290413112",
+        "capital": 100,
+        "points": -3.0,
+        "remaining_boosters": 0,
+        "wallet": 73.0,
         "tournament_questions": 3,
         "has_active_boosters": 0
       },
@@ -649,19 +649,19 @@
       {
         "username": "ОВЦА ТУПАЯ",
         "capital": 1100.0,
-        "points": 924.0,
-        "remaining_boosters": 44,
+        "points": 990.0,
+        "remaining_boosters": 43,
         "wallet": 7.0,
-        "tournament_questions": 18,
+        "tournament_questions": 19,
         "has_active_boosters": 1
       },
       {
         "username": "139124871",
         "capital": 1999.0,
-        "points": 839.5800000000003,
+        "points": 899.5500000000003,
         "remaining_boosters": 0,
         "wallet": 1065.0,
-        "tournament_questions": 18,
+        "tournament_questions": 19,
         "has_active_boosters": 0
       },
       {
@@ -773,6 +773,15 @@
         "has_active_boosters": 0
       },
       {
+        "username": "1196575183",
+        "capital": 1100.0,
+        "points": 231.0,
+        "remaining_boosters": 0,
+        "wallet": 125.0,
+        "tournament_questions": 7,
+        "has_active_boosters": 0
+      },
+      {
         "username": "268536143",
         "capital": 1233.0,
         "points": 221.94,
@@ -797,15 +806,6 @@
         "remaining_boosters": 0,
         "wallet": 449.0,
         "tournament_questions": 12,
-        "has_active_boosters": 0
-      },
-      {
-        "username": "1196575183",
-        "capital": 1100.0,
-        "points": 198.0,
-        "remaining_boosters": 0,
-        "wallet": 125.0,
-        "tournament_questions": 6,
         "has_active_boosters": 0
       },
       {
@@ -912,10 +912,10 @@
       {
         "username": "Arhimed",
         "capital": 3900.0,
-        "points": 1989.0,
+        "points": 2106.0,
         "remaining_boosters": 0,
         "wallet": 191.0,
-        "tournament_questions": 17,
+        "tournament_questions": 18,
         "has_active_boosters": 0
       },
       {
@@ -957,10 +957,10 @@
       {
         "username": "180975946",
         "capital": 2021.0,
-        "points": 576.3,
+        "points": 636.93,
         "remaining_boosters": 0,
         "wallet": 27.0,
-        "tournament_questions": 12,
+        "tournament_questions": 13,
         "has_active_boosters": 0
       },
       {
@@ -1015,10 +1015,10 @@
       {
         "username": "Als",
         "capital": 7318.0,
-        "points": 2414.94,
+        "points": 2634.48,
         "remaining_boosters": 0,
         "wallet": 0.0,
-        "tournament_questions": 11,
+        "tournament_questions": 12,
         "has_active_boosters": 0
       },
       {
@@ -1038,10 +1038,10 @@
   },
   "totalPoints": {
     "Знаток": 336.0,
-    "Эксперт": 8239.619999999999,
-    "Мастер": 10522.320000000002,
+    "Эксперт": 8398.59,
+    "Мастер": 10699.950000000003,
     "Босс": 528.48,
-    "Титан": 7440.4800000000005,
+    "Титан": 7660.02,
     "Легенда": 0,
     "Корифей": 0,
     "Гуру": 0,
