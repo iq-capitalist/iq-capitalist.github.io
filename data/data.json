@@ -1,17 +1,17 @@
 {
-  "lastUpdate": "2025-02-20 02:01:58 UTC",
+  "lastUpdate": "2025-02-20 02:41:58 UTC",
   "activeTournament": 34,
-  "questionsAsked": 64,
+  "questionsAsked": 65,
   "totalPlayers": 130,
   "ratings": {
     "Знаток": [
       {
         "username": "7048289770",
         "capital": 100,
-        "points": 147.0,
+        "points": 150.0,
         "remaining_boosters": 0,
         "wallet": 2119.0,
-        "tournament_questions": 53,
+        "tournament_questions": 54,
         "has_active_boosters": 0
       },
       {
@@ -791,10 +791,10 @@
       {
         "username": "631596086",
         "capital": 100,
-        "points": -21.0,
+        "points": -24.0,
         "remaining_boosters": 0,
         "wallet": 39.0,
-        "tournament_questions": 19,
+        "tournament_questions": 20,
         "has_active_boosters": 0
       }
     ],
@@ -919,10 +919,10 @@
       {
         "username": "1031487037",
         "capital": 1000.0,
-        "points": 570.0,
+        "points": 540.0,
         "remaining_boosters": 0,
         "wallet": 915.0,
-        "tournament_questions": 19,
+        "tournament_questions": 20,
         "has_active_boosters": 0
       },
       {
@@ -1056,10 +1056,10 @@
       {
         "username": "1877397832",
         "capital": 3799.0,
-        "points": 9801.419999999996,
-        "remaining_boosters": 32,
+        "points": 9573.479999999996,
+        "remaining_boosters": 31,
         "wallet": 657.0,
-        "tournament_questions": 45,
+        "tournament_questions": 46,
         "has_active_boosters": 1
       },
       {
@@ -1074,10 +1074,10 @@
       {
         "username": "5176768913",
         "capital": 2015.0,
-        "points": 2538.8999999999996,
+        "points": 2478.45,
         "remaining_boosters": 0,
         "wallet": 591.0,
-        "tournament_questions": 50,
+        "tournament_questions": 51,
         "has_active_boosters": 0
       },
       {
@@ -1128,10 +1128,10 @@
       {
         "username": "CAHEK",
         "capital": 2000.0,
-        "points": 1020.0,
+        "points": 1080.0,
         "remaining_boosters": 0,
         "wallet": 459.0,
-        "tournament_questions": 31,
+        "tournament_questions": 32,
         "has_active_boosters": 0
       },
       {
@@ -1191,8 +1191,8 @@
   },
   "totalPoints": {
     "Знаток": 696.0,
-    "Эксперт": 19047.089999999997,
-    "Мастер": 25708.979999999996,
+    "Эксперт": 19017.089999999997,
+    "Мастер": 25480.589999999997,
     "Босс": 792.72,
     "Титан": 13702.619999999997,
     "Легенда": 0,
