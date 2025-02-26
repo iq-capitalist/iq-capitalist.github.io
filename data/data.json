@@ -1,17 +1,17 @@
 {
-  "lastUpdate": "2025-02-25 23:21:54 UTC",
+  "lastUpdate": "2025-02-26 00:01:55 UTC",
   "activeTournament": 35,
-  "questionsAsked": 24,
+  "questionsAsked": 25,
   "totalPlayers": 115,
   "ratings": {
     "Знаток": [
       {
         "username": "8142519654",
         "capital": 100,
-        "points": 63.0,
+        "points": 66.0,
         "remaining_boosters": 0,
         "wallet": 0,
-        "tournament_questions": 21,
+        "tournament_questions": 22,
         "has_active_boosters": 0
       },
       {
@@ -51,21 +51,21 @@
         "has_active_boosters": 0
       },
       {
-        "username": "531226379",
-        "capital": 100,
-        "points": 18.0,
-        "remaining_boosters": 0,
-        "wallet": 693.0,
-        "tournament_questions": 8,
-        "has_active_boosters": 0
-      },
-      {
         "username": "899790826",
         "capital": 100,
         "points": 15.0,
         "remaining_boosters": 0,
         "wallet": 330.0,
         "tournament_questions": 5,
+        "has_active_boosters": 0
+      },
+      {
+        "username": "531226379",
+        "capital": 100,
+        "points": 15.0,
+        "remaining_boosters": 0,
+        "wallet": 693.0,
+        "tournament_questions": 9,
         "has_active_boosters": 0
       },
       {
@@ -649,28 +649,28 @@
       {
         "username": "7048289770",
         "capital": 1899.0,
-        "points": 2224.830000000001,
-        "remaining_boosters": 39,
+        "points": 2338.770000000001,
+        "remaining_boosters": 38,
         "wallet": 991.0,
-        "tournament_questions": 22,
+        "tournament_questions": 23,
         "has_active_boosters": 1
       },
       {
         "username": "139124871",
         "capital": 1999.0,
-        "points": 1319.3400000000004,
+        "points": 1379.3100000000004,
         "remaining_boosters": 0,
         "wallet": 1382.0,
-        "tournament_questions": 24,
+        "tournament_questions": 25,
         "has_active_boosters": 0
       },
       {
         "username": "ОВЦА ТУПАЯ",
         "capital": 1000.0,
-        "points": 1308.0,
-        "remaining_boosters": 47,
+        "points": 1368.0,
+        "remaining_boosters": 46,
         "wallet": 490.0,
-        "tournament_questions": 21,
+        "tournament_questions": 22,
         "has_active_boosters": 1
       },
       {
@@ -791,21 +791,21 @@
         "has_active_boosters": 0
       },
       {
+        "username": "1196575183",
+        "capital": 1100.0,
+        "points": 231.0,
+        "remaining_boosters": 0,
+        "wallet": 223.0,
+        "tournament_questions": 7,
+        "has_active_boosters": 0
+      },
+      {
         "username": "724066696",
         "capital": 1100.0,
         "points": 231.0,
         "remaining_boosters": 0,
         "wallet": 431.0,
         "tournament_questions": 7,
-        "has_active_boosters": 0
-      },
-      {
-        "username": "1196575183",
-        "capital": 1100.0,
-        "points": 198.0,
-        "remaining_boosters": 0,
-        "wallet": 223.0,
-        "tournament_questions": 6,
         "has_active_boosters": 0
       },
       {
@@ -910,10 +910,10 @@
       {
         "username": "704",
         "capital": 1186.0,
-        "points": -142.32,
+        "points": -106.74,
         "remaining_boosters": 0,
         "wallet": 25.0,
-        "tournament_questions": 8,
+        "tournament_questions": 9,
         "has_active_boosters": 0
       }
     ],
@@ -921,10 +921,10 @@
       {
         "username": "1877397832",
         "capital": 3799.0,
-        "points": 4102.92,
-        "remaining_boosters": 6,
+        "points": 4330.86,
+        "remaining_boosters": 5,
         "wallet": 1062.0,
-        "tournament_questions": 20,
+        "tournament_questions": 21,
         "has_active_boosters": 1
       },
       {
@@ -1056,8 +1056,8 @@
   },
   "totalPoints": {
     "Знаток": 339.0,
-    "Эксперт": 10955.100000000002,
-    "Мастер": 11654.519999999999,
+    "Эксперт": 11257.590000000002,
+    "Мастер": 11882.46,
     "Босс": 792.72,
     "Титан": 6025.9800000000005,
     "Легенда": 0,
