@@ -15,7 +15,7 @@ function updateLastUpdate(lastUpdate) {
 function loadData() {
     console.log('Attempting to load data...');
     const timestamp = new Date().getTime();
-    fetch(`data/global_stats.json?t=${timestamp}`, {
+    fetch(`data/all_data.json?t=${timestamp}`, {
         method: 'GET',
         headers: {
             'Cache-Control': 'no-cache, no-store, must-revalidate',
@@ -26,9 +26,9 @@ function loadData() {
     .then(response => response.json())
     .then(data => {
         console.log('Players data loaded successfully');
-        globalStats = data;
+        globalStats = data;  // Теперь используем единый объект data
         updateLastUpdate(data.lastUpdate);
-        displayPlayers(globalStats.players || []);
+        displayPlayers(globalStats.players || []);  // Используем players из единого файла
     })
     .catch(error => {
         console.error('Error loading data:', error);
@@ -36,7 +36,7 @@ function loadData() {
         if (playersTable) {
             playersTable.innerHTML = `
                 <p class="text-danger">Ошибка загрузки данных: ${error.message}</p>
-                <p>Пожалуйста, убедитесь, что файл global_stats.json существует и доступен.</p>
+                <p>Пожалуйста, убедитесь, что файл all_data.json существует и доступен.</p>
             `;
         }
     });
