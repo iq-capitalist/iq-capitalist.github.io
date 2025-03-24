@@ -21,8 +21,8 @@ function updateLevelHeader(level) {
     const levelHeader = document.getElementById('levelHeader');
     const range = levelRanges[level];
     const maxText = range.max === Infinity ? '+' : '-' + range.max;
-    const playersCount = globalData.playersByLevel[level];
-    const prizePool = globalData.prizePools[level] || 0;
+    const playersCount = globalData.tournament.playersByLevel[level];
+    const prizePool = globalData.tournament.prizePools[level] || 0;
     levelHeader.innerHTML = `
         <h2>Уровень ${level} (${range.min}${maxText})</h2>
         <p class="level-info">Участников: ${playersCount}. Призовой фонд: ${prizePool.toLocaleString('ru-RU')} IQC</p>
@@ -30,7 +30,7 @@ function updateLevelHeader(level) {
 }
 
 function isActiveTournament() {
-    return globalData.activeTournament !== null;
+    return globalData.tournament.activeTournament !== null;
 }
 
 function toggleTournamentElements(show) {
@@ -46,7 +46,7 @@ function toggleTournamentElements(show) {
 function loadData() {
     console.log('Attempting to load data...');
     const timestamp = new Date().getTime();
-    fetch(`data/data.json?t=${timestamp}`, {
+    fetch(`data/all_data.json?t=${timestamp}`, {
         method: 'GET',
         headers: {
             'Cache-Control': 'no-cache, no-store, must-revalidate',
@@ -67,7 +67,7 @@ function loadData() {
         updateLastUpdate(data.lastUpdate);
 
         // Если нет активного турнира, скрываем элементы и показываем сообщение
-        if (!data.activeTournament) {
+        if (!data.tournament.activeTournament) {
             toggleTournamentElements(false);
             const tournamentInfo = document.getElementById('tournamentInfo');
             tournamentInfo.innerHTML = `
@@ -80,15 +80,15 @@ function loadData() {
 
         // Рассчитываем потенциальные выигрыши для каждого уровня
         globalWinnings = {};
-        Object.keys(data.ratings).forEach(level => {
-            globalWinnings[level] = calculatePotentialWinnings(data.ratings[level], level);
+        Object.keys(data.tournament.ratings).forEach(level => {
+            globalWinnings[level] = calculatePotentialWinnings(data.tournament.ratings[level], level);
         });
 
         // Если все в порядке, показываем интерфейс
         toggleTournamentElements(true);
-        createLevelButtons(Object.keys(data.ratings));
+        createLevelButtons(Object.keys(data.tournament.ratings));
         updateLevelHeader(currentLevel);
-        displayRatings(data.ratings[currentLevel]);
+        displayRatings(data.tournament.ratings[currentLevel]);
         
         checkForForceUpdate(data.lastUpdate);
     })
@@ -151,19 +151,19 @@ function changeLevel(level) {
     });
     updateLevelHeader(level);
     if (isActiveTournament()) {
-        displayRatings(globalData.ratings[currentLevel]);
+        displayRatings(globalData.tournament.ratings[currentLevel]);
     } else {
         displayRatings([]);
     }
 }
 
 function calculatePotentialWinnings(ratings, level) {
-    if (!globalData.prizePools || !globalData.prizePools[level]) {
+    if (!globalData.tournament.prizePools || !globalData.tournament.prizePools[level]) {
         console.error(`Prize pool not found for level ${level}`);
         return {};
     }
 
-    const prizePool = globalData.prizePools[level];
+    const prizePool = globalData.tournament.prizePools[level];
     const positivePointsPlayers = ratings.filter(player => player.points > 0);
 
     if (positivePointsPlayers.length === 0) {
@@ -197,16 +197,11 @@ function displayRatings(ratings) {
     const tableContainer = document.getElementById('ratingTable');
 
     // Отображаем информацию о турнире
-    if (globalData && globalData.activeTournament) {
-        const questionsInfo = globalData.questionsAsked !== null 
-            ? `Задано вопросов: ${globalData.questionsAsked}.` 
-            : '';
-            
+    if (globalData && globalData.tournament.activeTournament) {
         tournamentInfoContainer.innerHTML = `
             <div class="tournament-info">
-                <p>Турнир: ${globalData.activeTournament}. 
-                   ${questionsInfo} 
-                   Участников: ${globalData.totalPlayers}</p>
+                <p>Турнир: ${globalData.tournament.activeTournament}. 
+                   Участников: ${globalData.tournament.totalPlayers}</p>
             </div>
         `;
     }
@@ -350,22 +345,22 @@ function sortTable(column) {
         currentSort.column = column;
         currentSort.direction = 'desc';
     }
-    displayRatings(globalData.ratings[currentLevel]);
+    displayRatings(globalData.tournament.ratings[currentLevel]);
 }
  
 function changePage(page) {
-    const totalPages = Math.ceil(globalData.ratings[currentLevel].length / itemsPerPage);
+    const totalPages = Math.ceil(globalData.tournament.ratings[currentLevel].length / itemsPerPage);
     if (page < 1 || page > totalPages) {
         return; // Не делаем ничего, если запрошенная страница недействительна
     }
     currentPage = page;
-    displayRatings(globalData.ratings[currentLevel]);
+    displayRatings(globalData.tournament.ratings[currentLevel]);
     updatePagination(currentPage, totalPages);
 }
 
 function searchPlayers() {
     currentPage = 1; // Сбрасываем на первую страницу при поиске
-    displayRatings(globalData.ratings[currentLevel]);
+    displayRatings(globalData.tournament.ratings[currentLevel]);
 }
 
 document.getElementById('searchInput').addEventListener('input', searchPlayers);
