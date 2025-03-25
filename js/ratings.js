@@ -107,7 +107,7 @@ function loadData() {
 function updateLastUpdate(lastUpdate) {
     const lastUpdateElement = document.getElementById('lastUpdate');
     if (lastUpdateElement) {
-        lastUpdateElement.textContent = `По состоянию на ${lastUpdate}`;
+        lastUpdateElement.textContent = `Данные обновлены: ${lastUpdate}`;
     } else {
         console.warn('Last update element not found');
     }
