@@ -20,7 +20,12 @@ const levelRanges = {
 function updateLevelHeader(level) {
     const levelHeader = document.getElementById('levelHeader');
     const range = levelRanges[level];
-    const maxText = range.max === Infinity ? '+' : '-' + range.max;
+    
+    // Для уровня "Знаток" показываем только минимальное значение
+    const maxText = level === 'Знаток' 
+        ? '' 
+        : (range.max === Infinity ? '+' : '-' + range.max);
+    
     const playersCount = globalData.tournament.playersByLevel[level];
     const prizePool = globalData.tournament.prizePools[level] || 0;
     levelHeader.innerHTML = `
