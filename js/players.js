@@ -78,11 +78,11 @@ function createTableHeader() {
 function displayPlayers(players) {
     const searchTerm = document.getElementById('searchInput')?.value?.toLowerCase() || '';
     
-    // Фильтруем игроков по поисковому запросу
+    // Фильтруем игроков по поисковому запросу и добавляем фильтр по количеству ответов > 0
     const filteredPlayers = players.filter(player => 
         player.username.toLowerCase().includes(searchTerm) ||
         player.level.toLowerCase().includes(searchTerm)
-    );
+    ).filter(player => player.all_questions > 0);
 
     let html = `<div id="lastUpdate" class="mb-4 text-gray-600"></div>`;
 
