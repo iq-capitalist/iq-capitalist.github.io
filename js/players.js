@@ -1,67 +1,22 @@
+/**
+ * Скрипт для страницы "Игроки"
+ * Использует общие функции из common.js
+ */
+
+// Глобальные переменные
 let globalStats;
 let currentSort = { column: 'capital', direction: 'desc' };
+
+// Порядок отображения уровней
 const levelOrder = [
     'IQ Капиталист', 'Гуру', 'Корифей', 'Легенда', 'Титан',
     'Босс', 'Мастер', 'Эксперт'
 ];
 
-function updateLastUpdate(lastUpdate) {
-    const lastUpdateElement = document.getElementById('lastUpdate');
-    if (lastUpdateElement) {
-        lastUpdateElement.innerHTML = `Данные обновлены: ${lastUpdate} | <a href="#" onclick="downloadPlayersCSV(); return false;">Скачать csv</a>`;
-    }
-}
-
-function loadData() {
-    console.log('Attempting to load data...');
-    const timestamp = new Date().getTime();
-    fetch(`data/all_data.json?t=${timestamp}`, {
-        method: 'GET',
-        headers: {
-            'Cache-Control': 'no-cache, no-store, must-revalidate',
-            'Pragma': 'no-cache',
-            'Expires': '0'
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Players data loaded successfully');
-        globalStats = data;  // Теперь используем единый объект data
-        updateLastUpdate(data.lastUpdate);
-        displayPlayers(globalStats.players || []);  // Используем players из единого файла
-    })
-    .catch(error => {
-        console.error('Error loading data:', error);
-        const playersTable = document.getElementById('playersTable');
-        if (playersTable) {
-            playersTable.innerHTML = `
-                <p class="text-danger">Ошибка загрузки данных: ${error.message}</p>
-                <p>Пожалуйста, убедитесь, что файл all_data.json существует и доступен.</p>
-            `;
-        }
-    });
-}
-
-function sortPlayers(players, column, direction) {
-    return [...players].sort((a, b) => {
-        if (column === 'username' || column === 'level') {
-            return direction === 'asc' 
-                ? a[column].localeCompare(b[column])
-                : b[column].localeCompare(a[column]);
-        } else {
-            const primaryCompare = direction === 'asc' 
-                ? a[column] - b[column]
-                : b[column] - a[column];
-                
-            if (primaryCompare === 0 && column === 'capital') {
-                return b.wallet - a.wallet;
-            }
-            
-            return primaryCompare;
-        }
-    });
-}
-
+/**
+ * Создает заголовок таблицы
+ * @returns {String} HTML заголовка таблицы
+ */
 function createTableHeader() {
     return `
         <thead>
@@ -75,6 +30,10 @@ function createTableHeader() {
     `;
 }
 
+/**
+ * Отображает игроков в таблице
+ * @param {Array} players - Массив игроков для отображения
+ */
 function displayPlayers(players) {
     const searchTerm = document.getElementById('searchInput')?.value?.toLowerCase() || '';
     
@@ -111,9 +70,9 @@ function displayPlayers(players) {
                 html += `
                     <tr>
                         <td>${player.username}</td>
-                        <td class="text-end">${player.capital.toLocaleString('ru-RU')}</td>
-                        <td class="text-end">${player.wallet.toLocaleString('ru-RU')}</td>
-                        <td class="text-end">${player.all_questions.toLocaleString('ru-RU')}</td>
+                        <td class="text-end">${formatNumber(player.capital)}</td>
+                        <td class="text-end">${formatNumber(player.wallet)}</td>
+                        <td class="text-end">${formatNumber(player.all_questions)}</td>
                     </tr>
                 `;
             });
@@ -145,6 +104,10 @@ function displayPlayers(players) {
     playersTable.innerHTML = html;
 }
 
+/**
+ * Обработчик сортировки таблицы по клику на заголовок
+ * @param {String} column - Колонка для сортировки
+ */
 function sortTable(column) {
     currentSort = {
         column,
@@ -153,54 +116,56 @@ function sortTable(column) {
     displayPlayers(globalStats.players || []);
 }
 
+/**
+ * Функция поиска игроков
+ */
 function searchPlayers() {
     displayPlayers(globalStats.players || []);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    loadData();
-    const searchInput = document.getElementById('searchInput');
-    if (searchInput) {
-        searchInput.addEventListener('input', searchPlayers);
-    }
-});
-
-function generatePlayersCSV(players) {
-    const headers = ['Игрок', 'Уровень', 'Капитал', 'Кошелёк', 'Ответы'];
-    const csvRows = [headers.join(',')];
-    
-    for (const player of players) {
-        const row = [
-            `"${player.username}"`,
-            `"${player.level}"`,
-            player.capital,
-            player.wallet,
-            player.all_questions
-        ];
-        csvRows.push(row.join(','));
-    }
-    
-    return csvRows.join('\n');
-}
-
+/**
+ * Функция для скачивания CSV с данными игроков
+ */
 function downloadPlayersCSV() {
     if (!globalStats || !globalStats.players) {
         console.error('Нет данных для скачивания');
         return;
     }
     
-    const csv = generatePlayersCSV(globalStats.players);
-    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-    const link = document.createElement('a');
+    const headers = ['Игрок', 'Уровень', 'Капитал', 'Кошелёк', 'Ответы'];
+    
+    const transformRow = (player) => [
+        `"${player.username}"`,
+        `"${player.level}"`,
+        player.capital,
+        player.wallet,
+        player.all_questions
+    ];
+    
+    const csv = generateCSV(globalStats.players, headers, transformRow);
     
     const date = new Date().toISOString().slice(0,10);
     const filename = `players_${date}.csv`;
     
-    link.href = window.URL.createObjectURL(blob);
-    link.download = filename;
-    link.style.display = 'none';
-    
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    downloadCSV(filename, csv);
 }
+
+/**
+ * Инициализация страницы при загрузке DOM
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    // Загрузка данных
+    loadData(data => {
+        console.log('Players data loaded successfully');
+        globalStats = data;
+        updateLastUpdate(data.lastUpdate, 'lastUpdate', 'downloadPlayersCSV');
+        displayPlayers(globalStats.players || []);
+    });
+    
+    // Подключаем поиск с debounce для оптимизации
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        const debouncedSearch = debounce(searchPlayers, 300);
+        searchInput.addEventListener('input', debouncedSearch);
+    }
+});
