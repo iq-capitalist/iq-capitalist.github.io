@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-03-25 09:20:02 UTC",
+  "lastUpdate": "2025-03-25 09:25:01 UTC",
   "tournament": {
     "activeTournament": 1,
     "startDate": "2025-03-25 08:00:00",
@@ -66,6 +66,15 @@
           "has_active_boosters": 0
         },
         {
+          "username": "1109917320",
+          "capital": 100.0,
+          "points": 15.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 9,
+          "has_active_boosters": 0
+        },
+        {
           "username": "5382263197",
           "capital": 100.0,
           "points": 15.0,
@@ -90,15 +99,6 @@
           "remaining_boosters": 0,
           "wallet": 0.0,
           "tournament_questions": 2,
-          "has_active_boosters": 0
-        },
-        {
-          "username": "1109917320",
-          "capital": 100.0,
-          "points": 6.0,
-          "remaining_boosters": 0,
-          "wallet": 0.0,
-          "tournament_questions": 6,
           "has_active_boosters": 0
         },
         {
@@ -206,7 +206,7 @@
           "points": 0.0,
           "remaining_boosters": 0,
           "wallet": 40.0,
-          "tournament_questions": 5,
+          "tournament_questions": 6,
           "has_active_boosters": 0
         },
         {
@@ -266,6 +266,15 @@
           "has_active_boosters": 0
         },
         {
+          "username": "636378515",
+          "capital": 1000.0,
+          "points": 680.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 34,
+          "has_active_boosters": 0
+        },
+        {
           "username": "410562869",
           "capital": 1000.0,
           "points": 590.0,
@@ -275,18 +284,18 @@
           "has_active_boosters": 0
         },
         {
-          "username": "636378515",
+          "username": "853175665",
           "capital": 1000.0,
-          "points": 520.0,
+          "points": 480.0,
           "remaining_boosters": 0,
           "wallet": 0.0,
-          "tournament_questions": 28,
+          "tournament_questions": 20,
           "has_active_boosters": 0
         },
         {
-          "username": "853175665",
+          "username": "Inna",
           "capital": 1000.0,
-          "points": 300.0,
+          "points": 270.0,
           "remaining_boosters": 0,
           "wallet": 0.0,
           "tournament_questions": 10,
@@ -307,7 +316,7 @@
           "points": 260.0,
           "remaining_boosters": 0,
           "wallet": 0.0,
-          "tournament_questions": 9,
+          "tournament_questions": 11,
           "has_active_boosters": 0
         },
         {
@@ -317,15 +326,6 @@
           "remaining_boosters": 0,
           "wallet": 0.0,
           "tournament_questions": 10,
-          "has_active_boosters": 0
-        },
-        {
-          "username": "Inna",
-          "capital": 1000.0,
-          "points": 190.0,
-          "remaining_boosters": 0,
-          "wallet": 0.0,
-          "tournament_questions": 7,
           "has_active_boosters": 0
         },
         {
@@ -520,7 +520,7 @@
       "level": "Эксперт",
       "capital": 1000.0,
       "wallet": 0.0,
-      "all_questions": 7,
+      "all_questions": 10,
       "remaining_boosters": 0
     },
     {
@@ -624,7 +624,7 @@
       "level": "Эксперт",
       "capital": 1000.0,
       "wallet": 0.0,
-      "all_questions": 28,
+      "all_questions": 34,
       "remaining_boosters": 0
     },
     {
@@ -696,7 +696,7 @@
       "level": "Эксперт",
       "capital": 1000.0,
       "wallet": 0.0,
-      "all_questions": 10,
+      "all_questions": 20,
       "remaining_boosters": 0
     },
     {
@@ -816,7 +816,7 @@
       "level": "Эксперт",
       "capital": 1000.0,
       "wallet": 0.0,
-      "all_questions": 9,
+      "all_questions": 11,
       "remaining_boosters": 0
     },
     {
@@ -8768,7 +8768,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 6,
+      "all_questions": 9,
       "remaining_boosters": 0
     },
     {
@@ -13800,7 +13800,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 40.0,
-      "all_questions": 5,
+      "all_questions": 6,
       "remaining_boosters": 0
     },
     {
