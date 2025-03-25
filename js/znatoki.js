@@ -28,7 +28,9 @@ function loadData() {
         console.log('Znatoki data loaded successfully');
         globalStats = data;  // Теперь используем единый объект data
         updateLastUpdate(data.lastUpdate);
-        const filteredPlayers = (data.players || []).filter(player => player.level === 'Знаток');
+        const filteredPlayers = (data.players || [])
+            .filter(player => player.level === 'Знаток')
+            .filter(player => player.all_questions > 0); // Добавляем фильтр по ответам > 0
         displayPlayers(filteredPlayers);
     })
     .catch(error => {
@@ -70,7 +72,7 @@ function displayPlayers(players) {
     
     const filteredPlayers = players.filter(player => 
         player.username.toLowerCase().includes(searchTerm)
-    );
+    ).filter(player => player.all_questions > 0);
 
     let html = `<div id="lastUpdate" class="mb-4 text-gray-600"></div>`;
 
