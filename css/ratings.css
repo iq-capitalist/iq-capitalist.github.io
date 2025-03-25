@@ -208,3 +208,10 @@ tr:hover {
     margin-top: 5px;
     margin-bottom: 20px;
 }
+
+#lastUpdate {
+    text-align: left;
+    margin-bottom: 20px;
+    font-style: italic;
+    color: var(--secondary-color);
+}
