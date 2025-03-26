@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-03-26 09:05:01 UTC",
+  "lastUpdate": "2025-03-26 09:10:02 UTC",
   "tournament": {
     "activeTournament": 1,
     "startDate": "2025-03-25 08:00:00",
@@ -583,10 +583,10 @@
         {
           "username": "Inna",
           "capital": 1000.0,
-          "points": 760.0,
+          "points": 790.0,
           "remaining_boosters": 0,
           "wallet": 0.0,
-          "tournament_questions": 34,
+          "tournament_questions": 35,
           "has_active_boosters": 0
         },
         {
@@ -635,6 +635,15 @@
           "has_active_boosters": 1
         },
         {
+          "username": "Archi",
+          "capital": 1000.0,
+          "points": 120.0,
+          "remaining_boosters": 279,
+          "wallet": 0.0,
+          "tournament_questions": 7,
+          "has_active_boosters": 1
+        },
+        {
           "username": "Константин",
           "capital": 1000.0,
           "points": 70.0,
@@ -651,15 +660,6 @@
           "wallet": 0.0,
           "tournament_questions": 2,
           "has_active_boosters": 0
-        },
-        {
-          "username": "Archi",
-          "capital": 1000.0,
-          "points": 40.0,
-          "remaining_boosters": 281,
-          "wallet": 0.0,
-          "tournament_questions": 5,
-          "has_active_boosters": 1
         },
         {
           "username": "479033963",
@@ -808,7 +808,7 @@
       "level": "Эксперт",
       "capital": 1000.0,
       "wallet": 0.0,
-      "all_questions": 34,
+      "all_questions": 35,
       "remaining_boosters": 0
     },
     {
@@ -1120,8 +1120,8 @@
       "level": "Эксперт",
       "capital": 1000.0,
       "wallet": 0.0,
-      "all_questions": 5,
-      "remaining_boosters": 281
+      "all_questions": 7,
+      "remaining_boosters": 279
     },
     {
       "username": "1877397832",
