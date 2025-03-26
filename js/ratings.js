@@ -201,12 +201,21 @@ function displayRatings(ratings) {
     const tournamentInfoContainer = document.getElementById('tournamentInfo');
     const tableContainer = document.getElementById('ratingTable');
 
-    // Отображаем информацию о турнире
+// Отображаем информацию о турнире
     if (globalData && globalData.tournament.activeTournament) {
+        // Подсчитываем общее количество ответов по всем уровням
+        let totalQuestions = 0;
+        Object.keys(globalData.tournament.ratings).forEach(level => {
+            globalData.tournament.ratings[level].forEach(player => {
+                totalQuestions += player.tournament_questions || 0;
+            });
+        });
+        
         tournamentInfoContainer.innerHTML = `
             <div class="tournament-info">
                 <p>Турнир: ${globalData.tournament.activeTournament}. 
-                   Участников: ${globalData.tournament.totalPlayers}</p>
+                   Участников: ${globalData.tournament.totalPlayers}. 
+                   Ответов: ${totalQuestions.toLocaleString('ru-RU')}</p>
             </div>
         `;
     }
