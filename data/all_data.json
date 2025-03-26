@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-03-26 07:00:01 UTC",
+  "lastUpdate": "2025-03-26 07:05:01 UTC",
   "tournament": {
     "activeTournament": 1,
     "startDate": "2025-03-25 08:00:00",
@@ -518,6 +518,24 @@
           "has_active_boosters": 0
         },
         {
+          "username": "977840664",
+          "capital": 1000.0,
+          "points": 1200.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 44,
+          "has_active_boosters": 0
+        },
+        {
+          "username": "722954860",
+          "capital": 1000.0,
+          "points": 1080.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 70,
+          "has_active_boosters": 0
+        },
+        {
           "username": "853175665",
           "capital": 1000.0,
           "points": 1010.0,
@@ -527,30 +545,12 @@
           "has_active_boosters": 0
         },
         {
-          "username": "722954860",
-          "capital": 1000.0,
-          "points": 1000.0,
-          "remaining_boosters": 0,
-          "wallet": 0.0,
-          "tournament_questions": 67,
-          "has_active_boosters": 0
-        },
-        {
           "username": "974777477",
           "capital": 1000.0,
           "points": 1000.0,
           "remaining_boosters": 0,
           "wallet": 0.0,
           "tournament_questions": 80,
-          "has_active_boosters": 0
-        },
-        {
-          "username": "977840664",
-          "capital": 1000.0,
-          "points": 960.0,
-          "remaining_boosters": 0,
-          "wallet": 0.0,
-          "tournament_questions": 34,
           "has_active_boosters": 0
         },
         {
@@ -944,7 +944,7 @@
       "level": "Эксперт",
       "capital": 1000.0,
       "wallet": 0.0,
-      "all_questions": 67,
+      "all_questions": 70,
       "remaining_boosters": 0
     },
     {
@@ -1040,7 +1040,7 @@
       "level": "Эксперт",
       "capital": 1000.0,
       "wallet": 0.0,
-      "all_questions": 34,
+      "all_questions": 44,
       "remaining_boosters": 0
     },
     {
