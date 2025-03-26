@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-03-26 18:05:01 UTC",
+  "lastUpdate": "2025-03-26 18:10:02 UTC",
   "tournament": {
     "activeTournament": 1,
     "startDate": "2025-03-25 08:00:00",
@@ -626,6 +626,15 @@
           "has_active_boosters": 0
         },
         {
+          "username": "693187128",
+          "capital": 1000.0,
+          "points": 1880.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 74,
+          "has_active_boosters": 0
+        },
+        {
           "username": "CAHEK",
           "capital": 1000.0,
           "points": 1750.0,
@@ -668,15 +677,6 @@
           "remaining_boosters": 0,
           "wallet": 0.0,
           "tournament_questions": 80,
-          "has_active_boosters": 0
-        },
-        {
-          "username": "693187128",
-          "capital": 1000.0,
-          "points": 1580.0,
-          "remaining_boosters": 0,
-          "wallet": 0.0,
-          "tournament_questions": 64,
           "has_active_boosters": 0
         },
         {
@@ -1072,7 +1072,7 @@
       "level": "Эксперт",
       "capital": 1000.0,
       "wallet": 0.0,
-      "all_questions": 64,
+      "all_questions": 74,
       "remaining_boosters": 0
     },
     {
