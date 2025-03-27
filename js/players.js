@@ -13,6 +13,19 @@ const levelOrder = [
     'Босс', 'Мастер', 'Эксперт'
 ];
 
+// Определение границ уровней
+const levelRanges = {
+    'Знаток': { min: 100, max: 100 },
+    'Эксперт': { min: 1000, max: 1999 },
+    'Мастер': { min: 2000, max: 3999 },
+    'Босс': { min: 4000, max: 6999 },
+    'Титан': { min: 7000, max: 10999 },
+    'Легенда': { min: 11000, max: 15999 },
+    'Корифей': { min: 16000, max: 21999 },
+    'Гуру': { min: 22000, max: 29999 },
+    'IQ Капиталист': { min: 30000, max: Infinity }
+};
+
 /**
  * Создает заголовок таблицы
  * @returns {String} HTML заголовка таблицы
@@ -57,9 +70,21 @@ function displayPlayers(players) {
         if (levelPlayers && levelPlayers.length > 0) {
             const sortedPlayers = sortPlayers(levelPlayers, currentSort.column, currentSort.direction);
             
+            // Получаем границы уровня
+            const range = levelRanges[level];
+            // Формируем текст с границами в скобках
+            let rangeText = '';
+            if (level === 'Знаток') {
+                rangeText = `(${range.min})`;
+            } else if (range.max === Infinity) {
+                rangeText = `(${range.min}+)`;
+            } else {
+                rangeText = `(${range.min}-${range.max})`;
+            }
+            
             html += `
                 <div class="level-section mb-4">
-                    <h2 class="level-title">${level} (${levelPlayers.length})</h2>
+                    <h2 class="level-title">${level} ${rangeText} ${levelPlayers.length}</h2>
                     <div class="table-responsive">
                         <table class="table table-hover">
                             ${createTableHeader()}
