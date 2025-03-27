@@ -30,7 +30,7 @@ function displayPlayers(players) {
 
         html += `
             <div class="level-section mb-4">
-                <h2 class="level-title">Знатоки (${filteredPlayers.length})</h2>
+                <h2 class="level-title">Знатоки (100) ${filteredPlayers.length}</h2>
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
@@ -128,7 +128,7 @@ function displayPlayers(players) {
     } else {
         html += `
             <div class="level-section mb-4">
-                <h2 class="level-title">Знатоки (0)</h2>
+                <h2 class="level-title">Знатоки (100) 0</h2>
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
