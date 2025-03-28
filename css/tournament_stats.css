@@ -3,11 +3,11 @@
 /* Стили для кнопок уровней */
 #levelButtons {
     margin-bottom: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-gap: 10px;
     width: 100%;
-    gap: 10px;
 }
 
 .level-btn {
@@ -19,7 +19,6 @@
     transition: background-color 0.3s, transform 0.2s;
     border-radius: 5px;
     font-size: 14px;
-    flex-grow: 1;
     text-align: center;
 }
 
@@ -31,6 +30,15 @@
 .level-btn.active {
     background-color: var(--accent-color);
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.level-btn.empty {
+    background-color: #888;
+    opacity: 0.7;
+}
+
+.level-btn.empty:hover {
+    background-color: #666;
 }
 
 /* Стили для поля поиска */
@@ -56,6 +64,29 @@
     border-collapse: separate;
     border-spacing: 0;
     margin-bottom: 20px;
+    table-layout: fixed;
+}
+
+.stats-table th,
+.stats-table td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+/* Задаем ширину колонок */
+.stats-table th:first-child {
+    width: 200px; /* Имя */
+}
+
+.stats-table th:nth-child(n+2):nth-child(-n+9) {
+    width: 40px; /* Все колонки с ответами (7 типов ответов + Всего) */
+}
+
+.stats-table th:nth-child(10),
+.stats-table th:nth-child(11) {
+    width: 80px; /* Очки и Приз */
 }
 
 .stats-table th,
