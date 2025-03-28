@@ -196,9 +196,23 @@ function displayLevelChart(data) {
         return;
     }
     
+    // Определяем все возможные уровни в порядке возрастания
+    const allLevels = [
+        'Знаток', 
+        'Эксперт', 
+        'Мастер', 
+        'Босс', 
+        'Титан', 
+        'Легенда', 
+        'Корифей', 
+        'Гуру', 
+        'IQ Капиталист'
+    ];
+    
     const levelPlayers = data.stats.players_by_level;
-    const levels = Object.keys(levelPlayers);
-    const playerCounts = levels.map(level => levelPlayers[level]);
+    
+    // Формируем массивы для диаграммы, обеспечивая наличие всех уровней
+    const playerCounts = allLevels.map(level => levelPlayers[level] || 0);
     
     // Цвета для уровней
     const levelColors = {
@@ -213,16 +227,25 @@ function displayLevelChart(data) {
         'IQ Капиталист': '#000000'
     };
     
-    const colors = levels.map(level => levelColors[level] || '#3498db');
+    const colors = allLevels.map(level => levelColors[level] || '#3498db');
+    
+    // Фильтруем уровни, у которых есть хотя бы один игрок
+    const hasPlayersIndices = playerCounts.map((count, index) => count > 0 ? index : -1).filter(index => index >= 0);
+    const displayLevels = hasPlayersIndices.map(index => allLevels[index]);
+    const displayCounts = hasPlayersIndices.map(index => playerCounts[index]);
+    const displayColors = hasPlayersIndices.map(index => colors[index]);
+    
+    console.log('Уровни для отображения:', displayLevels);
+    console.log('Количество игроков:', displayCounts);
     
     const ctx = document.getElementById('levelChart').getContext('2d');
     new Chart(ctx, {
         type: 'pie',
         data: {
-            labels: levels,
+            labels: displayLevels,
             datasets: [{
-                data: playerCounts,
-                backgroundColor: colors,
+                data: displayCounts,
+                backgroundColor: displayColors,
                 borderColor: 'white',
                 borderWidth: 2
             }]
@@ -262,7 +285,7 @@ function displayLevelChart(data) {
                             const label = context.label || '';
                             const value = context.raw || 0;
                             const total = data.stats.total_players || 
-                                           playerCounts.reduce((a, b) => a + b, 0);
+                                        displayCounts.reduce((a, b) => a + b, 0);
                             const percentage = Math.round(value / total * 100);
                             return `${label}: ${value} (${percentage}%)`;
                         }
