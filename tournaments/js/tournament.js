@@ -249,8 +249,6 @@ function displayLevelChart(data) {
                                 const total = data.datasets[0].data.reduce((a, b) => a + b, 0);
                                 const value = data.datasets[0].data[i];
                                 const percentage = Math.round(value / total * 100);
-                                
-                                // Убеждаемся, что используем правильный лейбл из данных
                                 const originalLabel = data.labels[i];
                                 label.text = `${originalLabel}: ${value} (${percentage}%)`;
                                 return label;
