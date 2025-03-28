@@ -82,15 +82,15 @@
 
 /* Правильные и неправильные ответы - все колонки одинаковой ширины (7 типов ответов) */
 .stats-table th:nth-child(n+2):nth-child(-n+8) {
-    width: 40px; /* Ширина для 2 цифр */
+    width: 50px; /* Ширина для 2 цифр */
 }
 
 .stats-table th:nth-child(9) {
-    width: 50px; /* Всего ответов */
+    width: 60px; /* Всего ответов */
 }
 
 .stats-table th:nth-child(10) {
-    width: 70px; /* Очки */
+    width: 60px; /* Очки */
 }
 
 .stats-table th:nth-child(11) {
