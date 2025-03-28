@@ -6,7 +6,6 @@
     <title>Турнир №1 | IQ Capitalist</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/tournament.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <style>
         /* Дополнительные стили, необходимые для корректного отображения */
         .container {
@@ -45,39 +44,29 @@
                 </div>
             </div>
 
-            <!-- Карточка "Участники" с легендой справа -->
+            <!-- Карточка "Участники" без круговой диаграммы -->
             <div class="stat-card participants-by-level">
                 <h2>Участники</h2>
-                <div class="card-content-with-legend">
-                    <div class="chart-container">
-                        <canvas id="levelChart"></canvas>
-                    </div>
-                    <div class="legend-container" id="levelChartLegend">
-                        <!-- Легенда будет добавлена через JavaScript -->
-                    </div>
+                <div class="cards-horizontal-layout" id="levelChartLegend">
+                    <!-- Легенда будет добавлена через JavaScript -->
                 </div>
             </div>
 
-            <!-- Карточка "Ответы" с блоками справа -->
+            <!-- Карточка "Ответы" без круговой диаграммы -->
             <div class="stat-card answers-stats">
                 <h2>Ответы</h2>
-                <div class="card-content-with-legend">
-                    <div class="chart-container">
-                        <canvas id="answersChart"></canvas>
+                <div class="cards-horizontal-layout">
+                    <div class="answer-type correct">
+                        <div class="count" id="correct-answers">2269</div>
+                        <div class="label">Правильные</div>
                     </div>
-                    <div class="legend-container">
-                        <div class="answer-type correct">
-                            <div class="count" id="correct-answers">2269</div>
-                            <div class="label">Правильные</div>
-                        </div>
-                        <div class="answer-type wrong">
-                            <div class="count" id="wrong-answers">1026</div>
-                            <div class="label">Неправильные</div>
-                        </div>
-                        <div class="answer-type timeout">
-                            <div class="count" id="timeouts">95</div>
-                            <div class="label">Таймауты</div>
-                        </div>
+                    <div class="answer-type wrong">
+                        <div class="count" id="wrong-answers">1026</div>
+                        <div class="label">Неправильные</div>
+                    </div>
+                    <div class="answer-type timeout">
+                        <div class="count" id="timeouts">95</div>
+                        <div class="label">Таймауты</div>
                     </div>
                 </div>
             </div>
