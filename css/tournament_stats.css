@@ -86,11 +86,11 @@
 }
 
 .stats-table tr:nth-child(2) th:nth-child(9) {
-    width: 50px; /* Всего */
+    width: 36px; /* Всего */
 }
 
 .stats-table tr:nth-child(2) th:nth-child(10) {
-    width: 100px; /* Очки */
+    width: 120px; /* Очки */
 }
 
 .stats-table tr:nth-child(2) th:nth-child(11) {
