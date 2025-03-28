@@ -222,12 +222,12 @@ function isValidDate(date) {
 }
 
 /**
- * Форматирование числа с разделением тысяч
+ * Форматирование числа с разделением тысяч, без дробной части
  * @param {number} num - Число для форматирования 
  * @returns {string} - Отформатированное число
  */
 function formatNumber(num) {
-    return typeof num === 'number' ? num.toLocaleString('ru-RU') : 'Н/Д';
+    return typeof num === 'number' ? Math.round(num).toLocaleString('ru-RU') : 'Н/Д';
 }
 
 /**
