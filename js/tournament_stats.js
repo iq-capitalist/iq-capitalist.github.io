@@ -247,9 +247,7 @@ function displayStatsTable(data) {
             <table class="stats-table">
                 <thead>
                     <tr>
-                        <th onclick="sortTable('user_id')">ID</th>
                         <th onclick="sortTable('username')">Имя пользователя</th>
-                        <th onclick="sortTable('level')">Уровень</th>
                         <th colspan="3" class="column-group">Правильные ответы</th>
                         <th colspan="3" class="column-group">Неправильные ответы</th>
                         <th class="column-group">Таймауты</th>
@@ -259,15 +257,13 @@ function displayStatsTable(data) {
                     </tr>
                     <tr>
                         <th></th>
-                        <th></th>
-                        <th></th>
-                        <th onclick="sortTable('correct_answers.fast')">Быстрые</th>
-                        <th onclick="sortTable('correct_answers.medium')">Средние</th>
-                        <th onclick="sortTable('correct_answers.slow')">Медленные</th>
-                        <th onclick="sortTable('wrong_answers.fast')">Быстрые</th>
-                        <th onclick="sortTable('wrong_answers.medium')">Средние</th>
-                        <th onclick="sortTable('wrong_answers.slow')">Медленные</th>
-                        <th onclick="sortTable('timeouts')"></th>
+                        <th onclick="sortTable('correct_answers.fast')" class="correct-fast"></th>
+                        <th onclick="sortTable('correct_answers.medium')" class="correct-medium"></th>
+                        <th onclick="sortTable('correct_answers.slow')" class="correct-slow"></th>
+                        <th onclick="sortTable('wrong_answers.fast')" class="wrong-fast"></th>
+                        <th onclick="sortTable('wrong_answers.medium')" class="wrong-medium"></th>
+                        <th onclick="sortTable('wrong_answers.slow')" class="wrong-slow"></th>
+                        <th onclick="sortTable('timeouts')" class="timeout"></th>
                         <th></th>
                         <th></th>
                         <th></th>
@@ -280,9 +276,7 @@ function displayStatsTable(data) {
     currentPagePlayers.forEach(player => {
         html += `
             <tr>
-                <td>${player.user_id}</td>
                 <td>${player.username}</td>
-                <td>${player.level}</td>
                 <td class="correct-fast">${player.correct_answers.fast}</td>
                 <td class="correct-medium">${player.correct_answers.medium}</td>
                 <td class="correct-slow">${player.correct_answers.slow}</td>
