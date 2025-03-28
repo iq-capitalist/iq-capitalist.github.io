@@ -75,34 +75,26 @@
     font-size: 14px;
 }
 
-/* Задаем ширину колонок */
+/* Фиксированная ширина колонок второго уровня (с ячейками ответов) */
+.stats-table tr:nth-child(2) th:nth-child(n+2):nth-child(-n+8) {
+    width: 40px; /* Ширина для колонок с 2 цифрами (от 0 до 80) */
+}
+
+/* Настройка ширины остальных колонок */
 .stats-table th:first-child {
     width: 200px; /* Имя */
 }
 
-/* Правильные и неправильные ответы - все колонки одинаковой ширины (7 типов ответов) */
-.stats-table th:nth-child(n+2):nth-child(-n+8) {
-    width: 50px; /* Ширина для 2 цифр */
+.stats-table tr:nth-child(2) th:nth-child(9) {
+    width: 50px; /* Всего */
 }
 
-.stats-table th:nth-child(9) {
-    width: 60px; /* Всего ответов */
+.stats-table tr:nth-child(2) th:nth-child(10) {
+    width: 70px; /* Очки */
 }
 
-.stats-table th:nth-child(10) {
-    width: 60px; /* Очки */
-}
-
-.stats-table th:nth-child(11) {
+.stats-table tr:nth-child(2) th:nth-child(11) {
     width: 60px; /* Приз */
-}
-
-.stats-table th,
-.stats-table td {
-    padding: 10px;
-    text-align: center;
-    border-bottom: 1px solid #eee;
-    font-size: 14px;
 }
 
 .stats-table th {
