@@ -505,15 +505,24 @@ function displayDetailedStats(data) {
             count: timeouts, 
             percent: (timeouts / totalAnswers * 100).toFixed(1) + '%',
             type: 'timeout'
+        },
+        { 
+            name: 'Всего', 
+            count: totalAnswers, 
+            percent: '100.0%',
+            type: 'total'
         }
     ];
     
     const tableBody = document.getElementById('detailed-stats-body');
-    tableBody.innerHTML = statsData.map(stat => 
-        `<tr data-type="${stat.type}">
+    tableBody.innerHTML = statsData.map(stat => {
+        // Добавляем полужирное выделение для строки "Всего"
+        const fontWeight = stat.type === 'total' ? 'font-weight: bold;' : '';
+        
+        return `<tr data-type="${stat.type}" style="${fontWeight}">
             <td>${stat.name}</td>
             <td>${stat.count.toLocaleString('ru-RU')}</td>
             <td>${stat.percent}</td>
-        </tr>`
-    ).join('');
+        </tr>`;
+    }).join('');
 }
