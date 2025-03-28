@@ -80,13 +80,21 @@
     width: 200px; /* Имя */
 }
 
-.stats-table th:nth-child(n+2):nth-child(-n+9) {
-    width: 40px; /* Все колонки с ответами (7 типов ответов + Всего) */
+/* Правильные и неправильные ответы - все колонки одинаковой ширины (7 типов ответов) */
+.stats-table th:nth-child(n+2):nth-child(-n+8) {
+    width: 40px; /* Ширина для 2 цифр */
 }
 
-.stats-table th:nth-child(10),
+.stats-table th:nth-child(9) {
+    width: 50px; /* Всего ответов */
+}
+
+.stats-table th:nth-child(10) {
+    width: 70px; /* Очки */
+}
+
 .stats-table th:nth-child(11) {
-    width: 80px; /* Очки и Приз */
+    width: 60px; /* Приз */
 }
 
 .stats-table th,
