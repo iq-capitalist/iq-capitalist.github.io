@@ -33,12 +33,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Выделение текущей страницы в меню
 function highlightCurrentPage() {
+    // Убираем выделение со всех пунктов меню, так как страница турнира
+    // не имеет соответствующего пункта в основном меню
     const navLinks = document.querySelectorAll('nav a');
-    // Для турнира выделяем ссылку на рейтинги
     navLinks.forEach(link => {
-        if (link.getAttribute('href') === 'ratings.html') {
-            link.classList.add('active');
-        }
+        link.classList.remove('active');
     });
 }
 
@@ -97,7 +96,7 @@ function displayTournamentData(data) {
 
 // Анимация появления элементов
 function animateElements() {
-    const elements = document.querySelectorAll('.tournament-info, .stat-card');
+    const elements = document.querySelectorAll('.tournament-info-container, .stat-card');
     elements.forEach((element, index) => {
         setTimeout(() => {
             element.style.opacity = '1';
@@ -223,24 +222,8 @@ function displayLevelChart(data) {
     
     const colors = levels.map(level => levelColors[level] || '#3498db');
     
-    // Добавляем стили для вертикальной легенды
-    const style = document.createElement('style');
-    style.textContent = `
-        #levelChart + .chartjs-legend ul {
-            display: flex;
-            flex-direction: column !important;
-            align-items: flex-start !important;
-        }
-        
-        #levelChart + .chartjs-legend ul li {
-            margin: 8px 0 !important;
-            font-size: 16px !important;
-        }
-    `;
-    document.head.appendChild(style);
-    
     const ctx = document.getElementById('levelChart').getContext('2d');
-    new Chart(ctx, {
+    const chart = new Chart(ctx, {
         type: 'pie',
         data: {
             labels: levels,
@@ -256,69 +239,7 @@ function displayLevelChart(data) {
             maintainAspectRatio: false,
             plugins: {
                 legend: {
-                    position: 'bottom',
-                    align: 'start',
-                    labels: {
-                        font: {
-                            size: 16  // Увеличенный размер шрифта
-                        },
-                        padding: 15,
-                        usePointStyle: true,
-                        pointStyle: 'circle',
-                        boxWidth: 12,
-                        generateLabels: function(chart) {
-                            // Получение данных напрямую из chart
-                            const data = chart.data;
-                            const dataset = data.datasets[0];
-                            const labels = data.labels;
-                            
-                            // Создаем контейнер для легенды, если его нет
-                            if (!document.querySelector('#levelChart + .chartjs-legend')) {
-                                const legendContainer = document.createElement('div');
-                                legendContainer.className = 'chartjs-legend';
-                                
-                                const ul = document.createElement('ul');
-                                ul.style.display = 'flex';
-                                ul.style.flexDirection = 'column';
-                                ul.style.listStyle = 'none';
-                                ul.style.padding = '0';
-                                ul.style.margin = '20px 0 0 0';
-                                
-                                labels.forEach((label, i) => {
-                                    const li = document.createElement('li');
-                                    li.style.display = 'flex';
-                                    li.style.alignItems = 'center';
-                                    li.style.margin = '8px 0';
-                                    li.style.fontSize = '16px';
-                                    
-                                    const colorBox = document.createElement('span');
-                                    colorBox.style.display = 'inline-block';
-                                    colorBox.style.width = '14px';
-                                    colorBox.style.height = '14px';
-                                    colorBox.style.backgroundColor = dataset.backgroundColor[i];
-                                    colorBox.style.marginRight = '8px';
-                                    colorBox.style.borderRadius = '50%';
-                                    
-                                    const value = dataset.data[i];
-                                    const total = dataset.data.reduce((a, b) => a + b, 0);
-                                    const percentage = Math.round(value / total * 100);
-                                    
-                                    const text = document.createTextNode(`${label}: ${value} (${percentage}%)`);
-                                    
-                                    li.appendChild(colorBox);
-                                    li.appendChild(text);
-                                    ul.appendChild(li);
-                                });
-                                
-                                legendContainer.appendChild(ul);
-                                chart.canvas.parentNode.appendChild(legendContainer);
-                            }
-                            
-                            // Возвращаем пустой массив, т.к. мы создаем легенду вручную
-                            return [];
-                        }
-                    },
-                    onClick: null  // Отключаем клики по легенде
+                    display: false // Отключаем встроенную легенду, будем использовать свою
                 },
                 tooltip: {
                     callbacks: {
@@ -343,6 +264,9 @@ function displayLevelChart(data) {
             }
         }
     });
+    
+    // Создаем свою легенду
+    createLegendContainer(chart, levels, chart.data.datasets[0]);
 }
 
 // Отображение статистики ответов
@@ -525,4 +449,68 @@ function displayDetailedStats(data) {
             <td>${stat.percent}</td>
         </tr>`;
     }).join('');
+}
+
+// Создание адаптивной легенды для графика
+function createLegendContainer(chart, labels, dataset) {
+    // Удаляем существующую легенду, если она есть
+    const existingLegend = document.querySelector('#levelChart + .chartjs-legend');
+    if (existingLegend) {
+        existingLegend.remove();
+    }
+    
+    // Создаем новый контейнер для легенды
+    const legendContainer = document.createElement('div');
+    legendContainer.className = 'chartjs-legend';
+    
+    const ul = document.createElement('ul');
+    ul.style.display = 'flex';
+    ul.style.flexDirection = 'column';
+    ul.style.listStyle = 'none';
+    ul.style.padding = '0';
+    ul.style.margin = '20px 0 0 0';
+    
+    // Добавляем элементы легенды
+    labels.forEach((label, i) => {
+        const li = document.createElement('li');
+        li.style.display = 'flex';
+        li.style.alignItems = 'center';
+        li.style.margin = '8px 0';
+        li.style.fontSize = '16px';
+        
+        const colorBox = document.createElement('span');
+        colorBox.style.display = 'inline-block';
+        colorBox.style.width = '14px';
+        colorBox.style.height = '14px';
+        colorBox.style.backgroundColor = dataset.backgroundColor[i];
+        colorBox.style.marginRight = '8px';
+        colorBox.style.borderRadius = '50%';
+        
+        const value = dataset.data[i];
+        const total = dataset.data.reduce((a, b) => a + b, 0);
+        const percentage = Math.round(value / total * 100);
+        
+        // Для мобильных устройств делаем более компактное отображение
+        const isMobile = window.innerWidth < 768;
+        const text = document.createTextNode(
+            isMobile
+                ? `${label}: ${percentage}%`
+                : `${label}: ${value} (${percentage}%)`
+        );
+        
+        li.appendChild(colorBox);
+        li.appendChild(text);
+        ul.appendChild(li);
+    });
+    
+    legendContainer.appendChild(ul);
+    chart.canvas.parentNode.appendChild(legendContainer);
+    
+    // Добавляем обработчик изменения размера окна
+    window.addEventListener('resize', function() {
+        // Перестраиваем легенду при изменении размера окна
+        createLegendContainer(chart, labels, dataset);
+    });
+    
+    return legendContainer;
 }
