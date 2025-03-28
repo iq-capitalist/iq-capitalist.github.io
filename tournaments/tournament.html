@@ -111,6 +111,32 @@
 
     <script src="../js/main.js"></script>
     <script>
+        // Загрузка шапки и подвала
+        document.addEventListener('DOMContentLoaded', function() {
+            // Загрузка header
+            fetch('/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header').innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Ошибка загрузки header:', error);
+                    document.getElementById('header').innerHTML = '<div class="container"><a href="/" class="site-title">IQ Capitalist</a></div>';
+                });
+
+            // Загрузка footer
+            fetch('/footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer').innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Ошибка загрузки footer:', error);
+                    document.getElementById('footer').innerHTML = '<div class="container"><p>© 2024 IQ Capitalist. Все права защищены.</p></div>';
+                });
+        });
+
+        // Загрузка данных турнира
         // Загрузка данных турнира
         async function loadTournamentData() {
             try {
