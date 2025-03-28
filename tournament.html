@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Турнир №1 | IQ Capitalist</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/tournament.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <style>
+        /* Дополнительные стили, необходимые для корректного отображения */
+        .container {
+            max-width: 900px;
+            padding: 0 15px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <header id="header"></header>
+
+    <main>
+        <div class="container">
+            <div class="tournament-header">
+                <h1 class="page-title">Турнир №1</h1>
+            </div>
+
+            <div class="tournament-info">
+                <table class="info-table">
+                    <tr>
+                        <td class="info-label">Период проведения</td>
+                        <td class="info-value" id="tournament-dates">25-27 марта 2025 года</td>
+                    </tr>
+                    <tr>
+                        <td class="info-label">Всего вопросов</td>
+                        <td class="info-value" id="total-questions">80</td>
+                    </tr>
+                    <tr>
+                        <td class="info-label">Участников</td>
+                        <td class="info-value" id="total-players">94</td>
+                    </tr>
+                    <tr>
+                        <td class="info-label">Призовой фонд</td>
+                        <td class="info-value" id="prize-pool">6995 IQC</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="tournament-stats-grid">
+                <div class="stat-card participants-by-level">
+                    <h2>Участники</h2>
+                    <div class="chart-container">
+                        <canvas id="levelChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="stat-card answers-stats">
+                    <h2>Ответы</h2>
+                    <div class="answers-grid">
+                        <div class="answer-type correct">
+                            <div class="count" id="correct-answers">2269</div>
+                            <div class="label">Правильные</div>
+                        </div>
+                        <div class="answer-type wrong">
+                            <div class="count" id="wrong-answers">1026</div>
+                            <div class="label">Неправильные</div>
+                        </div>
+                        <div class="answer-type timeout">
+                            <div class="count" id="timeouts">95</div>
+                            <div class="label">Таймауты</div>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="answersChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-card detailed-stats">
+                <h2>Детальная статистика по типам ответов</h2>
+                <div class="table-responsive">
+                    <table class="stats-table">
+                        <thead>
+                            <tr>
+                                <th>Тип ответа</th>
+                                <th>Количество</th>
+                                <th>Процент</th>
+                            </tr>
+                        </thead>
+                        <tbody id="detailed-stats-body">
+                            <!-- Данные будут добавлены через JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer"></footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Инициализация элементов с анимацией появления
+        document.addEventListener('DOMContentLoaded', function() {
+            // Добавляем стили для анимации
+            const style = document.createElement('style');
+            style.textContent = `
+                .tournament-info, .stat-card {
+                    opacity: 0;
+                    transform: translateY(20px);
+                    transition: opacity 0.5s ease, transform 0.5s ease;
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+    <script src="js/tournament.js"></script>
+</body>
+</html>
