@@ -97,7 +97,6 @@ function displayTournamentData(data) {
     displayLevelChart(data);
     displayAnswersStats(data);
     displayDetailedStats(data);
-    displayTopPlayers(data);
 
     // Анимация появления элементов
     animateElements();
@@ -234,12 +233,26 @@ function displayLevelChart(data) {
             plugins: {
                 legend: {
                     position: 'bottom',
+                    align: 'start',
                     labels: {
                         font: {
                             size: 14
                         },
                         padding: 15,
-                        usePointStyle: true
+                        usePointStyle: true,
+                        generateLabels: function(chart) {
+                            const originalLabels = Chart.defaults.plugins.legend.labels.generateLabels(chart);
+                            const data = chart.data;
+                            
+                            return originalLabels.map((label, i) => {
+                                // Добавляем количество и процент к метке
+                                const total = data.datasets[0].data.reduce((a, b) => a + b, 0);
+                                const value = data.datasets[0].data[i];
+                                const percentage = Math.round(value / total * 100);
+                                label.text = `${label.text}: ${value} (${percentage}%)`;
+                                return label;
+                            });
+                        }
                     }
                 },
                 tooltip: {
@@ -328,14 +341,7 @@ function displayAnswersStats(data) {
             cutout: '60%',
             plugins: {
                 legend: {
-                    position: 'bottom',
-                    labels: {
-                        padding: 15,
-                        usePointStyle: true,
-                        font: {
-                            size: 14
-                        }
-                    }
+                    display: false
                 },
                 tooltip: {
                     callbacks: {
