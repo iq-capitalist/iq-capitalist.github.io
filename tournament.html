@@ -41,40 +41,41 @@
                 </div>
                 <div class="info-row">
                     <div class="info-label">Призовой фонд</div>
-                    <div class="info-value" id="prize-pool">6995 IQC</div>
+                    <div class="info-value" id="prize-pool">6 995 IQC</div>
                 </div>
             </div>
 
-            <div class="tournament-stats-grid">
-                <div class="stat-card participants-by-level">
-                    <h2>Участники</h2>
-                    <div class="chart-container">
-                        <canvas id="levelChart"></canvas>
-                    </div>
-                </div>
-
-                <div class="stat-card answers-stats">
-                    <h2>Ответы</h2>
-                    <div class="answers-grid">
-                        <div class="answer-type correct">
-                            <div class="count" id="correct-answers">2269</div>
-                            <div class="label">Правильные</div>
-                        </div>
-                        <div class="answer-type wrong">
-                            <div class="count" id="wrong-answers">1026</div>
-                            <div class="label">Неправильные</div>
-                        </div>
-                        <div class="answer-type timeout">
-                            <div class="count" id="timeouts">95</div>
-                            <div class="label">Таймауты</div>
-                        </div>
-                    </div>
-                    <div class="chart-container">
-                        <canvas id="answersChart"></canvas>
-                    </div>
+            <!-- Карточка "Участники" -->
+            <div class="stat-card participants-by-level">
+                <h2>Участники</h2>
+                <div class="chart-container">
+                    <canvas id="levelChart"></canvas>
                 </div>
             </div>
 
+            <!-- Карточка "Ответы" -->
+            <div class="stat-card answers-stats">
+                <h2>Ответы</h2>
+                <div class="answers-grid">
+                    <div class="answer-type correct">
+                        <div class="count" id="correct-answers">2269</div>
+                        <div class="label">Правильные</div>
+                    </div>
+                    <div class="answer-type wrong">
+                        <div class="count" id="wrong-answers">1026</div>
+                        <div class="label">Неправильные</div>
+                    </div>
+                    <div class="answer-type timeout">
+                        <div class="count" id="timeouts">95</div>
+                        <div class="label">Таймауты</div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="answersChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Карточка "Детальная статистика" -->
             <div class="stat-card detailed-stats">
                 <h2>Детальная статистика по типам ответов</h2>
                 <div class="table-responsive">
