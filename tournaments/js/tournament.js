@@ -200,6 +200,10 @@ function displayLevelChart(data) {
     const levels = Object.keys(levelPlayers);
     const playerCounts = levels.map(level => levelPlayers[level]);
     
+    // Дебаг: проверяем какие уровни получены из данных
+    console.log('Уровни из данных:', levels);
+    console.log('Количество игроков по уровням:', playerCounts);
+    
     // Цвета для уровней
     const levelColors = {
         'Знаток': '#4682B4',
@@ -242,21 +246,36 @@ function displayLevelChart(data) {
                         usePointStyle: true,
                         boxWidth: 10,
                         generateLabels: function(chart) {
-                            const originalLabels = Chart.defaults.plugins.legend.labels.generateLabels(chart);
+                            // Получение данных напрямую из chart
                             const data = chart.data;
+                            const dataset = data.datasets[0];
+                            const labels = data.labels;
                             
-                            return originalLabels.map((label, i) => {
-                                // Добавляем количество и процент к метке
-                                const total = data.datasets[0].data.reduce((a, b) => a + b, 0);
-                                const value = data.datasets[0].data[i];
+                            // Собственное формирование легенды из всех доступных данных
+                            return labels.map((label, i) => {
+                                // Проверяем наличие данных
+                                if (i >= dataset.data.length) {
+                                    console.warn(`Нет данных для уровня ${label} (индекс ${i})`);
+                                    return null;
+                                }
+                                
+                                const value = dataset.data[i];
+                                const total = dataset.data.reduce((a, b) => a + b, 0);
                                 const percentage = Math.round(value / total * 100);
-                                const originalLabel = data.labels[i];
-                                label.text = `${originalLabel}: ${value} (${percentage}%)`;
-                                return label;
-                            });
+                                
+                                return {
+                                    text: `${label}: ${value} (${percentage}%)`,
+                                    fillStyle: dataset.backgroundColor[i],
+                                    strokeStyle: dataset.borderColor,
+                                    lineWidth: dataset.borderWidth,
+                                    hidden: false,
+                                    index: i,
+                                    datasetIndex: 0
+                                };
+                            }).filter(item => item !== null); // Убираем null элементы если такие появились
                         }
                     },
-                    maxHeight: 200,
+                    maxHeight: 250,
                     maxWidth: 500
                 },
                 tooltip: {
