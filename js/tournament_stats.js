@@ -137,35 +137,29 @@ function displayTournamentInfo(tournament) {
  * Создание кнопок для переключения между уровнями
  */
 function createLevelButtons(data) {
-    const availableLevels = [];
-    
-    // Проверяем, по каким уровням есть игроки
-    for (const level of levelOrder) {
-        const players = data.players.filter(player => player.level === level);
-        if (players.length > 0) {
-            availableLevels.push(level);
-        }
-    }
-    
     const buttonsContainer = document.getElementById('levelButtons');
     buttonsContainer.innerHTML = '';
     
-    // Создаем кнопки только для уровней, по которым есть игроки
-    availableLevels.forEach(level => {
+    // Создаем кнопки для всех уровней, кроме IQ Капиталист
+    for (const level of levelOrder) {
+        // Пропускаем IQ Капиталист
+        if (level === 'IQ Капиталист') continue;
+        
+        // Проверяем, есть ли игроки на этом уровне
+        const players = data.players.filter(player => player.level === level);
+        const isEmpty = players.length === 0;
+        
         const button = document.createElement('button');
-        button.textContent = level;
+        button.textContent = level + (isEmpty ? ' (0)' : ` (${players.length})`);
         button.className = `level-btn ${level === currentLevel ? 'active' : ''}`;
         button.onclick = () => changeLevel(level);
-        buttonsContainer.appendChild(button);
-    });
-    
-    // Если текущего уровня нет в доступных, выбираем первый доступный
-    if (!availableLevels.includes(currentLevel) && availableLevels.length > 0) {
-        currentLevel = availableLevels[0];
-        const activeButton = buttonsContainer.querySelector('.level-btn:first-child');
-        if (activeButton) {
-            activeButton.classList.add('active');
+        
+        if (isEmpty) {
+            button.classList.add('empty');
+            button.title = 'Нет игроков на этом уровне';
         }
+        
+        buttonsContainer.appendChild(button);
     }
 }
 
@@ -247,13 +241,13 @@ function displayStatsTable(data) {
             <table class="stats-table">
                 <thead>
                     <tr>
-                        <th onclick="sortTable('username')">Имя пользователя</th>
-                        <th colspan="3" class="column-group">Правильные ответы</th>
-                        <th colspan="3" class="column-group">Неправильные ответы</th>
+                        <th onclick="sortTable('username')">Имя</th>
+                        <th colspan="3" class="column-group">Правильные</th>
+                        <th colspan="3" class="column-group">Неправильные</th>
                         <th class="column-group">Таймауты</th>
-                        <th class="column-group" onclick="sortTable('answers')">Всего ответов</th>
+                        <th class="column-group" onclick="sortTable('answers')">Всего</th>
                         <th class="column-group" onclick="sortTable('total_points')">Очки</th>
-                        <th class="column-group" onclick="sortTable('prize')">Приз (IQC)</th>
+                        <th class="column-group" onclick="sortTable('prize')">Приз</th>
                     </tr>
                     <tr>
                         <th></th>
@@ -286,7 +280,7 @@ function displayStatsTable(data) {
                 <td class="timeout">${player.timeouts}</td>
                 <td class="total-answers">${player.answers}</td>
                 <td class="total-points">${formatNumber(player.total_points)}</td>
-                <td class="prize">${formatNumber(player.prize)}</td>
+                <td class="prize">${formatNumber(player.prize, true)}</td>
             </tr>
         `;
     });
@@ -476,9 +470,15 @@ function searchPlayers() {
 /**
  * Форматирование чисел для отображения
  */
-function formatNumber(num) {
-    return num.toLocaleString('ru-RU', {
-        minimumFractionDigits: 1,
-        maximumFractionDigits: 1
-    });
+function formatNumber(num, isForPrize = false) {
+    if (isForPrize) {
+        // Для призов - только целые числа
+        return Math.round(num).toLocaleString('ru-RU');
+    } else {
+        // Для очков - с одним знаком после запятой
+        return num.toLocaleString('ru-RU', {
+            minimumFractionDigits: 1,
+            maximumFractionDigits: 1
+        });
+    }
 }
