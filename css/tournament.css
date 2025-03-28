@@ -17,42 +17,37 @@
     margin-left: 1rem;
 }
 
-.tournament-info {
+/* Обновленные стили для информации о турнире */
+.tournament-info-container {
     margin-bottom: 2rem;
-    background-color: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-left: 4px solid var(--accent-color);
-}
-
-.info-table {
     width: 100%;
-    border-collapse: collapse;
 }
 
-.info-table tr {
+.info-row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.8rem 0;
     border-bottom: 1px solid #f0f0f0;
     transition: all 0.2s ease;
 }
 
-.info-table tr:last-child {
+.info-row:last-child {
     border-bottom: none;
 }
 
-.info-table tr:hover {
+.info-row:hover {
     background-color: #f8f9fa;
 }
 
 .info-label {
-    padding: 0.8rem 1rem 0.8rem 0;
+    width: 40%;
+    padding-right: 1rem;
     font-weight: 500;
     color: #666;
-    width: 40%;
 }
 
 .info-value {
-    padding: 0.8rem 0;
+    width: 60%;
     font-size: 1.1rem;
     font-weight: 600;
     color: var(--primary-color);
@@ -330,6 +325,22 @@
     border-left: 4px solid #c00;
 }
 
+/* Стили для легенды графика */
+.chartjs-legend ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0 0;
+}
+
+.chartjs-legend ul li {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+    font-size: 16px;
+}
+
 /* Медиа-запросы для адаптивности */
 @media (max-width: 768px) {
     .tournament-header {
@@ -344,26 +355,37 @@
         width: 100%;
     }
     
-    .tournament-info {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        padding: 1.2rem;
-    }
-    
-    .info-item .value {
-        font-size: 1.2rem;
+    .info-label, .info-value {
+        padding: 0.5rem 0;
     }
     
     .answers-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, 1fr);
     }
     
-    .record-item {
-        padding: 1.2rem;
+    .answer-type .count {
+        font-size: 1.5rem;
     }
     
     .chart-container {
-        height: 250px;
+        height: auto !important;
+        min-height: 250px;
+        margin-bottom: 1rem !important;
+    }
+    
+    .participants-by-level {
+        overflow: hidden;
+    }
+    
+    .chartjs-legend ul {
+        flex-direction: column !important;
+        padding-left: 0 !important;
+        margin-top: 10px !important;
+    }
+    
+    .chartjs-legend ul li {
+        margin-bottom: 6px !important;
+        font-size: 14px !important;
     }
     
     .stat-card {
@@ -380,8 +402,26 @@
         padding: 1rem;
     }
     
-    .info-item .value {
-        font-size: 1.1rem;
+    .info-row {
+        flex-direction: column;
+        padding: 0.6rem 0;
+    }
+    
+    .info-label, .info-value {
+        width: 100%;
+    }
+    
+    .info-label {
+        margin-bottom: 0.3rem;
+    }
+    
+    .answers-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .answer-type {
+        margin-bottom: 0.5rem;
+        padding: 0.8rem 0.5rem;
     }
     
     .answer-type .count {
@@ -394,6 +434,10 @@
         font-size: 0.85rem;
     }
     
+    .chartjs-legend ul li {
+        font-size: 12px !important;
+    }
+    
     .record-title {
         font-size: 1rem;
     }
@@ -404,10 +448,6 @@
     
     .player-value {
         font-size: 0.85rem;
-    }
-    
-    .chart-container {
-        height: 220px;
     }
 }
 
