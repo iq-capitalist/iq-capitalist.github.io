@@ -26,25 +26,23 @@
                 <h1 class="page-title">Турнир №1</h1>
             </div>
 
-            <div class="tournament-info">
-                <table class="info-table">
-                    <tr>
-                        <td class="info-label">Период проведения</td>
-                        <td class="info-value" id="tournament-dates">25-27 марта 2025 года</td>
-                    </tr>
-                    <tr>
-                        <td class="info-label">Всего вопросов</td>
-                        <td class="info-value" id="total-questions">80</td>
-                    </tr>
-                    <tr>
-                        <td class="info-label">Участников</td>
-                        <td class="info-value" id="total-players">94</td>
-                    </tr>
-                    <tr>
-                        <td class="info-label">Призовой фонд</td>
-                        <td class="info-value" id="prize-pool">6995 IQC</td>
-                    </tr>
-                </table>
+            <div class="tournament-info-container">
+                <div class="info-row">
+                    <div class="info-label">Период проведения</div>
+                    <div class="info-value" id="tournament-dates">25-27 марта 2025 года</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">Всего вопросов</div>
+                    <div class="info-value" id="total-questions">80</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">Участников</div>
+                    <div class="info-value" id="total-players">94</div>
+                </div>
+                <div class="info-row">
+                    <div class="info-label">Призовой фонд</div>
+                    <div class="info-value" id="prize-pool">6995 IQC</div>
+                </div>
             </div>
 
             <div class="tournament-stats-grid">
@@ -101,12 +99,76 @@
 
     <script src="js/main.js"></script>
     <script>
+        // Функция для создания адаптивной легенды графика
+        function createLegendContainer(chart, labels, dataset) {
+            // Удаляем существующую легенду, если она есть
+            const existingLegend = document.querySelector('#levelChart + .chartjs-legend');
+            if (existingLegend) {
+                existingLegend.remove();
+            }
+            
+            // Создаем новый контейнер для легенды
+            const legendContainer = document.createElement('div');
+            legendContainer.className = 'chartjs-legend';
+            
+            const ul = document.createElement('ul');
+            ul.style.display = 'flex';
+            ul.style.flexDirection = 'column';
+            ul.style.listStyle = 'none';
+            ul.style.padding = '0';
+            ul.style.margin = '20px 0 0 0';
+            
+            // Добавляем элементы легенды
+            labels.forEach((label, i) => {
+                const li = document.createElement('li');
+                li.style.display = 'flex';
+                li.style.alignItems = 'center';
+                li.style.margin = '8px 0';
+                li.style.fontSize = '16px';
+                
+                const colorBox = document.createElement('span');
+                colorBox.style.display = 'inline-block';
+                colorBox.style.width = '14px';
+                colorBox.style.height = '14px';
+                colorBox.style.backgroundColor = dataset.backgroundColor[i];
+                colorBox.style.marginRight = '8px';
+                colorBox.style.borderRadius = '50%';
+                
+                const value = dataset.data[i];
+                const total = dataset.data.reduce((a, b) => a + b, 0);
+                const percentage = Math.round(value / total * 100);
+                
+                // Для мобильных устройств делаем более компактное отображение
+                const isMobile = window.innerWidth < 768;
+                const text = document.createTextNode(
+                    isMobile
+                        ? `${label}: ${percentage}%`
+                        : `${label}: ${value} (${percentage}%)`
+                );
+                
+                li.appendChild(colorBox);
+                li.appendChild(text);
+                ul.appendChild(li);
+            });
+            
+            legendContainer.appendChild(ul);
+            chart.canvas.parentNode.appendChild(legendContainer);
+            
+            // Добавляем обработчик изменения размера окна
+            window.addEventListener('resize', function() {
+                // Перестраиваем легенду при изменении размера окна
+                createLegendContainer(chart, labels, dataset);
+            });
+            
+            return legendContainer;
+        }
+        
         // Инициализация элементов с анимацией появления
         document.addEventListener('DOMContentLoaded', function() {
             // Добавляем стили для анимации
             const style = document.createElement('style');
             style.textContent = `
-                .tournament-info, .stat-card {
+                .tournament-info-container, .stat-card {
                     opacity: 0;
                     transform: translateY(20px);
                     transition: opacity 0.5s ease, transform 0.5s ease;
