@@ -69,7 +69,7 @@
 
 .stats-table th,
 .stats-table td {
-    padding: 8px;
+    padding: 10px;
     text-align: center;
     border-bottom: 1px solid #eee;
     font-size: 14px;
@@ -77,24 +77,24 @@
 
 /* Фиксированная ширина колонок второго уровня (с ячейками ответов) */
 .stats-table tr:nth-child(2) th:nth-child(n+2):nth-child(-n+8) {
-    width: 34px; /* Ширина для колонок с 2 цифрами (от 0 до 80) */
+    width: 40px; /* Ширина для колонок с 2 цифрами (от 0 до 80) */
 }
 
 /* Настройка ширины остальных колонок */
 .stats-table th:first-child {
-    width: 130px; /* Имя */
+    width: 120px; /* Имя (уменьшено с 200px) */
 }
 
 .stats-table tr:nth-child(2) th:nth-child(9) {
-    width: 36px; /* Всего */
+    width: 50px; /* Всего */
 }
 
 .stats-table tr:nth-child(2) th:nth-child(10) {
-    width: 120px; /* Очки */
+    width: 100px; /* Очки (увеличено с 70px для поддержки больших чисел) */
 }
 
 .stats-table tr:nth-child(2) th:nth-child(11) {
-    width: 60px; /* Приз */
+    width: 80px; /* Приз */
 }
 
 .stats-table th {
