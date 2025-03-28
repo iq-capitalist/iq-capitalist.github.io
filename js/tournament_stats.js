@@ -244,7 +244,7 @@ function displayStatsTable(data) {
                         <th onclick="sortTable('username')">Имя</th>
                         <th colspan="3" class="column-group">Правильные</th>
                         <th colspan="3" class="column-group">Неправильные</th>
-                        <th class="column-group">Таймауты</th>
+                        <th class="column-group">X</th>
                         <th class="column-group" onclick="sortTable('answers')">Всего</th>
                         <th class="column-group" onclick="sortTable('total_points')">Очки</th>
                         <th class="column-group" onclick="sortTable('prize')">Приз</th>
