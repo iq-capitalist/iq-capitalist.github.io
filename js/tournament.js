@@ -179,7 +179,7 @@ function displayTournamentInfo(data) {
     document.getElementById('prize-pool').textContent = prizePool;
 }
 
-// Создание легенды в виде мини-карточек для графика участников
+// Создание легенды в виде мини-карточек для уровней игроков
 function createLevelLegend(levels, playerCounts, colors) {
     const legendContainer = document.getElementById('levelChartLegend');
     if (!legendContainer) return;
@@ -230,11 +230,11 @@ function createLevelLegend(levels, playerCounts, colors) {
     });
 }
 
-// Отображение диаграммы распределения игроков по уровням
+// Отображение диаграммы распределения игроков по уровням без круговой диаграммы
 function displayLevelChart(data) {
     if (!data.stats || !data.stats.players_by_level) {
         console.warn('Нет данных о распределении игроков по уровням');
-        document.querySelector('.participants-by-level .chart-container').innerHTML = 
+        document.getElementById('levelChartLegend').innerHTML = 
             '<p class="text-center mt-4">Нет данных для отображения</p>';
         return;
     }
@@ -273,59 +273,14 @@ function displayLevelChart(data) {
     
     const colors = levels.map(level => levelColors[level] || '#3498db');
     
-    const ctx = document.getElementById('levelChart').getContext('2d');
-    new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: levels,
-            datasets: [{
-                data: playerCounts,
-                backgroundColor: colors,
-                borderColor: 'white',
-                borderWidth: 2
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-                legend: {
-                    display: false // Отключаем встроенную легенду, будем использовать свою
-                },
-                tooltip: {
-                    callbacks: {
-                        label: function(context) {
-                            const label = context.label || '';
-                            const value = context.raw || 0;
-                            const total = data.stats.total_players || 
-                                          playerCounts.reduce((a, b) => a + b, 0);
-                            const percentage = Math.round(value / total * 100);
-                            return `${label}: ${value} (${percentage}%)`;
-                        }
-                    },
-                    padding: 10,
-                    backgroundColor: 'rgba(0,0,0,0.8)',
-                    titleFont: {
-                        size: 14
-                    },
-                    bodyFont: {
-                        size: 13
-                    }
-                }
-            }
-        }
-    });
-    
     // Создаем легенду в виде мини-карточек
     createLevelLegend(levels, playerCounts, colors);
 }
 
-// Отображение статистики ответов
+// Отображение статистики ответов без круговой диаграммы
 function displayAnswersStats(data) {
     if (!data.players || !Array.isArray(data.players) || data.players.length === 0) {
         console.warn('Нет данных об игроках для расчета статистики ответов');
-        document.querySelector('.answers-stats .chart-container').innerHTML = 
-            '<p class="text-center mt-4">Нет данных для отображения</p>';
         return;
     }
     
@@ -351,54 +306,7 @@ function displayAnswersStats(data) {
     document.getElementById('correct-answers').textContent = totalCorrect.toLocaleString('ru-RU');
     document.getElementById('wrong-answers').textContent = totalWrong.toLocaleString('ru-RU');
     document.getElementById('timeouts').textContent = totalTimeouts.toLocaleString('ru-RU');
-    
-    const totalAnswers = totalCorrect + totalWrong + totalTimeouts;
-    
-    if (totalAnswers === 0) {
-        console.warn('Нет данных о ответах');
-        document.querySelector('.answers-stats .chart-container').innerHTML = 
-            '<p class="text-center mt-4">Нет данных для отображения</p>';
-        return;
-    }
-    
-    // Круговая диаграмма ответов
-    const ctx = document.getElementById('answersChart').getContext('2d');
-    new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-            labels: ['Правильные', 'Неправильные', 'Таймауты'],
-            datasets: [{
-                data: [totalCorrect, totalWrong, totalTimeouts],
-                backgroundColor: ['#2ecc71', '#e74c3c', '#f39c12'],
-                borderColor: 'white',
-                borderWidth: 2
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            cutout: '60%',
-            plugins: {
-                legend: {
-                    display: false
-                },
-                tooltip: {
-                    callbacks: {
-                        label: function(context) {
-                            const label = context.label || '';
-                            const value = context.raw || 0;
-                            const percentage = Math.round(value / totalAnswers * 100);
-                            return `${label}: ${value.toLocaleString('ru-RU')} (${percentage}%)`;
-                        }
-                    },
-                    padding: 10,
-                    backgroundColor: 'rgba(0,0,0,0.8)'
-                }
-            }
-        }
-    });
 }
-
 // Отображение детальной статистики по типам ответов
 function displayDetailedStats(data) {
     if (!data.players || !Array.isArray(data.players) || data.players.length === 0) {
