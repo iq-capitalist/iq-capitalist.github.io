@@ -198,6 +198,7 @@
     font-size: 0.9rem;
     font-weight: 500;
     margin-bottom: 3px;
+    margin-top: 5px; /* Добавление отступа сверху вместо margin-bottom от удаленного color-indicator */
 }
 
 .level-legend-item .level-value {
@@ -402,6 +403,7 @@
     
     .level-legend-item {
         padding: 0.6rem 0.4rem;
+        /* Убраны стили, связанные с цветовыми индикаторами */
     }
     
     .level-legend-item .level-value {
