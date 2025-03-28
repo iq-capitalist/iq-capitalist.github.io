@@ -197,12 +197,23 @@ function displayLevelChart(data) {
     }
     
     const levelPlayers = data.stats.players_by_level;
-    const levels = Object.keys(levelPlayers);
-    const playerCounts = levels.map(level => levelPlayers[level]);
     
-    // Дебаг: проверяем какие уровни получены из данных
-    console.log('Уровни из данных:', levels);
-    console.log('Количество игроков по уровням:', playerCounts);
+    // Правильный порядок уровней
+    const levelOrder = [
+        'Знаток', 
+        'Эксперт', 
+        'Мастер', 
+        'Босс', 
+        'Титан', 
+        'Легенда', 
+        'Корифей', 
+        'Гуру', 
+        'IQ Капиталист'
+    ];
+    
+    // Фильтруем и сортируем уровни по правильному порядку
+    const levels = levelOrder.filter(level => level in levelPlayers);
+    const playerCounts = levels.map(level => levelPlayers[level]);
     
     // Цвета для уровней
     const levelColors = {
@@ -237,14 +248,16 @@ function displayLevelChart(data) {
             plugins: {
                 legend: {
                     position: 'bottom',
-                    align: 'start',
+                    align: 'center',
                     labels: {
                         font: {
-                            size: 14
+                            size: 16
                         },
-                        padding: 15,
+                        padding: 16,
                         usePointStyle: true,
                         boxWidth: 10,
+                        // Важное свойство - размещает элементы легенды в столбик
+                        boxHeight: 30, 
                         generateLabels: function(chart) {
                             // Получение данных напрямую из chart
                             const data = chart.data;
@@ -253,9 +266,7 @@ function displayLevelChart(data) {
                             
                             // Собственное формирование легенды из всех доступных данных
                             return labels.map((label, i) => {
-                                // Проверяем наличие данных
                                 if (i >= dataset.data.length) {
-                                    console.warn(`Нет данных для уровня ${label} (индекс ${i})`);
                                     return null;
                                 }
                                 
@@ -272,11 +283,21 @@ function displayLevelChart(data) {
                                     index: i,
                                     datasetIndex: 0
                                 };
-                            }).filter(item => item !== null); // Убираем null элементы если такие появились
+                            }).filter(item => item !== null);
                         }
                     },
-                    maxHeight: 250,
-                    maxWidth: 500
+                    // Настройки для отображения легенды в столбик
+                    maxWidth: 200, 
+                    fullSize: true,
+                    // Отступы внутри легенды
+                    padding: 20,
+                    // Указываем, что элементы должны размещаться в столбик
+                    display: true,
+                    // Указываем, что ширина элемента должна быть 100% от контейнера
+                    labels: {
+                        textAlign: 'left',
+                        fullSize: true
+                    }
                 },
                 tooltip: {
                     callbacks: {
@@ -297,6 +318,11 @@ function displayLevelChart(data) {
                     bodyFont: {
                         size: 13
                     }
+                }
+            },
+            layout: {
+                padding: {
+                    bottom: 30 // Дополнительный отступ снизу для легенды
                 }
             }
         }
