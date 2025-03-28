@@ -6,15 +6,6 @@
     <title>Турнир №1 | IQ Capitalist</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/tournament.css">
-    <style>
-        /* Дополнительные стили, необходимые для корректного отображения */
-        .container {
-            max-width: 900px;
-            padding: 0 15px;
-            margin: 0 auto;
-            box-sizing: border-box;
-        }
-    </style>
 </head>
 <body>
     <header id="header"></header>
@@ -25,26 +16,27 @@
                 <h1 class="page-title">Турнир №1</h1>
             </div>
 
+            <!-- Информация о турнире -->
             <div class="tournament-info-container">
                 <div class="info-row">
                     <div class="info-label"><span>Период проведения</span></div>
-                    <div class="info-value" id="tournament-dates">25-27 марта 2025 года</div>
+                    <div class="info-value" id="tournament-dates">Загрузка...</div>
                 </div>
                 <div class="info-row">
                     <div class="info-label">Всего вопросов</div>
-                    <div class="info-value" id="total-questions">80</div>
+                    <div class="info-value" id="total-questions">Загрузка...</div>
                 </div>
                 <div class="info-row">
                     <div class="info-label">Участников</div>
-                    <div class="info-value" id="total-players">94</div>
+                    <div class="info-value" id="total-players">Загрузка...</div>
                 </div>
                 <div class="info-row">
                     <div class="info-label">Призовой фонд</div>
-                    <div class="info-value" id="prize-pool">6 995 IQC</div>
+                    <div class="info-value" id="prize-pool">Загрузка...</div>
                 </div>
             </div>
 
-            <!-- Карточка "Участники" без круговой диаграммы -->
+            <!-- Карточка "Участники по уровням" -->
             <div class="stat-card participants-by-level">
                 <h2>Участники</h2>
                 <div class="cards-horizontal-layout" id="levelChartLegend">
@@ -52,20 +44,20 @@
                 </div>
             </div>
 
-            <!-- Карточка "Ответы" без круговой диаграммы -->
+            <!-- Карточка "Статистика ответов" -->
             <div class="stat-card answers-stats">
                 <h2>Ответы</h2>
                 <div class="cards-horizontal-layout">
                     <div class="answer-type correct">
-                        <div class="count" id="correct-answers">2269</div>
+                        <div class="count" id="correct-answers">Загрузка...</div>
                         <div class="label">Правильные</div>
                     </div>
                     <div class="answer-type wrong">
-                        <div class="count" id="wrong-answers">1026</div>
+                        <div class="count" id="wrong-answers">Загрузка...</div>
                         <div class="label">Неправильные</div>
                     </div>
                     <div class="answer-type timeout">
-                        <div class="count" id="timeouts">95</div>
+                        <div class="count" id="timeouts">Загрузка...</div>
                         <div class="label">Таймауты</div>
                     </div>
                 </div>
@@ -84,7 +76,9 @@
                             </tr>
                         </thead>
                         <tbody id="detailed-stats-body">
-                            <!-- Данные будут добавлены через JavaScript -->
+                            <tr>
+                                <td colspan="3" class="text-center">Загрузка данных...</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
