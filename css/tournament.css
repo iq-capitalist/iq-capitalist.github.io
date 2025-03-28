@@ -1,10 +1,26 @@
+/* Переменные для повторяющихся цветов */
+:root {
+    --card-hover-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --light-border: 1px solid #eee;
+    --correct-color: #27ae60;
+    --correct-bg: rgba(46, 204, 113, 0.15);
+    --correct-border: rgba(46, 204, 113, 0.3);
+    --wrong-color: #c0392b;
+    --wrong-bg: rgba(231, 76, 60, 0.15);
+    --wrong-border: rgba(231, 76, 60, 0.3);
+    --timeout-color: #d35400;
+    --timeout-bg: rgba(243, 156, 18, 0.15);
+    --timeout-border: rgba(243, 156, 18, 0.3);
+}
+
+/* Заголовок турнира */
+.tournament-header {
+    margin-bottom: 2rem;
+}
+
 .tournament-header .page-title {
     margin-bottom: 0;
     color: var(--primary-color);
-}
-
-.tournament-header {
-    margin-bottom: 2rem;
 }
 
 .tournament-header .btn {
@@ -12,7 +28,7 @@
     margin-left: 1rem;
 }
 
-/* Обновленные стили для информации о турнире */
+/* Контейнер информации о турнире */
 .tournament-info-container {
     margin-bottom: 2rem;
     width: 100%;
@@ -50,17 +66,10 @@
 }
 
 #prize-pool {
-    color: #27ae60;
+    color: var(--correct-color);
 }
 
-/* Удаляем сетку для карточек, теперь они будут расположены вертикально */
-.tournament-stats-grid {
-    display: block;
-    margin-bottom: 2rem;
-    width: 100%;
-    box-sizing: border-box;
-}
-
+/* Общие стили для карточек статистики */
 .stat-card {
     background: white;
     border-radius: 10px;
@@ -74,24 +83,8 @@
 }
 
 .stat-card:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--card-hover-shadow);
     transform: translateY(-3px);
-}
-
-.participants-by-level {
-    border-top-color: #3498db;
-}
-
-.answers-stats {
-    border-top-color: #e74c3c;
-}
-
-.detailed-stats {
-    border-top-color: #f39c12;
-}
-
-.top-players {
-    border-top-color: #27ae60;
 }
 
 .stat-card h2 {
@@ -99,12 +92,18 @@
     margin-bottom: 1.5rem;
     color: var(--primary-color);
     font-size: 1.5rem;
-    border-bottom: 1px solid #eee;
+    border-bottom: var(--light-border);
     padding-bottom: 0.8rem;
     text-align: center;
 }
 
-/* Стили для горизонтального расположения карточек */
+/* Цветовое оформление карточек */
+.participants-by-level { border-top-color: #3498db; }
+.answers-stats { border-top-color: #e74c3c; }
+.detailed-stats { border-top-color: #f39c12; }
+.top-players { border-top-color: var(--correct-color); }
+
+/* Горизонтальное расположение элементов */
 .cards-horizontal-layout {
     display: flex;
     flex-direction: row;
@@ -115,7 +114,7 @@
     justify-content: center;
 }
 
-/* Стили для карточек ответов */
+/* Стили для типов ответов */
 .answer-type {
     display: flex;
     flex-direction: column;
@@ -132,7 +131,7 @@
 
 .answer-type:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: var(--card-hover-shadow);
 }
 
 .answer-type .count {
@@ -146,31 +145,32 @@
     font-weight: 500;
 }
 
+/* Карточки ответов по типам */
 .answer-type.correct {
-    background-color: rgba(46, 204, 113, 0.15);
-    border: 1px solid rgba(46, 204, 113, 0.3);
+    background-color: var(--correct-bg);
+    border: 1px solid var(--correct-border);
 }
 
 .answer-type.correct .count {
-    color: #27ae60;
+    color: var(--correct-color);
 }
 
 .answer-type.wrong {
-    background-color: rgba(231, 76, 60, 0.15);
-    border: 1px solid rgba(231, 76, 60, 0.3);
+    background-color: var(--wrong-bg);
+    border: 1px solid var(--wrong-border);
 }
 
 .answer-type.wrong .count {
-    color: #c0392b;
+    color: var(--wrong-color);
 }
 
 .answer-type.timeout {
-    background-color: rgba(243, 156, 18, 0.15);
-    border: 1px solid rgba(243, 156, 18, 0.3);
+    background-color: var(--timeout-bg);
+    border: 1px solid var(--timeout-border);
 }
 
 .answer-type.timeout .count {
-    color: #d35400;
+    color: var(--timeout-color);
 }
 
 /* Стили для легенды карточки "Участники" */
@@ -189,7 +189,7 @@
 
 .level-legend-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: var(--card-hover-shadow);
 }
 
 .level-legend-item .color-indicator {
@@ -217,6 +217,7 @@
     color: #666;
 }
 
+/* Стили для таблицы */
 .table-responsive {
     overflow-x: auto;
     border-radius: 8px;
@@ -235,7 +236,7 @@
 .stats-table td {
     padding: 0.85rem 1rem;
     text-align: left;
-    border-bottom: 1px solid #eee;
+    border-bottom: var(--light-border);
 }
 
 .stats-table th {
@@ -255,7 +256,9 @@
 }
 
 /* Стили для строк разных типов ответов */
-.stats-table tr[data-type="fast-correct"] {
+.stats-table tr[data-type^="fast-correct"],
+.stats-table tr[data-type^="medium-correct"],
+.stats-table tr[data-type^="slow-correct"] {
     background-color: rgba(46, 204, 113, 0.05);
 }
 
@@ -267,7 +270,9 @@
     background-color: rgba(46, 204, 113, 0.01);
 }
 
-.stats-table tr[data-type="fast-wrong"] {
+.stats-table tr[data-type^="fast-wrong"],
+.stats-table tr[data-type^="medium-wrong"],
+.stats-table tr[data-type^="slow-wrong"] {
     background-color: rgba(231, 76, 60, 0.05);
 }
 
@@ -283,12 +288,14 @@
     background-color: rgba(243, 156, 18, 0.05);
 }
 
-/* Стиль для строки "Всего" в статистике */
+/* Стиль для строки "Всего" */
 .stats-table tr[data-type="total"] {
     background-color: #f5f5f5;
     border-top: 2px solid #ddd;
+    font-weight: bold;
 }
 
+/* Стиль для сообщений об ошибках */
 .error-message {
     background-color: #fee;
     color: #c00;
@@ -300,7 +307,7 @@
     border-left: 4px solid #c00;
 }
 
-/* Медиа-запросы для адаптивности */
+/* Медиа-запросы */
 @media (max-width: 992px) {
     .level-legend-item {
         width: calc(25% - 1rem);
@@ -352,11 +359,7 @@
 }
 
 @media (max-width: 576px) {
-    .level-legend-item {
-        width: calc(50% - 1rem);
-    }
-    
-    .answer-type {
+    .level-legend-item, .answer-type {
         width: calc(50% - 1rem);
     }
 }
@@ -370,7 +373,6 @@
         font-size: 0.95rem;
     }
     
-    /* Сохраняем горизонтальный формат таблицы на мобильных */
     .info-row {
         white-space: normal;
     }
@@ -382,18 +384,16 @@
         text-overflow: ellipsis;
     }
     
-    /* Уменьшаем ширину поля "Дата" */
     .info-row:first-child .info-label {
-        width: 70px; /* Существенно меньше, чем у других полей (160px) */
+        width: 70px;
     }
     
     .info-value {
         flex: 1;
         min-width: 0;
-        text-align: left; /* Убрали выравнивание вправо */
+        text-align: left;
     }
     
-    /* Скрываем оригинальный текст "Период проведения" и показываем "Дата" */
     .info-row:first-child .info-label span {
         display: none;
     }
