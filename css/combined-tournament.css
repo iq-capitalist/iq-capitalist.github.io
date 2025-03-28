@@ -1,0 +1,197 @@
+/* Стили для объединенной страницы турнира */
+
+/* Общие стили */
+:root {
+    --section-margin: 40px;
+    --section-padding: 25px;
+    --section-border-radius: 10px;
+    --section-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Разделитель между общей и детальной статистикой */
+.section-divider {
+    margin: 40px 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+    position: relative;
+}
+
+/* Стили для заголовка раздела детальной статистики */
+.section-title {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 3px;
+    background-color: var(--primary-color);
+    margin: 10px auto 0;
+}
+
+/* Стили для контейнера детальной статистики */
+.player-stats-section {
+    background-color: #fff;
+    border-radius: var(--section-border-radius);
+    padding: var(--section-padding);
+    box-shadow: var(--section-shadow);
+    margin-bottom: var(--section-margin);
+}
+
+/* Единые стили для даты последнего обновления */
+.last-update {
+    text-align: right;
+    margin-bottom: 20px;
+    font-style: italic;
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+}
+
+/* Исправление конфликтов между стилями таблиц */
+.player-stats-section .stats-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 20px;
+}
+
+.player-stats-section .stats-table th,
+.player-stats-section .stats-table td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+/* Стили для устранения конфликтов между колонками в таблицах */
+.player-stats-section .stats-table th:first-child,
+.player-stats-section .stats-table td:first-child {
+    text-align: left;
+}
+
+/* Усовершенствованные стили для кнопок уровней */
+#levelButtons {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-gap: 10px;
+    margin: 20px 0;
+}
+
+.level-btn {
+    padding: 10px 15px;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.level-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.level-btn.active {
+    background-color: var(--accent-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.level-btn.empty {
+    background-color: #888;
+    opacity: 0.7;
+}
+
+/* Стили для поля поиска */
+#searchInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Стили для пагинации в детальной статистике */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.pagination .page-item {
+    margin: 0 2px;
+    list-style: none;
+}
+
+.pagination .page-link {
+    padding: 8px 12px;
+    border: 1px solid var(--primary-color);
+    background-color: white;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.pagination .page-link:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.pagination .page-item.disabled .page-link {
+    background-color: #f4f4f4;
+    color: #aaa;
+    border-color: #ddd;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Общие стили для спиннера загрузки */
+#loading-indicator {
+    text-align: center;
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    border-left: 3px solid var(--primary-color);
+}
+
+/* Стили для сообщений об ошибках */
+.error-message {
+    background-color: #ffeeee;
+    color: #cc0000;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-left: 4px solid #cc0000;
+}
+
+/* Стили для улучшения читаемости данных в таблице */
+.player-stats-section .total-answers,
+.player-stats-section .total-points,
+.player-stats-section .prize {
+    font-weight: bold;
+}
