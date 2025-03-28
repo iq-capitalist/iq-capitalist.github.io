@@ -1,42 +1,122 @@
 /**
  * Скрипт для страницы отдельного турнира IQ Capitalist
+ * С улучшенным механизмом загрузки компонентов
  */
 
-// Загрузка шапки и подвала
-document.addEventListener('DOMContentLoaded', function() {
-    // Загрузка header
-    fetch('../header.html')
-        .then(response => response.text())
-        .then(data => {
+// Конфигурация компонентов
+const COMPONENTS_CONFIG = {
+    header: {
+        elementId: 'header',
+        path: '/header.html',
+        maxRetries: 3,
+        timeoutMs: 5000,
+        fallback: '<div class="container"><a href="/" class="site-title">IQ Capitalist</a></div>',
+        postProcess: function(content) {
             // Заменяем относительные ссылки на абсолютные в шапке
-            const modifiedData = data
+            return content
                 .replace('href="rules.html"', 'href="/rules.html"')
                 .replace('href="ratings.html"', 'href="/ratings.html"')
                 .replace('href="players.html"', 'href="/players.html"')
                 .replace('href="index.html"', 'href="/index.html"');
-                
-            document.getElementById('header').innerHTML = modifiedData;
-            highlightCurrentPage(); // Добавляем выделение текущей страницы в меню
-        })
-        .catch(error => {
-            console.error('Ошибка загрузки header:', error);
-            document.getElementById('header').innerHTML = '<div class="container"><a href="/" class="site-title">IQ Capitalist</a></div>';
-        });
+        }
+    },
+    footer: {
+        elementId: 'footer',
+        path: '/footer.html',
+        maxRetries: 3,
+        timeoutMs: 5000,
+        fallback: '<div class="container"><p>© 2024 IQ Capitalist. Все права защищены.</p></div>'
+    }
+};
 
-    // Загрузка footer
-    fetch('../footer.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('footer').innerHTML = data;
-        })
-        .catch(error => {
-            console.error('Ошибка загрузки footer:', error);
-            document.getElementById('footer').innerHTML = '<div class="container"><p>© 2024 IQ Capitalist. Все права защищены.</p></div>';
-        });
-        
-    // Загрузка данных турнира
+/**
+ * Загрузка компонента с повторными попытками и таймаутом
+ * @param {Object} config - Конфигурация компонента
+ * @returns {Promise} Promise, который разрешается после успешной загрузки или исчерпания попыток
+ */
+async function loadComponent(config) {
+    let retryCount = 0;
+    let lastError = null;
+
+    while (retryCount < config.maxRetries) {
+        try {
+            // Создаем промис с таймаутом
+            const fetchPromise = fetch(config.path);
+            const timeoutPromise = new Promise((_, reject) => {
+                setTimeout(() => reject(new Error('Таймаут загрузки')), config.timeoutMs);
+            });
+
+            // Ждем первый разрешенный промис
+            const response = await Promise.race([fetchPromise, timeoutPromise]);
+            const content = await response.text();
+            
+            // Применяем пост-обработку, если она определена
+            const processedContent = config.postProcess ? config.postProcess(content) : content;
+            
+            // Вставляем содержимое в элемент
+            const element = document.getElementById(config.elementId);
+            if (element) {
+                element.innerHTML = processedContent;
+                // Запускаем колбэк после успешной загрузки, если он определен
+                if (config.onSuccess) config.onSuccess();
+                return true;
+            } else {
+                throw new Error(`Элемент с ID ${config.elementId} не найден`);
+            }
+        } catch (error) {
+            lastError = error;
+            console.warn(`Попытка ${retryCount + 1}/${config.maxRetries} загрузки ${config.path} не удалась:`, error);
+            retryCount++;
+            
+            // Увеличиваем время ожидания с каждой попыткой
+            await new Promise(resolve => setTimeout(resolve, 1000 * retryCount));
+        }
+    }
+
+    // Если все попытки не удались, используем запасной вариант
+    console.error(`Не удалось загрузить ${config.path} после ${config.maxRetries} попыток:`, lastError);
+    const element = document.getElementById(config.elementId);
+    if (element && config.fallback) {
+        element.innerHTML = config.fallback;
+    }
+    
+    // Запускаем колбэк после неудачной загрузки, если он определен
+    if (config.onFailure) config.onFailure();
+    
+    return false;
+}
+
+/**
+ * Загрузка всех компонентов в определенном порядке
+ * @returns {Promise} Promise, который разрешается после загрузки всех компонентов
+ */
+async function loadAllComponents() {
+    // Добавляем индикаторы загрузки
+    const headerElement = document.getElementById(COMPONENTS_CONFIG.header.elementId);
+    const footerElement = document.getElementById(COMPONENTS_CONFIG.footer.elementId);
+    
+    if (headerElement) {
+        headerElement.innerHTML = '<div class="container loading-component">Загрузка шапки...</div>';
+    }
+    
+    if (footerElement) {
+        footerElement.innerHTML = '<div class="container loading-component">Загрузка подвала...</div>';
+    }
+    
+    // Последовательно загружаем компоненты
+    await loadComponent({
+        ...COMPONENTS_CONFIG.header,
+        onSuccess: function() {
+            // Выделяем текущую страницу в меню
+            highlightCurrentPage();
+        }
+    });
+    
+    await loadComponent(COMPONENTS_CONFIG.footer);
+    
+    // Загружаем данные турнира после загрузки всех компонентов
     loadTournamentData();
-});
+}
 
 // Выделение текущей страницы в меню
 function highlightCurrentPage() {
@@ -524,3 +604,44 @@ function displayDetailedStats(data) {
         </tr>`
     ).join('');
 }
+
+// Добавляем стили для индикаторов загрузки
+const loadingStyles = document.createElement('style');
+loadingStyles.textContent = `
+    .loading-component {
+        padding: 10px;
+        text-align: center;
+        font-style: italic;
+        color: #777;
+        background-color: #f5f5f5;
+        border-radius: 5px;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .tournament-info, .stat-card {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+`;
+document.head.appendChild(loadingStyles);
+
+// Инициализация страницы
+document.addEventListener('DOMContentLoaded', loadAllComponents);
+
+// Добавляем обработчик событий для повторной загрузки при ошибке
+window.addEventListener('error', function(event) {
+    console.error('Глобальная ошибка JavaScript:', event.error);
+    
+    // Проверяем, относится ли ошибка к загрузке компонентов
+    if (event.filename && (event.filename.includes('header.html') || event.filename.includes('footer.html'))) {
+        console.warn('Обнаружена ошибка при загрузке компонентов, пробуем загрузить снова...');
+        
+        // Ждем секунду и пытаемся снова загрузить компоненты
+        setTimeout(loadAllComponents, 1000);
+    }
+});
