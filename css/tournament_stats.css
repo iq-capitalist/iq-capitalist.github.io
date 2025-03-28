@@ -28,7 +28,7 @@
 }
 
 .level-btn.active {
-    background-color: var(--accent-color);
+    background-color: #3498db; /* Явно задаем голубой цвет */
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
@@ -82,7 +82,7 @@
 
 /* Настройка ширины остальных колонок */
 .stats-table th:first-child {
-    width: 180px; /* Имя */
+    width: 200px; /* Имя */
 }
 
 .stats-table tr:nth-child(2) th:nth-child(9) {
@@ -90,7 +90,7 @@
 }
 
 .stats-table tr:nth-child(2) th:nth-child(10) {
-    width: 90px; /* Очки */
+    width: 70px; /* Очки */
 }
 
 .stats-table tr:nth-child(2) th:nth-child(11) {
