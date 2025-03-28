@@ -104,58 +104,45 @@
     text-align: center;
 }
 
-/* Стили для макета с легендой справа */
-.card-content-with-legend {
+/* Стили для горизонтального расположения карточек */
+.cards-horizontal-layout {
     display: flex;
     flex-direction: row;
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-}
-
-.chart-container {
-    flex: 1;
-    height: 300px;
-    position: relative;
-    min-width: 0; /* Предотвращает переполнение flex-контейнера */
-    min-width: 250px; /* Минимальная ширина для корректного отображения графика */
-}
-
-.legend-container {
-    display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    width: 180px;
-    max-height: 300px; /* Ограничиваем высоту контейнера легенды */
-    overflow-y: auto; /* Добавляем вертикальную прокрутку при необходимости */
-    padding-right: 5px;
+    gap: 1rem;
+    margin-top: 1rem;
+    width: 100%;
+    justify-content: center;
 }
 
-/* Обновленные стили для блоков с ответами */
+/* Стили для карточек ответов */
 .answer-type {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem 0.5rem;
+    padding: 1.2rem 1rem;
     border-radius: 8px;
     text-align: center;
     transition: all 0.2s ease;
-    width: 100%;
+    width: calc(33.33% - 1rem);
+    min-width: 120px;
+    max-width: 200px;
     box-sizing: border-box;
 }
 
 .answer-type:hover {
-    transform: scale(1.03);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .answer-type .count {
-    font-size: 1.75rem;
+    font-size: 2rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
 }
 
 .answer-type .label {
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 500;
 }
 
@@ -191,18 +178,18 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0.6rem 0.4rem;
+    padding: 0.8rem 0.6rem;
     border-radius: 8px;
     text-align: center;
     transition: all 0.2s ease;
-    margin-bottom: 0.3rem;
-    cursor: default;
-    width: 100%;
+    width: calc(20% - 1rem);
+    min-width: 100px;
     box-sizing: border-box;
 }
 
 .level-legend-item:hover {
-    transform: scale(1.03);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .level-legend-item .color-indicator {
@@ -210,28 +197,24 @@
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    margin-bottom: 3px;
+    margin-bottom: 5px;
 }
 
 .level-legend-item .level-name {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     font-weight: 500;
-    margin-bottom: 1px;
+    margin-bottom: 3px;
 }
 
 .level-legend-item .level-value {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     font-weight: bold;
+    margin-bottom: 2px;
 }
 
 .level-legend-item .level-percent {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     color: #666;
-}
-
-/* Удаляем старую сетку для блоков с ответами */
-.answers-grid {
-    display: none;
 }
 
 .table-responsive {
@@ -318,6 +301,12 @@
 }
 
 /* Медиа-запросы для адаптивности */
+@media (max-width: 992px) {
+    .level-legend-item {
+        width: calc(25% - 1rem);
+    }
+}
+
 @media (max-width: 768px) {
     .tournament-header {
         flex-direction: column;
@@ -339,28 +328,18 @@
         width: 170px;
     }
     
-    /* Меняем направление макета на мобильных устройствах */
-    .card-content-with-legend {
-        flex-direction: column;
+    .level-legend-item {
+        width: calc(33.33% - 1rem);
     }
     
-    .legend-container {
-        width: 100%;
-        flex-direction: row;
-        max-height: none;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.5rem;
-        padding-right: 0;
+    .answer-type {
+        width: calc(33.33% - 1rem);
+        min-width: 100px;
+        padding: 1rem 0.8rem;
     }
     
-    .answer-type, .level-legend-item {
-        width: calc(25% - 0.5rem);
-        min-width: 85px;
-    }
-    
-    .chart-container {
-        height: 250px !important;
+    .answer-type .count {
+        font-size: 1.8rem;
     }
     
     .stat-card {
@@ -373,8 +352,12 @@
 }
 
 @media (max-width: 576px) {
-    .answer-type, .level-legend-item {
-        width: calc(33.33% - 0.5rem);
+    .level-legend-item {
+        width: calc(50% - 1rem);
+    }
+    
+    .answer-type {
+        width: calc(50% - 1rem);
     }
 }
 
@@ -405,17 +388,28 @@
         text-align: right;
     }
     
-    .answer-type, .level-legend-item {
-        width: calc(50% - 0.5rem);
-        padding: 0.6rem 0.3rem;
+    .cards-horizontal-layout {
+        gap: 0.6rem;
+    }
+    
+    .level-legend-item {
+        padding: 0.6rem 0.4rem;
+    }
+    
+    .level-legend-item .level-value {
+        font-size: 1.2rem;
+    }
+    
+    .answer-type {
+        padding: 0.8rem 0.6rem;
     }
     
     .answer-type .count {
         font-size: 1.5rem;
     }
     
-    .level-legend-item .level-value {
-        font-size: 1.1rem;
+    .answer-type .label {
+        font-size: 0.9rem;
     }
     
     .stats-table th,
