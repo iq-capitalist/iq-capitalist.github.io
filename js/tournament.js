@@ -465,19 +465,19 @@ function displayDetailedStats(data) {
     
     const statsData = [
         { 
-            name: 'Быстрые правильные (до 40 сек)', 
+            name: 'Быстрые правильные', 
             count: fastCorrect, 
             percent: (fastCorrect / totalAnswers * 100).toFixed(1) + '%',
             type: 'fast-correct'
         },
         { 
-            name: 'Средние правильные (40-80 сек)', 
+            name: 'Средние правильные', 
             count: mediumCorrect, 
             percent: (mediumCorrect / totalAnswers * 100).toFixed(1) + '%',
             type: 'medium-correct'
         },
         { 
-            name: 'Медленные правильные (более 80 сек)', 
+            name: 'Медленные правильные', 
             count: slowCorrect, 
             percent: (slowCorrect / totalAnswers * 100).toFixed(1) + '%',
             type: 'slow-correct'
