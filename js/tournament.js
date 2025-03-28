@@ -2,110 +2,107 @@
  * Скрипт для страницы отдельного турнира IQ Capitalist
  */
 
-// Загрузка шапки и подвала
-document.addEventListener('DOMContentLoaded', function() {
-    // Загрузка header
-    fetch('header.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('header').innerHTML = data;
-            highlightCurrentPage(); // Добавляем выделение текущей страницы в меню
-        })
-        .catch(error => {
-            console.error('Ошибка загрузки header:', error);
-            document.getElementById('header').innerHTML = '<div class="container"><a href="/" class="site-title">IQ Capitalist</a></div>';
-        });
+// Глобальные переменные
+let tournamentData = null;
 
-    // Загрузка footer
-    fetch('footer.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('footer').innerHTML = data;
-        })
-        .catch(error => {
-            console.error('Ошибка загрузки footer:', error);
-            document.getElementById('footer').innerHTML = '<div class="container"><p>© 2024 IQ Capitalist. Все права защищены.</p></div>';
-        });
+// Инициализация при загрузке DOM
+document.addEventListener('DOMContentLoaded', function() {
+    // Загрузка шапки и подвала - используем общую функцию из main.js, если она доступна
+    if (typeof fetch === 'function') {
+        // Загрузка header и footer уже определена в main.js
+        // Для сохранения обратной совместимости оставляем аналогичный код на случай, 
+        // если скрипт будет использоваться отдельно
+        if (typeof loadHeaderFooter !== 'function') {
+            // Загрузка header
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header').innerHTML = data;
+                    // Убираем выделение со всех пунктов меню, так как страница турнира
+                    // не имеет соответствующего пункта в основном меню
+                    const navLinks = document.querySelectorAll('nav a');
+                    navLinks.forEach(link => link.classList.remove('active'));
+                })
+                .catch(error => {
+                    console.error('Ошибка загрузки header:', error);
+                    document.getElementById('header').innerHTML = '<div class="container"><a href="/" class="site-title">IQ Capitalist</a></div>';
+                });
+
+            // Загрузка footer
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer').innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Ошибка загрузки footer:', error);
+                    document.getElementById('footer').innerHTML = '<div class="container"><p>© 2024 IQ Capitalist. Все права защищены.</p></div>';
+                });
+        }
+    }
         
     // Загрузка данных турнира
     loadTournamentData();
 });
 
-// Выделение текущей страницы в меню
-function highlightCurrentPage() {
-    // Убираем выделение со всех пунктов меню, так как страница турнира
-    // не имеет соответствующего пункта в основном меню
-    const navLinks = document.querySelectorAll('nav a');
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-    });
-}
-
-// Загрузка данных турнира
+/**
+ * Загрузка данных турнира из JSON файла
+ */
 async function loadTournamentData() {
     try {
         // Добавляем индикатор загрузки
+        showLoadingIndicator();
+            
+        // Получаем ID турнира из URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const tournamentId = urlParams.get('id') || "1"; // По умолчанию турнир с ID 1
+        
+        const response = await fetch(`data/${tournamentId}.json`);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        tournamentData = await response.json();
+        
+        // Удаляем индикатор загрузки
+        hideLoadingIndicator();
+        
+        // Отображаем данные турнира
+        displayTournamentData(tournamentData);
+    } catch (error) {
+        console.error('Ошибка загрузки данных турнира:', error);
+        hideLoadingIndicator();
+        showErrorMessage(`Ошибка загрузки данных турнира: ${error.message}`);
+    }
+}
+
+/**
+ * Отображение индикатора загрузки
+ */
+function showLoadingIndicator() {
+    // Проверяем, не существует ли уже индикатор
+    if (!document.getElementById('loading-indicator')) {
         document.querySelector('.container').insertAdjacentHTML('beforeend', 
             `<div id="loading-indicator" class="text-center my-5">
                 <p>Загрузка данных турнира...</p>
             </div>`);
-            
-        const response = await fetch('data/1.json');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        
-        // Удаляем индикатор загрузки
-        document.getElementById('loading-indicator').remove();
-        
-        displayTournamentData(data);
-    } catch (error) {
-        console.error('Ошибка загрузки данных турнира:', error);
-        
-        // Удаляем индикатор загрузки, если он есть
-        const loadingIndicator = document.getElementById('loading-indicator');
-        if (loadingIndicator) loadingIndicator.remove();
-        
-        document.querySelector('.container').insertAdjacentHTML('beforeend', 
-            `<div class="error-message">
-                <p>Ошибка загрузки данных турнира: ${error.message}</p>
-                <p>Пожалуйста, попробуйте обновить страницу позже.</p>
-                <button class="btn btn-primary mt-3" onclick="window.location.reload()">
-                    Обновить страницу
-                </button>
-            </div>`);
     }
 }
 
-// Отображение данных турнира
-function displayTournamentData(data) {
-    if (!data || !data.tournament) {
-        showErrorMessage('Неверный формат данных турнира');
-        return;
+/**
+ * Скрытие индикатора загрузки
+ */
+function hideLoadingIndicator() {
+    const loadingIndicator = document.getElementById('loading-indicator');
+    if (loadingIndicator) {
+        loadingIndicator.remove();
     }
-    
-    displayTournamentInfo(data);
-    displayLevelChart(data);
-    displayAnswersStats(data);
-    displayDetailedStats(data);
-
-    // Анимация появления элементов
-    animateElements();
 }
 
-// Анимация появления элементов
-function animateElements() {
-    const elements = document.querySelectorAll('.tournament-info-container, .stat-card');
-    elements.forEach((element, index) => {
-        setTimeout(() => {
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
-        }, index * 100);
-    });
-}
-
-// Показать сообщение об ошибке
+/**
+ * Показ сообщения об ошибке
+ * @param {string} message - Текст сообщения
+ */
 function showErrorMessage(message) {
     document.querySelector('.container').insertAdjacentHTML('beforeend', 
         `<div class="error-message">
@@ -117,16 +114,45 @@ function showErrorMessage(message) {
         </div>`);
 }
 
-// Форматирование даты из ISO в читаемый формат
-function formatDate(isoDate) {
-    const date = new Date(isoDate);
-    const day = date.getDate();
-    const month = date.toLocaleString('ru', { month: 'long' });
-    const year = date.getFullYear();
-    return `${day} ${month} ${year} года`;
+/**
+ * Отображение всех данных турнира
+ * @param {Object} data - Данные турнира
+ */
+function displayTournamentData(data) {
+    if (!data || !data.tournament) {
+        showErrorMessage('Неверный формат данных турнира');
+        return;
+    }
+    
+    // Последовательно отображаем все секции данных
+    displayTournamentInfo(data);
+    displayLevelChart(data);
+    displayAnswersStats(data);
+    displayDetailedStats(data);
+
+    // Анимация появления элементов
+    animateElements();
 }
 
-// Форматирование периода проведения турнира
+/**
+ * Анимация появления элементов
+ */
+function animateElements() {
+    const elements = document.querySelectorAll('.tournament-info-container, .stat-card');
+    elements.forEach((element, index) => {
+        setTimeout(() => {
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+        }, index * 100);
+    });
+}
+
+/**
+ * Форматирование периода проведения турнира
+ * @param {string} startDate - Дата начала в формате ISO
+ * @param {string} endDate - Дата окончания в формате ISO
+ * @returns {string} - Отформатированный период
+ */
 function formatTournamentPeriod(startDate, endDate) {
     if (!startDate || !endDate) {
         return 'Даты не указаны';
@@ -134,6 +160,10 @@ function formatTournamentPeriod(startDate, endDate) {
     
     const startDateObj = new Date(startDate);
     const endDateObj = new Date(endDate);
+    
+    if (!isValidDate(startDateObj) || !isValidDate(endDateObj)) {
+        return 'Некорректные даты';
+    }
     
     const startDay = startDateObj.getDate();
     const endDay = endDateObj.getDate();
@@ -161,81 +191,67 @@ function formatTournamentPeriod(startDate, endDate) {
     return `${startDay}-${endDay} ${monthNames[startMonth]} ${startYear} года`;
 }
 
-// Отображение общей информации о турнире
+/**
+ * Проверка валидности даты
+ * @param {Date} date - Объект даты для проверки
+ * @returns {boolean} - Результат проверки
+ */
+function isValidDate(date) {
+    return date instanceof Date && !isNaN(date);
+}
+
+/**
+ * Форматирование числа с разделением тысяч
+ * @param {number} num - Число для форматирования 
+ * @returns {string} - Отформатированное число
+ */
+function formatNumber(num) {
+    return typeof num === 'number' ? num.toLocaleString('ru-RU') : 'Н/Д';
+}
+
+/**
+ * Отображение общей информации о турнире
+ * @param {Object} data - Данные турнира
+ */
 function displayTournamentInfo(data) {
     const tournament = data.tournament;
+    
+    // Устанавливаем заголовок страницы
+    document.title = `Турнир №${tournament.id || '?'} | IQ Capitalist`;
+    
+    // Устанавливаем период проведения
     document.getElementById('tournament-dates').textContent = 
         formatTournamentPeriod(tournament.start_date, tournament.end_date);
     
+    // Устанавливаем количество вопросов
     document.getElementById('total-questions').textContent = 
-        tournament.total_questions ? tournament.total_questions.toLocaleString('ru-RU') : 'Н/Д';
+        formatNumber(tournament.total_questions);
     
+    // Устанавливаем количество участников
     const totalPlayers = data.stats && data.stats.total_players ? 
-        data.stats.total_players.toLocaleString('ru-RU') : 'Н/Д';
+        formatNumber(data.stats.total_players) : 'Н/Д';
     document.getElementById('total-players').textContent = totalPlayers;
     
+    // Устанавливаем призовой фонд
     const prizePool = data.stats && data.stats.total_prize_pool ? 
-        `${data.stats.total_prize_pool.toLocaleString('ru-RU')} IQC` : 'Н/Д';
+        `${formatNumber(data.stats.total_prize_pool)} IQC` : 'Н/Д';
     document.getElementById('prize-pool').textContent = prizePool;
 }
 
-// Создание легенды в виде мини-карточек для уровней игроков
-function createLevelLegend(levels, playerCounts, colors) {
+/**
+ * Отображение данных об участниках по уровням
+ * @param {Object} data - Данные турнира
+ */
+function displayLevelChart(data) {
     const legendContainer = document.getElementById('levelChartLegend');
     if (!legendContainer) return;
     
     // Очистка контейнера легенды
     legendContainer.innerHTML = '';
     
-    // Получить общее количество участников
-    const totalPlayers = playerCounts.reduce((sum, count) => sum + count, 0);
-    
-    // Создаем элементы легенды для каждого уровня
-    levels.forEach((level, index) => {
-        const count = playerCounts[index];
-        const percentage = Math.round((count / totalPlayers) * 100);
-        const color = colors[index];
-        
-        // Создаем мини-карточку для элемента легенды
-        const legendItem = document.createElement('div');
-        legendItem.className = 'level-legend-item';
-        legendItem.style.backgroundColor = `${color}10`; // Добавляем прозрачный фон того же цвета
-        legendItem.style.border = `1px solid ${color}40`; // Добавляем рамку
-        
-        // Создаем элементы
-        const colorIndicator = document.createElement('span');
-        colorIndicator.className = 'color-indicator';
-        colorIndicator.style.backgroundColor = color;
-        
-        const levelName = document.createElement('div');
-        levelName.className = 'level-name';
-        levelName.textContent = level;
-        
-        const levelValue = document.createElement('div');
-        levelValue.className = 'level-value';
-        levelValue.textContent = count;
-        
-        const levelPercent = document.createElement('div');
-        levelPercent.className = 'level-percent';
-        levelPercent.textContent = `${percentage}%`;
-        
-        // Добавляем элементы в карточку
-        legendItem.appendChild(colorIndicator);
-        legendItem.appendChild(levelName);
-        legendItem.appendChild(levelValue);
-        legendItem.appendChild(levelPercent);
-        
-        // Добавляем карточку в контейнер легенды
-        legendContainer.appendChild(legendItem);
-    });
-}
-
-// Отображение диаграммы распределения игроков по уровням без круговой диаграммы
-function displayLevelChart(data) {
+    // Проверка данных
     if (!data.stats || !data.stats.players_by_level) {
-        console.warn('Нет данных о распределении игроков по уровням');
-        document.getElementById('levelChartLegend').innerHTML = 
-            '<p class="text-center mt-4">Нет данных для отображения</p>';
+        legendContainer.innerHTML = '<p class="text-center mt-4">Нет данных для отображения</p>';
         return;
     }
     
@@ -243,15 +259,8 @@ function displayLevelChart(data) {
     
     // Правильный порядок уровней
     const levelOrder = [
-        'Знаток', 
-        'Эксперт', 
-        'Мастер', 
-        'Босс', 
-        'Титан', 
-        'Легенда', 
-        'Корифей', 
-        'Гуру', 
-        'IQ Капиталист'
+        'Знаток', 'Эксперт', 'Мастер', 'Босс', 'Титан', 
+        'Легенда', 'Корифей', 'Гуру', 'IQ Капиталист'
     ];
     
     // Фильтруем и сортируем уровни по правильному порядку
@@ -273,17 +282,49 @@ function displayLevelChart(data) {
     
     const colors = levels.map(level => levelColors[level] || '#3498db');
     
-    // Создаем легенду в виде мини-карточек
-    createLevelLegend(levels, playerCounts, colors);
-}
-
-// Отображение статистики ответов без круговой диаграммы
-function displayAnswersStats(data) {
-    if (!data.players || !Array.isArray(data.players) || data.players.length === 0) {
-        console.warn('Нет данных об игроках для расчета статистики ответов');
+    // Получаем общее количество участников
+    const totalPlayers = playerCounts.reduce((sum, count) => sum + count, 0);
+    if (totalPlayers === 0) {
+        legendContainer.innerHTML = '<p class="text-center mt-4">Нет данных для отображения</p>';
         return;
     }
     
+    // Создаем мини-карточки для легенды
+    levels.forEach((level, index) => {
+        const count = playerCounts[index];
+        const percentage = Math.round((count / totalPlayers) * 100);
+        const color = colors[index];
+        
+        const legendItem = document.createElement('div');
+        legendItem.className = 'level-legend-item';
+        legendItem.style.backgroundColor = `${color}10`;
+        legendItem.style.border = `1px solid ${color}40`;
+        
+        legendItem.innerHTML = `
+            <span class="color-indicator" style="background-color: ${color}"></span>
+            <div class="level-name">${level}</div>
+            <div class="level-value">${count}</div>
+            <div class="level-percent">${percentage}%</div>
+        `;
+        
+        legendContainer.appendChild(legendItem);
+    });
+}
+
+/**
+ * Отображение статистики ответов
+ * @param {Object} data - Данные турнира
+ */
+function displayAnswersStats(data) {
+    // Проверка наличия данных
+    if (!data.players || !Array.isArray(data.players) || data.players.length === 0) {
+        document.getElementById('correct-answers').textContent = 'Н/Д';
+        document.getElementById('wrong-answers').textContent = 'Н/Д';
+        document.getElementById('timeouts').textContent = 'Н/Д';
+        return;
+    }
+    
+    // Вычисляем общие показатели
     let totalCorrect = 0;
     let totalWrong = 0;
     let totalTimeouts = 0;
@@ -291,31 +332,43 @@ function displayAnswersStats(data) {
     data.players.forEach(player => {
         if (!player.correct_answers || !player.wrong_answers) return;
         
-        const correct = (player.correct_answers.fast || 0) + 
-                       (player.correct_answers.medium || 0) + 
-                       (player.correct_answers.slow || 0);
-        const wrong = (player.wrong_answers.fast || 0) + 
-                     (player.wrong_answers.medium || 0) + 
-                     (player.wrong_answers.slow || 0);
+        // Суммируем все типы правильных и неправильных ответов
+        const correct = 
+            (player.correct_answers.fast || 0) + 
+            (player.correct_answers.medium || 0) + 
+            (player.correct_answers.slow || 0);
+            
+        const wrong = 
+            (player.wrong_answers.fast || 0) + 
+            (player.wrong_answers.medium || 0) + 
+            (player.wrong_answers.slow || 0);
         
         totalCorrect += correct;
         totalWrong += wrong;
         totalTimeouts += player.timeouts || 0;
     });
     
-    document.getElementById('correct-answers').textContent = totalCorrect.toLocaleString('ru-RU');
-    document.getElementById('wrong-answers').textContent = totalWrong.toLocaleString('ru-RU');
-    document.getElementById('timeouts').textContent = totalTimeouts.toLocaleString('ru-RU');
+    // Отображаем результаты
+    document.getElementById('correct-answers').textContent = formatNumber(totalCorrect);
+    document.getElementById('wrong-answers').textContent = formatNumber(totalWrong);
+    document.getElementById('timeouts').textContent = formatNumber(totalTimeouts);
 }
-// Отображение детальной статистики по типам ответов
+
+/**
+ * Отображение детальной статистики по типам ответов
+ * @param {Object} data - Данные турнира
+ */
 function displayDetailedStats(data) {
+    const tableBody = document.getElementById('detailed-stats-body');
+    if (!tableBody) return;
+    
+    // Проверка наличия данных
     if (!data.players || !Array.isArray(data.players) || data.players.length === 0) {
-        console.warn('Нет данных об игроках для расчета детальной статистики');
-        document.getElementById('detailed-stats-body').innerHTML = 
-            '<tr><td colspan="3" class="text-center">Нет данных для отображения</td></tr>';
+        tableBody.innerHTML = '<tr><td colspan="3" class="text-center">Нет данных для отображения</td></tr>';
         return;
     }
     
+    // Инициализируем счетчики
     let fastCorrect = 0;
     let mediumCorrect = 0;
     let slowCorrect = 0;
@@ -324,6 +377,7 @@ function displayDetailedStats(data) {
     let slowWrong = 0;
     let timeouts = 0;
     
+    // Подсчитываем статистику
     data.players.forEach(player => {
         if (!player.correct_answers || !player.wrong_answers) return;
         
@@ -336,56 +390,57 @@ function displayDetailedStats(data) {
         timeouts += player.timeouts || 0;
     });
     
+    // Вычисляем общее количество ответов
     const totalAnswers = fastCorrect + mediumCorrect + slowCorrect + 
-                        fastWrong + mediumWrong + slowWrong + timeouts;
+                         fastWrong + mediumWrong + slowWrong + timeouts;
     
     if (totalAnswers === 0) {
-        document.getElementById('detailed-stats-body').innerHTML = 
-            '<tr><td colspan="3" class="text-center">Нет данных для отображения</td></tr>';
+        tableBody.innerHTML = '<tr><td colspan="3" class="text-center">Нет данных для отображения</td></tr>';
         return;
     }
     
+    // Создаем структуру данных для таблицы
     const statsData = [
         { 
             name: 'Быстрые правильные', 
             count: fastCorrect, 
-            percent: (fastCorrect / totalAnswers * 100).toFixed(1) + '%',
+            percent: calculatePercent(fastCorrect, totalAnswers),
             type: 'fast-correct'
         },
         { 
             name: 'Средние правильные', 
             count: mediumCorrect, 
-            percent: (mediumCorrect / totalAnswers * 100).toFixed(1) + '%',
+            percent: calculatePercent(mediumCorrect, totalAnswers),
             type: 'medium-correct'
         },
         { 
             name: 'Медленные правильные', 
             count: slowCorrect, 
-            percent: (slowCorrect / totalAnswers * 100).toFixed(1) + '%',
+            percent: calculatePercent(slowCorrect, totalAnswers),
             type: 'slow-correct'
         },
         { 
             name: 'Быстрые неправильные', 
             count: fastWrong, 
-            percent: (fastWrong / totalAnswers * 100).toFixed(1) + '%',
+            percent: calculatePercent(fastWrong, totalAnswers),
             type: 'fast-wrong'
         },
         { 
             name: 'Средние неправильные', 
             count: mediumWrong, 
-            percent: (mediumWrong / totalAnswers * 100).toFixed(1) + '%',
+            percent: calculatePercent(mediumWrong, totalAnswers),
             type: 'medium-wrong'
         },
         { 
             name: 'Медленные неправильные', 
             count: slowWrong, 
-            percent: (slowWrong / totalAnswers * 100).toFixed(1) + '%',
+            percent: calculatePercent(slowWrong, totalAnswers),
             type: 'slow-wrong'
         },
         { 
             name: 'Таймауты', 
             count: timeouts, 
-            percent: (timeouts / totalAnswers * 100).toFixed(1) + '%',
+            percent: calculatePercent(timeouts, totalAnswers),
             type: 'timeout'
         },
         { 
@@ -396,15 +451,26 @@ function displayDetailedStats(data) {
         }
     ];
     
-    const tableBody = document.getElementById('detailed-stats-body');
+    // Генерируем HTML для таблицы
     tableBody.innerHTML = statsData.map(stat => {
-        // Добавляем полужирное выделение для строки "Всего"
+        // Выделяем жирным строку "Всего"
         const fontWeight = stat.type === 'total' ? 'font-weight: bold;' : '';
         
         return `<tr data-type="${stat.type}" style="${fontWeight}">
             <td>${stat.name}</td>
-            <td>${stat.count.toLocaleString('ru-RU')}</td>
+            <td>${formatNumber(stat.count)}</td>
             <td>${stat.percent}</td>
         </tr>`;
     }).join('');
+}
+
+/**
+ * Вычисление процента от общего количества
+ * @param {number} part - Часть
+ * @param {number} total - Общее количество
+ * @returns {string} - Отформатированный процент
+ */
+function calculatePercent(part, total) {
+    if (total === 0) return '0.0%';
+    return (part / total * 100).toFixed(1) + '%';
 }
