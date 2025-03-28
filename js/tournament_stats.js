@@ -1,11 +1,12 @@
 /**
- * Скрипт для страницы детальной статистики турнира IQ Capitalist
+ * Скрипт для отображения детальной статистики по участникам турнира IQ Capitalist
+ * Адаптирован для работы на объединенной странице с tournament.js
  */
 
 // Глобальные переменные
-let globalData;
+let playerStatsInitialized = false; // Флаг инициализации
 let currentLevel = 'Знаток';
-let currentSort = { column: 'total_points', direction: 'desc' };
+let currentSort = { column: 'points', direction: 'desc' };
 let currentPage = 1;
 const itemsPerPage = 50;
 
@@ -15,7 +16,7 @@ const levelOrder = [
     'Легенда', 'Корифей', 'Гуру', 'IQ Капиталист'
 ];
 
-// Границы уровней для отображения
+// Определение границ уровней
 const levelRanges = {
     'Знаток': { min: 100, max: 100 },
     'Эксперт': { min: 1000, max: 1999 },
@@ -29,41 +30,54 @@ const levelRanges = {
 };
 
 /**
- * Инициализация страницы
+ * Инициализация статистики игроков
+ * Проверяет наличие DOM-элементов и вызывается только один раз
  */
-document.addEventListener('DOMContentLoaded', () => {
-    // Загрузка данных
-    loadData();
-
+function initializePlayerStats() {
+    // Если уже инициализировано или нет необходимых DOM-элементов, выходим
+    if (playerStatsInitialized || !document.getElementById('levelButtons')) {
+        return;
+    }
+    
+    console.log('Инициализация детальной статистики по игрокам');
+    
     // Подключаем поиск с debounce для оптимизации
     const searchInput = document.getElementById('searchInput');
     if (searchInput) {
         searchInput.addEventListener('input', debounce(searchPlayers, 300));
     }
-});
-
-/**
- * Функция debounce для оптимизации обработки часто вызываемых функций
- */
-function debounce(func, delay) {
-    let timeout;
-    return function() {
-        const context = this;
-        const args = arguments;
-        clearTimeout(timeout);
-        timeout = setTimeout(() => func.apply(context, args), delay);
-    };
+    
+    // Отмечаем, что инициализация выполнена
+    playerStatsInitialized = true;
+    
+    // Загружаем данные, если они еще не загружены
+    if (typeof tournamentData !== 'undefined' && tournamentData) {
+        loadPlayerStatsData(tournamentData);
+    } else {
+        loadPlayerStatsData();
+    }
 }
 
 /**
- * Загрузка данных о турнире
+ * Загрузка данных для статистики игроков
+ * @param {Object} data - Уже загруженные данные (опционально)
  */
-function loadData() {
+function loadPlayerStatsData(data) {
+    // Если данные уже переданы, используем их
+    if (data) {
+        displayPlayerStats(data);
+        return;
+    }
+    
+    // Иначе загружаем данные самостоятельно
     const urlParams = new URLSearchParams(window.location.search);
-    const tournamentId = urlParams.get('id') || "1"; // По умолчанию загружаем турнир с ID 1
+    const tournamentId = urlParams.get('id') || "1"; // По умолчанию турнир с ID 1
     
     // Показываем индикатор загрузки
-    document.getElementById('statsTable').innerHTML = '<p class="text-center">Загрузка данных...</p>';
+    const statsTable = document.getElementById('statsTable');
+    if (statsTable) {
+        statsTable.innerHTML = '<p class="text-center">Загрузка данных...</p>';
+    }
     
     // Загружаем данные турнира
     fetch(`data/${tournamentId}.json`)
@@ -74,30 +88,26 @@ function loadData() {
             return response.json();
         })
         .then(data => {
-            globalData = data;
-            initializePage(data);
+            displayPlayerStats(data);
         })
         .catch(error => {
             console.error('Ошибка загрузки данных:', error);
-            document.getElementById('statsTable').innerHTML = `
-                <div class="error-message">
-                    <p>Ошибка загрузки данных: ${error.message}</p>
-                    <p>Пожалуйста, попробуйте обновить страницу.</p>
-                </div>
-            `;
+            if (statsTable) {
+                statsTable.innerHTML = `
+                    <div class="error-message">
+                        <p>Ошибка загрузки данных: ${error.message}</p>
+                        <p>Пожалуйста, попробуйте обновить страницу.</p>
+                    </div>
+                `;
+            }
         });
 }
 
 /**
- * Инициализация страницы после загрузки данных
+ * Отображение статистики игроков
+ * @param {Object} data - Данные турнира
  */
-function initializePage(data) {
-    // Отображаем время последнего обновления
-    document.getElementById('lastUpdate').textContent = `Данные обновлены: ${data.generated_at}`;
-    
-    // Отображаем информацию о турнире
-    displayTournamentInfo(data.tournament);
-    
+function displayPlayerStats(data) {
     // Создаем кнопки уровней
     createLevelButtons(data);
     
@@ -109,42 +119,17 @@ function initializePage(data) {
 }
 
 /**
- * Отображение информации о турнире
- */
-function displayTournamentInfo(tournament) {
-    const startDate = new Date(tournament.start_date);
-    const endDate = new Date(tournament.end_date);
-    
-    // Форматирование дат
-    const formatDate = (date) => {
-        if (!(date instanceof Date)) return 'Неизвестно';
-        const day = date.getDate();
-        const month = date.toLocaleString('ru', { month: 'long' });
-        const year = date.getFullYear();
-        return `${day} ${month} ${year}`;
-    };
-    
-    const tournamentInfo = document.getElementById('tournamentInfo');
-    tournamentInfo.innerHTML = `
-        <div class="tournament-info">
-            <p>Турнир №${tournament.id}. Период: ${formatDate(startDate)} - ${formatDate(endDate)}. 
-               Количество вопросов: ${tournament.total_questions || 'Не указано'}</p>
-        </div>
-    `;
-}
-
-/**
  * Создание кнопок для переключения между уровнями
+ * @param {Object} data - Данные турнира
  */
 function createLevelButtons(data) {
     const buttonsContainer = document.getElementById('levelButtons');
+    if (!buttonsContainer) return;
+    
     buttonsContainer.innerHTML = '';
     
-    // Создаем кнопки для всех уровней, кроме IQ Капиталист
+    // Создаем кнопки для всех уровней
     for (const level of levelOrder) {
-        // Пропускаем IQ Капиталист
-        if (level === 'IQ Капиталист') continue;
-        
         // Проверяем, есть ли игроки на этом уровне
         const players = data.players.filter(player => player.level === level);
         const isEmpty = players.length === 0;
@@ -165,9 +150,12 @@ function createLevelButtons(data) {
 
 /**
  * Обновление заголовка уровня
+ * @param {Object} data - Данные турнира
  */
 function updateLevelHeader(data) {
     const levelHeader = document.getElementById('levelHeader');
+    if (!levelHeader) return;
+    
     const range = levelRanges[currentLevel];
     
     // Текст с диапазоном капитала для уровня
@@ -186,6 +174,7 @@ function updateLevelHeader(data) {
 
 /**
  * Смена текущего уровня
+ * @param {String} level - Новый уровень
  */
 function changeLevel(level) {
     // Сохраняем выбранный уровень
@@ -194,24 +183,24 @@ function changeLevel(level) {
     
     // Обновляем активную кнопку
     document.querySelectorAll('.level-btn').forEach(btn => {
-        if (btn.textContent.startsWith(level)) {
-            btn.classList.add('active');
-        } else {
-            btn.classList.remove('active');
-        }
+        btn.classList.toggle('active', btn.textContent.startsWith(level));
     });
     
-    // Обновляем заголовок уровня
-    updateLevelHeader(globalData);
-    
-    // Обновляем таблицу с данными
-    displayStatsTable(globalData);
+    // Обновляем заголовок уровня и таблицу данных
+    if (typeof tournamentData !== 'undefined' && tournamentData) {
+        updateLevelHeader(tournamentData);
+        displayStatsTable(tournamentData);
+    }
 }
 
 /**
  * Отображение таблицы с детальной статистикой
+ * @param {Object} data - Данные турнира
  */
 function displayStatsTable(data) {
+    const statsTable = document.getElementById('statsTable');
+    if (!statsTable) return;
+    
     // Фильтруем игроков по текущему уровню
     const levelPlayers = data.players.filter(player => player.level === currentLevel);
     
@@ -228,8 +217,6 @@ function displayStatsTable(data) {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     const currentPagePlayers = sortedPlayers.slice(startIndex, endIndex);
-    
-    const statsTable = document.getElementById('statsTable');
     
     if (currentPagePlayers.length === 0) {
         statsTable.innerHTML = `
@@ -307,6 +294,8 @@ function displayStatsTable(data) {
 
 /**
  * Создание HTML для пагинации
+ * @param {Number} totalPages - Общее количество страниц
+ * @returns {String} - HTML-код пагинации
  */
 function createPagination(totalPages) {
     let paginationHtml = `
@@ -393,9 +382,12 @@ function createPagination(totalPages) {
 
 /**
  * Смена страницы пагинации
+ * @param {Number} page - Номер страницы
  */
 function changePage(page) {
-    const filteredPlayers = globalData.players
+    if (!tournamentData) return;
+    
+    const filteredPlayers = tournamentData.players
         .filter(player => player.level === currentLevel)
         .filter(player => {
             const searchTerm = document.getElementById('searchInput')?.value?.toLowerCase() || '';
@@ -409,11 +401,12 @@ function changePage(page) {
     }
     
     currentPage = page;
-    displayStatsTable(globalData);
+    displayStatsTable(tournamentData);
 }
 
 /**
  * Сортировка данных
+ * @param {String} column - Колонка для сортировки
  */
 function sortTable(column) {
     if (currentSort.column === column) {
@@ -429,11 +422,17 @@ function sortTable(column) {
     currentPage = 1;
     
     // Обновляем таблицу
-    displayStatsTable(globalData);
+    if (tournamentData) {
+        displayStatsTable(tournamentData);
+    }
 }
 
 /**
  * Сортировка массива игроков
+ * @param {Array} players - Массив игроков
+ * @param {String} column - Колонка для сортировки
+ * @param {String} direction - Направление сортировки ('asc' или 'desc')
+ * @returns {Array} - Отсортированный массив
  */
 function sortPlayers(players, column, direction) {
     return [...players].sort((a, b) => {
@@ -469,11 +468,16 @@ function searchPlayers() {
     currentPage = 1;
     
     // Обновляем таблицу
-    displayStatsTable(globalData);
+    if (tournamentData) {
+        displayStatsTable(tournamentData);
+    }
 }
 
 /**
  * Форматирование чисел для отображения
+ * @param {Number} num - Число для форматирования
+ * @param {Boolean} isForPrize - Флаг форматирования для приза
+ * @returns {String} - Отформатированное число
  */
 function formatNumber(num, isForPrize = false) {
     if (isForPrize) {
@@ -487,3 +491,30 @@ function formatNumber(num, isForPrize = false) {
         });
     }
 }
+
+/**
+ * Функция debounce для оптимизации обработки часто вызываемых функций
+ * @param {Function} func - Функция для debounce
+ * @param {Number} delay - Задержка в миллисекундах
+ * @returns {Function} - Функция с debounce
+ */
+function debounce(func, delay) {
+    let timeout;
+    return function() {
+        const context = this;
+        const args = arguments;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(context, args), delay);
+    };
+}
+
+// Инициализация при загрузке DOM
+document.addEventListener('DOMContentLoaded', function() {
+    // Инициализируем статистику игроков, когда DOM загружен
+    setTimeout(initializePlayerStats, 500); // Небольшая задержка для гарантии загрузки данных основной статистики
+});
+
+// Глобальные функции для событий onclick
+window.changeLevel = changeLevel;
+window.changePage = changePage;
+window.sortTable = sortTable;
