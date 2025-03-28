@@ -1,8 +1,9 @@
 /**
- * Скрипт для страницы отдельного турнира IQ Capitalist
+ * Скрипт для страницы турнира IQ Capitalist
+ * Модифицирован для работы на объединенной странице с tournament_stats.js
  */
 
-// Глобальные переменные
+// Глобальная переменная для доступа к данным из обоих скриптов
 let tournamentData = null;
 
 // Инициализация при загрузке DOM
@@ -62,6 +63,7 @@ async function loadTournamentData() {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         
+        // Сохраняем данные в глобальную переменную для доступа из других скриптов
         tournamentData = await response.json();
         
         // Удаляем индикатор загрузки
@@ -69,10 +71,29 @@ async function loadTournamentData() {
         
         // Отображаем данные турнира
         displayTournamentData(tournamentData);
+        
+        // Обновляем информацию о дате обновления
+        updateLastUpdate(tournamentData);
+        
+        // Инициализируем часть с детальной статистикой, если доступна функция
+        if (typeof initializePlayerStats === 'function') {
+            initializePlayerStats();
+        }
     } catch (error) {
         console.error('Ошибка загрузки данных турнира:', error);
         hideLoadingIndicator();
         showErrorMessage(`Ошибка загрузки данных турнира: ${error.message}`);
+    }
+}
+
+/**
+ * Обновление информации о последнем обновлении
+ * @param {Object} data - Данные турнира
+ */
+function updateLastUpdate(data) {
+    const lastUpdateElement = document.getElementById('lastUpdate');
+    if (lastUpdateElement && data.generated_at) {
+        lastUpdateElement.textContent = `Данные обновлены: ${data.generated_at}`;
     }
 }
 
@@ -219,6 +240,12 @@ function displayTournamentInfo(data) {
     // Устанавливаем заголовок страницы
     document.title = `Турнир №${tournament.id || '?'} | IQ Capitalist`;
     
+    // Обновляем заголовок на странице, если он динамический
+    const pageTitle = document.querySelector('.page-title');
+    if (pageTitle) {
+        pageTitle.textContent = `Турнир №${tournament.id || '?'}`;
+    }
+    
     // Устанавливаем период проведения
     document.getElementById('tournament-dates').textContent = 
         formatTournamentPeriod(tournament.start_date, tournament.end_date);
@@ -266,9 +293,6 @@ function displayLevelChart(data) {
     // Фильтруем и сортируем уровни по правильному порядку
     const levels = levelOrder.filter(level => level in levelPlayers);
     const playerCounts = levels.map(level => levelPlayers[level]);
-    
-    // Используем один стиль для всех уровней
-    const defaultColor = '#3498db';
     
     // Получаем общее количество участников
     const totalPlayers = playerCounts.reduce((sum, count) => sum + count, 0);
@@ -402,7 +426,7 @@ function displayDetailedStats(data) {
             count: slowCorrect, 
             percent: calculatePercent(slowCorrect, totalAnswers),
             type: 'slow-correct'
-        },
+            },
         { 
             name: 'Быстрые неправильные', 
             count: fastWrong, 
