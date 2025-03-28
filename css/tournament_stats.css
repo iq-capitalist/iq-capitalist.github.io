@@ -1,0 +1,225 @@
+/* Стили для страницы детальной статистики турнира */
+
+/* Стили для кнопок уровней */
+#levelButtons {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+}
+
+.level-btn {
+    padding: 10px 15px;
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    border-radius: 5px;
+    font-size: 14px;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.level-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.level-btn.active {
+    background-color: var(--accent-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Стили для поля поиска */
+#searchInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Стили для таблицы статистики */
+.table-responsive {
+    overflow-x: auto;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.stats-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-bottom: 20px;
+}
+
+.stats-table th,
+.stats-table td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+.stats-table th {
+    background-color: var(--primary-color);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.stats-table th.column-group {
+    background-color: var(--secondary-color);
+}
+
+.stats-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.stats-table tr:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
+/* Выравнивание по левому краю для имени пользователя */
+.stats-table td:nth-child(2),
+.stats-table th:nth-child(2) {
+    text-align: left;
+}
+
+/* Выравнивание по центру для уровня */
+.stats-table td:nth-child(3),
+.stats-table th:nth-child(3) {
+    text-align: center;
+}
+
+/* Группы колонок */
+.column-group {
+    border-left: 2px solid #fff;
+}
+
+/* Цветовое выделение для разных типов ответов */
+.correct-fast {
+    background-color: rgba(46, 204, 113, 0.2);
+}
+
+.correct-medium {
+    background-color: rgba(46, 204, 113, 0.1);
+}
+
+.correct-slow {
+    background-color: rgba(46, 204, 113, 0.05);
+}
+
+.wrong-fast {
+    background-color: rgba(231, 76, 60, 0.2);
+}
+
+.wrong-medium {
+    background-color: rgba(231, 76, 60, 0.1);
+}
+
+.wrong-slow {
+    background-color: rgba(231, 76, 60, 0.05);
+}
+
+.timeout {
+    background-color: rgba(241, 196, 15, 0.2);
+}
+
+.total-answers {
+    background-color: rgba(52, 152, 219, 0.1);
+    font-weight: bold;
+}
+
+.total-points {
+    background-color: rgba(52, 152, 219, 0.2);
+    font-weight: bold;
+}
+
+.prize {
+    background-color: rgba(155, 89, 182, 0.2);
+    font-weight: bold;
+}
+
+/* Стили для информации о турнире */
+.tournament-info {
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid var(--accent-color);
+}
+
+/* Стили для заголовка уровня */
+#levelHeader {
+    margin-bottom: 20px;
+}
+
+#levelHeader h2 {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.level-info {
+    color: var(--secondary-color);
+    font-style: italic;
+}
+
+/* Стили для пагинации */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.pagination .page-item {
+    margin: 0 2px;
+}
+
+.pagination .page-link {
+    padding: 8px 12px;
+    border: 1px solid var(--primary-color);
+    background-color: white;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.pagination .page-link:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.pagination .page-item.disabled .page-link {
+    background-color: #f4f4f4;
+    color: #aaa;
+    border-color: #ddd;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Стили для последнего обновления */
+#lastUpdate {
+    text-align: left;
+    margin-bottom: 20px;
+    font-style: italic;
+    color: var(--secondary-color);
+}
