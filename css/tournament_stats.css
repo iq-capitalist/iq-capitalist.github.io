@@ -82,7 +82,7 @@
 
 /* Настройка ширины остальных колонок */
 .stats-table th:first-child {
-    width: 200px; /* Имя */
+    width: 170px; /* Имя */
 }
 
 .stats-table tr:nth-child(2) th:nth-child(9) {
@@ -90,7 +90,7 @@
 }
 
 .stats-table tr:nth-child(2) th:nth-child(10) {
-    width: 70px; /* Очки */
+    width: 100px; /* Очки */
 }
 
 .stats-table tr:nth-child(2) th:nth-child(11) {
