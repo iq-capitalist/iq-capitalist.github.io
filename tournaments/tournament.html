@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Турнир #1 | IQ Capitalist</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="css/tournament.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+</head>
+<body>
+    <header id="header"></header>
+
+    <main>
+        <div class="container">
+            <div class="tournament-header">
+                <h1 class="page-title">Турнир #1</h1>
+                <a href="index.html" class="btn btn-primary">К списку турниров</a>
+            </div>
+
+            <div class="tournament-info">
+                <div class="info-item">
+                    <span class="label">Период проведения:</span>
+                    <span class="value" id="tournament-dates">25-27 марта 2025 года</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Всего вопросов:</span>
+                    <span class="value" id="total-questions">80</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Участников:</span>
+                    <span class="value" id="total-players">94</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Призовой фонд:</span>
+                    <span class="value" id="prize-pool">6995 IQC</span>
+                </div>
+            </div>
+
+            <div class="tournament-stats-grid">
+                <div class="stat-card participants-by-level">
+                    <h2>Участники по уровням</h2>
+                    <div class="chart-container">
+                        <canvas id="levelChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="stat-card answers-stats">
+                    <h2>Статистика ответов</h2>
+                    <div class="answers-grid">
+                        <div class="answer-type correct">
+                            <div class="count" id="correct-answers">2269</div>
+                            <div class="label">Правильных ответов</div>
+                        </div>
+                        <div class="answer-type wrong">
+                            <div class="count" id="wrong-answers">1026</div>
+                            <div class="label">Неправильных ответов</div>
+                        </div>
+                        <div class="answer-type timeout">
+                            <div class="count" id="timeouts">95</div>
+                            <div class="label">Таймаутов</div>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="answersChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-card detailed-stats">
+                <h2>Детальная статистика по типам ответов</h2>
+                <div class="table-responsive">
+                    <table class="stats-table">
+                        <thead>
+                            <tr>
+                                <th>Тип ответа</th>
+                                <th>Количество</th>
+                                <th>Процент</th>
+                            </tr>
+                        </thead>
+                        <tbody id="detailed-stats-body">
+                            <!-- Данные будут добавлены через JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="stat-card top-players">
+                <h2>Рекорды турнира</h2>
+                <div class="records-grid">
+                    <div class="record-item">
+                        <div class="record-title">Самый точный игрок</div>
+                        <div class="record-value" id="most-accurate-player">
+                            <span class="player-name">7749812005</span>
+                            <span class="player-value">100% правильных</span>
+                        </div>
+                    </div>
+                    <div class="record-item">
+                        <div class="record-title">Самый быстрый игрок</div>
+                        <div class="record-value" id="fastest-player">
+                            <span class="player-name">977840664</span>
+                            <span class="player-value">74 быстрых ответа</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer"></footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Загрузка данных турнира
+        async function loadTournamentData() {
+            try {
+                const response = await fetch('tournaments_data/1.json');
+                const data = await response.json();
+                displayTournamentData(data);
+            } catch (error) {
+                console.error('Ошибка загрузки данных турнира:', error);
+                document.querySelector('.container').innerHTML += 
+                    `<div class="error-message">Ошибка загрузки данных турнира. Пожалуйста, попробуйте позже.</div>`;
+            }
+        }
+
+        // Отображение данных турнира
+        function displayTournamentData(data) {
+            displayTournamentInfo(data);
+            displayLevelChart(data);
+            displayAnswersStats(data);
+            displayDetailedStats(data);
+            displayTopPlayers(data);
+
+        }
+
+        // Форматирование даты из ISO в читаемый формат
+        function formatDate(isoDate) {
+            const date = new Date(isoDate);
+            const day = date.getDate();
+            const month = date.toLocaleString('ru', { month: 'long' });
+            const year = date.getFullYear();
+            return `${day} ${month} ${year} года`;
+        }
+
+        // Форматирование периода проведения турнира
+        function formatTournamentPeriod(startDate, endDate) {
+            const startDateObj = new Date(startDate);
+            const endDateObj = new Date(endDate);
+            
+            const startDay = startDateObj.getDate();
+            const endDay = endDateObj.getDate();
+            const startMonth = startDateObj.getMonth();
+            const endMonth = endDateObj.getMonth();
+            const startYear = startDateObj.getFullYear();
+            const endYear = endDateObj.getFullYear();
+            
+            const monthNames = [
+                'января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 
+                'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'
+            ];
+            
+            // Если годы разные
+            if (startYear !== endYear) {
+                return `${startDay} ${monthNames[startMonth]} ${startYear} - ${endDay} ${monthNames[endMonth]} ${endYear} года`;
+            }
+            
+            // Если месяцы разные
+            if (startMonth !== endMonth) {
+                return `${startDay} ${monthNames[startMonth]} - ${endDay} ${monthNames[endMonth]} ${startYear} года`;
+            }
+            
+            // Если только дни разные
+            return `${startDay}-${endDay} ${monthNames[startMonth]} ${startYear} года`;
+        }
+
+        // Отображение общей информации о турнире
+        function displayTournamentInfo(data) {
+            const tournament = data.tournament;
+            document.getElementById('tournament-dates').textContent = 
+                formatTournamentPeriod(tournament.start_date, tournament.end_date);
+            document.getElementById('total-questions').textContent = tournament.total_questions;
+            document.getElementById('total-players').textContent = data.stats.total_players;
+            document.getElementById('prize-pool').textContent = `${data.stats.total_prize_pool.toLocaleString('ru-RU')} IQC`;
+        }
+
+        // Отображение диаграммы распределения игроков по уровням
+        function displayLevelChart(data) {
+            const levelPlayers = data.stats.players_by_level;
+            const levels = Object.keys(levelPlayers);
+            const playerCounts = levels.map(level => levelPlayers[level]);
+            
+            // Цвета для уровней
+            const levelColors = {
+                'Знаток': '#4682B4',
+                'Эксперт': '#2E8B57',
+                'Мастер': '#CD853F',
+                'Босс': '#8B4513',
+                'Титан': '#800080',
+                'Легенда': '#B8860B',
+                'Корифей': '#483D8B',
+                'Гуру': '#B22222',
+                'IQ Капиталист': '#000000'
+            };
+            
+            const colors = levels.map(level => levelColors[level] || '#3498db');
+            
+            const ctx = document.getElementById('levelChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: levels,
+                    datasets: [{
+                        data: playerCounts,
+                        backgroundColor: colors,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.raw || 0;
+                                    const percentage = Math.round(value / data.stats.total_players * 100);
+                                    return `${label}: ${value} (${percentage}%)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Отображение статистики ответов
+        function displayAnswersStats(data) {
+            let totalCorrect = 0;
+            let totalWrong = 0;
+            let totalTimeouts = 0;
+            
+            data.players.forEach(player => {
+                const correct = player.correct_answers.fast + player.correct_answers.medium + player.correct_answers.slow;
+                const wrong = player.wrong_answers.fast + player.wrong_answers.medium + player.wrong_answers.slow;
+                
+                totalCorrect += correct;
+                totalWrong += wrong;
+                totalTimeouts += player.timeouts;
+            });
+            
+            document.getElementById('correct-answers').textContent = totalCorrect.toLocaleString('ru-RU');
+            document.getElementById('wrong-answers').textContent = totalWrong.toLocaleString('ru-RU');
+            document.getElementById('timeouts').textContent = totalTimeouts.toLocaleString('ru-RU');
+            
+            const totalAnswers = totalCorrect + totalWrong + totalTimeouts;
+            const correctPercentage = Math.round(totalCorrect / totalAnswers * 100);
+            const wrongPercentage = Math.round(totalWrong / totalAnswers * 100);
+            const timeoutPercentage = Math.round(totalTimeouts / totalAnswers * 100);
+            
+            // Круговая диаграмма ответов
+            const ctx = document.getElementById('answersChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Правильные', 'Неправильные', 'Таймауты'],
+                    datasets: [{
+                        data: [totalCorrect, totalWrong, totalTimeouts],
+                        backgroundColor: ['#2ecc71', '#e74c3c', '#f39c12'],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.label || '';
+                                    const value = context.raw || 0;
+                                    const percentage = Math.round(value / totalAnswers * 100);
+                                    return `${label}: ${value} (${percentage}%)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Отображение детальной статистики по типам ответов
+        function displayDetailedStats(data) {
+            let fastCorrect = 0;
+            let mediumCorrect = 0;
+            let slowCorrect = 0;
+            let fastWrong = 0;
+            let mediumWrong = 0;
+            let slowWrong = 0;
+            let timeouts = 0;
+            
+            data.players.forEach(player => {
+                fastCorrect += player.correct_answers.fast;
+                mediumCorrect += player.correct_answers.medium;
+                slowCorrect += player.correct_answers.slow;
+                fastWrong += player.wrong_answers.fast;
+                mediumWrong += player.wrong_answers.medium;
+                slowWrong += player.wrong_answers.slow;
+                timeouts += player.timeouts;
+            });
+            
+            const totalAnswers = fastCorrect + mediumCorrect + slowCorrect + 
+                                fastWrong + mediumWrong + slowWrong + timeouts;
+            
+            const statsData = [
+                { name: 'Быстрые правильные (до 40 сек)', count: fastCorrect, 
+                  percent: (fastCorrect / totalAnswers * 100).toFixed(1) + '%' },
+                { name: 'Средние правильные (40-80 сек)', count: mediumCorrect, 
+                  percent: (mediumCorrect / totalAnswers * 100).toFixed(1) + '%' },
+                { name: 'Медленные правильные (более 80 сек)', count: slowCorrect, 
+                  percent: (slowCorrect / totalAnswers * 100).toFixed(1) + '%' },
+                { name: 'Быстрые неправильные', count: fastWrong, 
+                  percent: (fastWrong / totalAnswers * 100).toFixed(1) + '%' },
+                { name: 'Средние неправильные', count: mediumWrong, 
+                  percent: (mediumWrong / totalAnswers * 100).toFixed(1) + '%' },
+                { name: 'Медленные неправильные', count: slowWrong, 
+                  percent: (slowWrong / totalAnswers * 100).toFixed(1) + '%' },
+                { name: 'Таймауты', count: timeouts, 
+                  percent: (timeouts / totalAnswers * 100).toFixed(1) + '%' }
+            ];
+            
+            const tableBody = document.getElementById('detailed-stats-body');
+            tableBody.innerHTML = statsData.map(stat => 
+                `<tr>
+                    <td>${stat.name}</td>
+                    <td>${stat.count.toLocaleString('ru-RU')}</td>
+                    <td>${stat.percent}</td>
+                </tr>`
+            ).join('');
+        }
+
+        // Отображение рекордов турнира
+        function displayTopPlayers(data) {
+            const players = data.players;
+            
+            // Самый точный игрок (лучшее соотношение правильных ответов)
+            const playersWithAccuracy = players.map(player => {
+                const totalAnswers = player.correct_answers.fast + player.correct_answers.medium + 
+                    player.correct_answers.slow + player.wrong_answers.fast + 
+                    player.wrong_answers.medium + player.wrong_answers.slow;
+                const correctAnswers = player.correct_answers.fast + player.correct_answers.medium + 
+                    player.correct_answers.slow;
+                
+                return {
+                    ...player,
+                    accuracy: totalAnswers > 0 ? correctAnswers / totalAnswers : 0,
+                    correctAnswers,
+                    totalAnswers
+                };
+            }).filter(player => player.totalAnswers >= 10); // Минимум 10 ответов
+            
+            const mostAccuratePlayer = [...playersWithAccuracy].sort((a, b) => b.accuracy - a.accuracy)[0];
+            document.getElementById('most-accurate-player').innerHTML = 
+                `<span class="player-name">${mostAccuratePlayer.username}</span>
+                 <span class="player-value">${(mostAccuratePlayer.accuracy * 100).toFixed(0)}% правильных</span>`;
+            
+            // Самый быстрый игрок (больше всего быстрых ответов)
+            const playersWithFastAnswers = players.map(player => {
+                const fastAnswers = player.correct_answers.fast + player.wrong_answers.fast;
+                const totalAnswers = player.answers;
+                return {
+                    ...player,
+                    fastAnswers,
+                    fastPercent: totalAnswers > 0 ? (fastAnswers / totalAnswers) * 100 : 0
+                };
+            }).filter(player => player.answers >= 10); // Минимум 10 ответов
+            
+            const fastestPlayer = [...playersWithFastAnswers].sort((a, b) => b.fastPercent - a.fastPercent)[0];
+            document.getElementById('fastest-player').innerHTML = 
+                `<span class="player-name">${fastestPlayer.username}</span>
+                 <span class="player-value">${fastestPlayer.fastPercent.toFixed(0)}% быстрых ответов</span>`;
+        }
+
+        // Загрузка данных при загрузке страницы
+        document.addEventListener('DOMContentLoaded', loadTournamentData);
+    </script>
+</body>
+</html>
