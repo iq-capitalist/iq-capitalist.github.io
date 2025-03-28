@@ -22,9 +22,6 @@
 }
 
 .tournament-info {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
     margin-bottom: 2rem;
     background-color: white;
     padding: 1.5rem;
@@ -33,28 +30,34 @@
     border-left: 4px solid var(--accent-color);
 }
 
-.info-item {
-    display: flex;
-    flex-direction: column;
-    padding: 0.5rem;
-    border-radius: 6px;
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.info-table tr {
+    border-bottom: 1px solid #f0f0f0;
     transition: all 0.2s ease;
 }
 
-.info-item:hover {
+.info-table tr:last-child {
+    border-bottom: none;
+}
+
+.info-table tr:hover {
     background-color: #f8f9fa;
-    transform: translateY(-2px);
 }
 
-.info-item .label {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 0.5rem;
+.info-label {
+    padding: 0.8rem 1rem 0.8rem 0;
     font-weight: 500;
+    color: #666;
+    width: 40%;
 }
 
-.info-item .value {
-    font-size: 1.3rem;
+.info-value {
+    padding: 0.8rem 0;
+    font-size: 1.1rem;
     font-weight: 600;
     color: var(--primary-color);
 }
@@ -65,9 +68,11 @@
 
 .tournament-stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
     margin-bottom: 2rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .stat-card {
@@ -105,14 +110,14 @@
     margin-top: 0;
     margin-bottom: 1.5rem;
     color: var(--primary-color);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     border-bottom: 1px solid #eee;
     padding-bottom: 0.8rem;
     text-align: center;
 }
 
 .chart-container {
-    height: 280px;
+    height: 300px;
     position: relative;
     margin: 1.5rem 0;
 }
@@ -398,7 +403,7 @@
 
 @media (min-width: 1200px) {
     .tournament-stats-grid {
-        grid-template-columns: 40% 60%;
+        grid-template-columns: calc(50% - 0.75rem) calc(50% - 0.75rem);
     }
     
     .records-grid {
