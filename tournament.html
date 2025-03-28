@@ -45,33 +45,40 @@
                 </div>
             </div>
 
-            <!-- Карточка "Участники" -->
+            <!-- Карточка "Участники" с легендой справа -->
             <div class="stat-card participants-by-level">
                 <h2>Участники</h2>
-                <div class="chart-container">
-                    <canvas id="levelChart"></canvas>
+                <div class="card-content-with-legend">
+                    <div class="chart-container">
+                        <canvas id="levelChart"></canvas>
+                    </div>
+                    <div class="legend-container" id="levelChartLegend">
+                        <!-- Легенда будет добавлена через JavaScript -->
+                    </div>
                 </div>
             </div>
 
-            <!-- Карточка "Ответы" -->
+            <!-- Карточка "Ответы" с блоками справа -->
             <div class="stat-card answers-stats">
                 <h2>Ответы</h2>
-                <div class="answers-grid">
-                    <div class="answer-type correct">
-                        <div class="count" id="correct-answers">2269</div>
-                        <div class="label">Правильные</div>
+                <div class="card-content-with-legend">
+                    <div class="chart-container">
+                        <canvas id="answersChart"></canvas>
                     </div>
-                    <div class="answer-type wrong">
-                        <div class="count" id="wrong-answers">1026</div>
-                        <div class="label">Неправильные</div>
+                    <div class="legend-container">
+                        <div class="answer-type correct">
+                            <div class="count" id="correct-answers">2269</div>
+                            <div class="label">Правильные</div>
+                        </div>
+                        <div class="answer-type wrong">
+                            <div class="count" id="wrong-answers">1026</div>
+                            <div class="label">Неправильные</div>
+                        </div>
+                        <div class="answer-type timeout">
+                            <div class="count" id="timeouts">95</div>
+                            <div class="label">Таймауты</div>
+                        </div>
                     </div>
-                    <div class="answer-type timeout">
-                        <div class="count" id="timeouts">95</div>
-                        <div class="label">Таймауты</div>
-                    </div>
-                </div>
-                <div class="chart-container">
-                    <canvas id="answersChart"></canvas>
                 </div>
             </div>
 
@@ -99,85 +106,6 @@
     <footer id="footer"></footer>
 
     <script src="js/main.js"></script>
-    <script>
-        // Функция для создания адаптивной легенды графика
-        function createLegendContainer(chart, labels, dataset) {
-            // Удаляем существующую легенду, если она есть
-            const existingLegend = document.querySelector('#levelChart + .chartjs-legend');
-            if (existingLegend) {
-                existingLegend.remove();
-            }
-            
-            // Создаем новый контейнер для легенды
-            const legendContainer = document.createElement('div');
-            legendContainer.className = 'chartjs-legend';
-            
-            const ul = document.createElement('ul');
-            ul.style.display = 'flex';
-            ul.style.flexDirection = 'column';
-            ul.style.listStyle = 'none';
-            ul.style.padding = '0';
-            ul.style.margin = '20px 0 0 0';
-            
-            // Добавляем элементы легенды
-            labels.forEach((label, i) => {
-                const li = document.createElement('li');
-                li.style.display = 'flex';
-                li.style.alignItems = 'center';
-                li.style.margin = '8px 0';
-                li.style.fontSize = '16px';
-                
-                const colorBox = document.createElement('span');
-                colorBox.style.display = 'inline-block';
-                colorBox.style.width = '14px';
-                colorBox.style.height = '14px';
-                colorBox.style.backgroundColor = dataset.backgroundColor[i];
-                colorBox.style.marginRight = '8px';
-                colorBox.style.borderRadius = '50%';
-                
-                const value = dataset.data[i];
-                const total = dataset.data.reduce((a, b) => a + b, 0);
-                const percentage = Math.round(value / total * 100);
-                
-                // Для мобильных устройств делаем более компактное отображение
-                const isMobile = window.innerWidth < 768;
-                const text = document.createTextNode(
-                    isMobile
-                        ? `${label}: ${percentage}%`
-                        : `${label}: ${value} (${percentage}%)`
-                );
-                
-                li.appendChild(colorBox);
-                li.appendChild(text);
-                ul.appendChild(li);
-            });
-            
-            legendContainer.appendChild(ul);
-            chart.canvas.parentNode.appendChild(legendContainer);
-            
-            // Добавляем обработчик изменения размера окна
-            window.addEventListener('resize', function() {
-                // Перестраиваем легенду при изменении размера окна
-                createLegendContainer(chart, labels, dataset);
-            });
-            
-            return legendContainer;
-        }
-        
-        // Инициализация элементов с анимацией появления
-        document.addEventListener('DOMContentLoaded', function() {
-            // Добавляем стили для анимации
-            const style = document.createElement('style');
-            style.textContent = `
-                .tournament-info-container, .stat-card {
-                    opacity: 0;
-                    transform: translateY(20px);
-                    transition: opacity 0.5s ease, transform 0.5s ease;
-                }
-            `;
-            document.head.appendChild(style);
-        });
-    </script>
     <script src="js/tournament.js"></script>
 </body>
 </html>
