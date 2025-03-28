@@ -251,6 +251,12 @@
     background-color: rgba(243, 156, 18, 0.05);
 }
 
+/* Стиль для строки "Всего" в статистике */
+.stats-table tr[data-type="total"] {
+    background-color: #f5f5f5;
+    border-top: 2px solid #ddd;
+}
+
 .records-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
