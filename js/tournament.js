@@ -179,6 +179,57 @@ function displayTournamentInfo(data) {
     document.getElementById('prize-pool').textContent = prizePool;
 }
 
+// Создание легенды в виде мини-карточек для графика участников
+function createLevelLegend(levels, playerCounts, colors) {
+    const legendContainer = document.getElementById('levelChartLegend');
+    if (!legendContainer) return;
+    
+    // Очистка контейнера легенды
+    legendContainer.innerHTML = '';
+    
+    // Получить общее количество участников
+    const totalPlayers = playerCounts.reduce((sum, count) => sum + count, 0);
+    
+    // Создаем элементы легенды для каждого уровня
+    levels.forEach((level, index) => {
+        const count = playerCounts[index];
+        const percentage = Math.round((count / totalPlayers) * 100);
+        const color = colors[index];
+        
+        // Создаем мини-карточку для элемента легенды
+        const legendItem = document.createElement('div');
+        legendItem.className = 'level-legend-item';
+        legendItem.style.backgroundColor = `${color}10`; // Добавляем прозрачный фон того же цвета
+        legendItem.style.border = `1px solid ${color}40`; // Добавляем рамку
+        
+        // Создаем элементы
+        const colorIndicator = document.createElement('span');
+        colorIndicator.className = 'color-indicator';
+        colorIndicator.style.backgroundColor = color;
+        
+        const levelName = document.createElement('div');
+        levelName.className = 'level-name';
+        levelName.textContent = level;
+        
+        const levelValue = document.createElement('div');
+        levelValue.className = 'level-value';
+        levelValue.textContent = count;
+        
+        const levelPercent = document.createElement('div');
+        levelPercent.className = 'level-percent';
+        levelPercent.textContent = `${percentage}%`;
+        
+        // Добавляем элементы в карточку
+        legendItem.appendChild(colorIndicator);
+        legendItem.appendChild(levelName);
+        legendItem.appendChild(levelValue);
+        legendItem.appendChild(levelPercent);
+        
+        // Добавляем карточку в контейнер легенды
+        legendContainer.appendChild(legendItem);
+    });
+}
+
 // Отображение диаграммы распределения игроков по уровням
 function displayLevelChart(data) {
     if (!data.stats || !data.stats.players_by_level) {
@@ -223,7 +274,7 @@ function displayLevelChart(data) {
     const colors = levels.map(level => levelColors[level] || '#3498db');
     
     const ctx = document.getElementById('levelChart').getContext('2d');
-    const chart = new Chart(ctx, {
+    new Chart(ctx, {
         type: 'pie',
         data: {
             labels: levels,
@@ -265,8 +316,8 @@ function displayLevelChart(data) {
         }
     });
     
-    // Создаем свою легенду
-    createLegendContainer(chart, levels, chart.data.datasets[0]);
+    // Создаем легенду в виде мини-карточек
+    createLevelLegend(levels, playerCounts, colors);
 }
 
 // Отображение статистики ответов
@@ -275,7 +326,6 @@ function displayAnswersStats(data) {
         console.warn('Нет данных об игроках для расчета статистики ответов');
         document.querySelector('.answers-stats .chart-container').innerHTML = 
             '<p class="text-center mt-4">Нет данных для отображения</p>';
-        document.querySelector('.answers-grid').innerHTML = '';
         return;
     }
     
@@ -449,68 +499,4 @@ function displayDetailedStats(data) {
             <td>${stat.percent}</td>
         </tr>`;
     }).join('');
-}
-
-// Создание адаптивной легенды для графика
-function createLegendContainer(chart, labels, dataset) {
-    // Удаляем существующую легенду, если она есть
-    const existingLegend = document.querySelector('#levelChart + .chartjs-legend');
-    if (existingLegend) {
-        existingLegend.remove();
-    }
-    
-    // Создаем новый контейнер для легенды
-    const legendContainer = document.createElement('div');
-    legendContainer.className = 'chartjs-legend';
-    
-    const ul = document.createElement('ul');
-    ul.style.display = 'flex';
-    ul.style.flexDirection = 'column';
-    ul.style.listStyle = 'none';
-    ul.style.padding = '0';
-    ul.style.margin = '20px 0 0 0';
-    
-    // Добавляем элементы легенды
-    labels.forEach((label, i) => {
-        const li = document.createElement('li');
-        li.style.display = 'flex';
-        li.style.alignItems = 'center';
-        li.style.margin = '8px 0';
-        li.style.fontSize = '16px';
-        
-        const colorBox = document.createElement('span');
-        colorBox.style.display = 'inline-block';
-        colorBox.style.width = '14px';
-        colorBox.style.height = '14px';
-        colorBox.style.backgroundColor = dataset.backgroundColor[i];
-        colorBox.style.marginRight = '8px';
-        colorBox.style.borderRadius = '50%';
-        
-        const value = dataset.data[i];
-        const total = dataset.data.reduce((a, b) => a + b, 0);
-        const percentage = Math.round(value / total * 100);
-        
-        // Для мобильных устройств делаем более компактное отображение
-        const isMobile = window.innerWidth < 768;
-        const text = document.createTextNode(
-            isMobile
-                ? `${label}: ${percentage}%`
-                : `${label}: ${value} (${percentage}%)`
-        );
-        
-        li.appendChild(colorBox);
-        li.appendChild(text);
-        ul.appendChild(li);
-    });
-    
-    legendContainer.appendChild(ul);
-    chart.canvas.parentNode.appendChild(legendContainer);
-    
-    // Добавляем обработчик изменения размера окна
-    window.addEventListener('resize', function() {
-        // Перестраиваем легенду при изменении размера окна
-        createLegendContainer(chart, labels, dataset);
-    });
-    
-    return legendContainer;
 }
