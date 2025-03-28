@@ -5,10 +5,17 @@
 // Загрузка шапки и подвала
 document.addEventListener('DOMContentLoaded', function() {
     // Загрузка header
-    fetch('../header.html')
+    fetch('/header.html')
         .then(response => response.text())
         .then(data => {
-            document.getElementById('header').innerHTML = data;
+            // Заменяем относительные ссылки на абсолютные в шапке
+            const modifiedData = data
+                .replace('href="rules.html"', 'href="/rules.html"')
+                .replace('href="ratings.html"', 'href="/ratings.html"')
+                .replace('href="players.html"', 'href="/players.html"')
+                .replace('href="index.html"', 'href="/index.html"');
+                
+            document.getElementById('header').innerHTML = modifiedData;
             highlightCurrentPage(); // Добавляем выделение текущей страницы в меню
         })
         .catch(error => {
@@ -17,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
     // Загрузка footer
-    fetch('../footer.html')
+    fetch('/footer.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('footer').innerHTML = data;
@@ -36,7 +43,7 @@ function highlightCurrentPage() {
     const navLinks = document.querySelectorAll('nav a');
     // Для турнира выделяем ссылку на рейтинги
     navLinks.forEach(link => {
-        if (link.getAttribute('href') === 'ratings.html') {
+        if (link.getAttribute('href') === '/ratings.html') {
             link.classList.add('active');
         }
     });
@@ -226,10 +233,10 @@ function displayLevelChart(data) {
             maintainAspectRatio: false,
             plugins: {
                 legend: {
-                    position: 'right',
+                    position: 'bottom',
                     labels: {
                         font: {
-                            size: 12
+                            size: 14
                         },
                         padding: 15,
                         usePointStyle: true
@@ -326,7 +333,7 @@ function displayAnswersStats(data) {
                         padding: 15,
                         usePointStyle: true,
                         font: {
-                            size: 12
+                            size: 14
                         }
                     }
                 },
