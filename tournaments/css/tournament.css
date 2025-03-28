@@ -1,4 +1,6 @@
-.tournament-header .page-title {
+.detailed-stats {
+    margin-top: 0;
+}.tournament-header .page-title {
     margin-bottom: 0;
     color: var(--primary-color);
 }.page-title {
