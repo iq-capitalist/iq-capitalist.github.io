@@ -267,20 +267,8 @@ function displayLevelChart(data) {
     const levels = levelOrder.filter(level => level in levelPlayers);
     const playerCounts = levels.map(level => levelPlayers[level]);
     
-    // Цвета для уровней
-    const levelColors = {
-        'Знаток': '#4682B4',
-        'Эксперт': '#2E8B57',
-        'Мастер': '#CD853F',
-        'Босс': '#8B4513',
-        'Титан': '#800080',
-        'Легенда': '#B8860B',
-        'Корифей': '#483D8B',
-        'Гуру': '#B22222',
-        'IQ Капиталист': '#000000'
-    };
-    
-    const colors = levels.map(level => levelColors[level] || '#3498db');
+    // Используем один стиль для всех уровней
+    const defaultColor = '#3498db';
     
     // Получаем общее количество участников
     const totalPlayers = playerCounts.reduce((sum, count) => sum + count, 0);
@@ -293,15 +281,11 @@ function displayLevelChart(data) {
     levels.forEach((level, index) => {
         const count = playerCounts[index];
         const percentage = Math.round((count / totalPlayers) * 100);
-        const color = colors[index];
         
         const legendItem = document.createElement('div');
         legendItem.className = 'level-legend-item';
-        legendItem.style.backgroundColor = `${color}10`;
-        legendItem.style.border = `1px solid ${color}40`;
         
         legendItem.innerHTML = `
-            <span class="color-indicator" style="background-color: ${color}"></span>
             <div class="level-name">${level}</div>
             <div class="level-value">${count}</div>
             <div class="level-percent">${percentage}%</div>
