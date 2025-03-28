@@ -188,12 +188,17 @@ function updateLevelHeader(data) {
  * Смена текущего уровня
  */
 function changeLevel(level) {
+    // Сохраняем выбранный уровень
     currentLevel = level;
     currentPage = 1; // Сбрасываем на первую страницу при смене уровня
     
     // Обновляем активную кнопку
     document.querySelectorAll('.level-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.textContent === level);
+        if (btn.textContent.startsWith(level)) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
     });
     
     // Обновляем заголовок уровня
