@@ -382,6 +382,11 @@
         text-overflow: ellipsis;
     }
     
+    /* Уменьшаем ширину поля "Дата" */
+    .info-row:first-child .info-label {
+        width: 70px; /* Существенно меньше, чем у других полей (160px) */
+    }
+    
     .info-value {
         flex: 1;
         min-width: 0;
