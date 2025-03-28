@@ -53,6 +53,15 @@
     color: #27ae60;
 }
 
+/* Стили для переключения текста даты в зависимости от размера экрана */
+.mob-date-label {
+    display: none;
+}
+
+.desk-date-label {
+    display: inline;
+}
+
 /* Удаляем сетку для карточек, теперь они будут расположены вертикально */
 .tournament-stats-grid {
     display: block;
@@ -385,7 +394,17 @@
     .info-value {
         flex: 1;
         min-width: 0;
-        text-align: right;
+        /* Убираем текст по правому краю */
+        text-align: left;
+    }
+    
+    /* Переключение текста для мобильных устройств */
+    .mob-date-label {
+        display: inline;
+    }
+    
+    .desk-date-label {
+        display: none;
     }
     
     .cards-horizontal-layout {
