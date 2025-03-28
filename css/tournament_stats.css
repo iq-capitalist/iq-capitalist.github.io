@@ -87,15 +87,9 @@
 }
 
 /* Выравнивание по левому краю для имени пользователя */
-.stats-table td:nth-child(2),
-.stats-table th:nth-child(2) {
+.stats-table td:first-child,
+.stats-table th:first-child {
     text-align: left;
-}
-
-/* Выравнивание по центру для уровня */
-.stats-table td:nth-child(3),
-.stats-table th:nth-child(3) {
-    text-align: center;
 }
 
 /* Группы колонок */
@@ -105,31 +99,53 @@
 
 /* Цветовое выделение для разных типов ответов */
 .correct-fast {
-    background-color: rgba(46, 204, 113, 0.2);
+    background-color: rgba(46, 204, 113, 0.3);
 }
 
 .correct-medium {
-    background-color: rgba(46, 204, 113, 0.1);
+    background-color: rgba(46, 204, 113, 0.2);
 }
 
 .correct-slow {
-    background-color: rgba(46, 204, 113, 0.05);
+    background-color: rgba(46, 204, 113, 0.1);
 }
 
 .wrong-fast {
-    background-color: rgba(231, 76, 60, 0.2);
+    background-color: rgba(231, 76, 60, 0.3);
 }
 
 .wrong-medium {
-    background-color: rgba(231, 76, 60, 0.1);
+    background-color: rgba(231, 76, 60, 0.2);
 }
 
 .wrong-slow {
-    background-color: rgba(231, 76, 60, 0.05);
+    background-color: rgba(231, 76, 60, 0.1);
 }
 
 .timeout {
-    background-color: rgba(241, 196, 15, 0.2);
+    background-color: rgba(241, 196, 15, 0.3);
+}
+
+/* Стили для заголовков с цветом */
+th.correct-fast, th.correct-medium, th.correct-slow,
+th.wrong-fast, th.wrong-medium, th.wrong-slow,
+th.timeout {
+    position: relative;
+    color: transparent;
+    border-bottom: 1px solid white;
+}
+
+th.correct-fast::after, th.correct-medium::after, th.correct-slow::after,
+th.wrong-fast::after, th.wrong-medium::after, th.wrong-slow::after,
+th.timeout::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    z-index: -1;
 }
 
 .total-answers {
