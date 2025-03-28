@@ -6,6 +6,7 @@
     <title>Турнир №1 | IQ Capitalist</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/tournament.css">
+    <link rel="stylesheet" href="css/tournament_stats.css">
 </head>
 <body>
     <header id="header"></header>
@@ -15,6 +16,9 @@
             <div class="tournament-header">
                 <h1 class="page-title">Турнир №1</h1>
             </div>
+
+            <!-- Информация о последнем обновлении -->
+            <p id="lastUpdate" class="last-update"></p>
 
             <!-- Информация о турнире -->
             <div class="tournament-info-container">
@@ -83,6 +87,26 @@
                     </table>
                 </div>
             </div>
+
+            <!-- Разделитель между общей и детальной статистикой -->
+            <div class="section-divider"></div>
+
+            <!-- Раздел детальной статистики по игрокам -->
+            <div class="player-stats-section">
+                <h2 class="section-title">Детальная статистика по участникам</h2>
+                
+                <!-- Кнопки уровней из tournament_stats.html -->
+                <div id="levelButtons"></div>
+                
+                <!-- Заголовок уровня из tournament_stats.html -->
+                <div id="levelHeader"></div>
+                
+                <!-- Поле поиска из tournament_stats.html -->
+                <input type="text" id="searchInput" placeholder="Поиск игрока...">
+                
+                <!-- Таблица статистики из tournament_stats.html -->
+                <div id="statsTable"></div>
+            </div>
         </div>
     </main>
 
@@ -90,5 +114,6 @@
 
     <script src="js/main.js"></script>
     <script src="js/tournament.js"></script>
+    <script src="js/tournament_stats.js"></script>
 </body>
 </html>
