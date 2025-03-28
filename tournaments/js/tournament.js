@@ -230,6 +230,22 @@ function displayLevelChart(data) {
     
     const colors = levels.map(level => levelColors[level] || '#3498db');
     
+    // Добавляем стили для вертикальной легенды
+    const style = document.createElement('style');
+    style.textContent = `
+        #levelChart + .chartjs-legend ul {
+            display: flex;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+        }
+        
+        #levelChart + .chartjs-legend ul li {
+            margin: 8px 0 !important;
+            font-size: 16px !important;
+        }
+    `;
+    document.head.appendChild(style);
+    
     const ctx = document.getElementById('levelChart').getContext('2d');
     new Chart(ctx, {
         type: 'pie',
@@ -248,56 +264,68 @@ function displayLevelChart(data) {
             plugins: {
                 legend: {
                     position: 'bottom',
-                    align: 'center',
+                    align: 'start',
                     labels: {
                         font: {
-                            size: 16
+                            size: 16  // Увеличенный размер шрифта
                         },
-                        padding: 16,
+                        padding: 15,
                         usePointStyle: true,
-                        boxWidth: 10,
-                        // Важное свойство - размещает элементы легенды в столбик
-                        boxHeight: 30, 
+                        pointStyle: 'circle',
+                        boxWidth: 12,
                         generateLabels: function(chart) {
                             // Получение данных напрямую из chart
                             const data = chart.data;
                             const dataset = data.datasets[0];
                             const labels = data.labels;
                             
-                            // Собственное формирование легенды из всех доступных данных
-                            return labels.map((label, i) => {
-                                if (i >= dataset.data.length) {
-                                    return null;
-                                }
+                            // Создаем контейнер для легенды, если его нет
+                            if (!document.querySelector('#levelChart + .chartjs-legend')) {
+                                const legendContainer = document.createElement('div');
+                                legendContainer.className = 'chartjs-legend';
                                 
-                                const value = dataset.data[i];
-                                const total = dataset.data.reduce((a, b) => a + b, 0);
-                                const percentage = Math.round(value / total * 100);
+                                const ul = document.createElement('ul');
+                                ul.style.display = 'flex';
+                                ul.style.flexDirection = 'column';
+                                ul.style.listStyle = 'none';
+                                ul.style.padding = '0';
+                                ul.style.margin = '20px 0 0 0';
                                 
-                                return {
-                                    text: `${label}: ${value} (${percentage}%)`,
-                                    fillStyle: dataset.backgroundColor[i],
-                                    strokeStyle: dataset.borderColor,
-                                    lineWidth: dataset.borderWidth,
-                                    hidden: false,
-                                    index: i,
-                                    datasetIndex: 0
-                                };
-                            }).filter(item => item !== null);
+                                labels.forEach((label, i) => {
+                                    const li = document.createElement('li');
+                                    li.style.display = 'flex';
+                                    li.style.alignItems = 'center';
+                                    li.style.margin = '8px 0';
+                                    li.style.fontSize = '16px';
+                                    
+                                    const colorBox = document.createElement('span');
+                                    colorBox.style.display = 'inline-block';
+                                    colorBox.style.width = '14px';
+                                    colorBox.style.height = '14px';
+                                    colorBox.style.backgroundColor = dataset.backgroundColor[i];
+                                    colorBox.style.marginRight = '8px';
+                                    colorBox.style.borderRadius = '50%';
+                                    
+                                    const value = dataset.data[i];
+                                    const total = dataset.data.reduce((a, b) => a + b, 0);
+                                    const percentage = Math.round(value / total * 100);
+                                    
+                                    const text = document.createTextNode(`${label}: ${value} (${percentage}%)`);
+                                    
+                                    li.appendChild(colorBox);
+                                    li.appendChild(text);
+                                    ul.appendChild(li);
+                                });
+                                
+                                legendContainer.appendChild(ul);
+                                chart.canvas.parentNode.appendChild(legendContainer);
+                            }
+                            
+                            // Возвращаем пустой массив, т.к. мы создаем легенду вручную
+                            return [];
                         }
                     },
-                    // Настройки для отображения легенды в столбик
-                    maxWidth: 200, 
-                    fullSize: true,
-                    // Отступы внутри легенды
-                    padding: 20,
-                    // Указываем, что элементы должны размещаться в столбик
-                    display: true,
-                    // Указываем, что ширина элемента должна быть 100% от контейнера
-                    labels: {
-                        textAlign: 'left',
-                        fullSize: true
-                    }
+                    onClick: null  // Отключаем клики по легенде
                 },
                 tooltip: {
                     callbacks: {
@@ -305,7 +333,7 @@ function displayLevelChart(data) {
                             const label = context.label || '';
                             const value = context.raw || 0;
                             const total = data.stats.total_players || 
-                                           playerCounts.reduce((a, b) => a + b, 0);
+                                          playerCounts.reduce((a, b) => a + b, 0);
                             const percentage = Math.round(value / total * 100);
                             return `${label}: ${value} (${percentage}%)`;
                         }
@@ -318,11 +346,6 @@ function displayLevelChart(data) {
                     bodyFont: {
                         size: 13
                     }
-                }
-            },
-            layout: {
-                padding: {
-                    bottom: 30 // Дополнительный отступ снизу для легенды
                 }
             }
         }
