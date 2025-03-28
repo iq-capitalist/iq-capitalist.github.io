@@ -185,19 +185,13 @@
     width: calc(20% - 1rem);
     min-width: 100px;
     box-sizing: border-box;
+    background-color: rgba(52, 152, 219, 0.1);
+    border: 1px solid rgba(52, 152, 219, 0.2);
 }
 
 .level-legend-item:hover {
     transform: translateY(-5px);
     box-shadow: var(--card-hover-shadow);
-}
-
-.level-legend-item .color-indicator {
-    display: inline-block;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    margin-bottom: 5px;
 }
 
 .level-legend-item .level-name {
