@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Турнир №1 | IQ Capitalist</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="css/tournament.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/tournament.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <style>
         /* Дополнительные стили, необходимые для корректного отображения */
@@ -15,10 +15,43 @@
             margin: 0 auto;
             box-sizing: border-box;
         }
+        
+        /* Стили для резервного контента */
+        .backup-content {
+            display: none;
+        }
+        
+        /* Стили для индикатора загрузки */
+        .loading-indicator {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+        }
+        
+        .loading-spinner {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: 3px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top-color: #3498db;
+            animation: spin 1s ease-in-out infinite;
+            margin-bottom: 10px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
-    <header id="header"></header>
+    <!-- Шапка с резервным содержимым -->
+    <header id="header">
+        <div class="container loading-indicator">
+            <div class="loading-spinner"></div>
+            <p>Загрузка шапки...</p>
+        </div>
+    </header>
 
     <main>
         <div class="container">
@@ -97,24 +130,63 @@
         </div>
     </main>
 
-    <footer id="footer"></footer>
+    <!-- Подвал с резервным содержимым -->
+    <footer id="footer">
+        <div class="container loading-indicator">
+            <div class="loading-spinner"></div>
+            <p>Загрузка подвала...</p>
+        </div>
+    </footer>
 
-    <script src="../js/main.js"></script>
+    <!-- Резервное содержимое для шапки -->
+    <div class="backup-content" id="header-backup">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="site-title">
+                    <a href="/">IQ Capitalist</a>
+                </h1>
+                <nav>
+                    <ul>
+                        <li><a href="/rules.html">Правила</a></li>
+                        <li><a href="/ratings.html">Турнир</a></li>
+                        <li><a href="/players.html">Игроки</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Резервное содержимое для подвала -->
+    <div class="backup-content" id="footer-backup">
+        <div class="container">
+            <p>© 2024 IQ Capitalist. Все права защищены.</p>
+            <p>Развивай интеллект и зарабатывай!</p>
+        </div>
+    </div>
+
+    <!-- Скрипты -->
+    <script src="/js/tournament.js"></script>
+    
+    <!-- Скрипт для использования резервного содержимого в случае ошибки загрузки -->
     <script>
-        // Инициализация элементов с анимацией появления
-        document.addEventListener('DOMContentLoaded', function() {
-            // Добавляем стили для анимации
-            const style = document.createElement('style');
-            style.textContent = `
-                .tournament-info, .stat-card {
-                    opacity: 0;
-                    transform: translateY(20px);
-                    transition: opacity 0.5s ease, transform 0.5s ease;
+        // Функция для использования резервного содержимого
+        function useBackupContent(id, backupId) {
+            setTimeout(function() {
+                const element = document.getElementById(id);
+                const backupElement = document.getElementById(backupId);
+                
+                // Проверяем, есть ли в элементе индикатор загрузки
+                if (element && backupElement && 
+                    element.querySelector('.loading-indicator')) {
+                    console.warn(`Используем резервное содержимое для ${id}`);
+                    element.innerHTML = backupElement.innerHTML;
                 }
-            `;
-            document.head.appendChild(style);
-        });
+            }, 5000); // Ждем 5 секунд перед использованием резервного содержимого
+        }
+        
+        // Настраиваем использование резервного содержимого
+        useBackupContent('header', 'header-backup');
+        useBackupContent('footer', 'footer-backup');
     </script>
-    <script src="js/tournament.js"></script>
 </body>
 </html>
