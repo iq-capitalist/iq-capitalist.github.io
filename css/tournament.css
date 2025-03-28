@@ -104,19 +104,30 @@
     text-align: center;
 }
 
+/* Стили для макета с легендой справа */
+.card-content-with-legend {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
 .chart-container {
+    flex: 1;
     height: 300px;
     position: relative;
-    margin: 1.5rem 0;
+    min-width: 0; /* Предотвращает переполнение flex-контейнера */
 }
 
-.answers-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+.legend-container {
+    display: flex;
+    flex-direction: column;
     gap: 0.75rem;
-    margin-bottom: 1.5rem;
+    width: 180px;
+    flex-shrink: 0;
 }
 
+/* Обновленные стили для блоков с ответами */
 .answer-type {
     display: flex;
     flex-direction: column;
@@ -125,6 +136,8 @@
     border-radius: 8px;
     text-align: center;
     transition: all 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .answer-type:hover {
@@ -132,13 +145,13 @@
 }
 
 .answer-type .count {
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
 }
 
 .answer-type .label {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 500;
 }
 
@@ -167,6 +180,54 @@
 
 .answer-type.timeout .count {
     color: #d35400;
+}
+
+/* Стили для легенды карточки "Участники" */
+.level-legend-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.75rem 0.5rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.2s ease;
+    margin-bottom: 0.5rem;
+    cursor: default;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.level-legend-item:hover {
+    transform: scale(1.03);
+}
+
+.level-legend-item .color-indicator {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+
+.level-legend-item .level-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.level-legend-item .level-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.level-legend-item .level-percent {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* Удаляем старую сетку для блоков с ответами */
+.answers-grid {
+    display: none;
 }
 
 .table-responsive {
@@ -241,68 +302,6 @@
     border-top: 2px solid #ddd;
 }
 
-.records-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-}
-
-.record-item {
-    background-color: #f8f9fa;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border-left: 4px solid var(--accent-color);
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-.record-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.record-item:nth-child(1) {
-    border-left-color: #27ae60;
-}
-
-.record-item:nth-child(2) {
-    border-left-color: #3498db;
-}
-
-.record-title {
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-    font-size: 1.1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid #eee;
-    text-align: center;
-}
-
-.record-value {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.player-name {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: var(--secondary-color);
-}
-
-.player-value {
-    color: var(--accent-color);
-    font-size: 1rem;
-    padding: 0.4rem 0.8rem;
-    background-color: #f5f5f5;
-    border-radius: 20px;
-    display: inline-block;
-    font-weight: 500;
-}
-
 .error-message {
     background-color: #fee;
     color: #c00;
@@ -312,22 +311,6 @@
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-left: 4px solid #c00;
-}
-
-/* Стили для легенды графика */
-.chartjs-legend ul {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    padding: 0;
-    margin: 20px 0 0 0;
-}
-
-.chartjs-legend ul li {
-    display: flex;
-    align-items: center;
-    margin: 8px 0;
-    font-size: 16px;
 }
 
 /* Медиа-запросы для адаптивности */
@@ -352,33 +335,26 @@
         width: 170px;
     }
     
-    .answers-grid {
-        grid-template-columns: repeat(3, 1fr);
+    /* Меняем направление макета на мобильных устройствах */
+    .card-content-with-legend {
+        flex-direction: column;
     }
     
-    .answer-type .count {
-        font-size: 1.5rem;
+    .legend-container {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .answer-type, .level-legend-item {
+        width: calc(33% - 1rem);
+        min-width: 90px;
     }
     
     .chart-container {
-        height: auto !important;
-        min-height: 250px;
-        margin-bottom: 1rem !important;
-    }
-    
-    .participants-by-level {
-        overflow: hidden;
-    }
-    
-    .chartjs-legend ul {
-        flex-direction: column !important;
-        padding-left: 0 !important;
-        margin-top: 10px !important;
-    }
-    
-    .chartjs-legend ul li {
-        margin-bottom: 6px !important;
-        font-size: 14px !important;
+        height: 250px !important;
     }
     
     .stat-card {
@@ -419,17 +395,22 @@
         padding-left: 0;
     }
     
-    .answers-grid {
-        grid-template-columns: 1fr;
+    /* Для самых маленьких экранов - по 2 карточки в ряд */
+    .legend-container {
+        gap: 0.5rem;
     }
     
-    .answer-type {
-        margin-bottom: 0.5rem;
-        padding: 0.8rem 0.5rem;
+    .answer-type, .level-legend-item {
+        width: calc(50% - 0.5rem);
+        padding: 0.6rem 0.3rem;
     }
     
     .answer-type .count {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
+    }
+    
+    .level-legend-item .level-value {
+        font-size: 1.1rem;
     }
     
     .stats-table th,
@@ -437,18 +418,4 @@
         padding: 0.7rem;
         font-size: 0.85rem;
     }
-    
-    .chartjs-legend ul li {
-        font-size: 12px !important;
-    }
-}
-
-@media (min-width: 1200px) {
-    .records-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-.detailed-stats {
-    margin-top: 0;
 }
