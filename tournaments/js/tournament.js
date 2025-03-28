@@ -240,6 +240,7 @@ function displayLevelChart(data) {
                         },
                         padding: 15,
                         usePointStyle: true,
+                        boxWidth: 10,
                         generateLabels: function(chart) {
                             const originalLabels = Chart.defaults.plugins.legend.labels.generateLabels(chart);
                             const data = chart.data;
@@ -254,7 +255,9 @@ function displayLevelChart(data) {
                                 return label;
                             });
                         }
-                    }
+                    },
+                    maxHeight: 200,
+                    maxWidth: 500
                 },
                 tooltip: {
                     callbacks: {
