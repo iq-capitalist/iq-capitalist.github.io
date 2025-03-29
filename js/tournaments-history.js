@@ -4,8 +4,6 @@
 
 // Глобальные переменные
 let tournamentsData = [];
-let filteredTournaments = [];
-let lastUpdateTimestamp = '';
 
 // Инициализация при загрузке DOM
 document.addEventListener('DOMContentLoaded', function() {
@@ -13,20 +11,26 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Загрузка данных турниров
     loadTournamentsData();
-    
-    // Привязка обработчика событий для поиска
-    const searchInput = document.getElementById('searchInput');
-    if (searchInput) {
-        searchInput.addEventListener('input', debounce(filterTournaments, 300));
-    }
 });
 
 /**
  * Загрузка данных о турнирах из index-файла
  */
 async function loadTournamentsData() {
+    const container = document.getElementById('tournamentsContainer');
+    if (!container) {
+        console.error('Контейнер для турниров не найден');
+        return;
+    }
+
     try {
-        showLoadingIndicator();
+        // Показываем индикатор загрузки
+        container.innerHTML = `
+            <div class="loading-indicator">
+                <div class="spinner"></div>
+                <p>Загрузка архива турниров...</p>
+            </div>
+        `;
         
         // Загрузка индекса турниров
         const response = await fetch('data/tournaments-index.json');
@@ -40,45 +44,23 @@ async function loadTournamentsData() {
             throw new Error('Некорректный формат данных индекса турниров');
         }
         
-        // Сохраняем дату последнего обновления
-        lastUpdateTimestamp = indexData.generated_at || '';
-        updateLastUpdateInfo();
-        
         // Сортируем турниры по дате (новые сначала)
         tournamentsData = indexData.tournaments.sort((a, b) => {
             return new Date(b.start_date) - new Date(a.start_date);
         });
         
-        // Отображаем все турниры (без загрузки детальных данных)
-        filteredTournaments = [...tournamentsData];
+        // Отображаем все турниры
         renderTournaments();
         
     } catch (error) {
         console.error('Ошибка загрузки данных турниров:', error);
-        showErrorMessage(`Ошибка загрузки списка турниров: ${error.message}`);
-    } finally {
-        hideLoadingIndicator();
+        if (container) {
+            showErrorMessage(container, `Ошибка загрузки списка турниров: ${error.message}`);
+        }
     }
 }
 
-/**
- * Фильтрация турниров по поисковому запросу
- */
-function filterTournaments() {
-    const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
-    
-    if (!searchTerm) {
-        filteredTournaments = [...tournamentsData];
-    } else {
-        filteredTournaments = tournamentsData.filter(tournament => {
-            // Поиск по номеру и названию турнира
-            return tournament.id.toString().includes(searchTerm) || 
-                `турнир ${tournament.id}`.toLowerCase().includes(searchTerm);
-        });
-    }
-    
-    renderTournaments();
-}
+
 
 /**
  * Отображение карточек турниров
@@ -86,22 +68,23 @@ function filterTournaments() {
 function renderTournaments() {
     const container = document.getElementById('tournamentsContainer');
     
-    // Очистка контейнера
-    if (container) {
-        container.innerHTML = '';
-    } else {
+    // Проверка наличия контейнера
+    if (!container) {
         console.error('Контейнер для турниров не найден');
         return;
     }
     
+    // Очистка контейнера
+    container.innerHTML = '';
+    
     // Проверка наличия турниров
-    if (filteredTournaments.length === 0) {
-        container.innerHTML = '<div class="error-message">Турниры не найдены. Попробуйте изменить параметры поиска.</div>';
+    if (tournamentsData.length === 0) {
+        container.innerHTML = '<div class="error-message">Турниры не найдены</div>';
         return;
     }
     
-    // Отображение всех найденных турниров
-    filteredTournaments.forEach((tournament, index) => {
+    // Отображение всех турниров
+    tournamentsData.forEach((tournament, index) => {
         const card = createTournamentCard(tournament, index);
         container.appendChild(card);
     });
@@ -153,47 +136,64 @@ function createTournamentCard(tournament, index) {
     const endDate = new Date(tournament.end_date);
     const dateText = formatTournamentPeriod(startDate, endDate);
     
-    // Получаем статистику ответов из индексного файла
+    // Обработка статистики ответов из индексного файла
+    // Устанавливаем значения по умолчанию
     let totalCorrect = 0;
     let totalWrong = 0;
     let totalTimeout = 0;
     
-    // Если есть статистика ответов в индексном файле
+    // Извлекаем статистику ответов из данных турнира
     if (tournament.answers_stats) {
-        // Правильные ответы
-        if (tournament.answers_stats.correct_answers) {
-            totalCorrect += (tournament.answers_stats.correct_answers.fast || 0) + 
-                           (tournament.answers_stats.correct_answers.medium || 0) + 
-                           (tournament.answers_stats.correct_answers.slow || 0);
-        }
+        const correctAnswers = tournament.answers_stats.correct_answers || {};
+        const wrongAnswers = tournament.answers_stats.wrong_answers || {};
         
-        // Неправильные ответы
-        if (tournament.answers_stats.wrong_answers) {
-            totalWrong += (tournament.answers_stats.wrong_answers.fast || 0) + 
-                         (tournament.answers_stats.wrong_answers.medium || 0) + 
-                         (tournament.answers_stats.wrong_answers.slow || 0);
-        }
+        // Подсчитываем правильные ответы
+        totalCorrect = (correctAnswers.fast || 0) + 
+                      (correctAnswers.medium || 0) + 
+                      (correctAnswers.slow || 0);
         
-        // Таймауты
-        totalTimeout += tournament.answers_stats.timeouts || 0;
+        // Подсчитываем неправильные ответы
+        totalWrong = (wrongAnswers.fast || 0) + 
+                    (wrongAnswers.medium || 0) + 
+                    (wrongAnswers.slow || 0);
+        
+        // Получаем количество таймаутов
+        totalTimeout = tournament.answers_stats.timeouts || 0;
     }
     
     // Используем общее количество ответов из индексного файла как запасной вариант
     const totalAnswers = (totalCorrect + totalWrong + totalTimeout) || tournament.total_answers || 0;
     
-    // Вычисляем проценты для кругового индикатора
-    const correctPercent = totalAnswers > 0 ? Math.round((totalCorrect / totalAnswers) * 100) : 0;
-    const wrongPercent = totalAnswers > 0 ? Math.round((totalWrong / totalAnswers) * 100) : 0;
-    const timeoutPercent = totalAnswers > 0 ? Math.round((totalTimeout / totalAnswers) * 100) : 0;
+    // Вычисляем проценты для графика
+    let correctPercent = 0;
+    let wrongPercent = 0;
+    let timeoutPercent = 0;
     
-    // Участники по уровням из индексного файла
+    if (totalAnswers > 0) {
+        correctPercent = Math.round((totalCorrect / totalAnswers) * 100);
+        wrongPercent = Math.round((totalWrong / totalAnswers) * 100);
+        timeoutPercent = Math.round((totalTimeout / totalAnswers) * 100);
+        
+        // Убедимся, что сумма процентов равна 100
+        const totalPercent = correctPercent + wrongPercent + timeoutPercent;
+        if (totalPercent !== 100) {
+            // Корректируем наибольшее значение
+            if (correctPercent >= wrongPercent && correctPercent >= timeoutPercent) {
+                correctPercent += (100 - totalPercent);
+            } else if (wrongPercent >= correctPercent && wrongPercent >= timeoutPercent) {
+                wrongPercent += (100 - totalPercent);
+            } else {
+                timeoutPercent += (100 - totalPercent);
+            }
+        }
+    }
+    
+    // Получаем данные об участниках по уровням
     const levelParticipants = tournament.players_by_level || {};
     
-    // Получаем данные о призовом фонде из индексного файла
+    // Получаем информацию о призовом фонде и количестве вопросов
     const prizePool = tournament.total_prize || 0;
-    
-    // Получаем количество вопросов из индексного файла
-    const totalQuestions = tournament.total_questions || 80; // По умолчанию 80, если нет в данных
+    const totalQuestions = tournament.total_questions || 80; // По умолчанию 80 вопросов
     
     // Формируем содержимое карточки
     card.innerHTML = `
@@ -413,70 +413,23 @@ function formatTournamentPeriod(startDate, endDate) {
     return `${startDay}-${endDay} ${monthNames[startMonth]} ${startYear} г.`;
 }
 
-/**
- * Обновление информации о последнем обновлении
- */
-function updateLastUpdateInfo() {
-    const lastUpdateElement = document.getElementById('lastUpdate');
-    if (lastUpdateElement && lastUpdateTimestamp) {
-        lastUpdateElement.textContent = `Данные обновлены: ${lastUpdateTimestamp}`;
-    }
-}
 
-/**
- * Отображение индикатора загрузки
- */
-function showLoadingIndicator() {
-    const container = document.getElementById('tournamentsContainer');
-    if (container) {
-        container.innerHTML = `
-            <div class="loading-indicator">
-                <div class="spinner"></div>
-                <p>Загрузка архива турниров...</p>
-            </div>
-        `;
-    }
-}
-
-/**
- * Скрытие индикатора загрузки
- */
-function hideLoadingIndicator() {
-    // Индикатор загрузки удаляется при рендеринге турниров
-}
 
 /**
  * Отображение сообщения об ошибке
+ * @param {HTMLElement} container - DOM-элемент контейнера
  * @param {String} message - Текст сообщения
  */
-function showErrorMessage(message) {
-    const container = document.getElementById('tournamentsContainer');
-    if (container) {
-        container.innerHTML = `
-            <div class="error-message">
-                <p>${message}</p>
-                <p>Пожалуйста, попробуйте обновить страницу позже.</p>
-                <button class="btn btn-primary mt-3" onclick="window.location.reload()">
-                    Обновить страницу
-                </button>
-            </div>
-        `;
-    }
-}
-
-/**
- * Функция debounce для оптимизации обработки событий
- * @param {Function} func - Функция для вызова
- * @param {Number} wait - Время задержки в мс
- * @returns {Function} - Функция с debounce
- */
-function debounce(func, wait) {
-    let timeout;
-    return function() {
-        const context = this, args = arguments;
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
-            func.apply(context, args);
-        }, wait);
-    };
+function showErrorMessage(container, message) {
+    if (!container) return;
+    
+    container.innerHTML = `
+        <div class="error-message">
+            <p>${message}</p>
+            <p>Пожалуйста, попробуйте обновить страницу позже.</p>
+            <button class="btn btn-primary mt-3" onclick="window.location.reload()">
+                Обновить страницу
+            </button>
+        </div>
+    `;
 }
