@@ -175,6 +175,13 @@ function createTournamentCard(tournament, index) {
         });
     }
     
+    const totalAnswers = totalCorrect + totalWrong + totalTimeout;
+    
+    // Вычисляем проценты для кругового индикатора
+    const correctPercent = totalAnswers > 0 ? Math.round((totalCorrect / totalAnswers) * 100) : 0;
+    const wrongPercent = totalAnswers > 0 ? Math.round((totalWrong / totalAnswers) * 100) : 0;
+    const timeoutPercent = totalAnswers > 0 ? Math.round((totalTimeout / totalAnswers) * 100) : 0;
+    
     // Участники по уровням
     let levelParticipants = {};
     if (tournament.details && tournament.details.stats && tournament.details.stats.players_by_level) {
@@ -183,42 +190,118 @@ function createTournamentCard(tournament, index) {
     
     // Формируем содержимое карточки
     card.innerHTML = `
-        <div class="tournament-card-header">
+        <div class="tournament-header">
             <h2 class="tournament-title">Турнир №${tournament.id}</h2>
         </div>
-        <div class="tournament-date">${dateText}</div>
         
-        <div class="tournament-stats">
-            <div class="stat-block">
-                <div class="stat-title">Вопросов</div>
-                <div class="stat-value">${formatNumber(tournament.total_questions || 0)}</div>
+        <div class="key-info">
+            <div class="date-block">
+                <div class="date-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                </div>
+                <div class="date-text">${dateText}</div>
             </div>
-            <div class="stat-block">
-                <div class="stat-title">Участников</div>
-                <div class="stat-value">${formatNumber(tournament.details?.stats?.total_players || 0)}</div>
+            
+            <div class="participants-block">
+                <div class="participants-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </div>
+                <div class="participants-value">${formatNumber(tournament.details?.stats?.total_players || 0)}</div>
+                <div class="participants-label">участников</div>
             </div>
         </div>
         
-        <div class="tournament-levels">
-            ${createLevelBadges(levelParticipants)}
+        <div class="additional-info">
+            <div class="info-block questions-block">
+                <div class="info-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                    </svg>
+                </div>
+                <div class="info-content">
+                    <div class="info-value">${formatNumber(tournament.total_questions || 0)}</div>
+                    <div class="info-label">вопросов</div>
+                </div>
+            </div>
+            
+            <div class="info-block answers-block">
+                <div class="info-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </div>
+                <div class="info-content">
+                    <div class="info-value">${formatNumber(totalAnswers)}</div>
+                    <div class="info-label">ответов</div>
+                </div>
+            </div>
         </div>
         
-        <div class="answers-breakdown">
-            <div class="answer-type correct">
-                <div class="answer-value">${formatNumber(totalCorrect)}</div>
-                <div class="answer-label">Правильные</div>
-            </div>
-            <div class="answer-type wrong">
-                <div class="answer-value">${formatNumber(totalWrong)}</div>
-                <div class="answer-label">Неправильные</div>
-            </div>
-            <div class="answer-type timeout">
-                <div class="answer-value">${formatNumber(totalTimeout)}</div>
-                <div class="answer-label">Таймауты</div>
+        <div class="levels-overview">
+            <div class="levels-title">Участники по уровням:</div>
+            <div class="levels-badges">
+                ${createLevelBadges(levelParticipants)}
             </div>
         </div>
         
-        <div class="view-details">Подробнее</div>
+        <div class="answers-overview">
+            <div class="answers-header">
+                <div class="answers-title">Результаты ответов</div>
+            </div>
+            
+            <div class="answers-chart">
+                <div class="chart-bar">
+                    <div class="chart-segment correct" style="width: ${correctPercent}%;" title="Правильные: ${formatNumber(totalCorrect)} (${correctPercent}%)"></div>
+                    <div class="chart-segment wrong" style="width: ${wrongPercent}%;" title="Неправильные: ${formatNumber(totalWrong)} (${wrongPercent}%)"></div>
+                    <div class="chart-segment timeout" style="width: ${timeoutPercent}%;" title="Таймауты: ${formatNumber(totalTimeout)} (${timeoutPercent}%)"></div>
+                </div>
+                
+                <div class="chart-legend">
+                    <div class="legend-item">
+                        <div class="legend-color correct"></div>
+                        <div class="legend-text">
+                            <div class="legend-value">${formatNumber(totalCorrect)}</div>
+                            <div class="legend-label">правильных</div>
+                        </div>
+                    </div>
+                    
+                    <div class="legend-item">
+                        <div class="legend-color wrong"></div>
+                        <div class="legend-text">
+                            <div class="legend-value">${formatNumber(totalWrong)}</div>
+                            <div class="legend-label">неправильных</div>
+                        </div>
+                    </div>
+                    
+                    <div class="legend-item">
+                        <div class="legend-color timeout"></div>
+                        <div class="legend-text">
+                            <div class="legend-value">${formatNumber(totalTimeout)}</div>
+                            <div class="legend-label">таймаутов</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="view-details">
+            <span>Подробнее</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+        </div>
     `;
     
     return card;
