@@ -224,7 +224,7 @@ function createTournamentCard(tournament, index) {
                             <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                         </svg>
                     </div>
-                    <div class="participants-value">${formatNumber(tournament.details?.stats?.total_players || 0)}</div>
+                    <div class="participants-value">${formatNumber(tournament.total_players || 0)}</div>
                 </div>
                 
                 <div class="prize-pool-block">
