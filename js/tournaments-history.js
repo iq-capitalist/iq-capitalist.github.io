@@ -135,35 +135,6 @@ function renderTournaments() {
 }
 
 /**
- * Функция для склонения слова "ответ" в зависимости от числа
- * @param {Number} number - Число для склонения
- * @returns {String} - Правильная форма слова "ответ"
- */
-function pluralizeAnswers(number) {
-    // Преобразуем в число, если передана строка
-    number = Number(number);
-    
-    // Получаем последнюю цифру
-    const lastDigit = number % 10;
-    // Получаем две последние цифры для проверки чисел 11-19
-    const lastTwoDigits = number % 100;
-    
-    // Правила склонения:
-    // 1 ответ (кроме чисел, оканчивающихся на 11)
-    if (lastDigit === 1 && lastTwoDigits !== 11) {
-        return 'ответ';
-    }
-    // 2-4 ответа (кроме чисел, оканчивающихся на 12-14)
-    else if (lastDigit >= 2 && lastDigit <= 4 && !(lastTwoDigits >= 12 && lastTwoDigits <= 14)) {
-        return 'ответа';
-    }
-    // 5-20, 0 ответов
-    else {
-        return 'ответов';
-    }
-}
-
-/**
  * Создание карточки турнира
  * @param {Object} tournament - Данные турнира
  * @param {Number} index - Индекс для анимации
@@ -220,12 +191,6 @@ function createTournamentCard(tournament, index) {
     // Получаем данные о призовом фонде
     const prizePool = tournament.details?.stats?.total_prize_pool || 0;
     
-    // Получаем количество вопросов
-    // Используем данные из JSON вместо заглушки
-    const totalQuestions = tournament.total_questions || 
-                          (tournament.details?.tournament?.total_questions) || 
-                          80; // Используем 80 как запасной вариант
-    
     // Формируем содержимое карточки
     card.innerHTML = `
         <div class="tournament-header">
@@ -281,7 +246,7 @@ function createTournamentCard(tournament, index) {
                     </svg>
                 </div>
                 <div class="info-content">
-                    <div class="info-value">${formatNumber(totalQuestions)}</div>
+                    <div class="info-value">80</div>
                     <div class="info-label">вопросов</div>
                 </div>
             </div>
@@ -294,7 +259,7 @@ function createTournamentCard(tournament, index) {
                 </div>
                 <div class="info-content">
                     <div class="info-value">${formatNumber(totalAnswers)}</div>
-                    <div class="info-label">${pluralizeAnswers(totalAnswers)}</div>
+                    <div class="info-label">ответов</div>
                 </div>
             </div>
         </div>
@@ -357,6 +322,54 @@ function createTournamentCard(tournament, index) {
     `;
     
     return card;
+}
+
+/**
+ * Создание бейджей для уровней участников
+ * @param {Object} levelData - Данные о количестве участников по уровням
+ * @returns {String} - HTML-разметка бейджей
+ */
+function createLevelBadges(levelData) {
+    if (!levelData || Object.keys(levelData).length === 0) {
+        return '<div class="level-badge"><span class="level-badge-name">Нет данных</span></div>';
+    }
+    
+    // Порядок отображения уровней
+    const levelOrder = [
+        'Знаток', 'Эксперт', 'Мастер', 'Босс', 'Титан', 
+        'Легенда', 'Корифей', 'Гуру'
+    ];
+    
+    // Сортируем уровни в нужном порядке и фильтруем нулевые значения
+    const sortedLevels = levelOrder
+        .filter(level => level in levelData && levelData[level] > 0)
+        .map(level => ({
+            name: level,
+            count: levelData[level]
+        }));
+    
+    if (sortedLevels.length === 0) {
+        return '<div class="level-badge"><span class="level-badge-name">Нет участников</span></div>';
+    }
+    
+    return sortedLevels
+        .map(level => `
+            <div class="level-badge">
+                <span class="level-badge-name">${level.name}:</span>
+                <span class="level-badge-value">${level.count}</span>
+            </div>
+        `)
+        .join('');
+}
+
+/**
+ * Форматирование числа с разделителями
+ * @param {Number} num - Число для форматирования
+ * @returns {String} - Отформатированное число
+ */
+function formatNumber(num) {
+    if (typeof num !== 'number') return '0';
+    return Math.round(num).toLocaleString('ru-RU');
 }
 
 /**
