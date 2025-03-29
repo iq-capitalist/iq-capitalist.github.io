@@ -134,12 +134,6 @@ function renderTournaments() {
     });
 }
 
-/**
- * Создание карточки турнира
- * @param {Object} tournament - Данные турнира
- * @param {Number} index - Индекс для анимации
- * @returns {HTMLElement} - DOM-элемент карточки
- */
 function createTournamentCard(tournament, index) {
     const card = document.createElement('a');
     card.href = `tournament.html?id=${tournament.id}`;
@@ -190,6 +184,12 @@ function createTournamentCard(tournament, index) {
     
     // Получаем данные о призовом фонде
     const prizePool = tournament.details?.stats?.total_prize_pool || 0;
+    
+    // Получаем количество вопросов
+    // Используем данные из JSON вместо заглушки
+    const totalQuestions = tournament.total_questions || 
+                          (tournament.details?.tournament?.total_questions) || 
+                          80; // Используем 80 как запасной вариант
     
     // Формируем содержимое карточки
     card.innerHTML = `
@@ -246,7 +246,7 @@ function createTournamentCard(tournament, index) {
                     </svg>
                 </div>
                 <div class="info-content">
-                    <div class="info-value">80</div>
+                    <div class="info-value">${formatNumber(totalQuestions)}</div>
                     <div class="info-label">вопросов</div>
                 </div>
             </div>
