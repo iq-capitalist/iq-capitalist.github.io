@@ -38,7 +38,7 @@
     background-color: var(--card-bg-color);
     border-radius: var(--card-border-radius);
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    padding: var(--card-padding);
+    padding: 15px var(--card-padding) var(--card-padding);
     transition: all var(--animation-time) ease;
     border-top: var(--card-border-top);
     display: flex;
@@ -111,6 +111,14 @@
     color: var(--card-header-color);
 }
 
+/* Блоки с участниками и призовым фондом */
+.stats-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 5px;
+}
+
 /* Блок с участниками */
 .participants-block {
     display: flex;
@@ -119,7 +127,7 @@
     background-color: var(--light-bg);
     padding: 10px 15px;
     border-radius: 8px;
-    margin-top: 5px;
+    flex: 1;
 }
 
 .participants-icon {
@@ -137,9 +145,7 @@
 }
 
 .participants-label {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    margin-left: 5px;
+    display: none;
 }
 
 /* Блок с призовым фондом */
@@ -150,7 +156,7 @@
     background-color: rgba(39, 174, 96, 0.1);
     padding: 10px 15px;
     border-radius: 8px;
-    margin-top: 5px;
+    flex: 1;
 }
 
 .prize-icon {
@@ -167,10 +173,15 @@
     color: #27ae60;
 }
 
-.prize-label {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
+.prize-iqc {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #27ae60;
     margin-left: 5px;
+}
+
+.prize-label {
+    display: none;
 }
 
 /* Дополнительная информация */
