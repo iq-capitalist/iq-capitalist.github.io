@@ -210,28 +210,30 @@ function createTournamentCard(tournament, index) {
                 <div class="date-text">${dateText}</div>
             </div>
             
-            <div class="participants-block">
-                <div class="participants-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="9" cy="7" r="4"></circle>
-                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                    </svg>
+            <div class="stats-row">
+                <div class="participants-block">
+                    <div class="participants-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <div class="participants-value">${formatNumber(tournament.details?.stats?.total_players || 0)}</div>
+                    <div class="participants-label">участников</div>
                 </div>
-                <div class="participants-value">${formatNumber(tournament.details?.stats?.total_players || 0)}</div>
-                <div class="participants-label">участников</div>
-            </div>
-            
-            <div class="prize-pool-block">
-                <div class="prize-icon">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="8" r="7"></circle>
-                        <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-                    </svg>
+                
+                <div class="prize-pool-block">
+                    <div class="prize-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="8" r="7"></circle>
+                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                        </svg>
+                    </div>
+                    <div class="prize-value">${formatNumber(prizePool)}</div>
+                    <div class="prize-iqc">IQC</div>
                 </div>
-                <div class="prize-value">${formatNumber(prizePool)}</div>
-                <div class="prize-label">IQC призовой фонд</div>
             </div>
         </div>
         
@@ -266,7 +268,7 @@ function createTournamentCard(tournament, index) {
         <div class="divider"></div>
         
         <div class="levels-overview">
-            <div class="levels-title">Участники по уровням:</div>
+            <div class="levels-title">Участники</div>
             <div class="levels-badges">
                 ${createLevelBadges(levelParticipants)}
             </div>
@@ -276,7 +278,7 @@ function createTournamentCard(tournament, index) {
         
         <div class="answers-overview">
             <div class="answers-header">
-                <div class="answers-title">Результаты ответов</div>
+                <div class="answers-title">Ответы</div>
             </div>
             
             <div class="answers-chart">
