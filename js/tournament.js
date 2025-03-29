@@ -6,8 +6,34 @@
 // Глобальная переменная для доступа к данным из обоих скриптов
 let tournamentData = null;
 
+// Добавление стилей для ссылки скачивания CSV
+function addCSVDownloadStyles() {
+    const style = document.createElement('style');
+    style.textContent = `
+        #download-csv-link {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s, text-decoration 0.3s;
+        }
+        
+        #download-csv-link:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+        
+        #csv-download-row .info-label {
+            color: #555;
+        }
+    `;
+    document.head.appendChild(style);
+}
+
 // Инициализация при загрузке DOM
 document.addEventListener('DOMContentLoaded', function() {
+    // Добавляем стили для ссылки скачивания CSV
+    addCSVDownloadStyles();
+    
     // Загрузка шапки и подвала - используем общую функцию из main.js, если она доступна
     if (typeof fetch === 'function') {
         // Загрузка header и footer уже определена в main.js
@@ -119,6 +145,115 @@ function updateLastUpdate(data) {
     if (lastUpdateElement && data.generated_at) {
         lastUpdateElement.textContent = `Данные обновлены: ${data.generated_at}`;
     }
+}
+
+/**
+ * Генерация CSV с данными турнира
+ * @param {Object} data - Данные турнира
+ * @returns {String} - Содержимое CSV
+ */
+function generateTournamentCSV(data) {
+    // Проверка наличия данных
+    if (!data || !data.tournament || !data.players || !Array.isArray(data.players)) {
+        console.error('Нет данных для экспорта в CSV');
+        return '';
+    }
+    
+    // Метаданные турнира для заголовка CSV
+    const tournamentId = data.tournament.id || 'Н/Д';
+    const tournamentDates = formatTournamentPeriod(data.tournament.start_date, data.tournament.end_date);
+    const totalPlayers = data.stats?.total_players || 0;
+    const totalQuestions = data.tournament?.total_questions || 0;
+    const totalPrizePool = data.stats?.total_prize_pool || 0;
+    
+    // Добавляем метаданные в начало CSV
+    const metadata = [
+        `"Турнир №${tournamentId}",${tournamentDates}`,
+        `"Вопросов:","${Math.round(totalQuestions).toLocaleString('ru-RU')}"`,
+        `"Участников:","${Math.round(totalPlayers).toLocaleString('ru-RU')}"`,
+        `"Призовой фонд:","${Math.round(totalPrizePool).toLocaleString('ru-RU')} IQC"`,
+        `"Дата экспорта:","${new Date().toLocaleString('ru-RU')}"`
+    ];
+    
+    // Пустая строка-разделитель после метаданных
+    metadata.push('');
+    
+    // Заголовки для данных игроков
+    const headers = [
+        'Имя игрока', 'Уровень', 'Всего ответов', 
+        'Правильные быстрые', 'Правильные средние', 'Правильные медленные',
+        'Неправильные быстрые', 'Неправильные средние', 'Неправильные медленные',
+        'Таймауты', 'Очки', 'Приз'
+    ];
+    
+    const rows = [];
+    // Добавляем строки с данными о каждом игроке
+    data.players.forEach(player => {
+        if (!player) return;
+        
+        const row = [
+            `"${player.username || ''}"`,
+            `"${player.level || ''}"`,
+            player.answers || 0,
+            player.correct_answers?.fast || 0,
+            player.correct_answers?.medium || 0,
+            player.correct_answers?.slow || 0,
+            player.wrong_answers?.fast || 0,
+            player.wrong_answers?.medium || 0,
+            player.wrong_answers?.slow || 0,
+            player.timeouts || 0,
+            player.total_points || 0,
+            player.prize || 0
+        ];
+        
+        rows.push(row.join(','));
+    });
+    
+    // Объединяем метаданные, заголовки и строки в CSV
+    const csv = [...metadata, headers.join(','), ...rows].join('\n');
+    return csv;
+}
+
+/**
+ * Скачивание CSV с данными турнира
+ */
+function downloadTournamentCSV() {
+    if (!tournamentData) {
+        console.error('Нет данных для скачивания');
+        return;
+    }
+    
+    // Получаем ID турнира
+    const tournamentId = tournamentData.tournament?.id || 
+                          (new URLSearchParams(window.location.search).get('id') || '1');
+    
+    // Генерируем содержимое CSV
+    const csvContent = generateTournamentCSV(tournamentData);
+    
+    // Генерируем имя файла с датой
+    const date = new Date().toISOString().slice(0, 10);
+    const filename = `tournament_${tournamentId}_${date}.csv`;
+    
+    // Скачиваем CSV
+    downloadCSV(filename, csvContent);
+}
+
+/**
+ * Скачивание файла CSV
+ * @param {String} filename - Имя файла
+ * @param {String} csvContent - Содержимое CSV
+ */
+function downloadCSV(filename, csvContent) {
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    
+    link.href = window.URL.createObjectURL(blob);
+    link.download = filename;
+    link.style.display = 'none';
+    
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 }
 
 /**
@@ -279,6 +414,35 @@ function displayTournamentInfo(data) {
     const prizePool = data.stats && typeof data.stats.total_prize_pool === 'number' ? 
         `${Math.round(data.stats.total_prize_pool).toLocaleString('ru-RU')} IQC` : 'Н/Д';
     document.getElementById('prize-pool').textContent = prizePool;
+    
+    // Добавляем ссылку для скачивания CSV, если строка ещё не существует
+    const csvDownloadRow = document.getElementById('csv-download-row');
+    if (!csvDownloadRow) {
+        const tournamentInfoContainer = document.getElementById('tournamentInfo');
+        if (tournamentInfoContainer) {
+            const newRow = document.createElement('div');
+            newRow.className = 'info-row';
+            newRow.id = 'csv-download-row';
+            
+            newRow.innerHTML = `
+                <div class="info-label">Полные данные</div>
+                <div class="info-value">
+                    <a href="#" id="download-csv-link">скачать .csv</a>
+                </div>
+            `;
+            
+            tournamentInfoContainer.appendChild(newRow);
+            
+            // Добавляем обработчик клика на ссылку
+            const downloadLink = document.getElementById('download-csv-link');
+            if (downloadLink) {
+                downloadLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    downloadTournamentCSV();
+                });
+            }
+        }
+    }
 }
 
 /**
