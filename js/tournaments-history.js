@@ -49,10 +49,7 @@ async function loadTournamentsData() {
             return new Date(b.start_date) - new Date(a.start_date);
         });
         
-        // Загружаем детальные данные для каждого турнира
-        await loadTournamentsDetails();
-        
-        // Отображаем все турниры
+        // Отображаем все турниры (без загрузки детальных данных)
         filteredTournaments = [...tournamentsData];
         renderTournaments();
         
@@ -62,30 +59,6 @@ async function loadTournamentsData() {
     } finally {
         hideLoadingIndicator();
     }
-}
-
-/**
- * Загрузка детальных данных для каждого турнира
- */
-async function loadTournamentsDetails() {
-    const tournamentPromises = tournamentsData.map(async (tournament) => {
-        try {
-            const response = await fetch(`data/${tournament.id}.json`);
-            if (!response.ok) {
-                console.warn(`Не удалось загрузить данные для турнира ${tournament.id}`);
-                return tournament;
-            }
-            
-            const detailData = await response.json();
-            return { ...tournament, details: detailData };
-        } catch (error) {
-            console.error(`Ошибка загрузки деталей турнира ${tournament.id}:`, error);
-            return tournament;
-        }
-    });
-    
-    // Ждем загрузки всех данных
-    tournamentsData = await Promise.all(tournamentPromises);
 }
 
 /**
@@ -163,6 +136,12 @@ function pluralizeAnswers(number) {
     }
 }
 
+/**
+ * Создание карточки турнира
+ * @param {Object} tournament - Данные турнира
+ * @param {Number} index - Индекс для анимации
+ * @returns {HTMLElement} - DOM-элемент карточки
+ */
 function createTournamentCard(tournament, index) {
     const card = document.createElement('a');
     card.href = `tournament.html?id=${tournament.id}`;
@@ -174,51 +153,47 @@ function createTournamentCard(tournament, index) {
     const endDate = new Date(tournament.end_date);
     const dateText = formatTournamentPeriod(startDate, endDate);
     
-    // Статистика ответов
+    // Получаем статистику ответов из индексного файла
     let totalCorrect = 0;
     let totalWrong = 0;
     let totalTimeout = 0;
     
-    // Если есть детализированные данные
-    if (tournament.details && tournament.details.players) {
-        tournament.details.players.forEach(player => {
-            if (player.correct_answers) {
-                totalCorrect += (player.correct_answers.fast || 0) + 
-                               (player.correct_answers.medium || 0) + 
-                               (player.correct_answers.slow || 0);
-            }
-            
-            if (player.wrong_answers) {
-                totalWrong += (player.wrong_answers.fast || 0) + 
-                             (player.wrong_answers.medium || 0) + 
-                             (player.wrong_answers.slow || 0);
-            }
-            
-            totalTimeout += player.timeouts || 0;
-        });
+    // Если есть статистика ответов в индексном файле
+    if (tournament.answers_stats) {
+        // Правильные ответы
+        if (tournament.answers_stats.correct_answers) {
+            totalCorrect += (tournament.answers_stats.correct_answers.fast || 0) + 
+                           (tournament.answers_stats.correct_answers.medium || 0) + 
+                           (tournament.answers_stats.correct_answers.slow || 0);
+        }
+        
+        // Неправильные ответы
+        if (tournament.answers_stats.wrong_answers) {
+            totalWrong += (tournament.answers_stats.wrong_answers.fast || 0) + 
+                         (tournament.answers_stats.wrong_answers.medium || 0) + 
+                         (tournament.answers_stats.wrong_answers.slow || 0);
+        }
+        
+        // Таймауты
+        totalTimeout += tournament.answers_stats.timeouts || 0;
     }
     
-    const totalAnswers = totalCorrect + totalWrong + totalTimeout;
+    // Используем общее количество ответов из индексного файла как запасной вариант
+    const totalAnswers = (totalCorrect + totalWrong + totalTimeout) || tournament.total_answers || 0;
     
     // Вычисляем проценты для кругового индикатора
     const correctPercent = totalAnswers > 0 ? Math.round((totalCorrect / totalAnswers) * 100) : 0;
     const wrongPercent = totalAnswers > 0 ? Math.round((totalWrong / totalAnswers) * 100) : 0;
     const timeoutPercent = totalAnswers > 0 ? Math.round((totalTimeout / totalAnswers) * 100) : 0;
     
-    // Участники по уровням
-    let levelParticipants = {};
-    if (tournament.details && tournament.details.stats && tournament.details.stats.players_by_level) {
-        levelParticipants = tournament.details.stats.players_by_level;
-    }
+    // Участники по уровням из индексного файла
+    const levelParticipants = tournament.players_by_level || {};
     
-    // Получаем данные о призовом фонде
-    const prizePool = tournament.details?.stats?.total_prize_pool || 0;
+    // Получаем данные о призовом фонде из индексного файла
+    const prizePool = tournament.total_prize || 0;
     
-    // Получаем количество вопросов
-    // Используем данные из JSON вместо заглушки
-    const totalQuestions = tournament.total_questions || 
-                          (tournament.details?.tournament?.total_questions) || 
-                          80; // Используем 80 как запасной вариант
+    // Получаем количество вопросов из индексного файла
+    const totalQuestions = tournament.total_questions || 80; // По умолчанию 80, если нет в данных
     
     // Формируем содержимое карточки
     card.innerHTML = `
