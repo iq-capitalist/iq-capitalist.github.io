@@ -212,29 +212,38 @@
     color: #666;
 }
 
-/* Стили для таблицы */
-.table-responsive {
+/* Стили для таблицы "Детальная статистика по типам ответов" */
+.detailed-stats .table-responsive {
     overflow-x: auto;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-.stats-table {
+.detailed-stats .stats-table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
     margin-top: 1rem;
     background-color: white;
+    font-size: 16px; /* Увеличенный размер шрифта для десктопа */
 }
 
-.stats-table th,
-.stats-table td {
-    padding: 0.85rem 1rem;
+.detailed-stats .stats-table th,
+.detailed-stats .stats-table td {
+    padding: 0.9rem 1rem; /* Увеличенные отступы */
     text-align: left;
-    border-bottom: var(--light-border);
+    border-bottom: 1px solid #eee;
 }
 
-.stats-table th {
+/* Выравнивание колонок с числами */
+.detailed-stats .stats-table td:nth-child(2),
+.detailed-stats .stats-table th:nth-child(2),
+.detailed-stats .stats-table td:nth-child(3),
+.detailed-stats .stats-table th:nth-child(3) {
+    text-align: center;
+}
+
+.detailed-stats .stats-table th {
     background-color: #f8f9fa;
     font-weight: 600;
     color: var(--primary-color);
@@ -242,49 +251,56 @@
     top: 0;
 }
 
-.stats-table tr:last-child td {
-    border-bottom: none;
+/* Оптимизация ширины колонок */
+.detailed-stats .stats-table th:first-child,
+.detailed-stats .stats-table td:first-child {
+    width: 70%; /* Увеличенная ширина для колонки с типом ответа */
 }
 
-.stats-table tr:hover {
-    background-color: #f5f5f5;
+.detailed-stats .stats-table th:nth-child(2),
+.detailed-stats .stats-table td:nth-child(2) {
+    width: 15%; /* Колонка с количеством */
 }
 
-/* Стили для строк разных типов ответов */
-.stats-table tr[data-type^="fast-correct"],
-.stats-table tr[data-type^="medium-correct"],
-.stats-table tr[data-type^="slow-correct"] {
-    background-color: rgba(46, 204, 113, 0.05);
+.detailed-stats .stats-table th:nth-child(3),
+.detailed-stats .stats-table td:nth-child(3) {
+    width: 15%; /* Колонка с процентами */
 }
 
-.stats-table tr[data-type="medium-correct"] {
-    background-color: rgba(46, 204, 113, 0.03);
+/* Более заметные и логичные цвета строк */
+/* Правильные ответы - оттенки зеленого */
+.detailed-stats .stats-table tr[data-type="fast-correct"] {
+    background-color: rgba(46, 204, 113, 0.3); /* Яркий зеленый */
 }
 
-.stats-table tr[data-type="slow-correct"] {
-    background-color: rgba(46, 204, 113, 0.01);
+.detailed-stats .stats-table tr[data-type="medium-correct"] {
+    background-color: rgba(46, 204, 113, 0.2); /* Средний зеленый */
 }
 
-.stats-table tr[data-type^="fast-wrong"],
-.stats-table tr[data-type^="medium-wrong"],
-.stats-table tr[data-type^="slow-wrong"] {
-    background-color: rgba(231, 76, 60, 0.05);
+.detailed-stats .stats-table tr[data-type="slow-correct"] {
+    background-color: rgba(46, 204, 113, 0.1); /* Светлый зеленый */
 }
 
-.stats-table tr[data-type="medium-wrong"] {
-    background-color: rgba(231, 76, 60, 0.03);
+/* Неправильные ответы - оттенки красного */
+.detailed-stats .stats-table tr[data-type="fast-wrong"] {
+    background-color: rgba(231, 76, 60, 0.3); /* Яркий красный */
 }
 
-.stats-table tr[data-type="slow-wrong"] {
-    background-color: rgba(231, 76, 60, 0.01);
+.detailed-stats .stats-table tr[data-type="medium-wrong"] {
+    background-color: rgba(231, 76, 60, 0.2); /* Средний красный */
 }
 
-.stats-table tr[data-type="timeout"] {
-    background-color: rgba(243, 156, 18, 0.05);
+.detailed-stats .stats-table tr[data-type="slow-wrong"] {
+    background-color: rgba(231, 76, 60, 0.1); /* Светлый красный */
 }
 
-/* Стиль для строки "Всего" */
-.stats-table tr[data-type="total"] {
+/* Таймауты - желтый */
+.detailed-stats .stats-table tr[data-type="timeout"] {
+    background-color: rgba(241, 196, 15, 0.25); /* Желтый */
+}
+
+/* Итоговая строка */
+.detailed-stats .stats-table tr[data-type="total"] {
     background-color: #f5f5f5;
     border-top: 2px solid #ddd;
     font-weight: bold;
@@ -306,6 +322,15 @@
 @media (max-width: 992px) {
     .level-legend-item {
         width: calc(25% - 1rem);
+    }
+    
+    .detailed-stats .stats-table {
+        font-size: 15px; /* Немного уменьшаем шрифт */
+    }
+    
+    .detailed-stats .stats-table th,
+    .detailed-stats .stats-table td {
+        padding: 0.8rem 0.9rem;
     }
 }
 
@@ -351,11 +376,29 @@
     .stat-card h2 {
         font-size: 1.3rem;
     }
+    
+    .detailed-stats .stats-table {
+        font-size: 14px;
+    }
+    
+    .detailed-stats .stats-table th,
+    .detailed-stats .stats-table td {
+        padding: 0.7rem 0.8rem;
+    }
 }
 
 @media (max-width: 576px) {
     .level-legend-item, .answer-type {
         width: calc(50% - 1rem);
+    }
+    
+    .detailed-stats .stats-table {
+        font-size: 13px;
+    }
+    
+    .detailed-stats .stats-table th,
+    .detailed-stats .stats-table td {
+        padding: 0.6rem 0.6rem;
     }
 }
 
@@ -403,7 +446,6 @@
     
     .level-legend-item {
         padding: 0.6rem 0.4rem;
-        /* Убраны стили, связанные с цветовыми индикаторами */
     }
     
     .level-legend-item .level-value {
@@ -422,9 +464,12 @@
         font-size: 0.9rem;
     }
     
-    .stats-table th,
-    .stats-table td {
-        padding: 0.7rem;
-        font-size: 0.85rem;
+    .detailed-stats .stats-table {
+        font-size: 12px;
+    }
+    
+    .detailed-stats .stats-table th,
+    .detailed-stats .stats-table td {
+        padding: 0.5rem 0.4rem;
     }
 }
