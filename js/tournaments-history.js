@@ -188,6 +188,9 @@ function createTournamentCard(tournament, index) {
         levelParticipants = tournament.details.stats.players_by_level;
     }
     
+    // Получаем данные о призовом фонде
+    const prizePool = tournament.details?.stats?.total_prize_pool || 0;
+    
     // Формируем содержимое карточки
     card.innerHTML = `
         <div class="tournament-header">
@@ -219,6 +222,17 @@ function createTournamentCard(tournament, index) {
                 <div class="participants-value">${formatNumber(tournament.details?.stats?.total_players || 0)}</div>
                 <div class="participants-label">участников</div>
             </div>
+            
+            <div class="prize-pool-block">
+                <div class="prize-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="8" r="7"></circle>
+                        <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                    </svg>
+                </div>
+                <div class="prize-value">${formatNumber(prizePool)}</div>
+                <div class="prize-label">IQC призовой фонд</div>
+            </div>
         </div>
         
         <div class="additional-info">
@@ -231,7 +245,7 @@ function createTournamentCard(tournament, index) {
                     </svg>
                 </div>
                 <div class="info-content">
-                    <div class="info-value">${formatNumber(tournament.total_questions || 0)}</div>
+                    <div class="info-value">80</div>
                     <div class="info-label">вопросов</div>
                 </div>
             </div>
@@ -249,12 +263,16 @@ function createTournamentCard(tournament, index) {
             </div>
         </div>
         
+        <div class="divider"></div>
+        
         <div class="levels-overview">
             <div class="levels-title">Участники по уровням:</div>
             <div class="levels-badges">
                 ${createLevelBadges(levelParticipants)}
             </div>
         </div>
+        
+        <div class="divider"></div>
         
         <div class="answers-overview">
             <div class="answers-header">
