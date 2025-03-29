@@ -11,6 +11,7 @@
     --timeout-color: #d35400;
     --timeout-bg: rgba(243, 156, 18, 0.15);
     --timeout-border: rgba(243, 156, 18, 0.3);
+    --card-top-color: #3498db; /* Единый синий цвет для верхней полоски всех карточек */
 }
 
 /* Заголовок турнира */
@@ -69,6 +70,11 @@
     color: var(--correct-color);
 }
 
+/* Скрываем элемент "Данные обновлены" */
+#lastUpdate {
+    display: none;
+}
+
 /* Общие стили для карточек статистики */
 .stat-card {
     background: white;
@@ -77,7 +83,7 @@
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 2rem;
     transition: all 0.3s ease;
-    border-top: 4px solid var(--primary-color);
+    border-top: 4px solid var(--card-top-color); /* Единый цвет верхней полоски */
     width: 100%;
     box-sizing: border-box;
 }
@@ -96,12 +102,6 @@
     padding-bottom: 0.8rem;
     text-align: center;
 }
-
-/* Цветовое оформление карточек */
-.participants-by-level { border-top-color: #3498db; }
-.answers-stats { border-top-color: #e74c3c; }
-.detailed-stats { border-top-color: #f39c12; }
-.top-players { border-top-color: var(--correct-color); }
 
 /* Горизонтальное расположение элементов */
 .cards-horizontal-layout {
