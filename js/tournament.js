@@ -413,53 +413,64 @@ function displayDetailedStats(data) {
         return;
     }
     
+    // Округляем все числа до целых
+    fastCorrect = Math.round(fastCorrect);
+    mediumCorrect = Math.round(mediumCorrect);
+    slowCorrect = Math.round(slowCorrect);
+    fastWrong = Math.round(fastWrong);
+    mediumWrong = Math.round(mediumWrong);
+    slowWrong = Math.round(slowWrong);
+    timeouts = Math.round(timeouts);
+    const roundedTotal = fastCorrect + mediumCorrect + slowCorrect + 
+                         fastWrong + mediumWrong + slowWrong + timeouts;
+    
     // Создаем структуру данных для таблицы
     const statsData = [
         { 
             name: 'Быстрые правильные', 
             count: fastCorrect, 
-            percent: calculatePercent(fastCorrect, totalAnswers),
+            percent: calculatePercent(fastCorrect, roundedTotal),
             type: 'fast-correct'
         },
         { 
             name: 'Средние правильные', 
             count: mediumCorrect, 
-            percent: calculatePercent(mediumCorrect, totalAnswers),
+            percent: calculatePercent(mediumCorrect, roundedTotal),
             type: 'medium-correct'
         },
         { 
             name: 'Медленные правильные', 
             count: slowCorrect, 
-            percent: calculatePercent(slowCorrect, totalAnswers),
+            percent: calculatePercent(slowCorrect, roundedTotal),
             type: 'slow-correct'
-            },
+        },
         { 
             name: 'Быстрые неправильные', 
             count: fastWrong, 
-            percent: calculatePercent(fastWrong, totalAnswers),
+            percent: calculatePercent(fastWrong, roundedTotal),
             type: 'fast-wrong'
         },
         { 
             name: 'Средние неправильные', 
             count: mediumWrong, 
-            percent: calculatePercent(mediumWrong, totalAnswers),
+            percent: calculatePercent(mediumWrong, roundedTotal),
             type: 'medium-wrong'
         },
         { 
             name: 'Медленные неправильные', 
             count: slowWrong, 
-            percent: calculatePercent(slowWrong, totalAnswers),
+            percent: calculatePercent(slowWrong, roundedTotal),
             type: 'slow-wrong'
         },
         { 
             name: 'Таймауты', 
             count: timeouts, 
-            percent: calculatePercent(timeouts, totalAnswers),
+            percent: calculatePercent(timeouts, roundedTotal),
             type: 'timeout'
         },
         { 
             name: 'Всего', 
-            count: totalAnswers, 
+            count: roundedTotal, 
             percent: '100.0%',
             type: 'total'
         }
@@ -472,7 +483,7 @@ function displayDetailedStats(data) {
         
         return `<tr data-type="${stat.type}" style="${fontWeight}">
             <td>${stat.name}</td>
-            <td>${formatNumber(stat.count)}</td>
+            <td>${stat.count.toLocaleString('ru-RU')}</td>
             <td>${stat.percent}</td>
         </tr>`;
     }).join('');
