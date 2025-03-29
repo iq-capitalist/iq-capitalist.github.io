@@ -51,16 +51,16 @@ header {
 }
 
 .site-title a {
-    color: inherit;
+    color: white;
     text-decoration: none;
 }
 
 .site-title a:visited {
-    color: inherit;
+    color: white;
 }
 
 .site-title a:hover {
-    color: inherit;
+    color: white;
     text-decoration: none;
 }
 
