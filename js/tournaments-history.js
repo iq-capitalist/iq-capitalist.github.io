@@ -163,6 +163,12 @@ function pluralizeAnswers(number) {
     }
 }
 
+/**
+ * Создание карточки турнира
+ * @param {Object} tournament - Данные турнира
+ * @param {Number} index - Индекс для анимации
+ * @returns {HTMLElement} - DOM-элемент карточки
+ */
 function createTournamentCard(tournament, index) {
     const card = document.createElement('a');
     card.href = `tournament.html?id=${tournament.id}`;
