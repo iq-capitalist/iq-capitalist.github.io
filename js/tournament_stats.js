@@ -243,13 +243,13 @@ function displayStatsTable(data) {
                     </tr>
                     <tr>
                         <th></th>
-                        <th onclick="sortTable('correct_answers.fast')" class="correct-fast"></th>
-                        <th onclick="sortTable('correct_answers.medium')" class="correct-medium"></th>
-                        <th onclick="sortTable('correct_answers.slow')" class="correct-slow"></th>
-                        <th onclick="sortTable('wrong_answers.fast')" class="wrong-fast"></th>
-                        <th onclick="sortTable('wrong_answers.medium')" class="wrong-medium"></th>
-                        <th onclick="sortTable('wrong_answers.slow')" class="wrong-slow"></th>
-                        <th onclick="sortTable('timeouts')" class="timeout"></th>
+                        <th onclick="sortTable('correct_answers.fast')" class="correct-fast">△▽</th>
+                        <th onclick="sortTable('correct_answers.medium')" class="correct-medium">△▽</th>
+                        <th onclick="sortTable('correct_answers.slow')" class="correct-slow">△▽</th>
+                        <th onclick="sortTable('wrong_answers.fast')" class="wrong-fast">△▽</th>
+                        <th onclick="sortTable('wrong_answers.medium')" class="wrong-medium">△▽</th>
+                        <th onclick="sortTable('wrong_answers.slow')" class="wrong-slow">△▽</th>
+                        <th onclick="sortTable('timeouts')" class="timeout">△▽</th>
                         <th></th>
                         <th></th>
                         <th></th>
