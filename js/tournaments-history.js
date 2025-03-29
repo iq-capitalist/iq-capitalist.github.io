@@ -221,7 +221,6 @@ function createTournamentCard(tournament, index) {
                         </svg>
                     </div>
                     <div class="participants-value">${formatNumber(tournament.details?.stats?.total_players || 0)}</div>
-                    <div class="participants-label">участников</div>
                 </div>
                 
                 <div class="prize-pool-block">
@@ -277,9 +276,7 @@ function createTournamentCard(tournament, index) {
         <div class="divider"></div>
         
         <div class="answers-overview">
-            <div class="answers-header">
-                <div class="answers-title">Ответы</div>
-            </div>
+            <div class="answers-title">Ответы</div>
             
             <div class="answers-chart">
                 <div class="chart-bar">
