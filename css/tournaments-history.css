@@ -13,9 +13,9 @@
     /* Цвета для ответов */
     --correct-color: #27ae60;
     --correct-bg: rgba(46, 204, 113, 0.15);
-    --wrong-color: #c0392b;
+    --wrong-color: #e74c3c;
     --wrong-bg: rgba(231, 76, 60, 0.15);
-    --timeout-color: #d35400;
+    --timeout-color: #f39c12;
     --timeout-bg: rgba(243, 156, 18, 0.15);
     
     /* Дополнительные цвета */
@@ -74,14 +74,20 @@
     margin: 0;
 }
 
+/* Разделитель */
+.divider {
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 20px 0;
+    width: 100%;
+}
+
 /* Ключевая информация */
 .key-info {
     display: flex;
     flex-direction: column;
     gap: 12px;
     margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid var(--border-color);
 }
 
 /* Блок с датой */
@@ -131,6 +137,37 @@
 }
 
 .participants-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-left: 5px;
+}
+
+/* Блок с призовым фондом */
+.prize-pool-block {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: rgba(39, 174, 96, 0.1);
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-top: 5px;
+}
+
+.prize-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #27ae60;
+    flex-shrink: 0;
+}
+
+.prize-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #27ae60;
+}
+
+.prize-label {
     font-size: 0.9rem;
     color: var(--text-secondary);
     margin-left: 5px;
@@ -374,33 +411,6 @@
     color: #cc0000;
     border-radius: 6px;
     text-align: center;
-}
-
-/* Фильтры и поиск */
-.tournaments-filters {
-    margin-bottom: 20px;
-}
-
-.search-container {
-    width: 100%;
-    max-width: 400px;
-}
-
-#searchInput {
-    width: 100%;
-    padding: 10px 15px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 15px;
-}
-
-/* Стиль для "последнее обновление" */
-.last-update {
-    text-align: right;
-    font-style: italic;
-    color: #666;
-    font-size: 0.9rem;
-    margin-bottom: 20px;
 }
 
 /* Анимации */
