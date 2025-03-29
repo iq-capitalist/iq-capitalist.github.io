@@ -107,7 +107,8 @@
 
 /* Добавляем значок сортировки для сортируемых колонок */
 .stats-table th[onclick]::after {
-    content: " ↕"; /* Добавляем стрелки вверх-вниз */
+    content: " ▲▼"; /* Добавляем стрелки вверх-вниз */
+    color: white;
     font-size: 0.8em;
     opacity: 0.7;
 }
@@ -186,14 +187,14 @@ th.timeout {
 th.correct-fast::after, th.correct-medium::after, th.correct-slow::after,
 th.wrong-fast::after, th.wrong-medium::after, th.wrong-slow::after,
 th.timeout::after {
-    content: " ↕";
-    color: black;
+    content: " ▲▼";
+    color: white;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 0.8em;
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
 .total-answers {
