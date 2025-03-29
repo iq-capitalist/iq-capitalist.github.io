@@ -38,7 +38,7 @@
     background-color: var(--card-bg-color);
     border-radius: var(--card-border-radius);
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    padding: 15px var(--card-padding) var(--card-padding);
+    padding: 5px var(--card-padding) var(--card-padding);
     transition: all var(--animation-time) ease;
     border-top: var(--card-border-top);
     display: flex;
