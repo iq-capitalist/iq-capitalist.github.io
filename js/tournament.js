@@ -69,6 +69,9 @@ async function loadTournamentData() {
         // Удаляем индикатор загрузки
         hideLoadingIndicator();
         
+        // Обновляем заголовок страницы в тегах title и h1
+        updatePageTitle(tournamentId, tournamentData);
+        
         // Отображаем данные турнира
         displayTournamentData(tournamentData);
         
@@ -83,6 +86,27 @@ async function loadTournamentData() {
         console.error('Ошибка загрузки данных турнира:', error);
         hideLoadingIndicator();
         showErrorMessage(`Ошибка загрузки данных турнира: ${error.message}`);
+    }
+}
+
+/**
+ * Обновление заголовка страницы в тегах title и h1
+ * @param {String} tournamentId - ID турнира
+ * @param {Object} data - Данные турнира
+ */
+function updatePageTitle(tournamentId, data) {
+    // Получаем порядковый номер турнира из данных или из URL
+    const tournamentNumber = data.tournament && data.tournament.id 
+        ? data.tournament.id 
+        : tournamentId;
+    
+    // Обновляем заголовок в теге title
+    document.title = `Турнир №${tournamentNumber} | IQ Capitalist`;
+    
+    // Обновляем заголовок на странице
+    const pageTitle = document.querySelector('.page-title');
+    if (pageTitle) {
+        pageTitle.textContent = `Турнир №${tournamentNumber}`;
     }
 }
 
@@ -234,21 +258,8 @@ function formatNumber(num) {
  * Отображение общей информации о турнире
  * @param {Object} data - Данные турнира
  */
-/**
- * Отображение общей информации о турнире
- * @param {Object} data - Данные турнира
- */
 function displayTournamentInfo(data) {
     const tournament = data.tournament;
-    
-    // Устанавливаем заголовок страницы
-    document.title = `Турнир №${tournament.id || '?'} | IQ Capitalist`;
-    
-    // Обновляем заголовок на странице, если он динамический
-    const pageTitle = document.querySelector('.page-title');
-    if (pageTitle) {
-        pageTitle.textContent = `Турнир №${tournament.id || '?'}`;
-    }
     
     // Устанавливаем период проведения
     document.getElementById('tournament-dates').textContent = 
