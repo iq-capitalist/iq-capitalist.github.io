@@ -187,8 +187,8 @@ th.timeout {
 th.correct-fast::after, th.correct-medium::after, th.correct-slow::after,
 th.wrong-fast::after, th.wrong-medium::after, th.wrong-slow::after,
 th.timeout::after {
-    content: " ▲▼";
-    color: white;
+    content: " ▲▼" !important; /* Треугольники для всех типов ответов */
+    color: black;
     position: absolute;
     top: 50%;
     left: 50%;
