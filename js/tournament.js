@@ -234,6 +234,10 @@ function formatNumber(num) {
  * Отображение общей информации о турнире
  * @param {Object} data - Данные турнира
  */
+/**
+ * Отображение общей информации о турнире
+ * @param {Object} data - Данные турнира
+ */
 function displayTournamentInfo(data) {
     const tournament = data.tournament;
     
@@ -250,18 +254,19 @@ function displayTournamentInfo(data) {
     document.getElementById('tournament-dates').textContent = 
         formatTournamentPeriod(tournament.start_date, tournament.end_date);
     
-    // Устанавливаем количество вопросов
+    // Устанавливаем количество вопросов (округляем до целых)
     document.getElementById('total-questions').textContent = 
-        formatNumber(tournament.total_questions);
+        typeof tournament.total_questions === 'number' ? 
+        Math.round(tournament.total_questions).toLocaleString('ru-RU') : 'Н/Д';
     
-    // Устанавливаем количество участников
-    const totalPlayers = data.stats && data.stats.total_players ? 
-        formatNumber(data.stats.total_players) : 'Н/Д';
+    // Устанавливаем количество участников (округляем до целых)
+    const totalPlayers = data.stats && typeof data.stats.total_players === 'number' ? 
+        Math.round(data.stats.total_players).toLocaleString('ru-RU') : 'Н/Д';
     document.getElementById('total-players').textContent = totalPlayers;
     
-    // Устанавливаем призовой фонд
-    const prizePool = data.stats && data.stats.total_prize_pool ? 
-        `${formatNumber(data.stats.total_prize_pool)} IQC` : 'Н/Д';
+    // Устанавливаем призовой фонд (округляем до целых)
+    const prizePool = data.stats && typeof data.stats.total_prize_pool === 'number' ? 
+        `${Math.round(data.stats.total_prize_pool).toLocaleString('ru-RU')} IQC` : 'Н/Д';
     document.getElementById('prize-pool').textContent = prizePool;
 }
 
@@ -284,10 +289,10 @@ function displayLevelChart(data) {
     
     const levelPlayers = data.stats.players_by_level;
     
-    // Правильный порядок уровней
+    // Правильный порядок уровней (без IQ Капиталист)
     const levelOrder = [
         'Знаток', 'Эксперт', 'Мастер', 'Босс', 'Титан', 
-        'Легенда', 'Корифей', 'Гуру', 'IQ Капиталист'
+        'Легенда', 'Корифей', 'Гуру'
     ];
     
     // Фильтруем и сортируем уровни по правильному порядку
@@ -304,6 +309,7 @@ function displayLevelChart(data) {
     // Создаем мини-карточки для легенды
     levels.forEach((level, index) => {
         const count = playerCounts[index];
+        // Округляем процент до целого числа
         const percentage = Math.round((count / totalPlayers) * 100);
         
         const legendItem = document.createElement('div');
@@ -311,7 +317,7 @@ function displayLevelChart(data) {
         
         legendItem.innerHTML = `
             <div class="level-name">${level}</div>
-            <div class="level-value">${count}</div>
+            <div class="level-value">${Math.round(count)}</div>
             <div class="level-percent">${percentage}%</div>
         `;
         
@@ -356,10 +362,10 @@ function displayAnswersStats(data) {
         totalTimeouts += player.timeouts || 0;
     });
     
-    // Отображаем результаты
-    document.getElementById('correct-answers').textContent = formatNumber(totalCorrect);
-    document.getElementById('wrong-answers').textContent = formatNumber(totalWrong);
-    document.getElementById('timeouts').textContent = formatNumber(totalTimeouts);
+    // Отображаем результаты (округляем до целых чисел)
+    document.getElementById('correct-answers').textContent = Math.round(totalCorrect).toLocaleString('ru-RU');
+    document.getElementById('wrong-answers').textContent = Math.round(totalWrong).toLocaleString('ru-RU');
+    document.getElementById('timeouts').textContent = Math.round(totalTimeouts).toLocaleString('ru-RU');
 }
 
 /**
