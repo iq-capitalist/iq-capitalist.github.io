@@ -135,11 +135,34 @@ function renderTournaments() {
 }
 
 /**
- * Создание карточки турнира
- * @param {Object} tournament - Данные турнира
- * @param {Number} index - Индекс для анимации
- * @returns {HTMLElement} - DOM-элемент карточки
+ * Функция для склонения слова "ответ" в зависимости от числа
+ * @param {Number} number - Число для склонения
+ * @returns {String} - Правильная форма слова "ответ"
  */
+function pluralizeAnswers(number) {
+    // Преобразуем в число, если передана строка
+    number = Number(number);
+    
+    // Получаем последнюю цифру
+    const lastDigit = number % 10;
+    // Получаем две последние цифры для проверки чисел 11-19
+    const lastTwoDigits = number % 100;
+    
+    // Правила склонения:
+    // 1 ответ (кроме чисел, оканчивающихся на 11)
+    if (lastDigit === 1 && lastTwoDigits !== 11) {
+        return 'ответ';
+    }
+    // 2-4 ответа (кроме чисел, оканчивающихся на 12-14)
+    else if (lastDigit >= 2 && lastDigit <= 4 && !(lastTwoDigits >= 12 && lastTwoDigits <= 14)) {
+        return 'ответа';
+    }
+    // 5-20, 0 ответов
+    else {
+        return 'ответов';
+    }
+}
+
 function createTournamentCard(tournament, index) {
     const card = document.createElement('a');
     card.href = `tournament.html?id=${tournament.id}`;
@@ -190,6 +213,12 @@ function createTournamentCard(tournament, index) {
     
     // Получаем данные о призовом фонде
     const prizePool = tournament.details?.stats?.total_prize_pool || 0;
+    
+    // Получаем количество вопросов
+    // Используем данные из JSON вместо заглушки
+    const totalQuestions = tournament.total_questions || 
+                          (tournament.details?.tournament?.total_questions) || 
+                          80; // Используем 80 как запасной вариант
     
     // Формируем содержимое карточки
     card.innerHTML = `
@@ -246,7 +275,7 @@ function createTournamentCard(tournament, index) {
                     </svg>
                 </div>
                 <div class="info-content">
-                    <div class="info-value">80</div>
+                    <div class="info-value">${formatNumber(totalQuestions)}</div>
                     <div class="info-label">вопросов</div>
                 </div>
             </div>
@@ -259,7 +288,7 @@ function createTournamentCard(tournament, index) {
                 </div>
                 <div class="info-content">
                     <div class="info-value">${formatNumber(totalAnswers)}</div>
-                    <div class="info-label">ответов</div>
+                    <div class="info-label">${pluralizeAnswers(totalAnswers)}</div>
                 </div>
             </div>
         </div>
