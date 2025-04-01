@@ -109,12 +109,56 @@ function loadData() {
     });
 }
 
+/**
+ * Обновление информации о последнем обновлении и времени до конца турнира
+ * @param {String} lastUpdate - Дата и время последнего обновления
+ */
 function updateLastUpdate(lastUpdate) {
     const lastUpdateElement = document.getElementById('lastUpdate');
     if (lastUpdateElement) {
         lastUpdateElement.textContent = `Данные обновлены: ${lastUpdate}`;
+        
+        // Добавляем информацию о времени до конца турнира, если есть активный турнир
+        if (globalData && globalData.tournament && globalData.tournament.activeTournament && globalData.tournament.endDate) {
+            const timeLeft = getTimeLeftUntilEnd(globalData.tournament.endDate);
+            if (timeLeft) {
+                lastUpdateElement.innerHTML += `<br>До конца турнира осталось: ${timeLeft}`;
+            }
+        }
     } else {
         console.warn('Last update element not found');
+    }
+}
+
+/**
+ * Вычисляет и форматирует время до конца турнира
+ * @param {String} endDateStr - Дата и время окончания турнира
+ * @returns {String|null} - Отформатированное время или null, если турнир уже закончился
+ */
+function getTimeLeftUntilEnd(endDateStr) {
+    const now = new Date();
+    const endDate = new Date(endDateStr);
+    
+    // Если дата окончания уже прошла, возвращаем null
+    if (endDate <= now) {
+        return null;
+    }
+    
+    // Вычисляем разницу в миллисекундах
+    const timeDiff = endDate - now;
+    
+    // Пересчитываем в дни, часы, минуты
+    const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+    
+    // Формируем строку в зависимости от оставшегося времени
+    if (days > 0) {
+        return `${days} д. ${hours} ч. ${minutes} мин.`;
+    } else if (hours > 0) {
+        return `${hours} ч. ${minutes} мин.`;
+    } else {
+        return `${minutes} мин.`;
     }
 }
 
