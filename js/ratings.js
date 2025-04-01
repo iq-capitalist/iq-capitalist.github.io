@@ -120,7 +120,8 @@ function updateLastUpdate(lastUpdate) {
         
         // Добавляем информацию о времени до конца турнира, если есть активный турнир
         if (globalData && globalData.tournament && globalData.tournament.activeTournament && globalData.tournament.endDate) {
-            const timeLeft = getTimeLeftUntilEnd(globalData.tournament.endDate);
+            // Используем строку lastUpdate как базу для времени сервера
+            const timeLeft = getTimeLeftUntilEnd(globalData.tournament.endDate, lastUpdate);
             if (timeLeft) {
                 lastUpdateElement.innerHTML += `<br>До конца турнира осталось: ${timeLeft}`;
             }
@@ -131,21 +132,34 @@ function updateLastUpdate(lastUpdate) {
 }
 
 /**
- * Вычисляет и форматирует время до конца турнира
+ * Вычисляет и форматирует время до конца турнира,
+ * используя время сервера и вычитая 3 минуты (время прекращения отправки вопросов)
+ * 
  * @param {String} endDateStr - Дата и время окончания турнира
+ * @param {String} serverTimeStr - Строка с текущим временем сервера
  * @returns {String|null} - Отформатированное время или null, если турнир уже закончился
  */
-function getTimeLeftUntilEnd(endDateStr) {
-    const now = new Date();
+function getTimeLeftUntilEnd(endDateStr, serverTimeStr) {
+    // Парсим строки дат
     const endDate = new Date(endDateStr);
+    const serverTime = new Date(serverTimeStr);
     
-    // Если дата окончания уже прошла, возвращаем null
-    if (endDate <= now) {
+    // Если не удалось распарсить даты, возвращаем null
+    if (isNaN(endDate) || isNaN(serverTime)) {
+        console.warn('Некорректный формат даты');
+        return null;
+    }
+    
+    // Вычитаем 3 минуты из времени окончания (прекращение отправки вопросов)
+    const effectiveEndDate = new Date(endDate.getTime() - 3 * 60 * 1000);
+    
+    // Если эффективная дата окончания уже прошла, возвращаем null
+    if (effectiveEndDate <= serverTime) {
         return null;
     }
     
     // Вычисляем разницу в миллисекундах
-    const timeDiff = endDate - now;
+    const timeDiff = effectiveEndDate - serverTime;
     
     // Пересчитываем в дни, часы, минуты
     const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
