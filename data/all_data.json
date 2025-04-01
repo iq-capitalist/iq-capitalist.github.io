@@ -1,13 +1,13 @@
 {
-  "lastUpdate": "2025-04-01 13:30:01 UTC",
+  "lastUpdate": "2025-04-01 13:35:02 UTC",
   "tournament": {
     "activeTournament": 2,
     "startDate": "2025-04-01 08:00:00",
     "endDate": "2025-04-03 08:00:00",
-    "totalPlayers": 47,
+    "totalPlayers": 48,
     "playersByLevel": {
       "Знаток": 34,
-      "Эксперт": 13,
+      "Эксперт": 14,
       "Мастер": 0,
       "Босс": 0,
       "Титан": 0,
@@ -57,21 +57,21 @@
           "has_active_boosters": 0
         },
         {
+          "username": "1180334171",
+          "capital": 100.0,
+          "points": 100.0,
+          "remaining_boosters": 0,
+          "wallet": 54.0,
+          "tournament_questions": 44,
+          "has_active_boosters": 0
+        },
+        {
           "username": "7749812005",
           "capital": 100.0,
           "points": 88.0,
           "remaining_boosters": 0,
           "wallet": 720.0,
           "tournament_questions": 30,
-          "has_active_boosters": 0
-        },
-        {
-          "username": "1180334171",
-          "capital": 100.0,
-          "points": 78.0,
-          "remaining_boosters": 0,
-          "wallet": 54.0,
-          "tournament_questions": 35,
           "has_active_boosters": 0
         },
         {
@@ -433,6 +433,15 @@
           "points": 30.0,
           "remaining_boosters": 0,
           "wallet": 5.0,
+          "tournament_questions": 1,
+          "has_active_boosters": 0
+        },
+        {
+          "username": "1879077527",
+          "capital": 1000.0,
+          "points": 20.0,
+          "remaining_boosters": 0,
+          "wallet": 19.0,
           "tournament_questions": 1,
           "has_active_boosters": 0
         },
@@ -902,7 +911,7 @@
       "level": "Эксперт",
       "capital": 1000.0,
       "wallet": 19.0,
-      "all_questions": 53,
+      "all_questions": 54,
       "remaining_boosters": 0
     },
     {
@@ -9198,7 +9207,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 54.0,
-      "all_questions": 44,
+      "all_questions": 53,
       "remaining_boosters": 0
     },
     {
