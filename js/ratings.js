@@ -303,8 +303,8 @@ function displayRatings(ratings) {
         
         tournamentInfoContainer.innerHTML = `
             <div class="tournament-info">
-                <h2 class="level-title">Турнир ${globalData.tournament.activeTournament}</h2>
-                <p class="level-info">Участников: ${globalData.tournament.totalPlayers}. 
+                <h2 class="level-title" style="font-style: normal;">Турнир ${globalData.tournament.activeTournament}</h2>
+                <p style="text-align: left; margin-bottom: 20px; color: var(--secondary-color);">Участников: ${globalData.tournament.totalPlayers}. 
                 Ответов: ${totalQuestions.toLocaleString('ru-RU')}</p>
             </div>
         `;
