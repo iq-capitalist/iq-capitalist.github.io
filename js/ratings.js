@@ -140,39 +140,71 @@ function updateLastUpdate(lastUpdate) {
  * @returns {String|null} - Отформатированное время или null, если турнир уже закончился
  */
 function getTimeLeftUntilEnd(endDateStr, serverTimeStr) {
-    // Парсим строки дат
-    const endDate = new Date(endDateStr);
-    const serverTime = new Date(serverTimeStr);
+    // Отладочная информация
+    console.log('endDateStr:', endDateStr);
+    console.log('serverTimeStr:', serverTimeStr);
     
-    // Если не удалось распарсить даты, возвращаем null
-    if (isNaN(endDate) || isNaN(serverTime)) {
-        console.warn('Некорректный формат даты');
+    try {
+        // Преобразуем строку даты окончания в UTC формат, если она не содержит 'Z' или '+' (часовой пояс)
+        if (!endDateStr.includes('Z') && !endDateStr.includes('+')) {
+            endDateStr = endDateStr + 'Z'; // Добавляем Z для явного указания UTC
+        }
+        
+        // Парсим даты
+        const endDate = new Date(endDateStr);
+        
+        // Получаем дату из строки времени сервера
+        // Строка lastUpdate может быть в формате "YYYY-MM-DD HH:MM:SS UTC"
+        // Нам нужно преобразовать ее в ISO формат
+        let serverTime;
+        if (serverTimeStr.includes('UTC')) {
+            // Убираем "UTC" и заменяем его на "Z"
+            serverTimeStr = serverTimeStr.replace(' UTC', 'Z');
+        }
+        serverTime = new Date(serverTimeStr);
+        
+        // Отладочная информация
+        console.log('endDate:', endDate.toISOString());
+        console.log('serverTime:', serverTime.toISOString());
+        
+        // Если не удалось распарсить даты, возвращаем null
+        if (isNaN(endDate.getTime()) || isNaN(serverTime.getTime())) {
+            console.warn('Некорректный формат даты после парсинга');
+            return null;
+        }
+        
+        // Вычитаем 3 минуты из времени окончания (прекращение отправки вопросов)
+        const effectiveEndDate = new Date(endDate.getTime() - 3 * 60 * 1000);
+        console.log('effectiveEndDate:', effectiveEndDate.toISOString());
+        
+        // Если эффективная дата окончания уже прошла, возвращаем null
+        if (effectiveEndDate <= serverTime) {
+            console.log('Турнир уже закончился или близок к завершению');
+            return null;
+        }
+        
+        // Вычисляем разницу в миллисекундах
+        const timeDiff = effectiveEndDate.getTime() - serverTime.getTime();
+        console.log('timeDiff (ms):', timeDiff);
+        
+        // Пересчитываем в дни, часы, минуты
+        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+        
+        console.log('Результат расчета:', days, 'дней,', hours, 'часов,', minutes, 'минут');
+        
+        // Формируем строку в зависимости от оставшегося времени
+        if (days > 0) {
+            return `${days} д. ${hours} ч. ${minutes} мин.`;
+        } else if (hours > 0) {
+            return `${hours} ч. ${minutes} мин.`;
+        } else {
+            return `${minutes} мин.`;
+        }
+    } catch (error) {
+        console.error('Ошибка при расчете времени до конца турнира:', error);
         return null;
-    }
-    
-    // Вычитаем 3 минуты из времени окончания (прекращение отправки вопросов)
-    const effectiveEndDate = new Date(endDate.getTime() - 3 * 60 * 1000);
-    
-    // Если эффективная дата окончания уже прошла, возвращаем null
-    if (effectiveEndDate <= serverTime) {
-        return null;
-    }
-    
-    // Вычисляем разницу в миллисекундах
-    const timeDiff = effectiveEndDate - serverTime;
-    
-    // Пересчитываем в дни, часы, минуты
-    const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-    
-    // Формируем строку в зависимости от оставшегося времени
-    if (days > 0) {
-        return `${days} д. ${hours} ч. ${minutes} мин.`;
-    } else if (hours > 0) {
-        return `${hours} ч. ${minutes} мин.`;
-    } else {
-        return `${minutes} мин.`;
     }
 }
 
