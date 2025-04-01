@@ -69,6 +69,11 @@ function loadData() {
     .then(data => {
         console.log('Data loaded successfully:', data);
         globalData = data;
+        
+        // Обновляем заголовок с номером турнира
+        updateTournamentHeader();
+        
+        // Обновляем информацию о времени и статистике
         updateLastUpdate(data.lastUpdate);
 
         // Если нет активного турнира, скрываем элементы и показываем сообщение
@@ -110,22 +115,66 @@ function loadData() {
 }
 
 /**
- * Обновление информации о последнем обновлении и времени до конца турнира
+ * Обновляет заголовок с номером турнира
+ */
+function updateTournamentHeader() {
+    // Добавляем заголовок с номером турнира под основным заголовком
+    if (globalData && globalData.tournament && globalData.tournament.activeTournament) {
+        const pageTitle = document.querySelector('.page-title');
+        if (pageTitle) {
+            // Создаем новый элемент для заголовка турнира, если его еще нет
+            let tournamentTitle = document.getElementById('tournamentTitle');
+            if (!tournamentTitle) {
+                tournamentTitle = document.createElement('h2');
+                tournamentTitle.id = 'tournamentTitle';
+                tournamentTitle.className = 'level-title';
+                tournamentTitle.style.fontStyle = 'normal';
+                tournamentTitle.style.marginTop = '10px';
+                
+                // Вставляем заголовок после основного заголовка
+                pageTitle.insertAdjacentElement('afterend', tournamentTitle);
+            }
+            
+            // Обновляем текст заголовка
+            tournamentTitle.textContent = `Турнир ${globalData.tournament.activeTournament}`;
+        }
+    }
+}
+
+/**
+ * Обновление информации о последнем обновлении, времени до конца турнира и статистике
  * @param {String} lastUpdate - Дата и время последнего обновления
  */
 function updateLastUpdate(lastUpdate) {
     const lastUpdateElement = document.getElementById('lastUpdate');
     if (lastUpdateElement) {
-        lastUpdateElement.textContent = `Данные обновлены: ${lastUpdate}`;
+        let infoHTML = `Данные обновлены: ${lastUpdate}`;
         
         // Добавляем информацию о времени до конца турнира, если есть активный турнир
         if (globalData && globalData.tournament && globalData.tournament.activeTournament && globalData.tournament.endDate) {
             // Используем строку lastUpdate как базу для времени сервера
             const timeLeft = getTimeLeftUntilEnd(globalData.tournament.endDate, lastUpdate);
             if (timeLeft) {
-                lastUpdateElement.innerHTML += `<br>До конца турнира осталось: ${timeLeft}`;
+                infoHTML += `<br>До конца турнира осталось: ${timeLeft}`;
             }
+            
+            // Добавляем статистику участников и ответов
+            // Подсчитываем общее количество ответов по всем уровням
+            let totalQuestions = 0;
+            Object.keys(globalData.tournament.ratings).forEach(level => {
+                globalData.tournament.ratings[level].forEach(player => {
+                    totalQuestions += player.tournament_questions || 0;
+                });
+            });
+            
+            infoHTML += `<br>Участников: ${globalData.tournament.totalPlayers}. 
+            Ответов: ${totalQuestions.toLocaleString('ru-RU')}`;
         }
+        
+        lastUpdateElement.innerHTML = infoHTML;
+        lastUpdateElement.style.textAlign = 'left';
+        lastUpdateElement.style.marginBottom = '20px';
+        lastUpdateElement.style.color = 'var(--secondary-color)';
     } else {
         console.warn('Last update element not found');
     }
@@ -291,23 +340,10 @@ function displayRatings(ratings) {
     const tournamentInfoContainer = document.getElementById('tournamentInfo');
     const tableContainer = document.getElementById('ratingTable');
 
-    // Отображаем информацию о турнире
-    if (globalData && globalData.tournament.activeTournament) {
-        // Подсчитываем общее количество ответов по всем уровням
-        let totalQuestions = 0;
-        Object.keys(globalData.tournament.ratings).forEach(level => {
-            globalData.tournament.ratings[level].forEach(player => {
-                totalQuestions += player.tournament_questions || 0;
-            });
-        });
-        
-        tournamentInfoContainer.innerHTML = `
-            <div class="tournament-info">
-                <h2 class="level-title" style="font-style: normal;">Турнир ${globalData.tournament.activeTournament}</h2>
-                <p style="text-align: left; margin-bottom: 20px; color: var(--secondary-color);">Участников: ${globalData.tournament.totalPlayers}. 
-                Ответов: ${totalQuestions.toLocaleString('ru-RU')}</p>
-            </div>
-        `;
+    // Обновляем информационный блок, если он есть
+    if (tournamentInfoContainer) {
+        // Очищаем блок с информацией о турнире, так как она теперь отображается в других элементах
+        tournamentInfoContainer.innerHTML = '';
     }
 
     // Проверяем наличие данных о выигрышах
