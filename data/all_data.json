@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-04-02 15:50:01 UTC",
+  "lastUpdate": "2025-04-02 15:55:02 UTC",
   "tournament": {
     "activeTournament": 2,
     "startDate": "2025-04-01 08:00:00",
@@ -188,7 +188,7 @@
           "points": 52.0,
           "remaining_boosters": 0,
           "wallet": 0.0,
-          "tournament_questions": 79,
+          "tournament_questions": 80,
           "has_active_boosters": 0
         },
         {
@@ -255,6 +255,15 @@
           "has_active_boosters": 0
         },
         {
+          "username": "1112370389",
+          "capital": 100.0,
+          "points": 36.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 16,
+          "has_active_boosters": 0
+        },
+        {
           "username": "374835027",
           "capital": 100.0,
           "points": 27.0,
@@ -297,15 +306,6 @@
           "remaining_boosters": 0,
           "wallet": 33.0,
           "tournament_questions": 15,
-          "has_active_boosters": 0
-        },
-        {
-          "username": "1112370389",
-          "capital": 100.0,
-          "points": 17.0,
-          "remaining_boosters": 0,
-          "wallet": 0.0,
-          "tournament_questions": 9,
           "has_active_boosters": 0
         },
         {
@@ -860,21 +860,21 @@
           "has_active_boosters": 0
         },
         {
+          "username": "6466019730",
+          "capital": 1000.0,
+          "points": 1330.0,
+          "remaining_boosters": 0,
+          "wallet": 34.0,
+          "tournament_questions": 72,
+          "has_active_boosters": 0
+        },
+        {
           "username": "410562869",
           "capital": 1000.0,
           "points": 1160.0,
           "remaining_boosters": 0,
           "wallet": 46.0,
           "tournament_questions": 51,
-          "has_active_boosters": 0
-        },
-        {
-          "username": "6466019730",
-          "capital": 1000.0,
-          "points": 1100.0,
-          "remaining_boosters": 0,
-          "wallet": 34.0,
-          "tournament_questions": 63,
           "has_active_boosters": 0
         },
         {
@@ -896,6 +896,15 @@
           "has_active_boosters": 0
         },
         {
+          "username": "1877397832",
+          "capital": 1000.0,
+          "points": 780.0,
+          "remaining_boosters": 230,
+          "wallet": 90.0,
+          "tournament_questions": 14,
+          "has_active_boosters": 1
+        },
+        {
           "username": "937719479",
           "capital": 1000.0,
           "points": 730.0,
@@ -912,15 +921,6 @@
           "wallet": 26.0,
           "tournament_questions": 24,
           "has_active_boosters": 0
-        },
-        {
-          "username": "1877397832",
-          "capital": 1000.0,
-          "points": 560.0,
-          "remaining_boosters": 234,
-          "wallet": 90.0,
-          "tournament_questions": 10,
-          "has_active_boosters": 1
         },
         {
           "username": "5296247997",
@@ -1050,7 +1050,7 @@
       "username": "Константин",
       "level": "Эксперт",
       "capital": 1000.0,
-      "wallet": 681.0,
+      "wallet": 701.0,
       "all_questions": 8,
       "remaining_boosters": 0
     },
@@ -1443,8 +1443,8 @@
       "level": "Эксперт",
       "capital": 1000.0,
       "wallet": 90.0,
-      "all_questions": 90,
-      "remaining_boosters": 234
+      "all_questions": 94,
+      "remaining_boosters": 230
     },
     {
       "username": "1879077527",
@@ -1531,7 +1531,7 @@
       "level": "Эксперт",
       "capital": 1000.0,
       "wallet": 34.0,
-      "all_questions": 143,
+      "all_questions": 152,
       "remaining_boosters": 0
     },
     {
@@ -6043,7 +6043,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 106,
+      "all_questions": 107,
       "remaining_boosters": 0
     },
     {
@@ -9427,7 +9427,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 9,
+      "all_questions": 16,
       "remaining_boosters": 0
     },
     {
