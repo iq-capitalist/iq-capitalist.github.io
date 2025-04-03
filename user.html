@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль игрока | IQ Capitalist</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/user.css">
+</head>
+<body>
+    <header id="header"></header>
+
+    <main>
+        <div class="container">
+            <h1 class="page-title">Профиль игрока</h1>
+            
+            <div id="loadingIndicator" class="loading-indicator">
+                <div class="spinner"></div>
+                <p>Загрузка данных игрока...</p>
+            </div>
+
+            <div id="errorMessage" class="error-message" style="display: none;">
+                <p>Ошибка загрузки данных игрока.</p>
+                <button class="btn btn-primary mt-3" onclick="window.location.reload()">
+                    Попробовать снова
+                </button>
+            </div>
+
+            <div id="playerNotFound" class="not-found-message" style="display: none;">
+                <p>Игрок не найден.</p>
+                <button class="btn btn-primary mt-3" onclick="window.location.href='players.html'">
+                    Вернуться к списку игроков
+                </button>
+            </div>
+            
+            <div id="playerProfile" style="display: none;">
+                <!-- Карточка с основной информацией -->
+                <div class="player-card">
+                    <div class="player-header">
+                        <h2 id="playerName" class="player-name">Имя игрока</h2>
+                        <div id="playerLevel" class="player-level">Уровень</div>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-icon">💰</div>
+                            <div class="stat-value" id="playerCapital">0</div>
+                            <div class="stat-label">Капитал</div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-icon">💼</div>
+                            <div class="stat-value" id="playerWallet">0</div>
+                            <div class="stat-label">Кошелёк</div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-icon">❓</div>
+                            <div class="stat-value" id="playerQuestions">0</div>
+                            <div class="stat-label">Ответов</div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-icon">🚀</div>
+                            <div class="stat-value" id="playerBoosters">0</div>
+                            <div class="stat-label">Бустеров</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Секция с данными о текущем турнире -->
+                <div id="currentTournamentSection" class="tournament-section">
+                    <h3>Текущий турнир</h3>
+                    <div id="currentTournamentData" class="current-tournament-data">
+                        <div class="tournament-stats-grid">
+                            <div class="tournament-stat-item">
+                                <div class="tournament-stat-value" id="currentTournamentQuestions">0</div>
+                                <div class="tournament-stat-label">Ответов</div>
+                            </div>
+                            
+                            <div class="tournament-stat-item">
+                                <div class="tournament-stat-value" id="currentTournamentPoints">0</div>
+                                <div class="tournament-stat-label">Очков</div>
+                            </div>
+                            
+                            <div class="tournament-stat-item">
+                                <div class="tournament-stat-value" id="currentTournamentPlace">—</div>
+                                <div class="tournament-stat-label">Место</div>
+                            </div>
+                            
+                            <div class="tournament-stat-item">
+                                <div class="tournament-stat-value" id="currentTournamentPrize">0</div>
+                                <div class="tournament-stat-label">Прогноз приза</div>
+                            </div>
+                        </div>
+                        
+                        <div class="current-tournament-chart-container">
+                            <canvas id="currentTournamentChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- График прогресса по турнирам -->
+                <div class="chart-section">
+                    <h3>Прогресс игрока по турнирам</h3>
+                    <div class="chart-container">
+                        <canvas id="tournamentProgressChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- График статистики ответов -->
+                <div class="chart-section">
+                    <h3>Статистика ответов</h3>
+                    <div class="chart-container">
+                        <canvas id="answersStatsChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- История турниров -->
+                <div class="history-section">
+                    <h3>История турниров</h3>
+                    <div class="table-responsive">
+                        <table class="tournament-history-table">
+                            <thead>
+                                <tr>
+                                    <th>Турнир</th>
+                                    <th>Уровень</th>
+                                    <th>Ответы</th>
+                                    <th>Очки</th>
+                                    <th>Приз</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="tournamentHistoryTableBody">
+                                <!-- Данные о турнирах будут добавлены через JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer"></footer>
+
+    <!-- Подключаем Chart.js для графиков -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    
+    <script src="js/main.js"></script>
+    <script src="js/user.js"></script>
+</body>
+</html>
