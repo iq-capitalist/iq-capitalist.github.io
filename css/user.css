@@ -1,0 +1,316 @@
+/* Основные переменные */
+:root {
+    --card-bg: #ffffff;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --card-border-radius: 12px;
+    --card-padding: 20px;
+    --card-margin: 20px 0;
+    --card-header-color: #34495e;
+    --section-margin: 30px 0;
+    
+    /* Цвета для графиков */
+    --chart-color-answers: rgba(52, 152, 219, 0.7);
+    --chart-color-points: rgba(46, 204, 113, 0.7);
+    --chart-color-prize: rgba(155, 89, 182, 0.7);
+    
+    /* Цвета для типов ответов */
+    --correct-fast-color: rgba(39, 174, 96, 0.8);
+    --correct-medium-color: rgba(46, 204, 113, 0.8);
+    --correct-slow-color: rgba(46, 204, 113, 0.6);
+    --wrong-fast-color: rgba(231, 76, 60, 0.8);
+    --wrong-medium-color: rgba(231, 76, 60, 0.7);
+    --wrong-slow-color: rgba(231, 76, 60, 0.6);
+    --timeout-color: rgba(243, 156, 18, 0.7);
+}
+
+/* Индикатор загрузки */
+.loading-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(52, 152, 219, 0.3);
+    border-left-color: #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Сообщения об ошибках */
+.error-message, .not-found-message {
+    background-color: #ffeeee;
+    color: #cc0000;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 30px 0;
+    border-left: 5px solid #cc0000;
+}
+
+.not-found-message {
+    background-color: #f8f9fa;
+    color: #666;
+    border-left-color: #aaa;
+}
+
+/* Карточка игрока */
+.player-card {
+    background-color: var(--card-bg);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-shadow);
+    padding: var(--card-padding);
+    margin: var(--card-margin);
+    border-top: 4px solid #3498db;
+}
+
+.player-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.player-name {
+    margin: 0;
+    font-size: 1.8rem;
+    color: var(--card-header-color);
+}
+
+.player-level {
+    background-color: #3498db;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* Сетка статистики */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 10px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 3px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+/* Секция текущего турнира */
+.tournament-section {
+    background-color: var(--card-bg);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-shadow);
+    padding: var(--card-padding);
+    margin: var(--card-margin);
+    border-top: 4px solid #e74c3c;
+}
+
+.tournament-section h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--card-header-color);
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.tournament-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.tournament-stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 10px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.tournament-stat-value {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 3px;
+}
+
+.tournament-stat-label {
+    font-size: 0.8rem;
+    color: #7f8c8d;
+}
+
+.current-tournament-chart-container {
+    margin-top: 20px;
+    height: 150px;
+}
+
+/* Секции с графиками */
+.chart-section {
+    background-color: var(--card-bg);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-shadow);
+    padding: var(--card-padding);
+    margin: var(--card-margin);
+    border-top: 4px solid #f39c12;
+}
+
+.chart-section h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--card-header-color);
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.chart-container {
+    height: 300px;
+    position: relative;
+}
+
+/* История турниров */
+.history-section {
+    background-color: var(--card-bg);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-shadow);
+    padding: var(--card-padding);
+    margin: var(--card-margin);
+    border-top: 4px solid #9b59b6;
+}
+
+.history-section h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: var(--card-header-color);
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.tournament-history-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.tournament-history-table th,
+.tournament-history-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.tournament-history-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.tournament-history-table tr:hover {
+    background-color: rgba(52, 152, 219, 0.05);
+}
+
+.tournament-history-table .btn-details {
+    padding: 5px 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.tournament-history-table .btn-details:hover {
+    background-color: #2980b9;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .stats-grid,
+    .tournament-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .chart-container {
+        height: 250px;
+    }
+    
+    .tournament-history-table th,
+    .tournament-history-table td {
+        padding: 10px 8px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .player-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .player-level {
+        margin-top: 10px;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .chart-container {
+        height: 200px;
+    }
+    
+    .tournament-history-table th:nth-child(2),
+    .tournament-history-table td:nth-child(2) {
+        display: none;
+    }
+}
