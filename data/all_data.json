@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-04-03 06:55:02 UTC",
+  "lastUpdate": "2025-04-03 07:00:01 UTC",
   "tournament": {
     "activeTournament": 2,
     "startDate": "2025-04-01 08:00:00",
@@ -221,10 +221,10 @@
         {
           "username": "5239062935",
           "capital": 100.0,
-          "points": 45.0,
+          "points": 44.0,
           "remaining_boosters": 0,
           "wallet": 48.0,
-          "tournament_questions": 48,
+          "tournament_questions": 52,
           "has_active_boosters": 0
         },
         {
@@ -399,6 +399,15 @@
           "has_active_boosters": 0
         },
         {
+          "username": "57747951",
+          "capital": 100.0,
+          "points": 6.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 18,
+          "has_active_boosters": 0
+        },
+        {
           "username": "349982422",
           "capital": 100.0,
           "points": 6.0,
@@ -547,7 +556,7 @@
           "capital": 100.0,
           "points": 0.0,
           "remaining_boosters": 0,
-          "wallet": 60.0,
+          "wallet": 200.0,
           "tournament_questions": 5,
           "has_active_boosters": 0
         },
@@ -567,15 +576,6 @@
           "remaining_boosters": 0,
           "wallet": 0.0,
           "tournament_questions": 5,
-          "has_active_boosters": 0
-        },
-        {
-          "username": "57747951",
-          "capital": 100.0,
-          "points": -3.0,
-          "remaining_boosters": 0,
-          "wallet": 0.0,
-          "tournament_questions": 3,
           "has_active_boosters": 0
         },
         {
@@ -1968,7 +1968,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 3,
+      "all_questions": 18,
       "remaining_boosters": 0
     },
     {
@@ -13104,7 +13104,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 48.0,
-      "all_questions": 86,
+      "all_questions": 90,
       "remaining_boosters": 0
     },
     {
@@ -14511,7 +14511,7 @@
       "username": "6166314229",
       "level": "Знаток",
       "capital": 100.0,
-      "wallet": 60.0,
+      "wallet": 200.0,
       "all_questions": 14,
       "remaining_boosters": 0
     },
