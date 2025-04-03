@@ -20,14 +20,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Загружаем данные
-    loadPlayerData(userId)
-        .then(data => {
-            if (!data) {
-                showPlayerNotFound();
-                return;
-            }
-        ]
-    };
+loadPlayerData(userId)
+    .then(data => {
+        if (!data) {
+            showPlayerNotFound();
+            return;
+        }
+        
+        playerData = data;
+        
+        // Загружаем данные о турнирах
+        return loadTournamentsIndex();
+    })
+    .then(/* ... */);
     
     // Опции графика
     const options = {
