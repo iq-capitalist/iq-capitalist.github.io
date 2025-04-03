@@ -166,9 +166,15 @@ function updateLevelHeader(data) {
     // Получаем количество игроков на текущем уровне
     const levelPlayers = data.players.filter(player => player.level === currentLevel);
     
+    // Получаем призовой фонд для текущего уровня
+    let prizeFund = 0;
+    if (data.stats && data.stats.prize_by_level && data.stats.prize_by_level[currentLevel]) {
+        prizeFund = data.stats.prize_by_level[currentLevel];
+    }
+    
     levelHeader.innerHTML = `
         <h2>Уровень ${currentLevel} (${range.min}${maxText})</h2>
-        <p class="level-info">Участников: ${levelPlayers.length}</p>
+        <p class="level-info">Участников: ${levelPlayers.length}. Призовой фонд: ${Math.round(prizeFund).toLocaleString('ru-RU')} IQC</p>
     `;
 }
 
