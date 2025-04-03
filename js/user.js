@@ -20,301 +20,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Загружаем данные
-loadPlayerData(userId)
-    .then(data => {
-        if (!data) {
-            showPlayerNotFound();
-            return;
-        }
-        
-        playerData = data;
-        
-        // Загружаем данные о турнирах
-        return loadTournamentsIndex();
-    })
-    .then(/* ... */);
-    
-    // Опции графика
-    const options = {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-            x: {
-                stacked: true
-            },
-            y: {
-                stacked: true,
-                beginAtZero: true
+    loadPlayerData(userId)
+        .then(data => {
+            if (!data) {
+                showPlayerNotFound();
+                return;
             }
-        }
-    };
-    
-    // Создаем график
-    charts.currentTournament = new Chart(ctx, {
-        type: 'bar',
-        data: data,
-        options: options
-    });
-}
-
-/**
- * Отображение истории турниров
- */
-function displayTournamentHistory() {
-    // Получаем элемент таблицы
-    const tableBody = document.getElementById('tournamentHistoryTableBody');
-    
-    // Если нет истории турниров, скрываем секцию
-    if (!playerData.tournament_history || playerData.tournament_history.length === 0) {
-        document.querySelector('.history-section').style.display = 'none';
-        return;
-    }
-    
-    // Очищаем таблицу
-    tableBody.innerHTML = '';
-    
-    // Добавляем строки для каждого турнира
-    playerData.tournament_history.forEach(tournament => {
-        const row = document.createElement('tr');
-        
-        // Форматируем дату турнира
-        let dateText = `#${tournament.tournament_id}`;
-        if (tournament.start_date) {
-            const startDate = new Date(tournament.start_date);
-            if (!isNaN(startDate.getTime())) {
-                dateText += ` (${startDate.toLocaleDateString('ru-RU')})`;
-            }
-        }
-        
-        row.innerHTML = `
-            <td>${dateText}</td>
-            <td>${tournament.level}</td>
-            <td>${formatNumber(tournament.answers)}</td>
-            <td>${formatDecimal(tournament.total_points)}</td>
-            <td>${formatNumber(tournament.prize)}</td>
-            <td>
-                <button class="btn-details" onclick="showTournamentDetails(${tournament.tournament_id})">
-                    Детали
-                </button>
-            </td>
-        `;
-        
-        tableBody.appendChild(row);
-    });
-}
-
-/**
- * Показать детали турнира
- * @param {number} tournamentId - ID турнира
- */
-function showTournamentDetails(tournamentId) {
-    // Перенаправляем на страницу турнира
-    window.location.href = `tournament.html?id=${tournamentId}`;
-}
-
-/**
- * Форматирование числа
- * @param {number} num - Число для форматирования
- * @returns {string} - Отформатированное число
- */
-function formatNumber(num) {
-    return num.toLocaleString('ru-RU');
-}
-
-/**
- * Форматирование десятичного числа
- * @param {number} num - Число для форматирования
- * @returns {string} - Отформатированное число с одним знаком после запятой
- */
-function formatDecimal(num) {
-    return num.toLocaleString('ru-RU', {
-        minimumFractionDigits: 1,
-        maximumFractionDigits: 1
-    });
-}
-
-// Экспортируем функцию showTournamentDetails в глобальную область видимости
-window.showTournamentDetails = showTournamentDetails;
-}
-
-/**
- * Создание графика статистики ответов
- */
-function createAnswersStatsChart() {
-    // Если нет истории турниров, скрываем секцию
-    if (!playerData.tournament_history || playerData.tournament_history.length === 0) {
-        document.querySelector('.chart-section:nth-of-type(2)').style.display = 'none';
-        return;
-    }
-    
-    // Получаем элемент canvas
-    const ctx = document.getElementById('answersStatsChart');
-    
-    // Инициализируем счетчики для разных типов ответов
-    let totalCorrectFast = 0;
-    let totalCorrectMedium = 0;
-    let totalCorrectSlow = 0;
-    let totalWrongFast = 0;
-    let totalWrongMedium = 0;
-    let totalWrongSlow = 0;
-    let totalTimeouts = 0;
-    
-    // Суммируем статистику по всем турнирам
-    playerData.tournament_history.forEach(tournament => {
-        if (tournament.correct_answers) {
-            totalCorrectFast += tournament.correct_answers.fast || 0;
-            totalCorrectMedium += tournament.correct_answers.medium || 0;
-            totalCorrectSlow += tournament.correct_answers.slow || 0;
-        }
-        if (tournament.wrong_answers) {
-            totalWrongFast += tournament.wrong_answers.fast || 0;
-            totalWrongMedium += tournament.wrong_answers.medium || 0;
-            totalWrongSlow += tournament.wrong_answers.slow || 0;
-        }
-        totalTimeouts += tournament.timeouts || 0;
-    });
-    
-    // Данные для графика
-    const data = {
-        labels: [
-            'Быстрые правильные',
-            'Средние правильные',
-            'Медленные правильные',
-            'Быстрые неправильные',
-            'Средние неправильные',
-            'Медленные неправильные',
-            'Таймауты'
-        ],
-        datasets: [{
-            data: [
-                totalCorrectFast,
-                totalCorrectMedium,
-                totalCorrectSlow,
-                totalWrongFast,
-                totalWrongMedium,
-                totalWrongSlow,
-                totalTimeouts
-            ],
-            backgroundColor: [
-                'rgba(39, 174, 96, 0.8)',
-                'rgba(46, 204, 113, 0.8)',
-                'rgba(46, 204, 113, 0.6)',
-                'rgba(231, 76, 60, 0.8)',
-                'rgba(231, 76, 60, 0.7)',
-                'rgba(231, 76, 60, 0.6)',
-                'rgba(243, 156, 18, 0.7)'
-            ],
-            borderWidth: 1
-        }]
-    };
-    
-    // Опции графика
-    const options = {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            legend: {
-                position: 'right'
-            }
-        }
-    };
-    
-    // Создаем график
-    charts.answersStats = new Chart(ctx, {
-        type: 'pie',
-        data: data,
-        options: options
-    });
-}
-
-/**
- * Создание графика прогресса по турнирам
- */
-function createTournamentProgressChart() {
-    // Если нет истории турниров, скрываем секцию
-    if (!playerData.tournament_history || playerData.tournament_history.length === 0) {
-        document.querySelector('.chart-section:nth-of-type(1)').style.display = 'none';
-        return;
-    }
-    
-    // Получаем элемент canvas
-    const ctx = document.getElementById('tournamentProgressChart');
-    
-    // Сортируем историю по ID турнира (по возрастанию для графика)
-    const sortedHistory = [...playerData.tournament_history].sort((a, b) => a.tournament_id - b.tournament_id);
-    
-    // Подготавливаем данные для графика
-    const labels = sortedHistory.map(t => `Турнир ${t.tournament_id}`);
-    const answers = sortedHistory.map(t => t.answers);
-    const points = sortedHistory.map(t => t.total_points);
-    const prizes = sortedHistory.map(t => t.prize);
-    
-    // Данные для графика
-    const data = {
-        labels: labels,
-        datasets: [
-            {
-                label: 'Ответы',
-                data: answers,
-                backgroundColor: 'rgba(52, 152, 219, 0.2)',
-                borderColor: 'rgba(52, 152, 219, 1)',
-                borderWidth: 2,
-                tension: 0.2,
-                yAxisID: 'y'
-            },
-            {
-                label: 'Очки',
-                data: points,
-                backgroundColor: 'rgba(46, 204, 113, 0.2)',
-                borderColor: 'rgba(46, 204, 113, 1)',
-                borderWidth: 2,
-                tension: 0.2,
-                yAxisID: 'y'
-            },
-            {
-                label: 'Приз',
-                data: prizes,
-                backgroundColor: 'rgba(155, 89, 182, 0.2)',
-                borderColor: 'rgba(155, 89, 182, 1)',
-                borderWidth: 2,
-                tension: 0.2,
-                yAxisID: 'y1'
-            }
-        ]
-    };
-    
-    // Опции графика
-    const options = {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-            y: {
-                beginAtZero: true,
-                title: {
-                    display: true,
-                    text: 'Ответы / Очки'
-                }
-            },
-            y1: {
-                beginAtZero: true,
-                position: 'right',
-                grid: {
-                    drawOnChartArea: false
-                },
-                title: {
-                    display: true,
-                    text: 'Приз (IQC)'
-                }
-            }
-        }
-    };
-    
-    // Создаем график
-    charts.tournamentProgress = new Chart(ctx, {
-        type: 'line',
-        data: data,
-        options: options
-    });
             
             playerData = data;
             
@@ -628,7 +339,6 @@ function createCurrentTournamentChart(playerData) {
                 backgroundColor: 'rgba(46, 204, 113, 0.7)',
                 borderColor: 'rgba(46, 204, 113, 1)',
                 borderWidth: 1
-            }
             },
             {
                 label: 'Неправильные',
@@ -636,3 +346,288 @@ function createCurrentTournamentChart(playerData) {
                 backgroundColor: 'rgba(231, 76, 60, 0.7)',
                 borderColor: 'rgba(231, 76, 60, 1)',
                 borderWidth: 1
+            }
+        ]
+    };
+    
+    // Опции графика
+    const options = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            x: {
+                stacked: true
+            },
+            y: {
+                stacked: true,
+                beginAtZero: true
+            }
+        }
+    };
+    
+    // Создаем график
+    charts.currentTournament = new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: options
+    });
+}
+
+/**
+ * Создание графика прогресса по турнирам
+ */
+function createTournamentProgressChart() {
+    // Если нет истории турниров, скрываем секцию
+    if (!playerData.tournament_history || playerData.tournament_history.length === 0) {
+        document.querySelector('.chart-section:nth-of-type(1)').style.display = 'none';
+        return;
+    }
+    
+    // Получаем элемент canvas
+    const ctx = document.getElementById('tournamentProgressChart');
+    
+    // Сортируем историю по ID турнира (по возрастанию для графика)
+    const sortedHistory = [...playerData.tournament_history].sort((a, b) => a.tournament_id - b.tournament_id);
+    
+    // Подготавливаем данные для графика
+    const labels = sortedHistory.map(t => `Турнир ${t.tournament_id}`);
+    const answers = sortedHistory.map(t => t.answers);
+    const points = sortedHistory.map(t => t.total_points);
+    const prizes = sortedHistory.map(t => t.prize);
+    
+    // Данные для графика
+    const data = {
+        labels: labels,
+        datasets: [
+            {
+                label: 'Ответы',
+                data: answers,
+                backgroundColor: 'rgba(52, 152, 219, 0.2)',
+                borderColor: 'rgba(52, 152, 219, 1)',
+                borderWidth: 2,
+                tension: 0.2,
+                yAxisID: 'y'
+            },
+            {
+                label: 'Очки',
+                data: points,
+                backgroundColor: 'rgba(46, 204, 113, 0.2)',
+                borderColor: 'rgba(46, 204, 113, 1)',
+                borderWidth: 2,
+                tension: 0.2,
+                yAxisID: 'y'
+            },
+            {
+                label: 'Приз',
+                data: prizes,
+                backgroundColor: 'rgba(155, 89, 182, 0.2)',
+                borderColor: 'rgba(155, 89, 182, 1)',
+                borderWidth: 2,
+                tension: 0.2,
+                yAxisID: 'y1'
+            }
+        ]
+    };
+    
+    // Опции графика
+    const options = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'Ответы / Очки'
+                }
+            },
+            y1: {
+                beginAtZero: true,
+                position: 'right',
+                grid: {
+                    drawOnChartArea: false
+                },
+                title: {
+                    display: true,
+                    text: 'Приз (IQC)'
+                }
+            }
+        }
+    };
+    
+    // Создаем график
+    charts.tournamentProgress = new Chart(ctx, {
+        type: 'line',
+        data: data,
+        options: options
+    });
+}
+
+/**
+ * Создание графика статистики ответов
+ */
+function createAnswersStatsChart() {
+    // Если нет истории турниров, скрываем секцию
+    if (!playerData.tournament_history || playerData.tournament_history.length === 0) {
+        document.querySelector('.chart-section:nth-of-type(2)').style.display = 'none';
+        return;
+    }
+    
+    // Получаем элемент canvas
+    const ctx = document.getElementById('answersStatsChart');
+    
+    // Инициализируем счетчики для разных типов ответов
+    let totalCorrectFast = 0;
+    let totalCorrectMedium = 0;
+    let totalCorrectSlow = 0;
+    let totalWrongFast = 0;
+    let totalWrongMedium = 0;
+    let totalWrongSlow = 0;
+    let totalTimeouts = 0;
+    
+    // Суммируем статистику по всем турнирам
+    playerData.tournament_history.forEach(tournament => {
+        if (tournament.correct_answers) {
+            totalCorrectFast += tournament.correct_answers.fast || 0;
+            totalCorrectMedium += tournament.correct_answers.medium || 0;
+            totalCorrectSlow += tournament.correct_answers.slow || 0;
+        }
+        if (tournament.wrong_answers) {
+            totalWrongFast += tournament.wrong_answers.fast || 0;
+            totalWrongMedium += tournament.wrong_answers.medium || 0;
+            totalWrongSlow += tournament.wrong_answers.slow || 0;
+        }
+        totalTimeouts += tournament.timeouts || 0;
+    });
+    
+    // Данные для графика
+    const data = {
+        labels: [
+            'Быстрые правильные',
+            'Средние правильные',
+            'Медленные правильные',
+            'Быстрые неправильные',
+            'Средние неправильные',
+            'Медленные неправильные',
+            'Таймауты'
+        ],
+        datasets: [{
+            data: [
+                totalCorrectFast,
+                totalCorrectMedium,
+                totalCorrectSlow,
+                totalWrongFast,
+                totalWrongMedium,
+                totalWrongSlow,
+                totalTimeouts
+            ],
+            backgroundColor: [
+                'rgba(39, 174, 96, 0.8)',
+                'rgba(46, 204, 113, 0.8)',
+                'rgba(46, 204, 113, 0.6)',
+                'rgba(231, 76, 60, 0.8)',
+                'rgba(231, 76, 60, 0.7)',
+                'rgba(231, 76, 60, 0.6)',
+                'rgba(243, 156, 18, 0.7)'
+            ],
+            borderWidth: 1
+        }]
+    };
+    
+    // Опции графика
+    const options = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                position: 'right'
+            }
+        }
+    };
+    
+    // Создаем график
+    charts.answersStats = new Chart(ctx, {
+        type: 'pie',
+        data: data,
+        options: options
+    });
+}
+
+/**
+ * Отображение истории турниров
+ */
+function displayTournamentHistory() {
+    // Получаем элемент таблицы
+    const tableBody = document.getElementById('tournamentHistoryTableBody');
+    
+    // Если нет истории турниров, скрываем секцию
+    if (!playerData.tournament_history || playerData.tournament_history.length === 0) {
+        document.querySelector('.history-section').style.display = 'none';
+        return;
+    }
+    
+    // Очищаем таблицу
+    tableBody.innerHTML = '';
+    
+    // Добавляем строки для каждого турнира
+    playerData.tournament_history.forEach(tournament => {
+        const row = document.createElement('tr');
+        
+        // Форматируем дату турнира
+        let dateText = `#${tournament.tournament_id}`;
+        if (tournament.start_date) {
+            const startDate = new Date(tournament.start_date);
+            if (!isNaN(startDate.getTime())) {
+                dateText += ` (${startDate.toLocaleDateString('ru-RU')})`;
+            }
+        }
+        
+        row.innerHTML = `
+            <td>${dateText}</td>
+            <td>${tournament.level}</td>
+            <td>${formatNumber(tournament.answers)}</td>
+            <td>${formatDecimal(tournament.total_points)}</td>
+            <td>${formatNumber(tournament.prize)}</td>
+            <td>
+                <button class="btn-details" onclick="showTournamentDetails(${tournament.tournament_id})">
+                    Детали
+                </button>
+            </td>
+        `;
+        
+        tableBody.appendChild(row);
+    });
+}
+
+/**
+ * Показать детали турнира
+ * @param {number} tournamentId - ID турнира
+ */
+function showTournamentDetails(tournamentId) {
+    // Перенаправляем на страницу турнира
+    window.location.href = `tournament.html?id=${tournamentId}`;
+}
+
+/**
+ * Форматирование числа
+ * @param {number} num - Число для форматирования
+ * @returns {string} - Отформатированное число
+ */
+function formatNumber(num) {
+    return num.toLocaleString('ru-RU');
+}
+
+/**
+ * Форматирование десятичного числа
+ * @param {number} num - Число для форматирования
+ * @returns {string} - Отформатированное число с одним знаком после запятой
+ */
+function formatDecimal(num) {
+    return num.toLocaleString('ru-RU', {
+        minimumFractionDigits: 1,
+        maximumFractionDigits: 1
+    });
+}
+
+// Экспортируем функцию showTournamentDetails в глобальную область видимости
+window.showTournamentDetails = showTournamentDetails;
