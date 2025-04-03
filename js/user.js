@@ -395,8 +395,9 @@ async function loadPlayerTournamentHistory() {
     // Создаем массив для хранения истории турниров игрока
     playerData.tournament_history = [];
     
-    // Получаем имя игрока для поиска
+    // Получаем данные для поиска игрока в турнирах
     const username = playerData.username;
+    const userId = playerData.user_id;
     
     // Перебираем все турниры из индекса
     const promises = tournamentsData.map(async (tournament) => {
@@ -405,8 +406,14 @@ async function loadPlayerTournamentHistory() {
             const response = await fetch(`data/${tournament.id}.json`);
             const tournamentData = await response.json();
             
-            // Ищем игрока в этом турнире
-            const player = tournamentData.players.find(p => p.username === username);
+            // Ищем игрока в этом турнире, сначала по user_id, затем по username
+            let player = tournamentData.players.find(p => p.user_id == userId);
+            
+            // Если по ID не нашли, пробуем найти по имени (для старых данных без ID)
+            if (!player) {
+                player = tournamentData.players.find(p => p.username === username);
+            }
+            
             if (player) {
                 // Добавляем данные об этом турнире в историю игрока
                 playerData.tournament_history.push({
@@ -437,16 +444,26 @@ async function loadPlayerTournamentHistory() {
 
 /**
  * Загрузка данных об игроке
- * @param {string} userId - ID игрока
+ * @param {string} userId - ID игрока или имя пользователя
  */
 async function loadPlayerData(userId) {
     try {
-        // Сначала загружаем all_data.json, чтобы найти игрока по имени
+        // Загружаем all_data.json для поиска игрока
         const response = await fetch('data/all_data.json');
         const allData = await response.json();
         
-        // Ищем игрока в списке всех игроков
-        const player = allData.players.find(p => p.username === userId);
+        // Проверяем, является ли userId числом (ID) или строкой (имя пользователя)
+        const isNumericId = !isNaN(parseInt(userId));
+        
+        let player;
+        if (isNumericId) {
+            // Ищем по числовому ID
+            player = allData.players.find(p => p.user_id == userId);
+        } else {
+            // Если это не числовой ID, ищем по имени пользователя (для обратной совместимости)
+            player = allData.players.find(p => p.username === userId);
+        }
+        
         if (!player) {
             return null;
         }
@@ -531,6 +548,7 @@ function displayCurrentTournamentData() {
     let levelRatings = currentTournamentData.ratings[playerLevel] || [];
     
     // Ищем игрока в рейтингах его уровня
+    // Примечание: в рейтингах может не быть поля user_id, поэтому используем имя пользователя
     playerInTournament = levelRatings.find(p => p.username === playerData.username);
     
     // Если игрок не найден, скрываем секцию
