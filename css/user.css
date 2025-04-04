@@ -7,8 +7,9 @@
     --card-margin: 20px 0;
     --card-header-color: #34495e;
     --section-margin: 30px 0;
+    --card-border-top-color: #3498db; /* Единый синий цвет для всех полосок */
     
-    /* Цвета для графиков */
+    /* Цвета для графиков - оставляем для использования в самих графиках */
     --chart-color-answers: rgba(52, 152, 219, 0.7);
     --chart-color-points: rgba(46, 204, 113, 0.7);
     --chart-color-prize: rgba(155, 89, 182, 0.7);
@@ -83,7 +84,7 @@
     box-shadow: var(--card-shadow);
     padding: var(--card-padding);
     margin: var(--card-margin);
-    border-top: 4px solid #3498db;
+    border-top: 4px solid var(--card-border-top-color);
 }
 
 /* Сетка статистики */
@@ -133,19 +134,7 @@
     box-shadow: var(--card-shadow);
     padding: var(--card-padding);
     margin: var(--card-margin);
-    border-top: 4px solid #f39c12;
-}
-
-.chart-section:nth-of-type(1) {
-    border-top-color: var(--chart-color-answers);
-}
-
-.chart-section:nth-of-type(2) {
-    border-top-color: var(--chart-color-points);
-}
-
-.chart-section:nth-of-type(3) {
-    border-top-color: var(--chart-color-prize);
+    border-top: 4px solid var(--card-border-top-color);
 }
 
 .chart-section h3 {
@@ -168,7 +157,7 @@
     box-shadow: var(--card-shadow);
     padding: var(--card-padding);
     margin: var(--card-margin);
-    border-top: 4px solid #9b59b6;
+    border-top: 4px solid var(--card-border-top-color);
 }
 
 .history-section h3 {
