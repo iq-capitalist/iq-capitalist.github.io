@@ -400,9 +400,6 @@ function createPrizesProgressChart() {
 /**
  * Создание графика статистики ответов
  */
-/**
- * Создание графика статистики ответов
- */
 function createAnswersStatsChart() {
     // Если нет истории турниров, скрываем секцию
     if (!playerData.tournament_history || playerData.tournament_history.length === 0) {
@@ -420,44 +417,45 @@ function createAnswersStatsChart() {
     const labels = sortedHistory.map(t => `Турнир ${t.tournament_id}`);
     
     // Получаем данные о типах ответов для каждого турнира
-    const correctFast = [];
-    const correctMedium = [];
-    const correctSlow = [];
-    const wrongFast = [];
-    const wrongMedium = [];
-    const wrongSlow = [];
     const timeouts = [];
+    const correctSlow = [];
+    const correctMedium = [];
+    const correctFast = [];
+    const wrongSlow = [];
+    const wrongMedium = [];
+    const wrongFast = [];
     
     sortedHistory.forEach(tournament => {
-        // Собираем данные о правильных ответах (положительные значения)
-        correctFast.push(tournament.correct_answers?.fast || 0);
-        correctMedium.push(tournament.correct_answers?.medium || 0);
+        // Собираем данные (положительные значения - вверх)
+        timeouts.push(tournament.timeouts || 0);
         correctSlow.push(tournament.correct_answers?.slow || 0);
+        correctMedium.push(tournament.correct_answers?.medium || 0);
+        correctFast.push(tournament.correct_answers?.fast || 0);
         
-        // Собираем данные о неправильных ответах (негативные значения)
-        wrongFast.push(-(tournament.wrong_answers?.fast || 0));
-        wrongMedium.push(-(tournament.wrong_answers?.medium || 0));
+        // Собираем данные (негативные значения - вниз)
         wrongSlow.push(-(tournament.wrong_answers?.slow || 0));
-        
-        // Таймауты будут показаны как отдельная категория посередине
-        // Мы разделим таймауты, половину разместим вверху, половину внизу
-        const timeoutValue = tournament.timeouts || 0;
-        const timeoutHalf = Math.floor(timeoutValue / 2);
-        timeouts.push(timeoutHalf);
-        
-        // Оставшаяся часть таймаутов будет учтена при отрисовке
+        wrongMedium.push(-(tournament.wrong_answers?.medium || 0));
+        wrongFast.push(-(tournament.wrong_answers?.fast || 0));
     });
     
-    // Данные для графика
+    // Данные для графика - один общий стэк
     const data = {
         labels: labels,
         datasets: [
-            // Правильные ответы - положительные значения (вверх)
+            // Положительные значения (вверх) в порядке от нуля
             {
-                label: 'Быстрые правильные',
-                data: correctFast,
-                backgroundColor: 'rgba(39, 174, 96, 0.8)',
-                borderColor: 'rgba(39, 174, 96, 1)',
+                label: 'Таймауты',
+                data: timeouts,
+                backgroundColor: 'rgba(243, 156, 18, 0.7)',
+                borderColor: 'rgba(243, 156, 18, 0.9)',
+                borderWidth: 1,
+                stack: 'Stack 0'
+            },
+            {
+                label: 'Медленные правильные',
+                data: correctSlow,
+                backgroundColor: 'rgba(46, 204, 113, 0.6)',
+                borderColor: 'rgba(46, 204, 113, 0.8)',
                 borderWidth: 1,
                 stack: 'Stack 0'
             },
@@ -470,39 +468,21 @@ function createAnswersStatsChart() {
                 stack: 'Stack 0'
             },
             {
-                label: 'Медленные правильные',
-                data: correctSlow,
-                backgroundColor: 'rgba(46, 204, 113, 0.6)',
-                borderColor: 'rgba(46, 204, 113, 0.8)',
+                label: 'Быстрые правильные',
+                data: correctFast,
+                backgroundColor: 'rgba(39, 174, 96, 0.8)',
+                borderColor: 'rgba(39, 174, 96, 1)',
                 borderWidth: 1,
                 stack: 'Stack 0'
             },
-            // Таймауты - частично положительные
-            {
-                label: 'Таймауты',
-                data: timeouts,
-                backgroundColor: 'rgba(243, 156, 18, 0.7)',
-                borderColor: 'rgba(243, 156, 18, 0.9)',
-                borderWidth: 1,
-                stack: 'Stack 0'
-            },
-            // Таймауты - частично отрицательные
-            {
-                label: 'Таймауты',
-                data: sortedHistory.map(t => -(Math.ceil((t.timeouts || 0) / 2))),
-                backgroundColor: 'rgba(243, 156, 18, 0.7)',
-                borderColor: 'rgba(243, 156, 18, 0.9)',
-                borderWidth: 1,
-                stack: 'Stack 1'
-            },
-            // Неправильные ответы - отрицательные значения (вниз)
+            // Отрицательные значения (вниз) в порядке от нуля
             {
                 label: 'Медленные неправильные',
                 data: wrongSlow,
                 backgroundColor: 'rgba(231, 76, 60, 0.6)',
                 borderColor: 'rgba(231, 76, 60, 0.8)',
                 borderWidth: 1,
-                stack: 'Stack 1'
+                stack: 'Stack 0'
             },
             {
                 label: 'Средние неправильные',
@@ -510,7 +490,7 @@ function createAnswersStatsChart() {
                 backgroundColor: 'rgba(231, 76, 60, 0.7)',
                 borderColor: 'rgba(231, 76, 60, 0.9)',
                 borderWidth: 1,
-                stack: 'Stack 1'
+                stack: 'Stack 0'
             },
             {
                 label: 'Быстрые неправильные',
@@ -518,7 +498,7 @@ function createAnswersStatsChart() {
                 backgroundColor: 'rgba(231, 76, 60, 0.8)',
                 borderColor: 'rgba(231, 76, 60, 1)',
                 borderWidth: 1,
-                stack: 'Stack 1'
+                stack: 'Stack 0'
             }
         ]
     };
@@ -545,16 +525,7 @@ function createAnswersStatsChart() {
         },
         plugins: {
             legend: {
-                position: 'right',
-                labels: {
-                    // Скрываем дубликат меток "Таймауты" в легенде
-                    filter: (legendItem, data) => {
-                        if (legendItem.text === 'Таймауты') {
-                            return legendItem.datasetIndex === 3;
-                        }
-                        return true;
-                    }
-                }
+                position: 'right'
             },
             tooltip: {
                 callbacks: {
