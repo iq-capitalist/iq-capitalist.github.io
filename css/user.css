@@ -66,6 +66,16 @@
     border-left-color: #aaa;
 }
 
+/* Заголовок страницы с именем игрока */
+.page-title {
+    color: var(--card-header-color);
+    margin-bottom: 25px;
+    font-size: 2.2rem;
+    font-weight: 700;
+    border-bottom: 2px solid rgba(52, 152, 219, 0.3);
+    padding-bottom: 10px;
+}
+
 /* Карточка игрока */
 .player-card {
     background-color: var(--card-bg);
@@ -76,36 +86,12 @@
     border-top: 4px solid #3498db;
 }
 
-.player-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #eee;
-}
-
-.player-name {
-    margin: 0;
-    font-size: 1.8rem;
-    color: var(--card-header-color);
-}
-
-.player-level {
-    background-color: #3498db;
-    color: white;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-weight: bold;
-    font-size: 1rem;
-}
-
 /* Сетка статистики */
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 15px;
-    margin-top: 20px;
+    margin-top: 5px;
 }
 
 .stat-item {
@@ -140,7 +126,7 @@
     color: #7f8c8d;
 }
 
-/* Секция текущего турнира */
+/* Секция с данными о текущем турнире */
 .tournament-section {
     background-color: var(--card-bg);
     border-radius: var(--card-border-radius);
@@ -201,6 +187,18 @@
     border-top: 4px solid #f39c12;
 }
 
+.chart-section:nth-of-type(1) {
+    border-top-color: var(--chart-color-answers);
+}
+
+.chart-section:nth-of-type(2) {
+    border-top-color: var(--chart-color-points);
+}
+
+.chart-section:nth-of-type(3) {
+    border-top-color: var(--chart-color-prize);
+}
+
 .chart-section h3 {
     margin-top: 0;
     margin-bottom: 20px;
@@ -210,7 +208,7 @@
 }
 
 .chart-container {
-    height: 300px;
+    height: 250px;
     position: relative;
 }
 
@@ -274,6 +272,12 @@
 }
 
 /* Адаптивность */
+@media (max-width: 992px) {
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
     .stats-grid,
     .tournament-stats-grid {
@@ -281,7 +285,7 @@
     }
     
     .chart-container {
-        height: 250px;
+        height: 220px;
     }
     
     .tournament-history-table th,
@@ -292,15 +296,6 @@
 }
 
 @media (max-width: 480px) {
-    .player-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .player-level {
-        margin-top: 10px;
-    }
-    
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
     }
