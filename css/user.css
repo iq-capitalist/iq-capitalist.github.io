@@ -126,57 +126,6 @@
     color: #7f8c8d;
 }
 
-/* Секция с данными о текущем турнире */
-.tournament-section {
-    background-color: var(--card-bg);
-    border-radius: var(--card-border-radius);
-    box-shadow: var(--card-shadow);
-    padding: var(--card-padding);
-    margin: var(--card-margin);
-    border-top: 4px solid #e74c3c;
-}
-
-.tournament-section h3 {
-    margin-top: 0;
-    margin-bottom: 20px;
-    color: var(--card-header-color);
-    padding-bottom: 10px;
-    border-bottom: 1px solid #eee;
-}
-
-.tournament-stats-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.tournament-stat-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 12px 10px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-}
-
-.tournament-stat-value {
-    font-size: 1.3rem;
-    font-weight: bold;
-    color: #2c3e50;
-    margin-bottom: 3px;
-}
-
-.tournament-stat-label {
-    font-size: 0.8rem;
-    color: #7f8c8d;
-}
-
-.current-tournament-chart-container {
-    margin-top: 20px;
-    height: 150px;
-}
-
 /* Секции с графиками */
 .chart-section {
     background-color: var(--card-bg);
@@ -279,8 +228,7 @@
 }
 
 @media (max-width: 768px) {
-    .stats-grid,
-    .tournament-stats-grid {
+    .stats-grid {
         grid-template-columns: repeat(2, 1fr);
     }
     
