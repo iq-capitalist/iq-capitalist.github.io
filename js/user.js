@@ -6,84 +6,7 @@
 let playerData = null;
 let tournamentsData = [];
 let currentTournamentData = null;
-let charts = {/**
- * Отображение истории турниров
- */
-function displayTournamentHistory() {
-    // Получаем элемент таблицы
-    const tableBody = document.getElementById('tournamentHistoryTableBody');
-    
-    // Если нет истории турниров, скрываем секцию
-    if (!playerData.tournament_history || playerData.tournament_history.length === 0) {
-        document.querySelector('.history-section').style.display = 'none';
-        return;
-    }
-    
-    // Очищаем таблицу
-    tableBody.innerHTML = '';
-    
-    // Добавляем строки для каждого турнира
-    playerData.tournament_history.forEach(tournament => {
-        const row = document.createElement('tr');
-        
-        // Форматируем дату турнира
-        let dateText = `#${tournament.tournament_id}`;
-        if (tournament.start_date) {
-            const startDate = new Date(tournament.start_date);
-            if (!isNaN(startDate.getTime())) {
-                dateText += ` (${startDate.toLocaleDateString('ru-RU')})`;
-            }
-        }
-        
-        row.innerHTML = `
-            <td>${dateText}</td>
-            <td>${tournament.level}</td>
-            <td>${formatNumber(tournament.answers)}</td>
-            <td>${formatDecimal(tournament.total_points)}</td>
-            <td>${formatNumber(tournament.prize)}</td>
-            <td>
-                <button class="btn-details" onclick="showTournamentDetails(${tournament.tournament_id})">
-                    Детали
-                </button>
-            </td>
-        `;
-        
-        tableBody.appendChild(row);
-    });
-}
-
-/**
- * Показать детали турнира
- * @param {number} tournamentId - ID турнира
- */
-function showTournamentDetails(tournamentId) {
-    // Перенаправляем на страницу турнира
-    window.location.href = `tournament.html?id=${tournamentId}`;
-}
-
-/**
- * Форматирование числа
- * @param {number} num - Число для форматирования
- * @returns {string} - Отформатированное число
- */
-function formatNumber(num) {
-    return num.toLocaleString('ru-RU');
-}
-
-/**
- * Форматирование десятичного числа
- * @param {number} num - Число для форматирования
- * @returns {string} - Отформатированное число с одним знаком после запятой
- */
-function formatDecimal(num) {
-    return num.toLocaleString('ru-RU', {
-        minimumFractionDigits: 1,
-        maximumFractionDigits: 1
-    });
-}
-
-// Экспортируем функцию showTournamentDetails в глобальную область видимости
-window.showTournamentDetails = showTournamentDetails;;
+let charts = {};
 
 // Инициализация при загрузке DOM
 document.addEventListener('DOMContentLoaded', function() {
@@ -719,3 +642,82 @@ function createAnswersStatsChart() {
         options: options
     });
 }
+
+/**
+ * Отображение истории турниров
+ */
+function displayTournamentHistory() {
+    // Получаем элемент таблицы
+    const tableBody = document.getElementById('tournamentHistoryTableBody');
+    
+    // Если нет истории турниров, скрываем секцию
+    if (!playerData.tournament_history || playerData.tournament_history.length === 0) {
+        document.querySelector('.history-section').style.display = 'none';
+        return;
+    }
+    
+    // Очищаем таблицу
+    tableBody.innerHTML = '';
+    
+    // Добавляем строки для каждого турнира
+    playerData.tournament_history.forEach(tournament => {
+        const row = document.createElement('tr');
+        
+        // Форматируем дату турнира
+        let dateText = `#${tournament.tournament_id}`;
+        if (tournament.start_date) {
+            const startDate = new Date(tournament.start_date);
+            if (!isNaN(startDate.getTime())) {
+                dateText += ` (${startDate.toLocaleDateString('ru-RU')})`;
+            }
+        }
+        
+        row.innerHTML = `
+            <td>${dateText}</td>
+            <td>${tournament.level}</td>
+            <td>${formatNumber(tournament.answers)}</td>
+            <td>${formatDecimal(tournament.total_points)}</td>
+            <td>${formatNumber(tournament.prize)}</td>
+            <td>
+                <button class="btn-details" onclick="showTournamentDetails(${tournament.tournament_id})">
+                    Детали
+                </button>
+            </td>
+        `;
+        
+        tableBody.appendChild(row);
+    });
+}
+
+/**
+ * Показать детали турнира
+ * @param {number} tournamentId - ID турнира
+ */
+function showTournamentDetails(tournamentId) {
+    // Перенаправляем на страницу турнира
+    window.location.href = `tournament.html?id=${tournamentId}`;
+}
+
+/**
+ * Форматирование числа
+ * @param {number} num - Число для форматирования
+ * @returns {string} - Отформатированное число
+ */
+function formatNumber(num) {
+    return num.toLocaleString('ru-RU');
+}
+
+/**
+ * Форматирование десятичного числа
+ * @param {number} num - Число для форматирования
+ * @returns {string} - Отформатированное число с одним знаком после запятой
+ */
+function formatDecimal(num) {
+    return num.toLocaleString('ru-RU', {
+        minimumFractionDigits: 1,
+        maximumFractionDigits: 1
+    });
+}
+
+// Экспортируем функцию showTournamentDetails в глобальную область видимости
+window.showTournamentDetails = showTournamentDetails;
