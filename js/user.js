@@ -587,24 +587,10 @@ function displayTournamentHistory() {
             <td>${formatNumber(tournament.answers)}</td>
             <td>${formatDecimal(tournament.total_points)}</td>
             <td>${formatNumber(tournament.prize)}</td>
-            <td>
-                <button class="btn-details" onclick="showTournamentDetails(${tournament.tournament_id})">
-                    Детали
-                </button>
-            </td>
         `;
         
         tableBody.appendChild(row);
     });
-}
-
-/**
- * Показать детали турнира
- * @param {number} tournamentId - ID турнира
- */
-function showTournamentDetails(tournamentId) {
-    // Перенаправляем на страницу турнира
-    window.location.href = `tournament.html?id=${tournamentId}`;
 }
 
 /**
@@ -627,6 +613,3 @@ function formatDecimal(num) {
         maximumFractionDigits: 1
     });
 }
-
-// Экспортируем функцию showTournamentDetails в глобальную область видимости
-window.showTournamentDetails = showTournamentDetails;
