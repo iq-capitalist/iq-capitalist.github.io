@@ -270,10 +270,32 @@ function createAnswersProgressChart() {
     // Получаем элемент canvas
     const ctx = document.getElementById('answersProgressChart');
     
-    // Находим минимальный и максимальный ID турнира
-    const tournamentIds = playerData.tournament_history.map(t => t.tournament_id);
-    const minTournamentId = Math.min(...tournamentIds);
-    const maxTournamentId = Math.max(...tournamentIds);
+    // Находим минимальный и максимальный ID турнира из всех завершенных турниров,
+    // а не только тех, в которых участвовал игрок
+    const allTournamentIds = tournamentsData
+        .filter(t => t.status !== 'active')
+        .map(t => t.id);
+    
+    if (allTournamentIds.length === 0) {
+        // Если нет данных о завершенных турнирах, используем только турниры игрока
+        const tournamentIds = playerData.tournament_history.map(t => t.tournament_id);
+        const minTournamentId = Math.min(...tournamentIds);
+        const maxTournamentId = Math.max(...tournamentIds);
+        
+        // Нормализуем данные с учетом пропущенных турниров
+        const { labels, data } = normalizeChartDataWithGaps(
+            playerData.tournament_history, 
+            'answers', 
+            minTournamentId, 
+            maxTournamentId
+        );
+        
+        createAnswersChart(ctx, labels, data);
+        return;
+    }
+    
+    const minTournamentId = Math.min(...allTournamentIds);
+    const maxTournamentId = Math.max(...allTournamentIds);
     
     // Нормализуем данные с учетом пропущенных турниров
     const { labels, data } = normalizeChartDataWithGaps(
@@ -283,6 +305,13 @@ function createAnswersProgressChart() {
         maxTournamentId
     );
     
+    createAnswersChart(ctx, labels, data);
+}
+
+/**
+ * Вспомогательная функция для создания графика ответов
+ */
+function createAnswersChart(ctx, labels, data) {
     // Данные для графика
     const chartData = {
         labels: labels,
@@ -335,10 +364,32 @@ function createPointsProgressChart() {
     // Получаем элемент canvas
     const ctx = document.getElementById('pointsProgressChart');
     
-    // Находим минимальный и максимальный ID турнира
-    const tournamentIds = playerData.tournament_history.map(t => t.tournament_id);
-    const minTournamentId = Math.min(...tournamentIds);
-    const maxTournamentId = Math.max(...tournamentIds);
+    // Находим минимальный и максимальный ID турнира из всех завершенных турниров,
+    // а не только тех, в которых участвовал игрок
+    const allTournamentIds = tournamentsData
+        .filter(t => t.status !== 'active')
+        .map(t => t.id);
+    
+    if (allTournamentIds.length === 0) {
+        // Если нет данных о завершенных турнирах, используем только турниры игрока
+        const tournamentIds = playerData.tournament_history.map(t => t.tournament_id);
+        const minTournamentId = Math.min(...tournamentIds);
+        const maxTournamentId = Math.max(...tournamentIds);
+        
+        // Нормализуем данные с учетом пропущенных турниров
+        const { labels, data } = normalizeChartDataWithGaps(
+            playerData.tournament_history, 
+            'total_points', 
+            minTournamentId, 
+            maxTournamentId
+        );
+        
+        createPointsChart(ctx, labels, data);
+        return;
+    }
+    
+    const minTournamentId = Math.min(...allTournamentIds);
+    const maxTournamentId = Math.max(...allTournamentIds);
     
     // Нормализуем данные с учетом пропущенных турниров
     const { labels, data } = normalizeChartDataWithGaps(
@@ -348,6 +399,13 @@ function createPointsProgressChart() {
         maxTournamentId
     );
     
+    createPointsChart(ctx, labels, data);
+}
+
+/**
+ * Вспомогательная функция для создания графика очков
+ */
+function createPointsChart(ctx, labels, data) {
     // Данные для графика
     const chartData = {
         labels: labels,
@@ -400,10 +458,32 @@ function createPrizesProgressChart() {
     // Получаем элемент canvas
     const ctx = document.getElementById('prizesProgressChart');
     
-    // Находим минимальный и максимальный ID турнира
-    const tournamentIds = playerData.tournament_history.map(t => t.tournament_id);
-    const minTournamentId = Math.min(...tournamentIds);
-    const maxTournamentId = Math.max(...tournamentIds);
+    // Находим минимальный и максимальный ID турнира из всех завершенных турниров,
+    // а не только тех, в которых участвовал игрок
+    const allTournamentIds = tournamentsData
+        .filter(t => t.status !== 'active')
+        .map(t => t.id);
+    
+    if (allTournamentIds.length === 0) {
+        // Если нет данных о завершенных турнирах, используем только турниры игрока
+        const tournamentIds = playerData.tournament_history.map(t => t.tournament_id);
+        const minTournamentId = Math.min(...tournamentIds);
+        const maxTournamentId = Math.max(...tournamentIds);
+        
+        // Нормализуем данные с учетом пропущенных турниров
+        const { labels, data } = normalizeChartDataWithGaps(
+            playerData.tournament_history, 
+            'prize', 
+            minTournamentId, 
+            maxTournamentId
+        );
+        
+        createPrizesChart(ctx, labels, data);
+        return;
+    }
+    
+    const minTournamentId = Math.min(...allTournamentIds);
+    const maxTournamentId = Math.max(...allTournamentIds);
     
     // Нормализуем данные с учетом пропущенных турниров
     const { labels, data } = normalizeChartDataWithGaps(
@@ -413,6 +493,13 @@ function createPrizesProgressChart() {
         maxTournamentId
     );
     
+    createPrizesChart(ctx, labels, data);
+}
+
+/**
+ * Вспомогательная функция для создания графика призов
+ */
+function createPrizesChart(ctx, labels, data) {
     // Данные для графика
     const chartData = {
         labels: labels,
