@@ -5,7 +5,6 @@
 // Глобальные переменные
 let playerData = null;
 let tournamentsData = [];
-let currentTournamentData = null;
 let charts = {};
 
 // Инициализация при загрузке DOM
@@ -42,10 +41,6 @@ document.addEventListener('DOMContentLoaded', function() {
             // Сохраняем индекс турниров
             tournamentsData = tournamentsIndex.tournaments;
             
-            // Загружаем данные о текущем турнире (если есть)
-            return loadCurrentTournamentData();
-        })
-        .then(() => {
             // Загружаем историю турниров игрока
             return loadPlayerTournamentHistory();
         })
@@ -58,32 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
             showError();
         });
 });
-
-/**
- * Загрузка данных о текущем турнире
- */
-async function loadCurrentTournamentData() {
-    try {
-        // Получаем все данные (содержит информацию о текущем турнире)
-        const response = await fetch('data/all_data.json');
-        const allData = await response.json();
-        
-        // Если нет активного турнира, выходим
-        if (!allData.tournament || !allData.tournament.activeTournament) {
-            return;
-        }
-        
-        // Сохраняем данные о текущем турнире
-        currentTournamentData = allData.tournament;
-        
-        // Возвращаем успешный результат
-        return true;
-    } catch (error) {
-        console.error('Ошибка загрузки данных о текущем турнире:', error);
-        // В случае ошибки продолжаем работу без данных о текущем турнире
-        return false;
-    }
-}
 
 /**
  * Загрузка индекса турниров
@@ -117,6 +86,11 @@ async function loadPlayerTournamentHistory() {
     
     // Перебираем все турниры из индекса
     const promises = tournamentsData.map(async (tournament) => {
+        // Пропускаем активные турниры
+        if (tournament.status === 'active') {
+            return;
+        }
+        
         try {
             // Загружаем данные о конкретном турнире
             const response = await fetch(`data/${tournament.id}.json`);
@@ -237,9 +211,6 @@ function displayPlayerProfile() {
     document.getElementById('playerQuestions').textContent = formatNumber(playerData.all_questions);
     document.getElementById('playerBoosters').textContent = formatNumber(playerData.remaining_boosters);
     
-    // Отображаем информацию о текущем турнире (если есть)
-    displayCurrentTournamentData();
-    
     // Создаем разделенные графики прогресса
     createAnswersProgressChart();
     createPointsProgressChart();
@@ -250,133 +221,6 @@ function displayPlayerProfile() {
     
     // Заполняем таблицу с историей турниров
     displayTournamentHistory();
-}
-
-/**
- * Отображение данных о текущем турнире
- */
-function displayCurrentTournamentData() {
-    const currentTournamentSection = document.getElementById('currentTournamentSection');
-    
-    // Проверяем наличие данных о текущем турнире
-    if (!currentTournamentData || !currentTournamentData.activeTournament) {
-        currentTournamentSection.style.display = 'none';
-        return;
-    }
-    
-    // Ищем игрока в текущем турнире
-    let playerInTournament = null;
-    let playerLevel = playerData.level;
-    let levelRatings = currentTournamentData.ratings[playerLevel] || [];
-    
-    // Ищем игрока в рейтингах его уровня
-    // Примечание: в рейтингах может не быть поля user_id, поэтому используем имя пользователя
-    playerInTournament = levelRatings.find(p => p.username === playerData.username);
-    
-    // Если игрок не найден, скрываем секцию
-    if (!playerInTournament) {
-        currentTournamentSection.style.display = 'none';
-        return;
-    }
-    
-    // Обновляем данные
-    document.getElementById('currentTournamentQuestions').textContent = 
-        formatNumber(playerInTournament.tournament_questions || 0);
-    
-    document.getElementById('currentTournamentPoints').textContent = 
-        formatDecimal(playerInTournament.points || 0);
-    
-    // Определяем место игрока
-    const playerPosition = levelRatings.findIndex(p => p.username === playerData.username) + 1;
-    document.getElementById('currentTournamentPlace').textContent = 
-        playerPosition > 0 ? formatNumber(playerPosition) : '—';
-    
-    // Рассчитываем потенциальный приз
-    let potentialPrize = 0;
-    if (currentTournamentData.prizePools && currentTournamentData.prizePools[playerLevel]) {
-        const prizePool = currentTournamentData.prizePools[playerLevel];
-        const totalPoints = levelRatings.reduce((sum, p) => sum + p.points, 0);
-        
-        if (totalPoints > 0) {
-            potentialPrize = Math.round(prizePool * (playerInTournament.points / totalPoints));
-        }
-    }
-    document.getElementById('currentTournamentPrize').textContent = formatNumber(potentialPrize);
-    
-    // Создаем график для текущего турнира
-    createCurrentTournamentChart(playerInTournament);
-}
-
-/**
- * Создание графика для текущего турнира
- * @param {Object} playerData - Данные игрока в текущем турнире
- */
-function createCurrentTournamentChart(playerData) {
-    // Получаем элемент canvas
-    const ctx = document.getElementById('currentTournamentChart');
-    
-    // Извлекаем статистику ответов
-    let correctFast = 0;
-    let correctMedium = 0;
-    let correctSlow = 0;
-    let wrongFast = 0;
-    let wrongMedium = 0;
-    let wrongSlow = 0;
-    let timeouts = 0;
-    
-    // Проверяем наличие данных о ответах
-    if (playerData.tournament_answers_fast_correct !== undefined) {
-        correctFast = playerData.tournament_answers_fast_correct || 0;
-        correctMedium = playerData.tournament_answers_medium_correct || 0;
-        correctSlow = playerData.tournament_answers_slow_correct || 0;
-        wrongFast = playerData.tournament_answers_fast_wrong || 0;
-        wrongMedium = playerData.tournament_answers_medium_wrong || 0;
-        wrongSlow = playerData.tournament_answers_slow_wrong || 0;
-        timeouts = playerData.tournament_timeouts || 0;
-    }
-    
-    // Данные для графика
-    const data = {
-        labels: ['Быстрые', 'Средние', 'Медленные', 'Таймауты'],
-        datasets: [
-            {
-                label: 'Правильные',
-                data: [correctFast, correctMedium, correctSlow, 0],
-                backgroundColor: 'rgba(46, 204, 113, 0.7)',
-                borderColor: 'rgba(46, 204, 113, 1)',
-                borderWidth: 1
-            },
-            {
-                label: 'Неправильные',
-                data: [wrongFast, wrongMedium, wrongSlow, timeouts],
-                backgroundColor: 'rgba(231, 76, 60, 0.7)',
-                borderColor: 'rgba(231, 76, 60, 1)',
-                borderWidth: 1
-            }
-        ]
-    };
-    
-    // Опции графика
-    const options = {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-            x: {
-                stacked: true
-            },
-            y: {
-                stacked: true,
-                beginAtZero: true
-            }
-        }
-    };
-    
-    // Создаем график
-    charts.currentTournament = new Chart(ctx, {
-        type: 'bar',
-        data: data,
-        options: options
-    });
 }
 
 /**
