@@ -628,7 +628,7 @@ function displayTournamentHistory() {
         const row = document.createElement('tr');
         
         row.innerHTML = `
-            <td>Турнир #${tournament.tournament_id}</td>
+            <td>Турнир ${tournament.tournament_id}</td>
             <td>${tournament.level}</td>
             <td>${formatNumber(tournament.answers)}</td>
             <td>${formatDecimal(tournament.total_points)}</td>
