@@ -224,6 +224,40 @@ function displayPlayerProfile() {
 }
 
 /**
+ * Вспомогательная функция для нормализации данных графика с учетом пропущенных турниров
+ * @param {Array} tournamentHistory - История турниров игрока
+ * @param {String} dataField - Поле для извлечения данных (например, 'answers', 'total_points', 'prize')
+ * @param {Number} minTournamentId - Минимальный ID турнира
+ * @param {Number} maxTournamentId - Максимальный ID турнира
+ * @returns {Object} - Объект с массивами меток и данных
+ */
+function normalizeChartDataWithGaps(tournamentHistory, dataField, minTournamentId, maxTournamentId) {
+    // Создаем объект для быстрого доступа к данным по ID турнира
+    const tournamentDataById = {};
+    tournamentHistory.forEach(tournament => {
+        tournamentDataById[tournament.tournament_id] = tournament;
+    });
+    
+    // Создаем полные массивы меток и данных
+    const labels = [];
+    const data = [];
+    
+    // Заполняем массивы для всех ID турниров от минимального до максимального
+    for (let id = minTournamentId; id <= maxTournamentId; id++) {
+        labels.push(`Турнир ${id}`);
+        
+        // Если у игрока есть данные по этому турниру, берем их, иначе ставим null
+        if (tournamentDataById[id]) {
+            data.push(tournamentDataById[id][dataField]);
+        } else {
+            data.push(null);
+        }
+    }
+    
+    return { labels, data };
+}
+
+/**
  * Создание графика ответов по турнирам
  */
 function createAnswersProgressChart() {
@@ -236,20 +270,26 @@ function createAnswersProgressChart() {
     // Получаем элемент canvas
     const ctx = document.getElementById('answersProgressChart');
     
-    // Сортируем историю по ID турнира (по возрастанию для графика)
-    const sortedHistory = [...playerData.tournament_history].sort((a, b) => a.tournament_id - b.tournament_id);
+    // Находим минимальный и максимальный ID турнира
+    const tournamentIds = playerData.tournament_history.map(t => t.tournament_id);
+    const minTournamentId = Math.min(...tournamentIds);
+    const maxTournamentId = Math.max(...tournamentIds);
     
-    // Подготавливаем данные для графика
-    const labels = sortedHistory.map(t => `Турнир ${t.tournament_id}`);
-    const answers = sortedHistory.map(t => t.answers);
+    // Нормализуем данные с учетом пропущенных турниров
+    const { labels, data } = normalizeChartDataWithGaps(
+        playerData.tournament_history, 
+        'answers', 
+        minTournamentId, 
+        maxTournamentId
+    );
     
     // Данные для графика
-    const data = {
+    const chartData = {
         labels: labels,
         datasets: [
             {
                 label: 'Ответы',
-                data: answers,
+                data: data,
                 backgroundColor: 'rgba(52, 152, 219, 0.2)',
                 borderColor: 'rgba(52, 152, 219, 1)',
                 borderWidth: 2,
@@ -262,6 +302,7 @@ function createAnswersProgressChart() {
     const options = {
         responsive: true,
         maintainAspectRatio: false,
+        spanGaps: false, // Не соединять точки с null или undefined значениями
         scales: {
             y: {
                 beginAtZero: true,
@@ -276,7 +317,7 @@ function createAnswersProgressChart() {
     // Создаем график
     charts.answersProgress = new Chart(ctx, {
         type: 'line',
-        data: data,
+        data: chartData,
         options: options
     });
 }
@@ -294,20 +335,26 @@ function createPointsProgressChart() {
     // Получаем элемент canvas
     const ctx = document.getElementById('pointsProgressChart');
     
-    // Сортируем историю по ID турнира (по возрастанию для графика)
-    const sortedHistory = [...playerData.tournament_history].sort((a, b) => a.tournament_id - b.tournament_id);
+    // Находим минимальный и максимальный ID турнира
+    const tournamentIds = playerData.tournament_history.map(t => t.tournament_id);
+    const minTournamentId = Math.min(...tournamentIds);
+    const maxTournamentId = Math.max(...tournamentIds);
     
-    // Подготавливаем данные для графика
-    const labels = sortedHistory.map(t => `Турнир ${t.tournament_id}`);
-    const points = sortedHistory.map(t => t.total_points);
+    // Нормализуем данные с учетом пропущенных турниров
+    const { labels, data } = normalizeChartDataWithGaps(
+        playerData.tournament_history, 
+        'total_points', 
+        minTournamentId, 
+        maxTournamentId
+    );
     
     // Данные для графика
-    const data = {
+    const chartData = {
         labels: labels,
         datasets: [
             {
                 label: 'Очки',
-                data: points,
+                data: data,
                 backgroundColor: 'rgba(46, 204, 113, 0.2)',
                 borderColor: 'rgba(46, 204, 113, 1)',
                 borderWidth: 2,
@@ -320,6 +367,7 @@ function createPointsProgressChart() {
     const options = {
         responsive: true,
         maintainAspectRatio: false,
+        spanGaps: false, // Не соединять точки с null или undefined значениями
         scales: {
             y: {
                 beginAtZero: true,
@@ -334,7 +382,7 @@ function createPointsProgressChart() {
     // Создаем график
     charts.pointsProgress = new Chart(ctx, {
         type: 'line',
-        data: data,
+        data: chartData,
         options: options
     });
 }
@@ -352,20 +400,26 @@ function createPrizesProgressChart() {
     // Получаем элемент canvas
     const ctx = document.getElementById('prizesProgressChart');
     
-    // Сортируем историю по ID турнира (по возрастанию для графика)
-    const sortedHistory = [...playerData.tournament_history].sort((a, b) => a.tournament_id - b.tournament_id);
+    // Находим минимальный и максимальный ID турнира
+    const tournamentIds = playerData.tournament_history.map(t => t.tournament_id);
+    const minTournamentId = Math.min(...tournamentIds);
+    const maxTournamentId = Math.max(...tournamentIds);
     
-    // Подготавливаем данные для графика
-    const labels = sortedHistory.map(t => `Турнир ${t.tournament_id}`);
-    const prizes = sortedHistory.map(t => t.prize);
+    // Нормализуем данные с учетом пропущенных турниров
+    const { labels, data } = normalizeChartDataWithGaps(
+        playerData.tournament_history, 
+        'prize', 
+        minTournamentId, 
+        maxTournamentId
+    );
     
     // Данные для графика
-    const data = {
+    const chartData = {
         labels: labels,
         datasets: [
             {
                 label: 'Призы',
-                data: prizes,
+                data: data,
                 backgroundColor: 'rgba(155, 89, 182, 0.2)',
                 borderColor: 'rgba(155, 89, 182, 1)',
                 borderWidth: 2,
@@ -378,6 +432,7 @@ function createPrizesProgressChart() {
     const options = {
         responsive: true,
         maintainAspectRatio: false,
+        spanGaps: false, // Не соединять точки с null или undefined значениями
         scales: {
             y: {
                 beginAtZero: true,
@@ -392,7 +447,7 @@ function createPrizesProgressChart() {
     // Создаем график
     charts.prizesProgress = new Chart(ctx, {
         type: 'line',
-        data: data,
+        data: chartData,
         options: options
     });
 }
@@ -572,17 +627,8 @@ function displayTournamentHistory() {
     playerData.tournament_history.forEach(tournament => {
         const row = document.createElement('tr');
         
-        // Форматируем дату турнира
-        let dateText = `#${tournament.tournament_id}`;
-        if (tournament.start_date) {
-            const startDate = new Date(tournament.start_date);
-            if (!isNaN(startDate.getTime())) {
-                dateText += ` (${startDate.toLocaleDateString('ru-RU')})`;
-            }
-        }
-        
         row.innerHTML = `
-            <td>${dateText}</td>
+            <td>Турнир #${tournament.tournament_id}</td>
             <td>${tournament.level}</td>
             <td>${formatNumber(tournament.answers)}</td>
             <td>${formatDecimal(tournament.total_points)}</td>
