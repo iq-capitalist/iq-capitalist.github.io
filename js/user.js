@@ -6,7 +6,84 @@
 let playerData = null;
 let tournamentsData = [];
 let currentTournamentData = null;
-let charts = {};
+let charts = {/**
+ * Отображение истории турниров
+ */
+function displayTournamentHistory() {
+    // Получаем элемент таблицы
+    const tableBody = document.getElementById('tournamentHistoryTableBody');
+    
+    // Если нет истории турниров, скрываем секцию
+    if (!playerData.tournament_history || playerData.tournament_history.length === 0) {
+        document.querySelector('.history-section').style.display = 'none';
+        return;
+    }
+    
+    // Очищаем таблицу
+    tableBody.innerHTML = '';
+    
+    // Добавляем строки для каждого турнира
+    playerData.tournament_history.forEach(tournament => {
+        const row = document.createElement('tr');
+        
+        // Форматируем дату турнира
+        let dateText = `#${tournament.tournament_id}`;
+        if (tournament.start_date) {
+            const startDate = new Date(tournament.start_date);
+            if (!isNaN(startDate.getTime())) {
+                dateText += ` (${startDate.toLocaleDateString('ru-RU')})`;
+            }
+        }
+        
+        row.innerHTML = `
+            <td>${dateText}</td>
+            <td>${tournament.level}</td>
+            <td>${formatNumber(tournament.answers)}</td>
+            <td>${formatDecimal(tournament.total_points)}</td>
+            <td>${formatNumber(tournament.prize)}</td>
+            <td>
+                <button class="btn-details" onclick="showTournamentDetails(${tournament.tournament_id})">
+                    Детали
+                </button>
+            </td>
+        `;
+        
+        tableBody.appendChild(row);
+    });
+}
+
+/**
+ * Показать детали турнира
+ * @param {number} tournamentId - ID турнира
+ */
+function showTournamentDetails(tournamentId) {
+    // Перенаправляем на страницу турнира
+    window.location.href = `tournament.html?id=${tournamentId}`;
+}
+
+/**
+ * Форматирование числа
+ * @param {number} num - Число для форматирования
+ * @returns {string} - Отформатированное число
+ */
+function formatNumber(num) {
+    return num.toLocaleString('ru-RU');
+}
+
+/**
+ * Форматирование десятичного числа
+ * @param {number} num - Число для форматирования
+ * @returns {string} - Отформатированное число с одним знаком после запятой
+ */
+function formatDecimal(num) {
+    return num.toLocaleString('ru-RU', {
+        minimumFractionDigits: 1,
+        maximumFractionDigits: 1
+    });
+}
+
+// Экспортируем функцию showTournamentDetails в глобальную область видимости
+window.showTournamentDetails = showTournamentDetails;;
 
 // Инициализация при загрузке DOM
 document.addEventListener('DOMContentLoaded', function() {
@@ -227,8 +304,10 @@ function displayPlayerProfile() {
     // Обновляем заголовок страницы
     document.title = `${playerData.username} | IQ Capitalist`;
     
+    // Обновляем заголовок на странице с именем игрока
+    document.getElementById('playerNameTitle').textContent = playerData.username;
+    
     // Заполняем основную информацию
-    document.getElementById('playerName').textContent = playerData.username;
     document.getElementById('playerLevel').textContent = playerData.level;
     document.getElementById('playerCapital').textContent = formatNumber(playerData.capital);
     document.getElementById('playerWallet').textContent = formatNumber(playerData.wallet);
@@ -238,8 +317,12 @@ function displayPlayerProfile() {
     // Отображаем информацию о текущем турнире (если есть)
     displayCurrentTournamentData();
     
-    // Создаем графики
-    createTournamentProgressChart();
+    // Создаем разделенные графики прогресса
+    createAnswersProgressChart();
+    createPointsProgressChart();
+    createPrizesProgressChart();
+    
+    // Создаем график статистики ответов
     createAnswersStatsChart();
     
     // Заполняем таблицу с историей турниров
@@ -374,9 +457,9 @@ function createCurrentTournamentChart(playerData) {
 }
 
 /**
- * Создание графика прогресса по турнирам
+ * Создание графика ответов по турнирам
  */
-function createTournamentProgressChart() {
+function createAnswersProgressChart() {
     // Если нет истории турниров, скрываем секцию
     if (!playerData.tournament_history || playerData.tournament_history.length === 0) {
         document.querySelector('.chart-section:nth-of-type(1)').style.display = 'none';
@@ -384,7 +467,7 @@ function createTournamentProgressChart() {
     }
     
     // Получаем элемент canvas
-    const ctx = document.getElementById('tournamentProgressChart');
+    const ctx = document.getElementById('answersProgressChart');
     
     // Сортируем историю по ID турнира (по возрастанию для графика)
     const sortedHistory = [...playerData.tournament_history].sort((a, b) => a.tournament_id - b.tournament_id);
@@ -392,8 +475,6 @@ function createTournamentProgressChart() {
     // Подготавливаем данные для графика
     const labels = sortedHistory.map(t => `Турнир ${t.tournament_id}`);
     const answers = sortedHistory.map(t => t.answers);
-    const points = sortedHistory.map(t => t.total_points);
-    const prizes = sortedHistory.map(t => t.prize);
     
     // Данные для графика
     const data = {
@@ -405,26 +486,7 @@ function createTournamentProgressChart() {
                 backgroundColor: 'rgba(52, 152, 219, 0.2)',
                 borderColor: 'rgba(52, 152, 219, 1)',
                 borderWidth: 2,
-                tension: 0.2,
-                yAxisID: 'y'
-            },
-            {
-                label: 'Очки',
-                data: points,
-                backgroundColor: 'rgba(46, 204, 113, 0.2)',
-                borderColor: 'rgba(46, 204, 113, 1)',
-                borderWidth: 2,
-                tension: 0.2,
-                yAxisID: 'y'
-            },
-            {
-                label: 'Приз',
-                data: prizes,
-                backgroundColor: 'rgba(155, 89, 182, 0.2)',
-                borderColor: 'rgba(155, 89, 182, 1)',
-                borderWidth: 2,
-                tension: 0.2,
-                yAxisID: 'y1'
+                tension: 0.2
             }
         ]
     };
@@ -438,15 +500,120 @@ function createTournamentProgressChart() {
                 beginAtZero: true,
                 title: {
                     display: true,
-                    text: 'Ответы / Очки'
+                    text: 'Количество ответов'
                 }
-            },
-            y1: {
+            }
+        }
+    };
+    
+    // Создаем график
+    charts.answersProgress = new Chart(ctx, {
+        type: 'line',
+        data: data,
+        options: options
+    });
+}
+
+/**
+ * Создание графика очков по турнирам
+ */
+function createPointsProgressChart() {
+    // Если нет истории турниров, скрываем секцию
+    if (!playerData.tournament_history || playerData.tournament_history.length === 0) {
+        document.querySelector('.chart-section:nth-of-type(2)').style.display = 'none';
+        return;
+    }
+    
+    // Получаем элемент canvas
+    const ctx = document.getElementById('pointsProgressChart');
+    
+    // Сортируем историю по ID турнира (по возрастанию для графика)
+    const sortedHistory = [...playerData.tournament_history].sort((a, b) => a.tournament_id - b.tournament_id);
+    
+    // Подготавливаем данные для графика
+    const labels = sortedHistory.map(t => `Турнир ${t.tournament_id}`);
+    const points = sortedHistory.map(t => t.total_points);
+    
+    // Данные для графика
+    const data = {
+        labels: labels,
+        datasets: [
+            {
+                label: 'Очки',
+                data: points,
+                backgroundColor: 'rgba(46, 204, 113, 0.2)',
+                borderColor: 'rgba(46, 204, 113, 1)',
+                borderWidth: 2,
+                tension: 0.2
+            }
+        ]
+    };
+    
+    // Опции графика
+    const options = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            y: {
                 beginAtZero: true,
-                position: 'right',
-                grid: {
-                    drawOnChartArea: false
-                },
+                title: {
+                    display: true,
+                    text: 'Очки'
+                }
+            }
+        }
+    };
+    
+    // Создаем график
+    charts.pointsProgress = new Chart(ctx, {
+        type: 'line',
+        data: data,
+        options: options
+    });
+}
+
+/**
+ * Создание графика призов по турнирам
+ */
+function createPrizesProgressChart() {
+    // Если нет истории турниров, скрываем секцию
+    if (!playerData.tournament_history || playerData.tournament_history.length === 0) {
+        document.querySelector('.chart-section:nth-of-type(3)').style.display = 'none';
+        return;
+    }
+    
+    // Получаем элемент canvas
+    const ctx = document.getElementById('prizesProgressChart');
+    
+    // Сортируем историю по ID турнира (по возрастанию для графика)
+    const sortedHistory = [...playerData.tournament_history].sort((a, b) => a.tournament_id - b.tournament_id);
+    
+    // Подготавливаем данные для графика
+    const labels = sortedHistory.map(t => `Турнир ${t.tournament_id}`);
+    const prizes = sortedHistory.map(t => t.prize);
+    
+    // Данные для графика
+    const data = {
+        labels: labels,
+        datasets: [
+            {
+                label: 'Призы',
+                data: prizes,
+                backgroundColor: 'rgba(155, 89, 182, 0.2)',
+                borderColor: 'rgba(155, 89, 182, 1)',
+                borderWidth: 2,
+                tension: 0.2
+            }
+        ]
+    };
+    
+    // Опции графика
+    const options = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            y: {
+                beginAtZero: true,
                 title: {
                     display: true,
                     text: 'Приз (IQC)'
@@ -456,7 +623,7 @@ function createTournamentProgressChart() {
     };
     
     // Создаем график
-    charts.tournamentProgress = new Chart(ctx, {
+    charts.prizesProgress = new Chart(ctx, {
         type: 'line',
         data: data,
         options: options
@@ -469,7 +636,7 @@ function createTournamentProgressChart() {
 function createAnswersStatsChart() {
     // Если нет истории турниров, скрываем секцию
     if (!playerData.tournament_history || playerData.tournament_history.length === 0) {
-        document.querySelector('.chart-section:nth-of-type(2)').style.display = 'none';
+        document.querySelector('.chart-section:nth-of-type(4)').style.display = 'none';
         return;
     }
     
@@ -552,82 +719,3 @@ function createAnswersStatsChart() {
         options: options
     });
 }
-
-/**
- * Отображение истории турниров
- */
-function displayTournamentHistory() {
-    // Получаем элемент таблицы
-    const tableBody = document.getElementById('tournamentHistoryTableBody');
-    
-    // Если нет истории турниров, скрываем секцию
-    if (!playerData.tournament_history || playerData.tournament_history.length === 0) {
-        document.querySelector('.history-section').style.display = 'none';
-        return;
-    }
-    
-    // Очищаем таблицу
-    tableBody.innerHTML = '';
-    
-    // Добавляем строки для каждого турнира
-    playerData.tournament_history.forEach(tournament => {
-        const row = document.createElement('tr');
-        
-        // Форматируем дату турнира
-        let dateText = `#${tournament.tournament_id}`;
-        if (tournament.start_date) {
-            const startDate = new Date(tournament.start_date);
-            if (!isNaN(startDate.getTime())) {
-                dateText += ` (${startDate.toLocaleDateString('ru-RU')})`;
-            }
-        }
-        
-        row.innerHTML = `
-            <td>${dateText}</td>
-            <td>${tournament.level}</td>
-            <td>${formatNumber(tournament.answers)}</td>
-            <td>${formatDecimal(tournament.total_points)}</td>
-            <td>${formatNumber(tournament.prize)}</td>
-            <td>
-                <button class="btn-details" onclick="showTournamentDetails(${tournament.tournament_id})">
-                    Детали
-                </button>
-            </td>
-        `;
-        
-        tableBody.appendChild(row);
-    });
-}
-
-/**
- * Показать детали турнира
- * @param {number} tournamentId - ID турнира
- */
-function showTournamentDetails(tournamentId) {
-    // Перенаправляем на страницу турнира
-    window.location.href = `tournament.html?id=${tournamentId}`;
-}
-
-/**
- * Форматирование числа
- * @param {number} num - Число для форматирования
- * @returns {string} - Отформатированное число
- */
-function formatNumber(num) {
-    return num.toLocaleString('ru-RU');
-}
-
-/**
- * Форматирование десятичного числа
- * @param {number} num - Число для форматирования
- * @returns {string} - Отформатированное число с одним знаком после запятой
- */
-function formatDecimal(num) {
-    return num.toLocaleString('ru-RU', {
-        minimumFractionDigits: 1,
-        maximumFractionDigits: 1
-    });
-}
-
-// Экспортируем функцию showTournamentDetails в глобальную область видимости
-window.showTournamentDetails = showTournamentDetails;
