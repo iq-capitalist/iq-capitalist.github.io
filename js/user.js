@@ -199,10 +199,10 @@ function displayPlayerProfile() {
     document.getElementById('playerProfile').style.display = 'block';
     
     // Обновляем заголовок страницы
-    document.title = `Профиль ${playerData.username} | IQ Capitalist`;
+    document.title = `Профиль игрока ${playerData.username} | IQ Capitalist`;
     
     // Обновляем заголовок на странице с именем игрока
-    document.getElementById('playerNameTitle').textContent = `Профиль ${playerData.username}`;
+    document.getElementById('playerNameTitle').textContent = `Профиль игрока ${playerData.username}`;
     
     // Заполняем основную информацию
     document.getElementById('playerLevel').textContent = playerData.level;
