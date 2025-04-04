@@ -12,7 +12,7 @@
 
     <main>
         <div class="container">
-            <h1 class="page-title">Профиль игрока</h1>
+            <h1 id="playerNameTitle" class="page-title">Профиль игрока</h1>
             
             <div id="loadingIndicator" class="loading-indicator">
                 <div class="spinner"></div>
@@ -36,12 +36,13 @@
             <div id="playerProfile" style="display: none;">
                 <!-- Карточка с основной информацией -->
                 <div class="player-card">
-                    <div class="player-header">
-                        <h2 id="playerName" class="player-name">Имя игрока</h2>
-                        <div id="playerLevel" class="player-level">Уровень</div>
-                    </div>
-                    
                     <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-icon">👤</div>
+                            <div class="stat-value" id="playerLevel">Уровень</div>
+                            <div class="stat-label">Уровень</div>
+                        </div>
+                        
                         <div class="stat-item">
                             <div class="stat-icon">💰</div>
                             <div class="stat-value" id="playerCapital">0</div>
@@ -49,7 +50,7 @@
                         </div>
                         
                         <div class="stat-item">
-                            <div class="stat-icon">💼</div>
+                            <div class="stat-icon">👛</div>
                             <div class="stat-value" id="playerWallet">0</div>
                             <div class="stat-label">Кошелёк</div>
                         </div>
@@ -57,13 +58,13 @@
                         <div class="stat-item">
                             <div class="stat-icon">❓</div>
                             <div class="stat-value" id="playerQuestions">0</div>
-                            <div class="stat-label">Ответов</div>
+                            <div class="stat-label">Ответы</div>
                         </div>
                         
                         <div class="stat-item">
                             <div class="stat-icon">🚀</div>
                             <div class="stat-value" id="playerBoosters">0</div>
-                            <div class="stat-label">Бустеров</div>
+                            <div class="stat-label">Бустеры</div>
                         </div>
                     </div>
                 </div>
@@ -75,12 +76,12 @@
                         <div class="tournament-stats-grid">
                             <div class="tournament-stat-item">
                                 <div class="tournament-stat-value" id="currentTournamentQuestions">0</div>
-                                <div class="tournament-stat-label">Ответов</div>
+                                <div class="tournament-stat-label">Ответы</div>
                             </div>
                             
                             <div class="tournament-stat-item">
                                 <div class="tournament-stat-value" id="currentTournamentPoints">0</div>
-                                <div class="tournament-stat-label">Очков</div>
+                                <div class="tournament-stat-label">Очки</div>
                             </div>
                             
                             <div class="tournament-stat-item">
@@ -100,11 +101,27 @@
                     </div>
                 </div>
                 
-                <!-- График прогресса по турнирам -->
+                <!-- График ответов по турнирам -->
                 <div class="chart-section">
-                    <h3>Прогресс игрока по турнирам</h3>
+                    <h3>Ответы по турнирам</h3>
                     <div class="chart-container">
-                        <canvas id="tournamentProgressChart"></canvas>
+                        <canvas id="answersProgressChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- График очков по турнирам -->
+                <div class="chart-section">
+                    <h3>Очки по турнирам</h3>
+                    <div class="chart-container">
+                        <canvas id="pointsProgressChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- График призов по турнирам -->
+                <div class="chart-section">
+                    <h3>Призы по турнирам</h3>
+                    <div class="chart-container">
+                        <canvas id="prizesProgressChart"></canvas>
                     </div>
                 </div>
                 
