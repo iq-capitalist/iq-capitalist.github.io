@@ -400,6 +400,9 @@ function createPrizesProgressChart() {
 /**
  * Создание графика статистики ответов
  */
+/**
+ * Создание графика статистики ответов
+ */
 function createAnswersStatsChart() {
     // Если нет истории турниров, скрываем секцию
     if (!playerData.tournament_history || playerData.tournament_history.length === 0) {
@@ -410,78 +413,169 @@ function createAnswersStatsChart() {
     // Получаем элемент canvas
     const ctx = document.getElementById('answersStatsChart');
     
-    // Инициализируем счетчики для разных типов ответов
-    let totalCorrectFast = 0;
-    let totalCorrectMedium = 0;
-    let totalCorrectSlow = 0;
-    let totalWrongFast = 0;
-    let totalWrongMedium = 0;
-    let totalWrongSlow = 0;
-    let totalTimeouts = 0;
+    // Сортируем историю по ID турнира (по возрастанию для графика)
+    const sortedHistory = [...playerData.tournament_history].sort((a, b) => a.tournament_id - b.tournament_id);
     
-    // Суммируем статистику по всем турнирам
-    playerData.tournament_history.forEach(tournament => {
-        if (tournament.correct_answers) {
-            totalCorrectFast += tournament.correct_answers.fast || 0;
-            totalCorrectMedium += tournament.correct_answers.medium || 0;
-            totalCorrectSlow += tournament.correct_answers.slow || 0;
-        }
-        if (tournament.wrong_answers) {
-            totalWrongFast += tournament.wrong_answers.fast || 0;
-            totalWrongMedium += tournament.wrong_answers.medium || 0;
-            totalWrongSlow += tournament.wrong_answers.slow || 0;
-        }
-        totalTimeouts += tournament.timeouts || 0;
+    // Подготавливаем данные для графика
+    const labels = sortedHistory.map(t => `Турнир ${t.tournament_id}`);
+    
+    // Получаем данные о типах ответов для каждого турнира
+    const correctFast = [];
+    const correctMedium = [];
+    const correctSlow = [];
+    const wrongFast = [];
+    const wrongMedium = [];
+    const wrongSlow = [];
+    const timeouts = [];
+    
+    sortedHistory.forEach(tournament => {
+        // Собираем данные о правильных ответах (положительные значения)
+        correctFast.push(tournament.correct_answers?.fast || 0);
+        correctMedium.push(tournament.correct_answers?.medium || 0);
+        correctSlow.push(tournament.correct_answers?.slow || 0);
+        
+        // Собираем данные о неправильных ответах (негативные значения)
+        wrongFast.push(-(tournament.wrong_answers?.fast || 0));
+        wrongMedium.push(-(tournament.wrong_answers?.medium || 0));
+        wrongSlow.push(-(tournament.wrong_answers?.slow || 0));
+        
+        // Таймауты будут показаны как отдельная категория посередине
+        // Мы разделим таймауты, половину разместим вверху, половину внизу
+        const timeoutValue = tournament.timeouts || 0;
+        const timeoutHalf = Math.floor(timeoutValue / 2);
+        timeouts.push(timeoutHalf);
+        
+        // Оставшаяся часть таймаутов будет учтена при отрисовке
     });
     
     // Данные для графика
     const data = {
-        labels: [
-            'Быстрые правильные',
-            'Средние правильные',
-            'Медленные правильные',
-            'Быстрые неправильные',
-            'Средние неправильные',
-            'Медленные неправильные',
-            'Таймауты'
-        ],
-        datasets: [{
-            data: [
-                totalCorrectFast,
-                totalCorrectMedium,
-                totalCorrectSlow,
-                totalWrongFast,
-                totalWrongMedium,
-                totalWrongSlow,
-                totalTimeouts
-            ],
-            backgroundColor: [
-                'rgba(39, 174, 96, 0.8)',
-                'rgba(46, 204, 113, 0.8)',
-                'rgba(46, 204, 113, 0.6)',
-                'rgba(231, 76, 60, 0.8)',
-                'rgba(231, 76, 60, 0.7)',
-                'rgba(231, 76, 60, 0.6)',
-                'rgba(243, 156, 18, 0.7)'
-            ],
-            borderWidth: 1
-        }]
+        labels: labels,
+        datasets: [
+            // Правильные ответы - положительные значения (вверх)
+            {
+                label: 'Быстрые правильные',
+                data: correctFast,
+                backgroundColor: 'rgba(39, 174, 96, 0.8)',
+                borderColor: 'rgba(39, 174, 96, 1)',
+                borderWidth: 1,
+                stack: 'Stack 0'
+            },
+            {
+                label: 'Средние правильные',
+                data: correctMedium,
+                backgroundColor: 'rgba(46, 204, 113, 0.8)',
+                borderColor: 'rgba(46, 204, 113, 1)',
+                borderWidth: 1,
+                stack: 'Stack 0'
+            },
+            {
+                label: 'Медленные правильные',
+                data: correctSlow,
+                backgroundColor: 'rgba(46, 204, 113, 0.6)',
+                borderColor: 'rgba(46, 204, 113, 0.8)',
+                borderWidth: 1,
+                stack: 'Stack 0'
+            },
+            // Таймауты - частично положительные
+            {
+                label: 'Таймауты',
+                data: timeouts,
+                backgroundColor: 'rgba(243, 156, 18, 0.7)',
+                borderColor: 'rgba(243, 156, 18, 0.9)',
+                borderWidth: 1,
+                stack: 'Stack 0'
+            },
+            // Таймауты - частично отрицательные
+            {
+                label: 'Таймауты',
+                data: sortedHistory.map(t => -(Math.ceil((t.timeouts || 0) / 2))),
+                backgroundColor: 'rgba(243, 156, 18, 0.7)',
+                borderColor: 'rgba(243, 156, 18, 0.9)',
+                borderWidth: 1,
+                stack: 'Stack 1'
+            },
+            // Неправильные ответы - отрицательные значения (вниз)
+            {
+                label: 'Медленные неправильные',
+                data: wrongSlow,
+                backgroundColor: 'rgba(231, 76, 60, 0.6)',
+                borderColor: 'rgba(231, 76, 60, 0.8)',
+                borderWidth: 1,
+                stack: 'Stack 1'
+            },
+            {
+                label: 'Средние неправильные',
+                data: wrongMedium,
+                backgroundColor: 'rgba(231, 76, 60, 0.7)',
+                borderColor: 'rgba(231, 76, 60, 0.9)',
+                borderWidth: 1,
+                stack: 'Stack 1'
+            },
+            {
+                label: 'Быстрые неправильные',
+                data: wrongFast,
+                backgroundColor: 'rgba(231, 76, 60, 0.8)',
+                borderColor: 'rgba(231, 76, 60, 1)',
+                borderWidth: 1,
+                stack: 'Stack 1'
+            }
+        ]
     };
     
     // Опции графика
     const options = {
         responsive: true,
         maintainAspectRatio: false,
+        scales: {
+            x: {
+                stacked: true,
+                title: {
+                    display: true,
+                    text: 'Турниры'
+                }
+            },
+            y: {
+                stacked: true,
+                title: {
+                    display: true,
+                    text: 'Количество ответов'
+                }
+            }
+        },
         plugins: {
             legend: {
-                position: 'right'
+                position: 'right',
+                labels: {
+                    // Скрываем дубликат меток "Таймауты" в легенде
+                    filter: (legendItem, data) => {
+                        if (legendItem.text === 'Таймауты') {
+                            return legendItem.datasetIndex === 3;
+                        }
+                        return true;
+                    }
+                }
+            },
+            tooltip: {
+                callbacks: {
+                    label: function(context) {
+                        const label = context.dataset.label || '';
+                        const value = context.raw;
+                        
+                        // Для отрицательных значений показываем положительное число
+                        if (value < 0) {
+                            return `${label}: ${Math.abs(value)}`;
+                        }
+                        return `${label}: ${value}`;
+                    }
+                }
             }
         }
     };
     
     // Создаем график
     charts.answersStats = new Chart(ctx, {
-        type: 'pie',
+        type: 'bar',
         data: data,
         options: options
     });
