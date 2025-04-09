@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-04-09 17:50:01 UTC",
+  "lastUpdate": "2025-04-09 17:55:02 UTC",
   "tournament": {
     "activeTournament": 3,
     "startDate": "2025-04-08 08:00:00",
@@ -824,6 +824,15 @@
           "has_active_boosters": 0
         },
         {
+          "username": "139124871",
+          "capital": 1000.0,
+          "points": 1340.0,
+          "remaining_boosters": 29,
+          "wallet": 0.0,
+          "tournament_questions": 34,
+          "has_active_boosters": 1
+        },
+        {
           "username": "6558249370",
           "capital": 1000.0,
           "points": 1300.0,
@@ -833,13 +842,13 @@
           "has_active_boosters": 0
         },
         {
-          "username": "139124871",
+          "username": "5176768913",
           "capital": 1000.0,
-          "points": 1280.0,
-          "remaining_boosters": 30,
-          "wallet": 0.0,
-          "tournament_questions": 33,
-          "has_active_boosters": 1
+          "points": 1170.0,
+          "remaining_boosters": 0,
+          "wallet": 278.0,
+          "tournament_questions": 39,
+          "has_active_boosters": 0
         },
         {
           "username": "693187128",
@@ -857,15 +866,6 @@
           "remaining_boosters": 0,
           "wallet": 178.0,
           "tournament_questions": 62,
-          "has_active_boosters": 0
-        },
-        {
-          "username": "5176768913",
-          "capital": 1000.0,
-          "points": 720.0,
-          "remaining_boosters": 0,
-          "wallet": 278.0,
-          "tournament_questions": 24,
           "has_active_boosters": 0
         },
         {
@@ -1002,8 +1002,8 @@
       "level": "Эксперт",
       "capital": 1000.0,
       "wallet": 0.0,
-      "all_questions": 33,
-      "remaining_boosters": 30
+      "all_questions": 34,
+      "remaining_boosters": 29
     },
     {
       "user_id": 162553305,
@@ -1317,7 +1317,7 @@
       "level": "Эксперт",
       "capital": 1000.0,
       "wallet": 278.0,
-      "all_questions": 184,
+      "all_questions": 199,
       "remaining_boosters": 0
     },
     {
