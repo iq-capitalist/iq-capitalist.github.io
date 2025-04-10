@@ -28,8 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
             
             playerData = data;
             
-            // Загружаем реферальные данные
-            return loadReferralData(userId);
         })
         .then(referralDataLoaded => {
             // Загружаем данные о турнирах
@@ -171,36 +169,6 @@ async function loadPlayerData(userId) {
 }
 
 /**
- * Загрузка реферальных данных для пользователя
- * @param {string} userId - ID пользователя
- */
-async function loadReferralData(userId) {
-    try {
-        // Загружаем данные о реферальных наградах
-        const response = await fetch(`data/referral_rewards.json`);
-        const referralData = await response.json();
-        
-        // Фильтруем данные только для текущего пользователя
-        if (referralData && referralData.rewards) {
-            const userRewards = referralData.rewards.filter(reward => 
-                reward.referrer_id == userId
-            );
-            
-            // Добавляем реферальные данные к данным пользователя
-            if (playerData) {
-                playerData.referral_rewards = userRewards;
-            }
-        }
-        
-        return true;
-    } catch (error) {
-        console.warn('Ошибка загрузки реферальных данных:', error);
-        // Это некритичная ошибка, поэтому возвращаем true, чтобы продолжить выполнение
-        return true;
-    }
-}
-
-/**
  * Отображение сообщения о том, что игрок не найден
  */
 function showPlayerNotFound() {
@@ -264,22 +232,14 @@ function displayPlayerProfile() {
  * Расчет и отображение реферальных данных
  */
 function displayReferralData() {
-    // Получаем данные о наградах по 20 монет
+    // Получаем данные о реферальных наградах из playerData
     let totalReward20 = 0;
     let totalReferrals = 0;
 
-    // Проверяем наличие реферальных данных
-    if (playerData && playerData.referral_rewards) {
-        playerData.referral_rewards.forEach(reward => {
-            // Вычисляем количество наград по 20 монет по формуле из SQL
-            // (reward_amount - 10 * rewards_given) / 10
-            const rewards20 = Math.max(0, Math.floor((reward.reward_amount - 10 * reward.rewards_given) / 10));
-            
-            if (rewards20 > 0) {
-                totalReward20 += rewards20 * 20; // каждая награда по 20 монет
-                totalReferrals += 1; // +1 приглашенный игрок
-            }
-        });
+    // Проверяем наличие предрассчитанных реферальных данных
+    if (playerData && playerData.referral_rewards20 !== undefined) {
+        totalReward20 = playerData.referral_rewards20;
+        totalReferrals = playerData.referral_count20;
     }
 
     // Обновляем элементы на странице
@@ -293,6 +253,7 @@ function displayReferralData() {
     if (referredCountElement) {
         referredCountElement.textContent = totalReferrals;
     }
+
 }
 
 /**
