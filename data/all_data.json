@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-04-10 05:15:01 UTC",
+  "lastUpdate": "2025-04-10 05:20:02 UTC",
   "tournament": {
     "activeTournament": 3,
     "startDate": "2025-04-08 08:00:00",
@@ -93,6 +93,15 @@
           "has_active_boosters": 0
         },
         {
+          "username": "1483289791",
+          "capital": 100.0,
+          "points": 118.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 80,
+          "has_active_boosters": 0
+        },
+        {
           "username": "1320889512",
           "capital": 100.0,
           "points": 114.0,
@@ -111,15 +120,6 @@
           "has_active_boosters": 0
         },
         {
-          "username": "1483289791",
-          "capital": 100.0,
-          "points": 100.0,
-          "remaining_boosters": 0,
-          "wallet": 0.0,
-          "tournament_questions": 72,
-          "has_active_boosters": 0
-        },
-        {
           "username": "5182088050",
           "capital": 100.0,
           "points": 82.0,
@@ -131,10 +131,10 @@
         {
           "username": "5239062935",
           "capital": 100.0,
-          "points": 72.0,
+          "points": 80.0,
           "remaining_boosters": 0,
           "wallet": 251.0,
-          "tournament_questions": 76,
+          "tournament_questions": 80,
           "has_active_boosters": 0
         },
         {
@@ -991,8 +991,8 @@
       "user_id": 471478283,
       "username": "471478283",
       "level": "Мастер",
-      "capital": 2001.0,
-      "wallet": 634.0,
+      "capital": 2635.0,
+      "wallet": 0.0,
       "all_questions": 80,
       "remaining_boosters": 168
     },
@@ -2199,7 +2199,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 72,
+      "all_questions": 80,
       "remaining_boosters": 0
     },
     {
@@ -2406,7 +2406,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 251.0,
-      "all_questions": 194,
+      "all_questions": 198,
       "remaining_boosters": 0
     },
     {
