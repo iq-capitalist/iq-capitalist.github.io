@@ -28,9 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             playerData = data;
             
-        })
-        .then(referralDataLoaded => {
-            // Загружаем данные о турнирах
+            // Загружаем данные о турнирах (реферальные данные уже включены в playerData)
             return loadTournamentsIndex();
         })
         .then(tournamentsIndex => {
