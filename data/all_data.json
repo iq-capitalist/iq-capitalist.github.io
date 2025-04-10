@@ -1,12 +1,12 @@
 {
-  "lastUpdate": "2025-04-10 07:35:01 UTC",
+  "lastUpdate": "2025-04-10 07:40:01 UTC",
   "tournament": {
     "activeTournament": 3,
     "startDate": "2025-04-08 08:00:00",
     "endDate": "2025-04-10 08:00:00",
-    "totalPlayers": 107,
+    "totalPlayers": 108,
     "playersByLevel": {
-      "Знаток": 78,
+      "Знаток": 79,
       "Эксперт": 28,
       "Мастер": 1,
       "Босс": 0,
@@ -606,6 +606,15 @@
           "has_active_boosters": 0
         },
         {
+          "username": "1351214605",
+          "capital": 100.0,
+          "points": -21.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 7,
+          "has_active_boosters": 0
+        },
+        {
           "username": "2009504033",
           "capital": 100.0,
           "points": -24.0,
@@ -752,6 +761,15 @@
           "has_active_boosters": 1
         },
         {
+          "username": "7048289770",
+          "capital": 1701.0,
+          "points": 4354.5599999999995,
+          "remaining_boosters": 108,
+          "wallet": 0.0,
+          "tournament_questions": 43,
+          "has_active_boosters": 1
+        },
+        {
           "username": "6466019730",
           "capital": 1000.0,
           "points": 3360.0,
@@ -776,15 +794,6 @@
           "remaining_boosters": 53,
           "wallet": 384.0,
           "tournament_questions": 80,
-          "has_active_boosters": 1
-        },
-        {
-          "username": "7048289770",
-          "capital": 1701.0,
-          "points": 2449.439999999999,
-          "remaining_boosters": 127,
-          "wallet": 0.0,
-          "tournament_questions": 24,
           "has_active_boosters": 1
         },
         {
@@ -1021,8 +1030,8 @@
       "level": "Эксперт",
       "capital": 1701.0,
       "wallet": 0.0,
-      "all_questions": 104,
-      "remaining_boosters": 127
+      "all_questions": 123,
+      "remaining_boosters": 108
     },
     {
       "user_id": 1877397832,
@@ -2201,6 +2210,15 @@
       "capital": 100.0,
       "wallet": 350.0,
       "all_questions": 160,
+      "remaining_boosters": 0
+    },
+    {
+      "user_id": 1351214605,
+      "username": "1351214605",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 0.0,
+      "all_questions": 7,
       "remaining_boosters": 0
     },
     {
