@@ -6,6 +6,58 @@
     <title>Игрок | IQ Capitalist</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/user.css">
+    <style>
+        /* Стили для блока "Источники капитала" */
+        .sources-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        .source-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px 10px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            flex: 1;
+            min-width: 200px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .source-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .source-icon {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .source-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 3px;
+        }
+
+        .source-label {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            text-align: center;
+        }
+
+        .player-card h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--card-header-color);
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+    </style>
 </head>
 <body>
     <header id="header"></header>
@@ -65,6 +117,18 @@
                             <div class="stat-icon">🚀</div>
                             <div class="stat-value" id="playerBoosters">0</div>
                             <div class="stat-label">Бустеры</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Карточка с источниками капитала -->
+                <div class="player-card" id="capitalSources">
+                    <h3>Источники капитала</h3>
+                    <div class="sources-grid">
+                        <div class="source-item">
+                            <div class="source-icon">👥</div>
+                            <div class="source-value" id="referralReward">0</div>
+                            <div class="source-label">IQC за привлечение <span id="referredCount">0</span> игроков</div>
                         </div>
                     </div>
                 </div>
@@ -132,5 +196,151 @@
     
     <script src="js/main.js"></script>
     <script src="js/user.js"></script>
+    
+    <!-- Добавляем JS для работы с реферальными данными -->
+    <script>
+        /**
+         * Загрузка реферальных данных для пользователя
+         * @param {string} userId - ID пользователя
+         */
+        async function loadReferralData(userId) {
+            try {
+                // Загружаем данные о реферальных наградах
+                const response = await fetch(`data/referral_rewards.json`);
+                const referralData = await response.json();
+                
+                // Фильтруем данные только для текущего пользователя
+                if (referralData && referralData.rewards) {
+                    const userRewards = referralData.rewards.filter(reward => 
+                        reward.referrer_id == userId
+                    );
+                    
+                    // Добавляем реферальные данные к данным пользователя
+                    if (playerData) {
+                        playerData.referral_rewards = userRewards;
+                    }
+                }
+                
+                return true;
+            } catch (error) {
+                console.warn('Ошибка загрузки реферальных данных:', error);
+                // Это некритичная ошибка, поэтому возвращаем true, чтобы продолжить выполнение
+                return true;
+            }
+        }
+
+        /**
+         * Расчет и отображение реферальных данных
+         */
+        function displayReferralData() {
+            // Проверяем наличие реферальных данных
+            if (!playerData || !playerData.referral_rewards) {
+                // Если данных нет, скрываем блок
+                const capitalSourcesBlock = document.getElementById('capitalSources');
+                if (capitalSourcesBlock) {
+                    capitalSourcesBlock.style.display = 'none';
+                }
+                return;
+            }
+
+            // Получаем данные о наградах по 20 монет
+            let totalReward20 = 0;
+            let totalReferrals = 0;
+
+            playerData.referral_rewards.forEach(reward => {
+                // Вычисляем количество наград по 20 монет по формуле из SQL
+                // (reward_amount - 10 * rewards_given) / 10
+                const rewards20 = Math.max(0, Math.floor((reward.reward_amount - 10 * reward.rewards_given) / 10));
+                
+                if (rewards20 > 0) {
+                    totalReward20 += rewards20 * 20; // каждая награда по 20 монет
+                    totalReferrals += 1; // +1 приглашенный игрок
+                }
+            });
+
+            // Обновляем элементы на странице
+            const referralRewardElement = document.getElementById('referralReward');
+            const referredCountElement = document.getElementById('referredCount');
+
+            if (referralRewardElement) {
+                referralRewardElement.textContent = formatNumber(totalReward20);
+            }
+
+            if (referredCountElement) {
+                referredCountElement.textContent = totalReferrals;
+            }
+
+            // Показываем блок только если есть реферальные награды
+            const capitalSourcesBlock = document.getElementById('capitalSources');
+            if (capitalSourcesBlock) {
+                capitalSourcesBlock.style.display = totalReward20 > 0 ? 'block' : 'none';
+            }
+        }
+
+        // Перехватываем оригинальную функцию displayPlayerProfile
+        const originalDisplayPlayerProfile = displayPlayerProfile;
+        
+        displayPlayerProfile = function() {
+            // Вызываем оригинальную функцию
+            originalDisplayPlayerProfile();
+            
+            // Добавляем отображение реферальных данных
+            displayReferralData();
+        };
+
+        // Перехватываем инициализацию на загрузке DOM
+        const originalDOMContentLoaded = document.onreadystatechange;
+        
+        // Патчим загрузку данных, добавляя загрузку реферальных данных
+        document.addEventListener('DOMContentLoaded', function() {
+            // Получаем ID игрока из URL-параметров
+            const urlParams = new URLSearchParams(window.location.search);
+            const userId = urlParams.get('id');
+            
+            if (!userId) {
+                showPlayerNotFound();
+                return;
+            }
+            
+            // Загружаем данные игрока
+            loadPlayerData(userId)
+                .then(data => {
+                    if (!data) {
+                        showPlayerNotFound();
+                        return;
+                    }
+                    
+                    playerData = data;
+                    
+                    // Загружаем реферальные данные
+                    return loadReferralData(userId);
+                })
+                .then(referralDataLoaded => {
+                    // Загружаем данные о турнирах
+                    return loadTournamentsIndex();
+                })
+                .then(tournamentsIndex => {
+                    if (!tournamentsIndex) {
+                        // Если не удалось загрузить индекс турниров, все равно показываем профиль
+                        displayPlayerProfile();
+                        return;
+                    }
+                    
+                    // Сохраняем индекс турниров
+                    tournamentsData = tournamentsIndex.tournaments;
+                    
+                    // Загружаем историю турниров игрока
+                    return loadPlayerTournamentHistory();
+                })
+                .then(() => {
+                    // Отображаем профиль игрока со всеми данными
+                    displayPlayerProfile();
+                })
+                .catch(error => {
+                    console.error('Ошибка загрузки данных:', error);
+                    showError();
+                });
+        });
+    </script>
 </body>
 </html>
