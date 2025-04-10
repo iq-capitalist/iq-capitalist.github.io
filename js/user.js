@@ -264,30 +264,23 @@ function displayPlayerProfile() {
  * Расчет и отображение реферальных данных
  */
 function displayReferralData() {
-    // Проверяем наличие реферальных данных
-    if (!playerData || !playerData.referral_rewards) {
-        // Если данных нет, скрываем блок
-        const capitalSourcesBlock = document.getElementById('capitalSources');
-        if (capitalSourcesBlock) {
-            capitalSourcesBlock.style.display = 'none';
-        }
-        return;
-    }
-
     // Получаем данные о наградах по 20 монет
     let totalReward20 = 0;
     let totalReferrals = 0;
 
-    playerData.referral_rewards.forEach(reward => {
-        // Вычисляем количество наград по 20 монет по формуле из SQL
-        // (reward_amount - 10 * rewards_given) / 10
-        const rewards20 = Math.max(0, Math.floor((reward.reward_amount - 10 * reward.rewards_given) / 10));
-        
-        if (rewards20 > 0) {
-            totalReward20 += rewards20 * 20; // каждая награда по 20 монет
-            totalReferrals += 1; // +1 приглашенный игрок
-        }
-    });
+    // Проверяем наличие реферальных данных
+    if (playerData && playerData.referral_rewards) {
+        playerData.referral_rewards.forEach(reward => {
+            // Вычисляем количество наград по 20 монет по формуле из SQL
+            // (reward_amount - 10 * rewards_given) / 10
+            const rewards20 = Math.max(0, Math.floor((reward.reward_amount - 10 * reward.rewards_given) / 10));
+            
+            if (rewards20 > 0) {
+                totalReward20 += rewards20 * 20; // каждая награда по 20 монет
+                totalReferrals += 1; // +1 приглашенный игрок
+            }
+        });
+    }
 
     // Обновляем элементы на странице
     const referralRewardElement = document.getElementById('referralReward');
@@ -299,12 +292,6 @@ function displayReferralData() {
 
     if (referredCountElement) {
         referredCountElement.textContent = totalReferrals;
-    }
-
-    // Показываем блок только если есть реферальные награды
-    const capitalSourcesBlock = document.getElementById('capitalSources');
-    if (capitalSourcesBlock) {
-        capitalSourcesBlock.style.display = totalReward20 > 0 ? 'block' : 'none';
     }
 }
 
