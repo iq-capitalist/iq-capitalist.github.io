@@ -552,13 +552,31 @@ function createAnswersStatsChart() {
     // Получаем элемент canvas
     const ctx = document.getElementById('answersStatsChart');
     
-    // Сортируем историю по ID турнира (по возрастанию для графика)
-    const sortedHistory = [...playerData.tournament_history].sort((a, b) => a.tournament_id - b.tournament_id);
+    // Находим минимальный и максимальный ID турнира из всех завершенных турниров,
+    // а не только тех, в которых участвовал игрок
+    const allTournamentIds = tournamentsData
+        .filter(t => t.status !== 'active')
+        .map(t => t.id);
+    
+    // Если нет данных о завершенных турнирах, используем только турниры игрока
+    let minTournamentId, maxTournamentId;
+    if (allTournamentIds.length === 0) {
+        const playerTournamentIds = playerData.tournament_history.map(t => t.tournament_id);
+        minTournamentId = Math.min(...playerTournamentIds);
+        maxTournamentId = Math.max(...playerTournamentIds);
+    } else {
+        minTournamentId = Math.min(...allTournamentIds);
+        maxTournamentId = Math.max(...allTournamentIds);
+    }
+    
+    // Создаем объект для быстрого доступа к данным по ID турнира
+    const tournamentDataById = {};
+    playerData.tournament_history.forEach(tournament => {
+        tournamentDataById[tournament.tournament_id] = tournament;
+    });
     
     // Подготавливаем данные для графика
-    const labels = sortedHistory.map(t => `Турнир ${t.tournament_id}`);
-    
-    // Получаем данные о типах ответов для каждого турнира
+    const labels = [];
     const timeouts = [];
     const correctSlow = [];
     const correctMedium = [];
@@ -567,18 +585,35 @@ function createAnswersStatsChart() {
     const wrongMedium = [];
     const wrongFast = [];
     
-    sortedHistory.forEach(tournament => {
-        // Собираем данные (положительные значения - вверх)
-        timeouts.push(tournament.timeouts || 0);
-        correctSlow.push(tournament.correct_answers?.slow || 0);
-        correctMedium.push(tournament.correct_answers?.medium || 0);
-        correctFast.push(tournament.correct_answers?.fast || 0);
+    // Заполняем массивы для всех ID турниров от минимального до максимального
+    for (let id = minTournamentId; id <= maxTournamentId; id++) {
+        // Добавляем метку для каждого турнира
+        labels.push(`Турнир ${id}`);
         
-        // Собираем данные (негативные значения - вниз)
-        wrongSlow.push(-(tournament.wrong_answers?.slow || 0));
-        wrongMedium.push(-(tournament.wrong_answers?.medium || 0));
-        wrongFast.push(-(tournament.wrong_answers?.fast || 0));
-    });
+        // Проверяем, участвовал ли игрок в этом турнире
+        if (tournamentDataById[id]) {
+            const tournament = tournamentDataById[id];
+            // Собираем данные (положительные значения - вверх)
+            timeouts.push(tournament.timeouts || 0);
+            correctSlow.push(tournament.correct_answers?.slow || 0);
+            correctMedium.push(tournament.correct_answers?.medium || 0);
+            correctFast.push(tournament.correct_answers?.fast || 0);
+            
+            // Собираем данные (негативные значения - вниз)
+            wrongSlow.push(-(tournament.wrong_answers?.slow || 0));
+            wrongMedium.push(-(tournament.wrong_answers?.medium || 0));
+            wrongFast.push(-(tournament.wrong_answers?.fast || 0));
+        } else {
+            // Для пропущенных турниров добавляем нули
+            timeouts.push(0);
+            correctSlow.push(0);
+            correctMedium.push(0);
+            correctFast.push(0);
+            wrongSlow.push(0);
+            wrongMedium.push(0);
+            wrongFast.push(0);
+        }
+    }
     
     // Данные для графика - один общий стэк
     const data = {
@@ -710,20 +745,58 @@ function displayTournamentHistory() {
     // Очищаем таблицу
     tableBody.innerHTML = '';
     
-    // Добавляем строки для каждого турнира
+    // Находим минимальный и максимальный ID турнира из всех завершенных турниров
+    const allTournamentIds = tournamentsData
+        .filter(t => t.status !== 'active')
+        .map(t => t.id);
+    
+    // Если нет данных о завершенных турнирах, используем только турниры игрока
+    let minTournamentId, maxTournamentId;
+    if (allTournamentIds.length === 0) {
+        const playerTournamentIds = playerData.tournament_history.map(t => t.tournament_id);
+        minTournamentId = Math.min(...playerTournamentIds);
+        maxTournamentId = Math.max(...playerTournamentIds);
+    } else {
+        minTournamentId = Math.min(...allTournamentIds);
+        maxTournamentId = Math.max(...allTournamentIds);
+    }
+    
+    // Создаем объект для быстрого доступа к данным по ID турнира
+    const tournamentDataById = {};
     playerData.tournament_history.forEach(tournament => {
+        tournamentDataById[tournament.tournament_id] = tournament;
+    });
+    
+    // Добавляем строки для всех турниров (включая пропущенные)
+    for (let id = minTournamentId; id <= maxTournamentId; id++) {
         const row = document.createElement('tr');
         
-        row.innerHTML = `
-            <td>Турнир ${tournament.tournament_id}</td>
-            <td>${tournament.level}</td>
-            <td>${formatNumber(tournament.answers)}</td>
-            <td>${formatDecimal(tournament.total_points)}</td>
-            <td>${formatNumber(tournament.prize)}</td>
-        `;
+        // Проверяем, участвовал ли игрок в этом турнире
+        if (tournamentDataById[id]) {
+            // Если участвовал, показываем полные данные
+            const tournament = tournamentDataById[id];
+            row.innerHTML = `
+                <td>Турнир ${id}</td>
+                <td>${tournament.level}</td>
+                <td>${formatNumber(tournament.answers)}</td>
+                <td>${formatDecimal(tournament.total_points)}</td>
+                <td>${formatNumber(tournament.prize)}</td>
+            `;
+        } else {
+            // Если не участвовал, показываем только номер турнира и пустые ячейки
+            row.innerHTML = `
+                <td>Турнир ${id}</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+            `;
+            // Добавляем класс для стилизации пропущенных турниров
+            row.classList.add('missed-tournament');
+        }
         
         tableBody.appendChild(row);
-    });
+    }
 }
 
 /**
