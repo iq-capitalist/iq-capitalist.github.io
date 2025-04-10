@@ -301,6 +301,11 @@ function createAnswersProgressChart() {
     // Получаем элемент canvas
     const ctx = document.getElementById('answersProgressChart');
     
+    // Уничтожаем предыдущий график, если он существует
+    if (charts.answersProgress) {
+        charts.answersProgress.destroy();
+    }
+    
     // Находим минимальный и максимальный ID турнира из всех завершенных турниров,
     // а не только тех, в которых участвовал игрок
     const allTournamentIds = tournamentsData
@@ -394,6 +399,11 @@ function createPointsProgressChart() {
     
     // Получаем элемент canvas
     const ctx = document.getElementById('pointsProgressChart');
+    
+    // Уничтожаем предыдущий график, если он существует
+    if (charts.pointsProgress) {
+        charts.pointsProgress.destroy();
+    }
     
     // Находим минимальный и максимальный ID турнира из всех завершенных турниров,
     // а не только тех, в которых участвовал игрок
@@ -489,6 +499,11 @@ function createPrizesProgressChart() {
     // Получаем элемент canvas
     const ctx = document.getElementById('prizesProgressChart');
     
+    // Уничтожаем предыдущий график, если он существует
+    if (charts.prizesProgress) {
+        charts.prizesProgress.destroy();
+    }
+    
     // Находим минимальный и максимальный ID турнира из всех завершенных турниров,
     // а не только тех, в которых участвовал игрок
     const allTournamentIds = tournamentsData
@@ -582,6 +597,11 @@ function createAnswersStatsChart() {
     
     // Получаем элемент canvas
     const ctx = document.getElementById('answersStatsChart');
+    
+    // Уничтожаем предыдущий график, если он существует
+    if (charts.answersStats) {
+        charts.answersStats.destroy();
+    }
     
     // Сортируем историю по ID турнира (по возрастанию для графика)
     const sortedHistory = [...playerData.tournament_history].sort((a, b) => a.tournament_id - b.tournament_id);
