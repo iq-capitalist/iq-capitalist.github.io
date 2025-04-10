@@ -258,3 +258,53 @@
 .missed-tournament:hover {
     background-color: rgba(52, 152, 219, 0.1);
 }
+
+.sources-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.source-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 10px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    flex: 1;
+    min-width: 200px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.source-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.source-icon {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.source-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 3px;
+}
+
+.source-label {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    text-align: center;
+}
+
+.player-card h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: var(--card-header-color);
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
