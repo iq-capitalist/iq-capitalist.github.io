@@ -29,15 +29,36 @@ function loadData(callback) {
  * @param {Array} players - Массив игроков для сортировки
  * @param {String} column - Колонка, по которой производится сортировка
  * @param {String} direction - Направление сортировки ('asc' или 'desc')
+ * @param {String} secondaryColumn - Вторичная колонка для сортировки (опционально)
+ * @param {String} secondaryDirection - Направление для вторичной сортировки (опционально, по умолчанию как у основной)
  * @returns {Array} - Отсортированный массив игроков
  */
-function sortPlayers(players, column, direction) {
+function sortPlayers(players, column, direction, secondaryColumn, secondaryDirection) {
+  // Если вторичное направление не указано, используем направление основной сортировки
+  secondaryDirection = secondaryDirection || direction;
+
   return [...players].sort((a, b) => {
     // Текстовые поля
     if (column === 'username' || column === 'level') {
-      return direction === 'asc' 
+      const primaryCompare = direction === 'asc' 
           ? a[column].localeCompare(b[column])
           : b[column].localeCompare(a[column]);
+          
+      // Если значения равны и есть вторичная колонка, используем ее
+      if (primaryCompare === 0 && secondaryColumn) {
+        // Проверяем тип вторичной колонки
+        if (secondaryColumn === 'username' || secondaryColumn === 'level') {
+          return secondaryDirection === 'asc'
+              ? a[secondaryColumn].localeCompare(b[secondaryColumn])
+              : b[secondaryColumn].localeCompare(a[secondaryColumn]);
+        } else {
+          return secondaryDirection === 'asc'
+              ? a[secondaryColumn] - b[secondaryColumn]
+              : b[secondaryColumn] - a[secondaryColumn];
+        }
+      }
+      
+      return primaryCompare;
     } 
     // Числовые поля
     else {
@@ -45,8 +66,22 @@ function sortPlayers(players, column, direction) {
           ? a[column] - b[column]
           : b[column] - a[column];
           
-      // Дополнительная сортировка по имени пользователя при равенстве основного поля
-      if (primaryCompare === 0) {
+      // Если значения равны и есть вторичная колонка, используем ее
+      if (primaryCompare === 0 && secondaryColumn) {
+        // Проверяем тип вторичной колонки
+        if (secondaryColumn === 'username' || secondaryColumn === 'level') {
+          return secondaryDirection === 'asc'
+              ? a[secondaryColumn].localeCompare(b[secondaryColumn])
+              : b[secondaryColumn].localeCompare(a[secondaryColumn]);
+        } else {
+          return secondaryDirection === 'asc'
+              ? a[secondaryColumn] - b[secondaryColumn]
+              : b[secondaryColumn] - a[secondaryColumn];
+        }
+      }
+      
+      // Если вторичная колонка не указана, используем имя пользователя (как раньше)
+      if (primaryCompare === 0 && !secondaryColumn) {
         return a.username.localeCompare(b.username);
       }
       
@@ -54,7 +89,6 @@ function sortPlayers(players, column, direction) {
     }
   });
 }
-
 /**
  * Общая функция отображения ошибок
  * @param {String} containerId - ID контейнера для отображения ошибки
