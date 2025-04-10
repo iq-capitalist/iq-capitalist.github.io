@@ -178,14 +178,16 @@ function downloadPlayersCSV() {
         return;
     }
     
-    const headers = ['Игрок', 'Уровень', 'Капитал', 'Кошелёк', 'Ответы'];
+    const headers = ['Игрок', 'Уровень', 'Капитал', 'Кошелёк', 'Ответы', 'Бустеры', 'Билеты'];
     
     const transformRow = (player) => [
         `"${player.username}"`,
         `"${player.level}"`,
         player.capital,
         player.wallet,
-        player.all_questions
+        player.all_questions,
+        player.remaining_boosters || 0,
+        player.tickets || 0
     ];
     
     const csv = generateCSV(globalStats.players, headers, transformRow);
