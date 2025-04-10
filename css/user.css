@@ -246,3 +246,15 @@
         display: none;
     }
 }
+
+/* Стили для пропущенных турниров */
+.missed-tournament {
+    background-color: #f5f5f5;
+    opacity: 0.7;
+    color: #999;
+    font-style: italic;
+}
+
+.missed-tournament:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+}
