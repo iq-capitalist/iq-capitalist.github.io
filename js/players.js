@@ -68,7 +68,28 @@ function displayPlayers(players) {
     levelOrder.forEach(level => {
         const levelPlayers = playersByLevel[level];
         if (levelPlayers && levelPlayers.length > 0) {
-            const sortedPlayers = sortPlayers(levelPlayers, currentSort.column, currentSort.direction);
+            // Определяем вторичный параметр сортировки
+            let secondaryColumn, secondaryDirection;
+            
+            if (currentSort.column === 'capital') {
+                secondaryColumn = 'wallet';
+                secondaryDirection = 'desc';
+            } else if (currentSort.column === 'wallet') {
+                secondaryColumn = 'capital';
+                secondaryDirection = 'desc';
+            } else {
+                // Для других колонок оставляем без вторичной сортировки
+                secondaryColumn = null;
+                secondaryDirection = null;
+            }
+            
+            const sortedPlayers = sortPlayers(
+                levelPlayers, 
+                currentSort.column, 
+                currentSort.direction,
+                secondaryColumn,
+                secondaryDirection
+            );
             
             // Получаем границы уровня
             const range = levelRanges[level];
