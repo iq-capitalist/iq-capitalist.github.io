@@ -28,6 +28,10 @@ document.addEventListener('DOMContentLoaded', function() {
             
             playerData = data;
             
+            // Загружаем реферальные данные
+            return loadReferralData(userId);
+        })
+        .then(referralDataLoaded => {
             // Загружаем данные о турнирах
             return loadTournamentsIndex();
         })
@@ -167,6 +171,36 @@ async function loadPlayerData(userId) {
 }
 
 /**
+ * Загрузка реферальных данных для пользователя
+ * @param {string} userId - ID пользователя
+ */
+async function loadReferralData(userId) {
+    try {
+        // Загружаем данные о реферальных наградах
+        const response = await fetch(`data/referral_rewards.json`);
+        const referralData = await response.json();
+        
+        // Фильтруем данные только для текущего пользователя
+        if (referralData && referralData.rewards) {
+            const userRewards = referralData.rewards.filter(reward => 
+                reward.referrer_id == userId
+            );
+            
+            // Добавляем реферальные данные к данным пользователя
+            if (playerData) {
+                playerData.referral_rewards = userRewards;
+            }
+        }
+        
+        return true;
+    } catch (error) {
+        console.warn('Ошибка загрузки реферальных данных:', error);
+        // Это некритичная ошибка, поэтому возвращаем true, чтобы продолжить выполнение
+        return true;
+    }
+}
+
+/**
  * Отображение сообщения о том, что игрок не найден
  */
 function showPlayerNotFound() {
@@ -211,6 +245,9 @@ function displayPlayerProfile() {
     document.getElementById('playerQuestions').textContent = formatNumber(playerData.all_questions);
     document.getElementById('playerBoosters').textContent = formatNumber(playerData.remaining_boosters);
     
+    // Отображаем реферальные данные
+    displayReferralData();
+    
     // Создаем разделенные графики прогресса
     createAnswersProgressChart();
     createPointsProgressChart();
@@ -221,6 +258,54 @@ function displayPlayerProfile() {
     
     // Заполняем таблицу с историей турниров
     displayTournamentHistory();
+}
+
+/**
+ * Расчет и отображение реферальных данных
+ */
+function displayReferralData() {
+    // Проверяем наличие реферальных данных
+    if (!playerData || !playerData.referral_rewards) {
+        // Если данных нет, скрываем блок
+        const capitalSourcesBlock = document.getElementById('capitalSources');
+        if (capitalSourcesBlock) {
+            capitalSourcesBlock.style.display = 'none';
+        }
+        return;
+    }
+
+    // Получаем данные о наградах по 20 монет
+    let totalReward20 = 0;
+    let totalReferrals = 0;
+
+    playerData.referral_rewards.forEach(reward => {
+        // Вычисляем количество наград по 20 монет по формуле из SQL
+        // (reward_amount - 10 * rewards_given) / 10
+        const rewards20 = Math.max(0, Math.floor((reward.reward_amount - 10 * reward.rewards_given) / 10));
+        
+        if (rewards20 > 0) {
+            totalReward20 += rewards20 * 20; // каждая награда по 20 монет
+            totalReferrals += 1; // +1 приглашенный игрок
+        }
+    });
+
+    // Обновляем элементы на странице
+    const referralRewardElement = document.getElementById('referralReward');
+    const referredCountElement = document.getElementById('referredCount');
+
+    if (referralRewardElement) {
+        referralRewardElement.textContent = formatNumber(totalReward20);
+    }
+
+    if (referredCountElement) {
+        referredCountElement.textContent = totalReferrals;
+    }
+
+    // Показываем блок только если есть реферальные награды
+    const capitalSourcesBlock = document.getElementById('capitalSources');
+    if (capitalSourcesBlock) {
+        capitalSourcesBlock.style.display = totalReward20 > 0 ? 'block' : 'none';
+    }
 }
 
 /**
@@ -552,31 +637,13 @@ function createAnswersStatsChart() {
     // Получаем элемент canvas
     const ctx = document.getElementById('answersStatsChart');
     
-    // Находим минимальный и максимальный ID турнира из всех завершенных турниров,
-    // а не только тех, в которых участвовал игрок
-    const allTournamentIds = tournamentsData
-        .filter(t => t.status !== 'active')
-        .map(t => t.id);
-    
-    // Если нет данных о завершенных турнирах, используем только турниры игрока
-    let minTournamentId, maxTournamentId;
-    if (allTournamentIds.length === 0) {
-        const playerTournamentIds = playerData.tournament_history.map(t => t.tournament_id);
-        minTournamentId = Math.min(...playerTournamentIds);
-        maxTournamentId = Math.max(...playerTournamentIds);
-    } else {
-        minTournamentId = Math.min(...allTournamentIds);
-        maxTournamentId = Math.max(...allTournamentIds);
-    }
-    
-    // Создаем объект для быстрого доступа к данным по ID турнира
-    const tournamentDataById = {};
-    playerData.tournament_history.forEach(tournament => {
-        tournamentDataById[tournament.tournament_id] = tournament;
-    });
+    // Сортируем историю по ID турнира (по возрастанию для графика)
+    const sortedHistory = [...playerData.tournament_history].sort((a, b) => a.tournament_id - b.tournament_id);
     
     // Подготавливаем данные для графика
-    const labels = [];
+    const labels = sortedHistory.map(t => `Турнир ${t.tournament_id}`);
+    
+    // Получаем данные о типах ответов для каждого турнира
     const timeouts = [];
     const correctSlow = [];
     const correctMedium = [];
@@ -585,35 +652,18 @@ function createAnswersStatsChart() {
     const wrongMedium = [];
     const wrongFast = [];
     
-    // Заполняем массивы для всех ID турниров от минимального до максимального
-    for (let id = minTournamentId; id <= maxTournamentId; id++) {
-        // Добавляем метку для каждого турнира
-        labels.push(`Турнир ${id}`);
+    sortedHistory.forEach(tournament => {
+        // Собираем данные (положительные значения - вверх)
+        timeouts.push(tournament.timeouts || 0);
+        correctSlow.push(tournament.correct_answers?.slow || 0);
+        correctMedium.push(tournament.correct_answers?.medium || 0);
+        correctFast.push(tournament.correct_answers?.fast || 0);
         
-        // Проверяем, участвовал ли игрок в этом турнире
-        if (tournamentDataById[id]) {
-            const tournament = tournamentDataById[id];
-            // Собираем данные (положительные значения - вверх)
-            timeouts.push(tournament.timeouts || 0);
-            correctSlow.push(tournament.correct_answers?.slow || 0);
-            correctMedium.push(tournament.correct_answers?.medium || 0);
-            correctFast.push(tournament.correct_answers?.fast || 0);
-            
-            // Собираем данные (негативные значения - вниз)
-            wrongSlow.push(-(tournament.wrong_answers?.slow || 0));
-            wrongMedium.push(-(tournament.wrong_answers?.medium || 0));
-            wrongFast.push(-(tournament.wrong_answers?.fast || 0));
-        } else {
-            // Для пропущенных турниров добавляем нули
-            timeouts.push(0);
-            correctSlow.push(0);
-            correctMedium.push(0);
-            correctFast.push(0);
-            wrongSlow.push(0);
-            wrongMedium.push(0);
-            wrongFast.push(0);
-        }
-    }
+        // Собираем данные (негативные значения - вниз)
+        wrongSlow.push(-(tournament.wrong_answers?.slow || 0));
+        wrongMedium.push(-(tournament.wrong_answers?.medium || 0));
+        wrongFast.push(-(tournament.wrong_answers?.fast || 0));
+    });
     
     // Данные для графика - один общий стэк
     const data = {
