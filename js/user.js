@@ -183,7 +183,7 @@ function showError() {
 }
 
 /**
- * Отображение профиля игрока
+ * Отображение профиля игрока - добавьте вызов функции отображения призов
  */
 function displayPlayerProfile() {
     // Скрываем индикатор загрузки
@@ -213,6 +213,9 @@ function displayPlayerProfile() {
     
     // Отображаем реферальные данные
     displayReferralData();
+    
+    // Отображаем данные о призах в турнирах
+    displayTournamentPrizesData();
     
     // Создаем разделенные графики прогресса
     createAnswersProgressChart();
@@ -252,6 +255,27 @@ function displayReferralData() {
         referredCountElement.textContent = totalReferrals;
     }
 
+}
+
+/**
+ * Расчет и отображение данных о призах в турнирах
+ */
+function displayTournamentPrizesData() {
+    let totalPrizes = 0;
+    
+    // Проверяем наличие истории турниров
+    if (playerData.tournament_history && playerData.tournament_history.length > 0) {
+        // Суммируем призы со всех турниров
+        totalPrizes = playerData.tournament_history.reduce((sum, tournament) => {
+            return sum + (tournament.prize || 0);
+        }, 0);
+    }
+    
+    // Обновляем элемент на странице
+    const tournamentPrizesElement = document.getElementById('tournamentPrizes');
+    if (tournamentPrizesElement) {
+        tournamentPrizesElement.textContent = formatNumber(totalPrizes);
+    }
 }
 
 /**
