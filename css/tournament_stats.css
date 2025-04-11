@@ -64,7 +64,7 @@
     border-collapse: separate;
     border-spacing: 0;
     margin-bottom: 20px;
-    table-layout: fixed;
+    table-layout: fixed; /* Добавлено: фиксированный макет таблицы */
 }
 
 .stats-table th,
@@ -75,9 +75,24 @@
     font-size: 14px;
 }
 
+/* Обработка переполнения в ячейках */
+.stats-table td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Уменьшенный padding для ячеек с ответами */
+.stats-table td.correct-fast, .stats-table td.correct-medium, .stats-table td.correct-slow,
+.stats-table td.wrong-fast, .stats-table td.wrong-medium, .stats-table td.wrong-slow,
+.stats-table td.timeout {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
 /* Фиксированная ширина колонок второго уровня (с ячейками ответов) */
 .stats-table tr:nth-child(2) th:nth-child(n+2):nth-child(-n+8) {
-    width: 30px; /* Уменьшенная ширина для колонок с ответами (было 35px) */
+    width: 30px; /* Уменьшенная ширина для колонок с ответами */
 }
 
 /* Настройка ширины остальных колонок */
@@ -90,19 +105,16 @@
 }
 
 .stats-table tr:nth-child(2) th:nth-child(10) {
-    width: 140px; /* Увеличенная ширина для колонки с очками (было 120px) */
+    width: 140px; /* Увеличенная ширина для колонки с очками */
 }
 
 .stats-table tr:nth-child(2) th:nth-child(11) {
     width: 80px; /* Приз */
 }
 
-/* Уменьшенный padding для ячеек с ответами */
-.stats-table td.correct-fast, .stats-table td.correct-medium, .stats-table td.correct-slow,
-.stats-table td.wrong-fast, .stats-table td.wrong-medium, .stats-table td.wrong-slow,
-.stats-table td.timeout {
-    padding-left: 5px;
-    padding-right: 5px;
+/* Скрываем элемент "Данные обновлены" */
+#lastUpdate {
+    display: none;
 }
 
 .stats-table th {
