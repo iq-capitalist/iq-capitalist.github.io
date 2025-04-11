@@ -64,7 +64,7 @@
     border-collapse: separate;
     border-spacing: 0;
     margin-bottom: 20px;
-    table-layout: fixed; /* Добавлено: фиксированный макет таблицы */
+    table-layout: fixed !important; /* Принудительно фиксированный макет таблицы */
 }
 
 .stats-table th,
@@ -73,26 +73,26 @@
     text-align: center;
     border-bottom: 1px solid #eee;
     font-size: 14px;
+    box-sizing: border-box !important;
 }
 
-/* Обработка переполнения в ячейках */
-.stats-table td {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* Уменьшенный padding для ячеек с ответами */
-.stats-table td.correct-fast, .stats-table td.correct-medium, .stats-table td.correct-slow,
-.stats-table td.wrong-fast, .stats-table td.wrong-medium, .stats-table td.wrong-slow,
+/* Специальные стили для ячеек с ответами */
+.stats-table td.correct-fast, 
+.stats-table td.correct-medium, 
+.stats-table td.correct-slow,
+.stats-table td.wrong-fast, 
+.stats-table td.wrong-medium, 
+.stats-table td.wrong-slow,
 .stats-table td.timeout {
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 2px !important;
+    padding-right: 2px !important;
 }
 
 /* Фиксированная ширина колонок второго уровня (с ячейками ответов) */
 .stats-table tr:nth-child(2) th:nth-child(n+2):nth-child(-n+8) {
-    width: 30px; /* Уменьшенная ширина для колонок с ответами */
+    width: 30px !important; /* Уменьшенная ширина для колонок с ответами */
+    min-width: 30px !important;
+    max-width: 30px !important;
 }
 
 /* Настройка ширины остальных колонок */
@@ -105,16 +105,37 @@
 }
 
 .stats-table tr:nth-child(2) th:nth-child(10) {
-    width: 140px; /* Увеличенная ширина для колонки с очками */
+    width: 140px !important; /* Увеличенная ширина для колонки с очками */
+    min-width: 140px !important;
 }
 
 .stats-table tr:nth-child(2) th:nth-child(11) {
     width: 80px; /* Приз */
 }
 
-/* Скрываем элемент "Данные обновлены" */
-#lastUpdate {
-    display: none;
+/* Класс для всех ячеек с ответами */
+.answer-cell {
+    width: 30px !important;
+    min-width: 30px !important;
+    max-width: 30px !important;
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+/* Класс для ячеек с очками */
+.stats-table td:nth-child(10) {
+    width: 140px !important;
+    min-width: 140px !important;
+}
+
+/* Обработка содержимого ячеек */
+.stats-table td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .stats-table th {
