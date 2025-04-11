@@ -101,11 +101,11 @@
 }
 
 .stats-table tr:nth-child(2) th:nth-child(9) {
-    width: 50px; /* Всего */
+    width: 60px; /* Всего */
 }
 
 .stats-table tr:nth-child(2) th:nth-child(10) {
-    width: 140px !important; /* Увеличенная ширина для колонки с очками */
+    width: 130px !important; /* Увеличенная ширина для колонки с очками */
     min-width: 140px !important;
 }
 
