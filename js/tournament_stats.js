@@ -236,28 +236,28 @@ function displayStatsTable(data) {
     // Создаем таблицу
     let html = `
         <div class="table-responsive">
-            <table class="stats-table">
+            <table class="stats-table" style="table-layout: fixed !important;">
                 <thead>
                     <tr>
-                        <th onclick="sortTable('username')">Имя</th>
+                        <th onclick="sortTable('username')" style="width: 120px;">Имя</th>
                         <th colspan="3" class="column-group">Правильные</th>
                         <th colspan="3" class="column-group">Неправильные</th>
                         <th class="column-group">X</th>
-                        <th class="column-group" onclick="sortTable('answers')">Всего</th>
-                        <th class="column-group" onclick="sortTable('total_points')">Очки</th>
-                        <th class="column-group" onclick="sortTable('prize')">Приз</th>
+                        <th class="column-group" onclick="sortTable('answers')" style="width: 50px;">Всего</th>
+                        <th class="column-group" onclick="sortTable('total_points')" style="width: 140px !important;">Очки</th>
+                        <th class="column-group" onclick="sortTable('prize')" style="width: 80px;">Приз</th>
                     </tr>
                     <tr>
                         <th></th>
-                        <th onclick="sortTable('correct_answers.fast')" class="correct-fast"></th>
-                        <th onclick="sortTable('correct_answers.medium')" class="correct-medium"></th>
-                        <th onclick="sortTable('correct_answers.slow')" class="correct-slow"></th>
-                        <th onclick="sortTable('wrong_answers.fast')" class="wrong-fast"></th>
-                        <th onclick="sortTable('wrong_answers.medium')" class="wrong-medium"></th>
-                        <th onclick="sortTable('wrong_answers.slow')" class="wrong-slow"></th>
-                        <th onclick="sortTable('timeouts')" class="timeout"></th>
+                        <th onclick="sortTable('correct_answers.fast')" class="correct-fast answer-cell" style="width: 30px !important;"></th>
+                        <th onclick="sortTable('correct_answers.medium')" class="correct-medium answer-cell" style="width: 30px !important;"></th>
+                        <th onclick="sortTable('correct_answers.slow')" class="correct-slow answer-cell" style="width: 30px !important;"></th>
+                        <th onclick="sortTable('wrong_answers.fast')" class="wrong-fast answer-cell" style="width: 30px !important;"></th>
+                        <th onclick="sortTable('wrong_answers.medium')" class="wrong-medium answer-cell" style="width: 30px !important;"></th>
+                        <th onclick="sortTable('wrong_answers.slow')" class="wrong-slow answer-cell" style="width: 30px !important;"></th>
+                        <th onclick="sortTable('timeouts')" class="timeout answer-cell" style="width: 30px !important;"></th>
                         <th></th>
-                        <th></th>
+                        <th style="width: 140px !important;"></th>
                         <th></th>
                     </tr>
                 </thead>
@@ -269,15 +269,15 @@ function displayStatsTable(data) {
         html += `
             <tr>
                 <td>${player.username}</td>
-                <td class="correct-fast">${player.correct_answers.fast}</td>
-                <td class="correct-medium">${player.correct_answers.medium}</td>
-                <td class="correct-slow">${player.correct_answers.slow}</td>
-                <td class="wrong-fast">${player.wrong_answers.fast}</td>
-                <td class="wrong-medium">${player.wrong_answers.medium}</td>
-                <td class="wrong-slow">${player.wrong_answers.slow}</td>
-                <td class="timeout">${player.timeouts}</td>
+                <td class="correct-fast answer-cell" style="padding-left: 2px; padding-right: 2px;">${player.correct_answers.fast}</td>
+                <td class="correct-medium answer-cell" style="padding-left: 2px; padding-right: 2px;">${player.correct_answers.medium}</td>
+                <td class="correct-slow answer-cell" style="padding-left: 2px; padding-right: 2px;">${player.correct_answers.slow}</td>
+                <td class="wrong-fast answer-cell" style="padding-left: 2px; padding-right: 2px;">${player.wrong_answers.fast}</td>
+                <td class="wrong-medium answer-cell" style="padding-left: 2px; padding-right: 2px;">${player.wrong_answers.medium}</td>
+                <td class="wrong-slow answer-cell" style="padding-left: 2px; padding-right: 2px;">${player.wrong_answers.slow}</td>
+                <td class="timeout answer-cell" style="padding-left: 2px; padding-right: 2px;">${player.timeouts}</td>
                 <td class="total-answers">${player.answers}</td>
-                <td class="total-points">${formatNumber(player.total_points)}</td>
+                <td class="total-points" style="width: 140px !important;">${formatNumber(player.total_points)}</td>
                 <td class="prize">${formatNumber(player.prize, true)}</td>
             </tr>
         `;
