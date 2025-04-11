@@ -183,7 +183,7 @@ function showError() {
 }
 
 /**
- * Отображение профиля игрока - добавьте вызов функции отображения призов
+ * Отображение профиля игрока
  */
 function displayPlayerProfile() {
     // Скрываем индикатор загрузки
@@ -210,13 +210,15 @@ function displayPlayerProfile() {
     document.getElementById('playerWallet').textContent = formatNumber(playerData.wallet);
     document.getElementById('playerQuestions').textContent = formatNumber(playerData.all_questions);
     document.getElementById('playerBoosters').textContent = formatNumber(playerData.remaining_boosters);
-    document.getElementById('playerTickets').textContent = formatNumber(playerData.tickets || 0);
     
     // Отображаем реферальные данные
     displayReferralData();
     
     // Отображаем данные о призах в турнирах
     displayTournamentPrizesData();
+    
+    // Отображаем данные о купленных монетах
+    displayPurchasedCoinsData();
     
     // Создаем разделенные графики прогресса
     createAnswersProgressChart();
@@ -268,6 +270,24 @@ function displayTournamentPrizesData() {
     const tournamentPrizesElement = document.getElementById('tournamentPrizes');
     if (tournamentPrizesElement) {
         tournamentPrizesElement.textContent = formatNumber(totalPrizes);
+    }
+}
+
+/**
+ * Отображение данных о купленных монетах
+ */
+function displayPurchasedCoinsData() {
+    let purchasedCoins = 0;
+    
+    // Проверяем наличие данных о купленных монетах
+    if (playerData && playerData.purchased_coins !== undefined) {
+        purchasedCoins = playerData.purchased_coins;
+    }
+    
+    // Обновляем элемент на странице
+    const purchasedCoinsElement = document.getElementById('purchasedCoins');
+    if (purchasedCoinsElement) {
+        purchasedCoinsElement.textContent = formatNumber(purchasedCoins);
     }
 }
 
