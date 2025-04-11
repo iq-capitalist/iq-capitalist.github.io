@@ -210,6 +210,7 @@ function displayPlayerProfile() {
     document.getElementById('playerWallet').textContent = formatNumber(playerData.wallet);
     document.getElementById('playerQuestions').textContent = formatNumber(playerData.all_questions);
     document.getElementById('playerBoosters').textContent = formatNumber(playerData.remaining_boosters);
+    document.getElementById('playerTickets').textContent = formatNumber(playerData.tickets || 0);
     
     // Отображаем реферальные данные
     displayReferralData();
