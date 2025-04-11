@@ -77,7 +77,7 @@
 
 /* Фиксированная ширина колонок второго уровня (с ячейками ответов) */
 .stats-table tr:nth-child(2) th:nth-child(n+2):nth-child(-n+8) {
-    width: 35px; /* Уменьшенная ширина для колонок с ответами */
+    width: 30px; /* Уменьшенная ширина для колонок с ответами (было 35px) */
 }
 
 /* Настройка ширины остальных колонок */
@@ -90,11 +90,19 @@
 }
 
 .stats-table tr:nth-child(2) th:nth-child(10) {
-    width: 120px; /* Увеличенная ширина для колонки с очками */
+    width: 140px; /* Увеличенная ширина для колонки с очками (было 120px) */
 }
 
 .stats-table tr:nth-child(2) th:nth-child(11) {
     width: 80px; /* Приз */
+}
+
+/* Уменьшенный padding для ячеек с ответами */
+.stats-table td.correct-fast, .stats-table td.correct-medium, .stats-table td.correct-slow,
+.stats-table td.wrong-fast, .stats-table td.wrong-medium, .stats-table td.wrong-slow,
+.stats-table td.timeout {
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .stats-table th {
