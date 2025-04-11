@@ -233,7 +233,7 @@ function displayStatsTable(data) {
         return;
     }
     
-    // Создаем таблицу
+    // Создаем таблицу с правильными ширинами колонок
     let html = `
         <div class="table-responsive">
             <table class="stats-table" style="table-layout: fixed !important;">
@@ -243,8 +243,8 @@ function displayStatsTable(data) {
                         <th colspan="3" class="column-group">Правильные</th>
                         <th colspan="3" class="column-group">Неправильные</th>
                         <th class="column-group">X</th>
-                        <th class="column-group" onclick="sortTable('answers')" style="width: 50px;">Всего</th>
-                        <th class="column-group" onclick="sortTable('total_points')" style="width: 140px !important;">Очки</th>
+                        <th class="column-group" onclick="sortTable('answers')" style="width: 60px !important;">Всего</th>
+                        <th class="column-group" onclick="sortTable('total_points')" style="width: 130px !important;">Очки</th>
                         <th class="column-group" onclick="sortTable('prize')" style="width: 80px;">Приз</th>
                     </tr>
                     <tr>
@@ -256,9 +256,9 @@ function displayStatsTable(data) {
                         <th onclick="sortTable('wrong_answers.medium')" class="wrong-medium answer-cell" style="width: 30px !important;"></th>
                         <th onclick="sortTable('wrong_answers.slow')" class="wrong-slow answer-cell" style="width: 30px !important;"></th>
                         <th onclick="sortTable('timeouts')" class="timeout answer-cell" style="width: 30px !important;"></th>
-                        <th></th>
-                        <th style="width: 140px !important;"></th>
-                        <th></th>
+                        <th style="width: 60px !important;"></th>
+                        <th style="width: 130px !important;"></th>
+                        <th style="width: 80px;"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -276,8 +276,8 @@ function displayStatsTable(data) {
                 <td class="wrong-medium answer-cell" style="padding-left: 2px; padding-right: 2px;">${player.wrong_answers.medium}</td>
                 <td class="wrong-slow answer-cell" style="padding-left: 2px; padding-right: 2px;">${player.wrong_answers.slow}</td>
                 <td class="timeout answer-cell" style="padding-left: 2px; padding-right: 2px;">${player.timeouts}</td>
-                <td class="total-answers">${player.answers}</td>
-                <td class="total-points" style="width: 140px !important;">${formatNumber(player.total_points)}</td>
+                <td class="total-answers" style="width: 60px !important;">${player.answers}</td>
+                <td class="total-points" style="width: 130px !important;">${formatNumber(player.total_points)}</td>
                 <td class="prize">${formatNumber(player.prize, true)}</td>
             </tr>
         `;
