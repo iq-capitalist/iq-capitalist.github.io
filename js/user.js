@@ -235,26 +235,18 @@ function displayPlayerProfile() {
 function displayReferralData() {
     // Получаем данные о реферальных наградах из playerData
     let totalReward20 = 0;
-    let totalReferrals = 0;
 
     // Проверяем наличие предрассчитанных реферальных данных
     if (playerData && playerData.referral_rewards20 !== undefined) {
         totalReward20 = playerData.referral_rewards20;
-        totalReferrals = playerData.referral_count20;
     }
 
     // Обновляем элементы на странице
     const referralRewardElement = document.getElementById('referralReward');
-    const referredCountElement = document.getElementById('referredCount');
 
     if (referralRewardElement) {
         referralRewardElement.textContent = formatNumber(totalReward20);
     }
-
-    if (referredCountElement) {
-        referredCountElement.textContent = totalReferrals;
-    }
-
 }
 
 /**
