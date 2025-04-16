@@ -1,13 +1,13 @@
 {
-  "lastUpdate": "2025-04-16 15:10:01 UTC",
+  "lastUpdate": "2025-04-16 15:15:02 UTC",
   "tournament": {
     "activeTournament": 4,
     "startDate": "2025-04-15 08:00:00",
     "endDate": "2025-04-17 08:00:00",
-    "totalPlayers": 95,
+    "totalPlayers": 96,
     "playersByLevel": {
       "Знаток": 75,
-      "Эксперт": 19,
+      "Эксперт": 20,
       "Мастер": 1,
       "Босс": 0,
       "Титан": 0,
@@ -790,10 +790,10 @@
         {
           "username": "CAHEK",
           "capital": 1300.0,
-          "points": 2054.0,
-          "remaining_boosters": 47,
+          "points": 2262.0,
+          "remaining_boosters": 40,
           "wallet": 43.0,
-          "tournament_questions": 38,
+          "tournament_questions": 45,
           "has_active_boosters": 1
         },
         {
@@ -849,6 +849,15 @@
           "wallet": 34.0,
           "tournament_questions": 13,
           "has_active_boosters": 0
+        },
+        {
+          "username": "693187128",
+          "capital": 1300.0,
+          "points": 286.0,
+          "remaining_boosters": 76,
+          "wallet": 63.0,
+          "tournament_questions": 4,
+          "has_active_boosters": 1
         },
         {
           "username": "479033963",
@@ -982,8 +991,8 @@
       "level": "Эксперт",
       "capital": 1300.0,
       "wallet": 43.0,
-      "all_questions": 278,
-      "remaining_boosters": 47,
+      "all_questions": 285,
+      "remaining_boosters": 40,
       "tickets": 4,
       "referral_rewards20": 0,
       "referral_count20": 0,
@@ -995,8 +1004,8 @@
       "level": "Эксперт",
       "capital": 1300.0,
       "wallet": 63.0,
-      "all_questions": 240,
-      "remaining_boosters": 80,
+      "all_questions": 244,
+      "remaining_boosters": 76,
       "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
