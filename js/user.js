@@ -202,7 +202,7 @@ function displayPlayerProfile() {
     document.title = `Игрок ${playerData.username} | IQ Capitalist`;
     
     // Обновляем заголовок на странице с именем игрока
-    document.getElementById('playerNameTitle').textContent = `Игрок ${playerData.username}`;
+    document.getElementById('playerNameTitle').textContent = `${playerData.username}`;
     
     // Заполняем основную информацию
     document.getElementById('playerLevel').textContent = playerData.level;
