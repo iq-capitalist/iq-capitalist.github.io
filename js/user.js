@@ -641,13 +641,32 @@ function createAnswersStatsChart() {
         charts.answersStats.destroy();
     }
     
-    // Сортируем историю по ID турнира (по возрастанию для графика)
-    const sortedHistory = [...playerData.tournament_history].sort((a, b) => a.tournament_id - b.tournament_id);
+    // Находим минимальный и максимальный ID турнира из всех завершенных турниров,
+    // а не только тех, в которых участвовал игрок
+    const allTournamentIds = tournamentsData
+        .filter(t => t.status !== 'active')
+        .map(t => t.id);
     
-    // Подготавливаем данные для графика
-    const labels = sortedHistory.map(t => `Турнир ${t.tournament_id}`);
+    let minTournamentId, maxTournamentId;
     
-    // Получаем данные о типах ответов для каждого турнира
+    if (allTournamentIds.length === 0) {
+        // Если нет данных о завершенных турнирах, используем только турниры игрока
+        const playerTournamentIds = playerData.tournament_history.map(t => t.tournament_id);
+        minTournamentId = Math.min(...playerTournamentIds);
+        maxTournamentId = Math.max(...playerTournamentIds);
+    } else {
+        minTournamentId = Math.min(...allTournamentIds);
+        maxTournamentId = Math.max(...allTournamentIds);
+    }
+    
+    // Создаем объект для быстрого доступа к данным по ID турнира
+    const tournamentDataById = {};
+    playerData.tournament_history.forEach(tournament => {
+        tournamentDataById[tournament.tournament_id] = tournament;
+    });
+    
+    // Подготавливаем данные для графика с учетом всех турниров
+    const labels = [];
     const timeouts = [];
     const correctSlow = [];
     const correctMedium = [];
@@ -656,18 +675,34 @@ function createAnswersStatsChart() {
     const wrongMedium = [];
     const wrongFast = [];
     
-    sortedHistory.forEach(tournament => {
-        // Собираем данные (положительные значения - вверх)
-        timeouts.push(tournament.timeouts || 0);
-        correctSlow.push(tournament.correct_answers?.slow || 0);
-        correctMedium.push(tournament.correct_answers?.medium || 0);
-        correctFast.push(tournament.correct_answers?.fast || 0);
+    // Заполняем массивы для всех ID турниров от минимального до максимального
+    for (let id = minTournamentId; id <= maxTournamentId; id++) {
+        labels.push(`Турнир ${id}`);
         
-        // Собираем данные (негативные значения - вниз)
-        wrongSlow.push(-(tournament.wrong_answers?.slow || 0));
-        wrongMedium.push(-(tournament.wrong_answers?.medium || 0));
-        wrongFast.push(-(tournament.wrong_answers?.fast || 0));
-    });
+        // Если у игрока есть данные по этому турниру, берем их, иначе ставим нули
+        if (tournamentDataById[id]) {
+            const tournament = tournamentDataById[id];
+            // Собираем данные (положительные значения - вверх)
+            timeouts.push(tournament.timeouts || 0);
+            correctSlow.push(tournament.correct_answers?.slow || 0);
+            correctMedium.push(tournament.correct_answers?.medium || 0);
+            correctFast.push(tournament.correct_answers?.fast || 0);
+            
+            // Собираем данные (негативные значения - вниз)
+            wrongSlow.push(-(tournament.wrong_answers?.slow || 0));
+            wrongMedium.push(-(tournament.wrong_answers?.medium || 0));
+            wrongFast.push(-(tournament.wrong_answers?.fast || 0));
+        } else {
+            // Если турнир пропущен, заполняем нулями
+            timeouts.push(0);
+            correctSlow.push(0);
+            correctMedium.push(0);
+            correctFast.push(0);
+            wrongSlow.push(0);
+            wrongMedium.push(0);
+            wrongFast.push(0);
+        }
+    }
     
     // Данные для графика - один общий стэк
     const data = {
