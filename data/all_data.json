@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-04-22 13:20:02 UTC",
+  "lastUpdate": "2025-04-22 13:25:01 UTC",
   "tournament": {
     "activeTournament": 5,
     "startDate": "2025-04-22 08:00:00",
@@ -428,6 +428,24 @@
           "has_active_boosters": 1
         },
         {
+          "username": "Роман",
+          "capital": 1100.0,
+          "points": 1804.0,
+          "remaining_boosters": 37,
+          "wallet": 112.0,
+          "tournament_questions": 45,
+          "has_active_boosters": 1
+        },
+        {
+          "username": "Inna",
+          "capital": 1155.0,
+          "points": 1755.6000000000006,
+          "remaining_boosters": 38,
+          "wallet": 559.0,
+          "tournament_questions": 48,
+          "has_active_boosters": 1
+        },
+        {
           "username": "Arhimed",
           "capital": 1000.0,
           "points": 1640.0,
@@ -435,24 +453,6 @@
           "wallet": 267.0,
           "tournament_questions": 80,
           "has_active_boosters": 0
-        },
-        {
-          "username": "Роман",
-          "capital": 1100.0,
-          "points": 1606.0,
-          "remaining_boosters": 41,
-          "wallet": 112.0,
-          "tournament_questions": 41,
-          "has_active_boosters": 1
-        },
-        {
-          "username": "Inna",
-          "capital": 1155.0,
-          "points": 1501.5000000000007,
-          "remaining_boosters": 44,
-          "wallet": 559.0,
-          "tournament_questions": 42,
-          "has_active_boosters": 1
         },
         {
           "username": "Жанна",
@@ -651,8 +651,8 @@
       "level": "Эксперт",
       "capital": 1155.0,
       "wallet": 559.0,
-      "all_questions": 282,
-      "remaining_boosters": 44,
+      "all_questions": 288,
+      "remaining_boosters": 38,
       "tickets": 2,
       "referral_rewards20": 200,
       "referral_count20": 1,
@@ -677,8 +677,8 @@
       "level": "Эксперт",
       "capital": 1100.0,
       "wallet": 112.0,
-      "all_questions": 290,
-      "remaining_boosters": 41,
+      "all_questions": 294,
+      "remaining_boosters": 37,
       "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
