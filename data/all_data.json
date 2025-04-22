@@ -1,13 +1,13 @@
 {
-  "lastUpdate": "2025-04-22 09:35:01 UTC",
+  "lastUpdate": "2025-04-22 09:40:02 UTC",
   "tournament": {
     "activeTournament": 5,
     "startDate": "2025-04-22 08:00:00",
     "endDate": "2025-04-24 08:00:00",
-    "totalPlayers": 27,
+    "totalPlayers": 28,
     "playersByLevel": {
       "Знаток": 22,
-      "Эксперт": 5,
+      "Эксперт": 6,
       "Мастер": 0,
       "Босс": 0,
       "Титан": 0,
@@ -179,7 +179,7 @@
           "points": -6.0,
           "remaining_boosters": 0,
           "wallet": 0.0,
-          "tournament_questions": 2,
+          "tournament_questions": 6,
           "has_active_boosters": 0
         },
         {
@@ -232,10 +232,10 @@
         {
           "username": "Alessa",
           "capital": 1831.0,
-          "points": 3112.6999999999994,
-          "remaining_boosters": 49,
+          "points": 3222.5599999999995,
+          "remaining_boosters": 48,
           "wallet": 0.0,
-          "tournament_questions": 33,
+          "tournament_questions": 34,
           "has_active_boosters": 1
         },
         {
@@ -248,12 +248,30 @@
           "has_active_boosters": 1
         },
         {
+          "username": "MayaCha",
+          "capital": 1000.0,
+          "points": 700.0,
+          "remaining_boosters": 67,
+          "wallet": 333.0,
+          "tournament_questions": 13,
+          "has_active_boosters": 1
+        },
+        {
           "username": "VanyaBo",
           "capital": 1000.0,
           "points": 300.0,
           "remaining_boosters": 70,
           "wallet": 12.0,
           "tournament_questions": 10,
+          "has_active_boosters": 1
+        },
+        {
+          "username": "Inna",
+          "capital": 1155.0,
+          "points": 161.70000000000002,
+          "remaining_boosters": 80,
+          "wallet": 359.0,
+          "tournament_questions": 4,
           "has_active_boosters": 1
         },
         {
@@ -264,15 +282,6 @@
           "wallet": 21.0,
           "tournament_questions": 9,
           "has_active_boosters": 0
-        },
-        {
-          "username": "MayaCha",
-          "capital": 1000.0,
-          "points": 120.0,
-          "remaining_boosters": 78,
-          "wallet": 333.0,
-          "tournament_questions": 2,
-          "has_active_boosters": 1
         }
       ],
       "Мастер": [],
@@ -356,8 +365,8 @@
       "level": "Эксперт",
       "capital": 1831.0,
       "wallet": 0.0,
-      "all_questions": 353,
-      "remaining_boosters": 49,
+      "all_questions": 354,
+      "remaining_boosters": 48,
       "tickets": 3,
       "referral_rewards20": 0,
       "referral_count20": 0,
@@ -433,9 +442,9 @@
       "username": "Inna",
       "level": "Эксперт",
       "capital": 1155.0,
-      "wallet": 459.0,
-      "all_questions": 240,
-      "remaining_boosters": 4,
+      "wallet": 359.0,
+      "all_questions": 244,
+      "remaining_boosters": 80,
       "tickets": 2,
       "referral_rewards20": 0,
       "referral_count20": 0,
@@ -564,8 +573,8 @@
       "level": "Эксперт",
       "capital": 1000.0,
       "wallet": 333.0,
-      "all_questions": 245,
-      "remaining_boosters": 78,
+      "all_questions": 256,
+      "remaining_boosters": 67,
       "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
@@ -1994,7 +2003,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 82,
+      "all_questions": 86,
       "remaining_boosters": 0,
       "tickets": 2,
       "referral_rewards20": 0,
