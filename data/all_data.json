@@ -1,13 +1,13 @@
 {
-  "lastUpdate": "2025-04-22 12:35:02 UTC",
+  "lastUpdate": "2025-04-22 12:40:01 UTC",
   "tournament": {
     "activeTournament": 5,
     "startDate": "2025-04-22 08:00:00",
     "endDate": "2025-04-24 08:00:00",
-    "totalPlayers": 46,
+    "totalPlayers": 48,
     "playersByLevel": {
-      "Знаток": 38,
-      "Эксперт": 7,
+      "Знаток": 39,
+      "Эксперт": 8,
       "Мастер": 1,
       "Босс": 0,
       "Титан": 0,
@@ -50,10 +50,10 @@
         {
           "username": "8196112514",
           "capital": 100.0,
-          "points": 47.0,
+          "points": 52.0,
           "remaining_boosters": 0,
           "wallet": 0.0,
-          "tournament_questions": 41,
+          "tournament_questions": 49,
           "has_active_boosters": 0
         },
         {
@@ -309,6 +309,15 @@
           "has_active_boosters": 0
         },
         {
+          "username": "8021597023",
+          "capital": 100.0,
+          "points": -9.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 7,
+          "has_active_boosters": 0
+        },
+        {
           "username": "923375191",
           "capital": 100.0,
           "points": -11.0,
@@ -435,16 +444,25 @@
           "wallet": 21.0,
           "tournament_questions": 9,
           "has_active_boosters": 0
+        },
+        {
+          "username": "Жанна",
+          "capital": 1000.0,
+          "points": 100.0,
+          "remaining_boosters": 0,
+          "wallet": 30.0,
+          "tournament_questions": 6,
+          "has_active_boosters": 0
         }
       ],
       "Мастер": [
         {
           "username": "Archi",
           "capital": 2001.0,
-          "points": 1040.5199999999998,
-          "remaining_boosters": 47,
+          "points": 1240.6199999999997,
+          "remaining_boosters": 44,
           "wallet": 7.0,
-          "tournament_questions": 17,
+          "tournament_questions": 20,
           "has_active_boosters": 1
         }
       ],
@@ -462,12 +480,12 @@
       "username": "1877397832",
       "level": "Босс",
       "capital": 4000.0,
-      "wallet": 2878.0,
+      "wallet": 2998.0,
       "all_questions": 320,
       "remaining_boosters": 85,
       "tickets": 12,
-      "referral_rewards20": 3440,
-      "referral_count20": 21,
+      "referral_rewards20": 3560,
+      "referral_count20": 22,
       "purchased_coins": 0
     },
     {
@@ -489,8 +507,8 @@
       "level": "Мастер",
       "capital": 2001.0,
       "wallet": 7.0,
-      "all_questions": 337,
-      "remaining_boosters": 47,
+      "all_questions": 340,
+      "remaining_boosters": 44,
       "tickets": 21,
       "referral_rewards20": 0,
       "referral_count20": 0,
@@ -1074,7 +1092,7 @@
       "level": "Эксперт",
       "capital": 1000.0,
       "wallet": 30.0,
-      "all_questions": 123,
+      "all_questions": 129,
       "remaining_boosters": 0,
       "tickets": 0,
       "referral_rewards20": 0,
@@ -3318,12 +3336,25 @@
       "purchased_coins": 0
     },
     {
+      "user_id": 8021597023,
+      "username": "8021597023",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 0.0,
+      "all_questions": 7,
+      "remaining_boosters": 0,
+      "tickets": 3,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
       "user_id": 8196112514,
       "username": "8196112514",
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 41,
+      "all_questions": 49,
       "remaining_boosters": 0,
       "tickets": 3,
       "referral_rewards20": 0,
