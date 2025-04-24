@@ -313,7 +313,7 @@ function normalizeChartDataWithGaps(tournamentHistory, dataField, minTournamentI
     
     // Заполняем массивы для всех ID турниров от минимального до максимального
     for (let id = minTournamentId; id <= maxTournamentId; id++) {
-        labels.push(`Турнир ${id}`);
+        labels.push(`${id}`);
         
         // Если у игрока есть данные по этому турниру, берем их, иначе ставим null
         if (tournamentDataById[id]) {
@@ -677,7 +677,7 @@ function createAnswersStatsChart() {
     
     // Заполняем массивы для всех ID турниров от минимального до максимального
     for (let id = minTournamentId; id <= maxTournamentId; id++) {
-        labels.push(`Турнир ${id}`);
+        labels.push(`${id}`);
         
         // Если у игрока есть данные по этому турниру, берем их, иначе ставим нули
         if (tournamentDataById[id]) {
