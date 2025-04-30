@@ -1,12 +1,12 @@
 {
-  "lastUpdate": "2025-04-30 16:35:01 UTC",
+  "lastUpdate": "2025-04-30 16:40:01 UTC",
   "tournament": {
     "activeTournament": 6,
     "startDate": "2025-04-29 08:00:00",
     "endDate": "2025-05-01 08:00:00",
-    "totalPlayers": 59,
+    "totalPlayers": 60,
     "playersByLevel": {
-      "Знаток": 40,
+      "Знаток": 41,
       "Эксперт": 14,
       "Мастер": 4,
       "Босс": 1,
@@ -219,6 +219,15 @@
           "has_active_boosters": 0
         },
         {
+          "username": "1655807339",
+          "capital": 100.0,
+          "points": -3.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 7,
+          "has_active_boosters": 0
+        },
+        {
           "username": "2006892244",
           "capital": 100.0,
           "points": -3.0,
@@ -354,21 +363,21 @@
           "has_active_boosters": 0
         },
         {
-          "username": "493437662",
-          "capital": 100.0,
-          "points": -56.0,
-          "remaining_boosters": 0,
-          "wallet": 77.0,
-          "tournament_questions": 61,
-          "has_active_boosters": 0
-        },
-        {
           "username": "103075256",
           "capital": 100.0,
           "points": -60.0,
           "remaining_boosters": 0,
           "wallet": 365.0,
           "tournament_questions": 80,
+          "has_active_boosters": 0
+        },
+        {
+          "username": "493437662",
+          "capital": 100.0,
+          "points": -73.0,
+          "remaining_boosters": 0,
+          "wallet": 77.0,
+          "tournament_questions": 68,
           "has_active_boosters": 0
         },
         {
@@ -580,12 +589,12 @@
       "username": "MASK GAME",
       "level": "Босс",
       "capital": 6999.0,
-      "wallet": 6339.0,
+      "wallet": 6479.0,
       "all_questions": 400,
       "remaining_boosters": 85,
       "tickets": 11,
-      "referral_rewards20": 8700,
-      "referral_count20": 50,
+      "referral_rewards20": 8840,
+      "referral_count20": 51,
       "purchased_coins": 0
     },
     {
@@ -1972,7 +1981,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 77.0,
-      "all_questions": 136,
+      "all_questions": 143,
       "remaining_boosters": 0,
       "tickets": 0,
       "referral_rewards20": 0,
@@ -2963,6 +2972,19 @@
       "all_questions": 171,
       "remaining_boosters": 0,
       "tickets": 1,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
+      "user_id": 1655807339,
+      "username": "1655807339",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 0.0,
+      "all_questions": 7,
+      "remaining_boosters": 0,
+      "tickets": 3,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
