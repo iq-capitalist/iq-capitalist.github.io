@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-04-30 06:30:01 UTC",
+  "lastUpdate": "2025-04-30 06:35:01 UTC",
   "tournament": {
     "activeTournament": 6,
     "startDate": "2025-04-29 08:00:00",
@@ -50,10 +50,10 @@
         {
           "username": "657757764",
           "capital": 100.0,
-          "points": 42.0,
+          "points": 44.0,
           "remaining_boosters": 0,
           "wallet": 0.0,
-          "tournament_questions": 22,
+          "tournament_questions": 23,
           "has_active_boosters": 0
         },
         {
@@ -347,6 +347,15 @@
           "has_active_boosters": 1
         },
         {
+          "username": "Gillan",
+          "capital": 1100.0,
+          "points": 1078.0,
+          "remaining_boosters": 36,
+          "wallet": 3.0,
+          "tournament_questions": 45,
+          "has_active_boosters": 1
+        },
+        {
           "username": "KLMN",
           "capital": 1100.0,
           "points": 1056.0,
@@ -363,15 +372,6 @@
           "wallet": 533.0,
           "tournament_questions": 80,
           "has_active_boosters": 0
-        },
-        {
-          "username": "Gillan",
-          "capital": 1100.0,
-          "points": 880.0,
-          "remaining_boosters": 39,
-          "wallet": 3.0,
-          "tournament_questions": 41,
-          "has_active_boosters": 1
         },
         {
           "username": "Люся",
@@ -680,8 +680,8 @@
       "level": "Эксперт",
       "capital": 1100.0,
       "wallet": 3.0,
-      "all_questions": 201,
-      "remaining_boosters": 39,
+      "all_questions": 205,
+      "remaining_boosters": 36,
       "tickets": 1,
       "referral_rewards20": 0,
       "referral_count20": 0,
@@ -2045,7 +2045,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 22,
+      "all_questions": 23,
       "remaining_boosters": 0,
       "tickets": 3,
       "referral_rewards20": 0,
