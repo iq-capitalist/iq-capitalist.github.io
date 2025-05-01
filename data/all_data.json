@@ -1,12 +1,12 @@
 {
-  "lastUpdate": "2025-05-01 05:00:02 UTC",
+  "lastUpdate": "2025-05-01 05:05:01 UTC",
   "tournament": {
     "activeTournament": 6,
     "startDate": "2025-04-29 08:00:00",
     "endDate": "2025-05-01 08:00:00",
-    "totalPlayers": 64,
+    "totalPlayers": 65,
     "playersByLevel": {
-      "Знаток": 44,
+      "Знаток": 45,
       "Эксперт": 14,
       "Мастер": 4,
       "Босс": 2,
@@ -288,6 +288,15 @@
           "remaining_boosters": 0,
           "wallet": 0.0,
           "tournament_questions": 10,
+          "has_active_boosters": 0
+        },
+        {
+          "username": "1061003550",
+          "capital": 100.0,
+          "points": -14.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 11,
           "has_active_boosters": 0
         },
         {
@@ -598,7 +607,7 @@
           "capital": 6999.0,
           "points": 29535.77999999996,
           "remaining_boosters": 86,
-          "wallet": 6639.0,
+          "wallet": 6839.0,
           "tournament_questions": 80,
           "has_active_boosters": 1
         },
@@ -625,12 +634,12 @@
       "username": "MASK GAME",
       "level": "Босс",
       "capital": 6999.0,
-      "wallet": 6639.0,
+      "wallet": 6839.0,
       "all_questions": 480,
       "remaining_boosters": 86,
       "tickets": 10,
-      "referral_rewards20": 9100,
-      "referral_count20": 52,
+      "referral_rewards20": 9300,
+      "referral_count20": 53,
       "purchased_coins": 0
     },
     {
@@ -2618,6 +2627,19 @@
       "all_questions": 181,
       "remaining_boosters": 0,
       "tickets": 2,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
+      "user_id": 1061003550,
+      "username": "1061003550",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 0.0,
+      "all_questions": 11,
+      "remaining_boosters": 0,
+      "tickets": 3,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
