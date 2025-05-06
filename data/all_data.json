@@ -1,13 +1,13 @@
 {
-  "lastUpdate": "2025-05-06 12:10:02 UTC",
+  "lastUpdate": "2025-05-06 12:15:01 UTC",
   "tournament": {
     "activeTournament": 7,
     "startDate": "2025-05-06 08:00:00",
     "endDate": "2025-05-08 08:00:00",
-    "totalPlayers": 16,
+    "totalPlayers": 17,
     "playersByLevel": {
       "Знаток": 11,
-      "Эксперт": 4,
+      "Эксперт": 5,
       "Мастер": 1,
       "Босс": 0,
       "Титан": 0,
@@ -158,6 +158,15 @@
           "has_active_boosters": 1
         },
         {
+          "username": "Alessa",
+          "capital": 1999.0,
+          "points": 239.88,
+          "remaining_boosters": 83,
+          "wallet": 1083.0,
+          "tournament_questions": 2,
+          "has_active_boosters": 1
+        },
+        {
           "username": "Анна Силва",
           "capital": 1000.0,
           "points": 220.0,
@@ -297,9 +306,9 @@
       "level": "Эксперт",
       "capital": 1999.0,
       "wallet": 1083.0,
-      "all_questions": 480,
-      "remaining_boosters": 85,
-      "tickets": 2,
+      "all_questions": 482,
+      "remaining_boosters": 83,
+      "tickets": 1,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
