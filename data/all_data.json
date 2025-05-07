@@ -1,13 +1,13 @@
 {
-  "lastUpdate": "2025-05-07 13:00:01 UTC",
+  "lastUpdate": "2025-05-07 13:05:01 UTC",
   "tournament": {
     "activeTournament": 7,
     "startDate": "2025-05-06 08:00:00",
     "endDate": "2025-05-08 08:00:00",
-    "totalPlayers": 40,
+    "totalPlayers": 41,
     "playersByLevel": {
       "Знаток": 21,
-      "Эксперт": 13,
+      "Эксперт": 14,
       "Мастер": 5,
       "Босс": 1,
       "Титан": 0,
@@ -293,6 +293,15 @@
           "has_active_boosters": 0
         },
         {
+          "username": "MayaCha",
+          "capital": 1000.0,
+          "points": 500.0,
+          "remaining_boosters": 73,
+          "wallet": 502.0,
+          "tournament_questions": 11,
+          "has_active_boosters": 1
+        },
+        {
           "username": "Роман",
           "capital": 1100.0,
           "points": 396.0,
@@ -342,10 +351,10 @@
         {
           "username": "Дятел Вуду",
           "capital": 3999.0,
-          "points": 15996.000000000011,
-          "remaining_boosters": 85,
+          "points": 17595.600000000006,
+          "remaining_boosters": 78,
           "wallet": 960.0,
-          "tournament_questions": 67,
+          "tournament_questions": 75,
           "has_active_boosters": 1
         },
         {
@@ -449,8 +458,8 @@
       "level": "Мастер",
       "capital": 3999.0,
       "wallet": 960.0,
-      "all_questions": 467,
-      "remaining_boosters": 85,
+      "all_questions": 475,
+      "remaining_boosters": 78,
       "tickets": 0,
       "referral_rewards20": 220,
       "referral_count20": 2,
@@ -748,8 +757,8 @@
       "level": "Эксперт",
       "capital": 1000.0,
       "wallet": 502.0,
-      "all_questions": 403,
-      "remaining_boosters": 84,
+      "all_questions": 414,
+      "remaining_boosters": 73,
       "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
