@@ -1,15 +1,15 @@
 {
-  "lastUpdate": "2025-05-07 12:15:02 UTC",
+  "lastUpdate": "2025-05-07 12:20:02 UTC",
   "tournament": {
     "activeTournament": 7,
     "startDate": "2025-05-06 08:00:00",
     "endDate": "2025-05-08 08:00:00",
-    "totalPlayers": 37,
+    "totalPlayers": 38,
     "playersByLevel": {
       "Знаток": 20,
       "Эксперт": 13,
       "Мастер": 4,
-      "Босс": 0,
+      "Босс": 1,
       "Титан": 0,
       "Легенда": 0,
       "Корифей": 0,
@@ -59,10 +59,10 @@
         {
           "username": "531466669",
           "capital": 100.0,
-          "points": 9.0,
+          "points": 12.0,
           "remaining_boosters": 0,
           "wallet": 95.0,
-          "tournament_questions": 30,
+          "tournament_questions": 32,
           "has_active_boosters": 0
         },
         {
@@ -250,10 +250,10 @@
         {
           "username": "KLMN",
           "capital": 1100.0,
-          "points": 2706.0,
-          "remaining_boosters": 8,
+          "points": 3014.0,
+          "remaining_boosters": 3,
           "wallet": 55.0,
-          "tournament_questions": 75,
+          "tournament_questions": 80,
           "has_active_boosters": 1
         },
         {
@@ -367,7 +367,17 @@
           "has_active_boosters": 0
         }
       ],
-      "Босс": [],
+      "Босс": [
+        {
+          "username": "Serhio",
+          "capital": 6636.0,
+          "points": 4777.919999999999,
+          "remaining_boosters": 68,
+          "wallet": 0.0,
+          "tournament_questions": 12,
+          "has_active_boosters": 1
+        }
+      ],
       "Титан": [],
       "Легенда": [],
       "Корифей": [],
@@ -395,9 +405,9 @@
       "level": "Босс",
       "capital": 6636.0,
       "wallet": 0.0,
-      "all_questions": 400,
-      "remaining_boosters": 80,
-      "tickets": 8,
+      "all_questions": 412,
+      "remaining_boosters": 68,
+      "tickets": 7,
       "referral_rewards20": 800,
       "referral_count20": 4,
       "purchased_coins": 0
@@ -616,8 +626,8 @@
       "level": "Эксперт",
       "capital": 1100.0,
       "wallet": 55.0,
-      "all_questions": 523,
-      "remaining_boosters": 8,
+      "all_questions": 528,
+      "remaining_boosters": 3,
       "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
@@ -1864,7 +1874,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 95.0,
-      "all_questions": 137,
+      "all_questions": 139,
       "remaining_boosters": 0,
       "tickets": 2,
       "referral_rewards20": 0,
