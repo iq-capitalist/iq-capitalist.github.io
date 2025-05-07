@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-05-07 13:35:01 UTC",
+  "lastUpdate": "2025-05-07 13:40:02 UTC",
   "tournament": {
     "activeTournament": 7,
     "startDate": "2025-05-06 08:00:00",
@@ -248,6 +248,15 @@
           "has_active_boosters": 1
         },
         {
+          "username": "Дон Педро",
+          "capital": 1999.0,
+          "points": 7116.439999999991,
+          "remaining_boosters": 17,
+          "wallet": 1326.0,
+          "tournament_questions": 64,
+          "has_active_boosters": 1
+        },
+        {
           "username": "CAHEK",
           "capital": 1700.0,
           "points": 5542.0,
@@ -257,21 +266,12 @@
           "has_active_boosters": 1
         },
         {
-          "username": "Дон Педро",
-          "capital": 1999.0,
-          "points": 4717.639999999999,
-          "remaining_boosters": 37,
-          "wallet": 1326.0,
-          "tournament_questions": 44,
-          "has_active_boosters": 1
-        },
-        {
           "username": "MayaCha",
           "capital": 1000.0,
-          "points": 4160.0,
-          "remaining_boosters": 8,
+          "points": 4400.0,
+          "remaining_boosters": 4,
           "wallet": 502.0,
-          "tournament_questions": 76,
+          "tournament_questions": 80,
           "has_active_boosters": 1
         },
         {
@@ -584,8 +584,8 @@
       "level": "Эксперт",
       "capital": 1999.0,
       "wallet": 1326.0,
-      "all_questions": 524,
-      "remaining_boosters": 37,
+      "all_questions": 544,
+      "remaining_boosters": 17,
       "tickets": 1,
       "referral_rewards20": 0,
       "referral_count20": 0,
@@ -766,8 +766,8 @@
       "level": "Эксперт",
       "capital": 1000.0,
       "wallet": 502.0,
-      "all_questions": 479,
-      "remaining_boosters": 8,
+      "all_questions": 483,
+      "remaining_boosters": 4,
       "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
