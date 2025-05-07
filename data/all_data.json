@@ -1,13 +1,13 @@
 {
-  "lastUpdate": "2025-05-07 09:35:02 UTC",
+  "lastUpdate": "2025-05-07 09:40:02 UTC",
   "tournament": {
     "activeTournament": 7,
     "startDate": "2025-05-06 08:00:00",
     "endDate": "2025-05-08 08:00:00",
-    "totalPlayers": 28,
+    "totalPlayers": 30,
     "playersByLevel": {
       "Знаток": 18,
-      "Эксперт": 7,
+      "Эксперт": 9,
       "Мастер": 3,
       "Босс": 0,
       "Титан": 0,
@@ -248,12 +248,30 @@
           "has_active_boosters": 1
         },
         {
+          "username": "Тимур",
+          "capital": 1000.0,
+          "points": 260.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 9,
+          "has_active_boosters": 0
+        },
+        {
           "username": "Анна Силва",
           "capital": 1000.0,
           "points": 220.0,
           "remaining_boosters": 0,
           "wallet": 0.0,
           "tournament_questions": 13,
+          "has_active_boosters": 0
+        },
+        {
+          "username": "Константин",
+          "capital": 1000.0,
+          "points": 130.0,
+          "remaining_boosters": 0,
+          "wallet": 1561.0,
+          "tournament_questions": 8,
           "has_active_boosters": 0
         }
       ],
@@ -574,9 +592,9 @@
       "level": "Эксперт",
       "capital": 1000.0,
       "wallet": 1561.0,
-      "all_questions": 8,
+      "all_questions": 16,
       "remaining_boosters": 0,
-      "tickets": 28,
+      "tickets": 27,
       "referral_rewards20": 1560,
       "referral_count20": 8,
       "purchased_coins": 0
@@ -668,6 +686,19 @@
       "all_questions": 79,
       "remaining_boosters": 0,
       "tickets": 5,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
+      "user_id": 426773971,
+      "username": "Тимур",
+      "level": "Эксперт",
+      "capital": 1000.0,
+      "wallet": 0.0,
+      "all_questions": 9,
+      "remaining_boosters": 0,
+      "tickets": 9,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
