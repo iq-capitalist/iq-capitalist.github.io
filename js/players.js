@@ -34,10 +34,12 @@ function createTableHeader() {
     return `
         <thead>
             <tr>
-                <th onclick="sortTable('username')">Игрок</th>
-                <th class="text-end" onclick="sortTable('capital')">Капитал</th>
-                <th class="text-end" onclick="sortTable('wallet')">Кошелёк</th>
-                <th class="text-end" onclick="sortTable('all_questions')">Ответы</th>
+                <th onclick="sortTable('username')" title="Игрок">👤</th>
+                <th class="text-end" onclick="sortTable('capital')" title="Капитал">💰</th>
+                <th class="text-end" onclick="sortTable('wallet')" title="Кошелёк">💵</th>
+                <th class="text-end" onclick="sortTable('all_questions')" title="Ответы">❓</th>
+                <th class="text-end" onclick="sortTable('remaining_boosters')" title="Бустеры">🚀</th>
+                <th class="text-end" onclick="sortTable('tickets')" title="Билеты">🎫</th>
             </tr>
         </thead>
     `;
@@ -119,6 +121,8 @@ function displayPlayers(players) {
                         <td class="text-end">${formatNumber(player.capital)}</td>
                         <td class="text-end">${formatNumber(player.wallet)}</td>
                         <td class="text-end">${formatNumber(player.all_questions)}</td>
+                        <td class="text-end">${formatNumber(player.remaining_boosters || 0)}</td>
+                        <td class="text-end">${formatNumber(player.tickets || 0)}</td>
                     </tr>
                 `;
             });
