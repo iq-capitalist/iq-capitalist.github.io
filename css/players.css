@@ -200,3 +200,15 @@ tr:hover {
         width: 32.5%;
     }
 }
+
+/* Добавляем стили для ссылок в таблице игроков */
+.table-responsive td a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.table-responsive td a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
