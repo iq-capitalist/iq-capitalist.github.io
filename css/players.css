@@ -212,3 +212,14 @@ tr:hover {
     color: var(--accent-color);
     text-decoration: underline;
 }
+
+/* Стили для иконок в заголовке таблицы */
+.table th {
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.table th:hover {
+    transform: scale(1.1);
+}
