@@ -34,7 +34,7 @@ function createTableHeader() {
     return `
         <thead>
             <tr>
-                <th onclick="sortTable('username')" title="Игрок">👤</th>
+                <th onclick="sortTable('username')" title="Игрок">Игрок</th>
                 <th class="text-end" onclick="sortTable('capital')" title="Капитал">💰</th>
                 <th class="text-end" onclick="sortTable('wallet')" title="Кошелёк">💵</th>
                 <th class="text-end" onclick="sortTable('all_questions')" title="Ответы">❓</th>
