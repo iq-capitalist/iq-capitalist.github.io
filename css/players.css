@@ -201,16 +201,20 @@ tr:hover {
     }
 }
 
-/* Добавляем стили для ссылок в таблице игроков */
+/* Вариант 1: Подчеркивание и курсор-указатель */
 .table-responsive td a {
     color: var(--primary-color);
-    text-decoration: none;
-    transition: color 0.2s ease, text-decoration 0.2s ease;
+    /* Добавляем слабое пунктирное подчеркивание */
+    text-decoration: dotted underline;
+    text-underline-offset: 3px;
 }
 
 .table-responsive td a:hover {
     color: var(--accent-color);
-    text-decoration: underline;
+    /* Сплошное подчеркивание при наведении */
+    text-decoration: solid underline;
+    /* Увеличиваем расстояние от текста до подчеркивания */
+    text-underline-offset: 4px;
 }
 
 /* Стили для иконок в заголовке таблицы */
