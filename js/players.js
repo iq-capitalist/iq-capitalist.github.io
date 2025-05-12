@@ -115,7 +115,7 @@ function displayPlayers(players) {
             sortedPlayers.forEach((player) => {
                 html += `
                     <tr>
-                        <td>${player.username}</td>
+                        <td><a href="user.html?id=${player.user_id}">${player.username}</a></td>
                         <td class="text-end">${formatNumber(player.capital)}</td>
                         <td class="text-end">${formatNumber(player.wallet)}</td>
                         <td class="text-end">${formatNumber(player.all_questions)}</td>
