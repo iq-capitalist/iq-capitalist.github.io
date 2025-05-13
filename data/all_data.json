@@ -1,13 +1,13 @@
 {
-  "lastUpdate": "2025-05-13 10:00:01 UTC",
+  "lastUpdate": "2025-05-13 10:05:02 UTC",
   "tournament": {
     "activeTournament": 8,
     "startDate": "2025-05-13 08:00:00",
     "endDate": "2025-05-15 08:00:00",
-    "totalPlayers": 13,
+    "totalPlayers": 14,
     "playersByLevel": {
       "Знаток": 8,
-      "Эксперт": 4,
+      "Эксперт": 5,
       "Мастер": 1,
       "Босс": 0,
       "Титан": 0,
@@ -104,21 +104,21 @@
       ],
       "Эксперт": [
         {
+          "username": "MayaCha",
+          "capital": 1000.0,
+          "points": 2780.0,
+          "remaining_boosters": 29,
+          "wallet": 500.0,
+          "tournament_questions": 58,
+          "has_active_boosters": 1
+        },
+        {
           "username": "CAHEK",
           "capital": 1700.0,
           "points": 2686.0,
           "remaining_boosters": 53,
           "wallet": 670.0,
           "tournament_questions": 41,
-          "has_active_boosters": 1
-        },
-        {
-          "username": "MayaCha",
-          "capital": 1000.0,
-          "points": 2340.0,
-          "remaining_boosters": 37,
-          "wallet": 500.0,
-          "tournament_questions": 49,
           "has_active_boosters": 1
         },
         {
@@ -138,6 +138,15 @@
           "wallet": 222.0,
           "tournament_questions": 80,
           "has_active_boosters": 0
+        },
+        {
+          "username": "Дон Педро",
+          "capital": 1999.0,
+          "points": 159.92000000000002,
+          "remaining_boosters": 78,
+          "wallet": 1940.0,
+          "tournament_questions": 3,
+          "has_active_boosters": 1
         }
       ],
       "Мастер": [
@@ -322,9 +331,9 @@
       "level": "Эксперт",
       "capital": 1999.0,
       "wallet": 1940.0,
-      "all_questions": 560,
-      "remaining_boosters": 81,
-      "tickets": 1,
+      "all_questions": 563,
+      "remaining_boosters": 78,
+      "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
@@ -517,8 +526,8 @@
       "level": "Эксперт",
       "capital": 1000.0,
       "wallet": 500.0,
-      "all_questions": 532,
-      "remaining_boosters": 37,
+      "all_questions": 541,
+      "remaining_boosters": 29,
       "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
