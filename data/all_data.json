@@ -1,12 +1,12 @@
 {
-  "lastUpdate": "2025-05-13 12:05:01 UTC",
+  "lastUpdate": "2025-05-13 12:10:02 UTC",
   "tournament": {
     "activeTournament": 8,
     "startDate": "2025-05-13 08:00:00",
     "endDate": "2025-05-15 08:00:00",
-    "totalPlayers": 17,
+    "totalPlayers": 18,
     "playersByLevel": {
-      "Знаток": 11,
+      "Знаток": 12,
       "Эксперт": 5,
       "Мастер": 1,
       "Босс": 0,
@@ -72,6 +72,15 @@
           "remaining_boosters": 0,
           "wallet": 143.0,
           "tournament_questions": 20,
+          "has_active_boosters": 0
+        },
+        {
+          "username": "525527744",
+          "capital": 100.0,
+          "points": -1.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 4,
           "has_active_boosters": 0
         },
         {
@@ -180,10 +189,10 @@
         {
           "username": "Blackmore",
           "capital": 2003.0,
-          "points": 1962.9400000000005,
-          "remaining_boosters": 58,
+          "points": 2043.0600000000004,
+          "remaining_boosters": 55,
           "wallet": 29.0,
-          "tournament_questions": 31,
+          "tournament_questions": 34,
           "has_active_boosters": 1
         }
       ],
@@ -267,8 +276,8 @@
       "level": "Мастер",
       "capital": 2003.0,
       "wallet": 29.0,
-      "all_questions": 569,
-      "remaining_boosters": 58,
+      "all_questions": 572,
+      "remaining_boosters": 55,
       "tickets": 0,
       "referral_rewards20": 200,
       "referral_count20": 1,
@@ -1711,6 +1720,19 @@
       "capital": 100.0,
       "wallet": 0.0,
       "all_questions": 5,
+      "remaining_boosters": 0,
+      "tickets": 3,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
+      "user_id": 525527744,
+      "username": "525527744",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 0.0,
+      "all_questions": 4,
       "remaining_boosters": 0,
       "tickets": 3,
       "referral_rewards20": 0,
