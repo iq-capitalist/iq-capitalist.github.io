@@ -1,12 +1,12 @@
 {
-  "lastUpdate": "2025-05-13 18:50:02 UTC",
+  "lastUpdate": "2025-05-13 18:55:01 UTC",
   "tournament": {
     "activeTournament": 8,
     "startDate": "2025-05-13 08:00:00",
     "endDate": "2025-05-15 08:00:00",
-    "totalPlayers": 29,
+    "totalPlayers": 30,
     "playersByLevel": {
-      "Знаток": 18,
+      "Знаток": 19,
       "Эксперт": 7,
       "Мастер": 2,
       "Босс": 1,
@@ -54,6 +54,15 @@
           "remaining_boosters": 0,
           "wallet": 0.0,
           "tournament_questions": 45,
+          "has_active_boosters": 0
+        },
+        {
+          "username": "429764356",
+          "capital": 100.0,
+          "points": 21.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 9,
           "has_active_boosters": 0
         },
         {
@@ -294,7 +303,7 @@
           "capital": 10999.0,
           "points": 219.98,
           "remaining_boosters": 86,
-          "wallet": 5017.0,
+          "wallet": 5157.0,
           "tournament_questions": 3,
           "has_active_boosters": 1
         }
@@ -311,11 +320,11 @@
       "username": "MASK GAME",
       "level": "Титан",
       "capital": 10999.0,
-      "wallet": 5017.0,
+      "wallet": 5157.0,
       "all_questions": 563,
       "remaining_boosters": 86,
       "tickets": 8,
-      "referral_rewards20": 9560,
+      "referral_rewards20": 9700,
       "referral_count20": 54,
       "purchased_coins": 0
     },
@@ -1690,9 +1699,9 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 3,
+      "all_questions": 12,
       "remaining_boosters": 0,
-      "tickets": 3,
+      "tickets": 2,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
