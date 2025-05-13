@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-05-13 10:15:01 UTC",
+  "lastUpdate": "2025-05-13 10:20:01 UTC",
   "tournament": {
     "activeTournament": 8,
     "startDate": "2025-05-13 08:00:00",
@@ -113,6 +113,15 @@
           "has_active_boosters": 1
         },
         {
+          "username": "Дон Педро",
+          "capital": 1999.0,
+          "points": 3318.340000000001,
+          "remaining_boosters": 51,
+          "wallet": 1940.0,
+          "tournament_questions": 30,
+          "has_active_boosters": 1
+        },
+        {
           "username": "CAHEK",
           "capital": 1700.0,
           "points": 2686.0,
@@ -131,15 +140,6 @@
           "has_active_boosters": 0
         },
         {
-          "username": "Дон Педро",
-          "capital": 1999.0,
-          "points": 1759.1200000000006,
-          "remaining_boosters": 64,
-          "wallet": 1940.0,
-          "tournament_questions": 17,
-          "has_active_boosters": 1
-        },
-        {
           "username": "Alex4561",
           "capital": 1000.0,
           "points": 1090.0,
@@ -153,10 +153,10 @@
         {
           "username": "Blackmore",
           "capital": 2003.0,
-          "points": 480.72,
-          "remaining_boosters": 80,
+          "points": 761.14,
+          "remaining_boosters": 74,
           "wallet": 29.0,
-          "tournament_questions": 9,
+          "tournament_questions": 15,
           "has_active_boosters": 1
         }
       ],
@@ -240,8 +240,8 @@
       "level": "Мастер",
       "capital": 2003.0,
       "wallet": 29.0,
-      "all_questions": 547,
-      "remaining_boosters": 80,
+      "all_questions": 553,
+      "remaining_boosters": 74,
       "tickets": 0,
       "referral_rewards20": 200,
       "referral_count20": 1,
@@ -331,8 +331,8 @@
       "level": "Эксперт",
       "capital": 1999.0,
       "wallet": 1940.0,
-      "all_questions": 577,
-      "remaining_boosters": 64,
+      "all_questions": 590,
+      "remaining_boosters": 51,
       "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
@@ -431,7 +431,7 @@
     },
     {
       "user_id": 511269010,
-      "username": "511269010",
+      "username": "Zhlm00Z",
       "level": "Эксперт",
       "capital": 1100.0,
       "wallet": 223.0,
