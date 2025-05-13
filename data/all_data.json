@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-05-13 16:15:01 UTC",
+  "lastUpdate": "2025-05-13 16:20:02 UTC",
   "tournament": {
     "activeTournament": 8,
     "startDate": "2025-05-13 08:00:00",
@@ -221,6 +221,15 @@
           "has_active_boosters": 0
         },
         {
+          "username": "Andatra",
+          "capital": 1999.0,
+          "points": 1159.4200000000003,
+          "remaining_boosters": 76,
+          "wallet": 627.0,
+          "tournament_questions": 13,
+          "has_active_boosters": 1
+        },
+        {
           "username": "Alex4561",
           "capital": 1000.0,
           "points": 1090.0,
@@ -228,25 +237,16 @@
           "wallet": 222.0,
           "tournament_questions": 80,
           "has_active_boosters": 0
-        },
-        {
-          "username": "Andatra",
-          "capital": 1999.0,
-          "points": 1079.4600000000003,
-          "remaining_boosters": 77,
-          "wallet": 627.0,
-          "tournament_questions": 12,
-          "has_active_boosters": 1
         }
       ],
       "Мастер": [
         {
           "username": "Blackmore",
           "capital": 2003.0,
-          "points": 2563.8399999999997,
-          "remaining_boosters": 50,
+          "points": 2844.2599999999993,
+          "remaining_boosters": 47,
           "wallet": 29.0,
-          "tournament_questions": 40,
+          "tournament_questions": 43,
           "has_active_boosters": 1
         },
         {
@@ -274,10 +274,10 @@
         {
           "username": "MASK GAME",
           "capital": 10999.0,
-          "points": 0.0,
+          "points": 219.98,
           "remaining_boosters": 86,
           "wallet": 5017.0,
-          "tournament_questions": 2,
+          "tournament_questions": 3,
           "has_active_boosters": 1
         }
       ],
@@ -294,7 +294,7 @@
       "level": "Титан",
       "capital": 10999.0,
       "wallet": 5017.0,
-      "all_questions": 562,
+      "all_questions": 563,
       "remaining_boosters": 86,
       "tickets": 8,
       "referral_rewards20": 9560,
@@ -359,8 +359,8 @@
       "level": "Мастер",
       "capital": 2003.0,
       "wallet": 29.0,
-      "all_questions": 578,
-      "remaining_boosters": 50,
+      "all_questions": 581,
+      "remaining_boosters": 47,
       "tickets": 0,
       "referral_rewards20": 200,
       "referral_count20": 1,
@@ -424,8 +424,8 @@
       "level": "Эксперт",
       "capital": 1999.0,
       "wallet": 627.0,
-      "all_questions": 572,
-      "remaining_boosters": 77,
+      "all_questions": 573,
+      "remaining_boosters": 76,
       "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
