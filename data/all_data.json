@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-05-14 10:20:02 UTC",
+  "lastUpdate": "2025-05-14 10:25:02 UTC",
   "tournament": {
     "activeTournament": 8,
     "startDate": "2025-05-13 08:00:00",
@@ -75,6 +75,15 @@
           "has_active_boosters": 0
         },
         {
+          "username": "455681558",
+          "capital": 100.0,
+          "points": 19.0,
+          "remaining_boosters": 0,
+          "wallet": 143.0,
+          "tournament_questions": 50,
+          "has_active_boosters": 0
+        },
+        {
           "username": "974932560",
           "capital": 100.0,
           "points": 18.0,
@@ -99,6 +108,15 @@
           "remaining_boosters": 0,
           "wallet": 0.0,
           "tournament_questions": 4,
+          "has_active_boosters": 0
+        },
+        {
+          "username": "117115665",
+          "capital": 100.0,
+          "points": 7.0,
+          "remaining_boosters": 0,
+          "wallet": 141.0,
+          "tournament_questions": 10,
           "has_active_boosters": 0
         },
         {
@@ -147,30 +165,12 @@
           "has_active_boosters": 0
         },
         {
-          "username": "455681558",
-          "capital": 100.0,
-          "points": 1.0,
-          "remaining_boosters": 0,
-          "wallet": 143.0,
-          "tournament_questions": 44,
-          "has_active_boosters": 0
-        },
-        {
           "username": "1567050162",
           "capital": 100.0,
           "points": 1.0,
           "remaining_boosters": 0,
           "wallet": 124.0,
           "tournament_questions": 80,
-          "has_active_boosters": 0
-        },
-        {
-          "username": "117115665",
-          "capital": 100.0,
-          "points": -2.0,
-          "remaining_boosters": 0,
-          "wallet": 141.0,
-          "tournament_questions": 5,
           "has_active_boosters": 0
         },
         {
@@ -338,21 +338,21 @@
           "has_active_boosters": 1
         },
         {
+          "username": "Rakshas",
+          "capital": 1999.0,
+          "points": 4837.579999999999,
+          "remaining_boosters": 40,
+          "wallet": 1991.0,
+          "tournament_questions": 44,
+          "has_active_boosters": 1
+        },
+        {
           "username": "MayaCha",
           "capital": 1000.0,
           "points": 3940.0,
           "remaining_boosters": 7,
           "wallet": 500.0,
           "tournament_questions": 80,
-          "has_active_boosters": 1
-        },
-        {
-          "username": "Rakshas",
-          "capital": 1999.0,
-          "points": 3518.240000000001,
-          "remaining_boosters": 51,
-          "wallet": 1991.0,
-          "tournament_questions": 33,
           "has_active_boosters": 1
         },
         {
@@ -599,8 +599,8 @@
       "level": "Эксперт",
       "capital": 1999.0,
       "wallet": 1991.0,
-      "all_questions": 593,
-      "remaining_boosters": 51,
+      "all_questions": 604,
+      "remaining_boosters": 40,
       "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
@@ -1301,7 +1301,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 141.0,
-      "all_questions": 77,
+      "all_questions": 82,
       "remaining_boosters": 0,
       "tickets": 1,
       "referral_rewards20": 0,
@@ -1925,7 +1925,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 143.0,
-      "all_questions": 120,
+      "all_questions": 126,
       "remaining_boosters": 0,
       "tickets": 2,
       "referral_rewards20": 0,
