@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-05-15 07:25:01 UTC",
+  "lastUpdate": "2025-05-15 07:30:02 UTC",
   "tournament": {
     "activeTournament": 8,
     "startDate": "2025-05-13 08:00:00",
@@ -455,6 +455,15 @@
           "has_active_boosters": 1
         },
         {
+          "username": "Александр",
+          "capital": 1999.0,
+          "points": 2278.8600000000006,
+          "remaining_boosters": 62,
+          "wallet": 74.0,
+          "tournament_questions": 21,
+          "has_active_boosters": 1
+        },
+        {
           "username": "Arhimed",
           "capital": 1000.0,
           "points": 1820.0,
@@ -471,15 +480,6 @@
           "wallet": 222.0,
           "tournament_questions": 80,
           "has_active_boosters": 0
-        },
-        {
-          "username": "Александр",
-          "capital": 1999.0,
-          "points": 679.6600000000001,
-          "remaining_boosters": 77,
-          "wallet": 74.0,
-          "tournament_questions": 6,
-          "has_active_boosters": 1
         },
         {
           "username": "Gillan",
@@ -686,8 +686,8 @@
       "level": "Эксперт",
       "capital": 1999.0,
       "wallet": 74.0,
-      "all_questions": 566,
-      "remaining_boosters": 77,
+      "all_questions": 581,
+      "remaining_boosters": 62,
       "tickets": 2,
       "referral_rewards20": 0,
       "referral_count20": 0,
