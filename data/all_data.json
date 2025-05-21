@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-05-21 10:15:02 UTC",
+  "lastUpdate": "2025-05-21 10:20:01 UTC",
   "tournament": {
     "activeTournament": 9,
     "startDate": "2025-05-20 08:00:00",
@@ -102,6 +102,15 @@
           "has_active_boosters": 0
         },
         {
+          "username": "5725341396",
+          "capital": 100.0,
+          "points": 10.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 9,
+          "has_active_boosters": 0
+        },
+        {
           "username": "974932560",
           "capital": 100.0,
           "points": 6.0,
@@ -153,15 +162,6 @@
           "remaining_boosters": 0,
           "wallet": 0.0,
           "tournament_questions": 3,
-          "has_active_boosters": 0
-        },
-        {
-          "username": "5725341396",
-          "capital": 100.0,
-          "points": -4.0,
-          "remaining_boosters": 0,
-          "wallet": 0.0,
-          "tournament_questions": 2,
           "has_active_boosters": 0
         },
         {
@@ -313,10 +313,10 @@
         {
           "username": "Inna",
           "capital": 1155.0,
-          "points": 1293.6000000000001,
-          "remaining_boosters": 56,
-          "wallet": 814.0,
-          "tournament_questions": 40,
+          "points": 1432.2000000000003,
+          "remaining_boosters": 53,
+          "wallet": 954.0,
+          "tournament_questions": 44,
           "has_active_boosters": 1
         },
         {
@@ -360,10 +360,10 @@
         {
           "username": "Дятел Вуду",
           "capital": 3999.0,
-          "points": 11997.000000000002,
-          "remaining_boosters": 103,
+          "points": 14076.480000000005,
+          "remaining_boosters": 94,
           "wallet": 1560.0,
-          "tournament_questions": 50,
+          "tournament_questions": 59,
           "has_active_boosters": 1
         },
         {
@@ -440,8 +440,8 @@
       "level": "Мастер",
       "capital": 3999.0,
       "wallet": 1560.0,
-      "all_questions": 610,
-      "remaining_boosters": 103,
+      "all_questions": 619,
+      "remaining_boosters": 94,
       "tickets": 0,
       "referral_rewards20": 220,
       "referral_count20": 2,
@@ -621,11 +621,11 @@
       "username": "Inna",
       "level": "Эксперт",
       "capital": 1155.0,
-      "wallet": 814.0,
-      "all_questions": 360,
-      "remaining_boosters": 56,
+      "wallet": 954.0,
+      "all_questions": 364,
+      "remaining_boosters": 53,
       "tickets": 1,
-      "referral_rewards20": 240,
+      "referral_rewards20": 380,
       "referral_count20": 2,
       "purchased_coins": 0
     },
@@ -3638,7 +3638,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 2,
+      "all_questions": 9,
       "remaining_boosters": 0,
       "tickets": 3,
       "referral_rewards20": 0,
