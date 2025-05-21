@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-05-21 14:45:02 UTC",
+  "lastUpdate": "2025-05-21 14:50:01 UTC",
   "tournament": {
     "activeTournament": 9,
     "startDate": "2025-05-20 08:00:00",
@@ -84,6 +84,15 @@
           "has_active_boosters": 0
         },
         {
+          "username": "6962992556",
+          "capital": 100.0,
+          "points": 35.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 29,
+          "has_active_boosters": 0
+        },
+        {
           "username": "270087025",
           "capital": 100.0,
           "points": 32.0,
@@ -108,15 +117,6 @@
           "remaining_boosters": 0,
           "wallet": 0.0,
           "tournament_questions": 80,
-          "has_active_boosters": 0
-        },
-        {
-          "username": "6962992556",
-          "capital": 100.0,
-          "points": 27.0,
-          "remaining_boosters": 0,
-          "wallet": 0.0,
-          "tournament_questions": 21,
           "has_active_boosters": 0
         },
         {
@@ -409,10 +409,10 @@
         {
           "username": "MASK GAME",
           "capital": 10999.0,
-          "points": 12098.89999999999,
+          "points": 12978.819999999989,
           "remaining_boosters": 86,
           "wallet": 6557.0,
-          "tournament_questions": 48,
+          "tournament_questions": 53,
           "has_active_boosters": 1
         }
       ],
@@ -429,7 +429,7 @@
       "level": "Титан",
       "capital": 10999.0,
       "wallet": 6557.0,
-      "all_questions": 688,
+      "all_questions": 693,
       "remaining_boosters": 86,
       "tickets": 7,
       "referral_rewards20": 9900,
@@ -4004,7 +4004,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 21,
+      "all_questions": 29,
       "remaining_boosters": 0,
       "tickets": 3,
       "referral_rewards20": 0,
