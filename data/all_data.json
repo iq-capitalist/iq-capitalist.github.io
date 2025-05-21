@@ -1,14 +1,14 @@
 {
-  "lastUpdate": "2025-05-21 05:50:01 UTC",
+  "lastUpdate": "2025-05-21 05:55:01 UTC",
   "tournament": {
     "activeTournament": 9,
     "startDate": "2025-05-20 08:00:00",
     "endDate": "2025-05-22 08:00:00",
-    "totalPlayers": 36,
+    "totalPlayers": 37,
     "playersByLevel": {
       "Знаток": 24,
       "Эксперт": 10,
-      "Мастер": 1,
+      "Мастер": 2,
       "Босс": 1,
       "Титан": 0,
       "Легенда": 0,
@@ -250,10 +250,10 @@
         {
           "username": "Rakshas",
           "capital": 1999.0,
-          "points": 9235.379999999992,
-          "remaining_boosters": 6,
+          "points": 9355.319999999992,
+          "remaining_boosters": 5,
           "wallet": 2332.0,
-          "tournament_questions": 79,
+          "tournament_questions": 80,
           "has_active_boosters": 1
         },
         {
@@ -347,6 +347,15 @@
           "wallet": 3236.0,
           "tournament_questions": 72,
           "has_active_boosters": 1
+        },
+        {
+          "username": "Дятел Вуду",
+          "capital": 3999.0,
+          "points": 239.94,
+          "remaining_boosters": 152,
+          "wallet": 1560.0,
+          "tournament_questions": 1,
+          "has_active_boosters": 1
         }
       ],
       "Босс": [
@@ -413,9 +422,9 @@
       "level": "Мастер",
       "capital": 3999.0,
       "wallet": 1560.0,
-      "all_questions": 560,
-      "remaining_boosters": 153,
-      "tickets": 1,
+      "all_questions": 561,
+      "remaining_boosters": 152,
+      "tickets": 0,
       "referral_rewards20": 220,
       "referral_count20": 2,
       "purchased_coins": 0
@@ -517,8 +526,8 @@
       "level": "Эксперт",
       "capital": 1999.0,
       "wallet": 2332.0,
-      "all_questions": 719,
-      "remaining_boosters": 6,
+      "all_questions": 720,
+      "remaining_boosters": 5,
       "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
