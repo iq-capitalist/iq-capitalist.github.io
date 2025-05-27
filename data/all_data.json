@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-05-27 10:10:02 UTC",
+  "lastUpdate": "2025-05-27 10:15:01 UTC",
   "tournament": {
     "activeTournament": 10,
     "startDate": "2025-05-27 08:00:00",
@@ -111,10 +111,10 @@
         {
           "username": "1067356187",
           "capital": 100.0,
-          "points": -2.0,
+          "points": -5.0,
           "remaining_boosters": 0,
           "wallet": 0.0,
-          "tournament_questions": 1,
+          "tournament_questions": 2,
           "has_active_boosters": 0
         },
         {
@@ -212,10 +212,10 @@
         {
           "username": "BAS93",
           "capital": 1100.0,
-          "points": 275.0,
+          "points": 451.0,
           "remaining_boosters": 0,
           "wallet": 177.0,
-          "tournament_questions": 16,
+          "tournament_questions": 25,
           "has_active_boosters": 0
         }
       ],
@@ -233,11 +233,11 @@
       "username": "MASK GAME",
       "level": "Титан",
       "capital": 10999.0,
-      "wallet": 8177.0,
+      "wallet": 8197.0,
       "all_questions": 720,
       "remaining_boosters": 86,
       "tickets": 7,
-      "referral_rewards20": 10320,
+      "referral_rewards20": 10340,
       "referral_count20": 58,
       "purchased_coins": 0
     },
@@ -441,10 +441,10 @@
       "username": "Роман",
       "level": "Эксперт",
       "capital": 1200.0,
-      "wallet": 463.0,
+      "wallet": 113.0,
       "all_questions": 649,
-      "remaining_boosters": 25,
-      "tickets": 0,
+      "remaining_boosters": 105,
+      "tickets": 1,
       "referral_rewards20": 200,
       "referral_count20": 1,
       "purchased_coins": 0
@@ -507,7 +507,7 @@
       "level": "Эксперт",
       "capital": 1100.0,
       "wallet": 177.0,
-      "all_questions": 336,
+      "all_questions": 345,
       "remaining_boosters": 0,
       "tickets": 0,
       "referral_rewards20": 0,
@@ -2535,7 +2535,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 1,
+      "all_questions": 2,
       "remaining_boosters": 0,
       "tickets": 3,
       "referral_rewards20": 0,
