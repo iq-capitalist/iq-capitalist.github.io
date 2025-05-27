@@ -1,13 +1,13 @@
 {
-  "lastUpdate": "2025-05-27 08:45:02 UTC",
+  "lastUpdate": "2025-05-27 08:50:02 UTC",
   "tournament": {
     "activeTournament": 10,
     "startDate": "2025-05-27 08:00:00",
     "endDate": "2025-05-29 08:00:00",
-    "totalPlayers": 12,
+    "totalPlayers": 13,
     "playersByLevel": {
       "Знаток": 10,
-      "Эксперт": 2,
+      "Эксперт": 3,
       "Мастер": 0,
       "Босс": 0,
       "Титан": 0,
@@ -57,10 +57,10 @@
         {
           "username": "270087025",
           "capital": 100.0,
-          "points": 6.0,
+          "points": 16.0,
           "remaining_boosters": 0,
           "wallet": 97.0,
-          "tournament_questions": 5,
+          "tournament_questions": 14,
           "has_active_boosters": 0
         },
         {
@@ -102,10 +102,10 @@
         {
           "username": "1106067715",
           "capital": 100.0,
-          "points": -31.0,
+          "points": -40.0,
           "remaining_boosters": 0,
           "wallet": 0.0,
-          "tournament_questions": 34,
+          "tournament_questions": 37,
           "has_active_boosters": 0
         },
         {
@@ -122,10 +122,10 @@
         {
           "username": "Alessa",
           "capital": 1999.0,
-          "points": 7316.339999999991,
-          "remaining_boosters": 184,
+          "points": 8435.779999999988,
+          "remaining_boosters": 174,
           "wallet": 1366.0,
-          "tournament_questions": 70,
+          "tournament_questions": 80,
           "has_active_boosters": 1
         },
         {
@@ -135,6 +135,15 @@
           "remaining_boosters": 63,
           "wallet": 740.0,
           "tournament_questions": 28,
+          "has_active_boosters": 1
+        },
+        {
+          "username": "Andatra",
+          "capital": 1999.0,
+          "points": 399.8,
+          "remaining_boosters": 86,
+          "wallet": 1052.0,
+          "tournament_questions": 5,
           "has_active_boosters": 1
         }
       ],
@@ -270,8 +279,8 @@
       "level": "Эксперт",
       "capital": 1999.0,
       "wallet": 1366.0,
-      "all_questions": 790,
-      "remaining_boosters": 184,
+      "all_questions": 800,
+      "remaining_boosters": 174,
       "tickets": 2,
       "referral_rewards20": 0,
       "referral_count20": 0,
@@ -282,9 +291,9 @@
       "username": "Andatra",
       "level": "Эксперт",
       "capital": 1999.0,
-      "wallet": 1402.0,
-      "all_questions": 720,
-      "remaining_boosters": 11,
+      "wallet": 1052.0,
+      "all_questions": 725,
+      "remaining_boosters": 86,
       "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
@@ -1154,7 +1163,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 97.0,
-      "all_questions": 110,
+      "all_questions": 119,
       "remaining_boosters": 0,
       "tickets": 1,
       "referral_rewards20": 0,
@@ -2519,7 +2528,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 34,
+      "all_questions": 37,
       "remaining_boosters": 0,
       "tickets": 3,
       "referral_rewards20": 0,
