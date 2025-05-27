@@ -1,14 +1,14 @@
 {
-  "lastUpdate": "2025-05-27 15:35:01 UTC",
+  "lastUpdate": "2025-05-27 15:40:02 UTC",
   "tournament": {
     "activeTournament": 10,
     "startDate": "2025-05-27 08:00:00",
     "endDate": "2025-05-29 08:00:00",
-    "totalPlayers": 30,
+    "totalPlayers": 31,
     "playersByLevel": {
       "Знаток": 23,
       "Эксперт": 6,
-      "Мастер": 1,
+      "Мастер": 2,
       "Босс": 0,
       "Титан": 0,
       "Легенда": 0,
@@ -300,6 +300,15 @@
           "wallet": 805.0,
           "tournament_questions": 20,
           "has_active_boosters": 1
+        },
+        {
+          "username": "LucasTeam",
+          "capital": 3999.0,
+          "points": 239.94,
+          "remaining_boosters": 102,
+          "wallet": 3450.0,
+          "tournament_questions": 1,
+          "has_active_boosters": 1
         }
       ],
       "Босс": [],
@@ -342,9 +351,9 @@
       "level": "Мастер",
       "capital": 3999.0,
       "wallet": 3450.0,
-      "all_questions": 720,
-      "remaining_boosters": 103,
-      "tickets": 1,
+      "all_questions": 721,
+      "remaining_boosters": 102,
+      "tickets": 0,
       "referral_rewards20": 3220,
       "referral_count20": 18,
       "purchased_coins": 0
