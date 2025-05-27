@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-05-27 12:35:02 UTC",
+  "lastUpdate": "2025-05-27 12:40:01 UTC",
   "tournament": {
     "activeTournament": 10,
     "startDate": "2025-05-27 08:00:00",
@@ -111,10 +111,10 @@
         {
           "username": "393277208",
           "capital": 100.0,
-          "points": 1.0,
+          "points": -2.0,
           "remaining_boosters": 0,
           "wallet": 185.0,
-          "tournament_questions": 79,
+          "tournament_questions": 80,
           "has_active_boosters": 0
         },
         {
@@ -1518,7 +1518,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 185.0,
-      "all_questions": 204,
+      "all_questions": 205,
       "remaining_boosters": 0,
       "tickets": 1,
       "referral_rewards20": 0,
