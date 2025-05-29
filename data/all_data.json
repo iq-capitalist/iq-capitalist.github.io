@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-05-29 09:45:01 UTC",
+  "lastUpdate": "2025-05-29 09:50:02 UTC",
   "tournament": {
     "activeTournament": null,
     "startDate": null,
@@ -136,6 +136,19 @@
       "all_questions": 800,
       "remaining_boosters": 174,
       "tickets": 2,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
+      "user_id": 5819543689,
+      "username": "5819543689",
+      "level": "Эксперт",
+      "capital": 1999.0,
+      "wallet": 2546.0,
+      "all_questions": 320,
+      "remaining_boosters": 80,
+      "tickets": 1,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
@@ -405,10 +418,10 @@
       "username": "Alatriste",
       "level": "Эксперт",
       "capital": 1000.0,
-      "wallet": 697.0,
+      "wallet": 347.0,
       "all_questions": 400,
-      "remaining_boosters": 1,
-      "tickets": 0,
+      "remaining_boosters": 81,
+      "tickets": 1,
       "referral_rewards20": 200,
       "referral_count20": 1,
       "purchased_coins": 0
@@ -3412,19 +3425,6 @@
       "all_questions": 80,
       "remaining_boosters": 0,
       "tickets": 3,
-      "referral_rewards20": 0,
-      "referral_count20": 0,
-      "purchased_coins": 0
-    },
-    {
-      "user_id": 5819543689,
-      "username": "5819543689",
-      "level": "Знаток",
-      "capital": 100.0,
-      "wallet": 4795.0,
-      "all_questions": 320,
-      "remaining_boosters": 0,
-      "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
