@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-05-29 05:50:01 UTC",
+  "lastUpdate": "2025-05-29 05:55:02 UTC",
   "tournament": {
     "activeTournament": 10,
     "startDate": "2025-05-27 08:00:00",
@@ -444,12 +444,30 @@
           "has_active_boosters": 1
         },
         {
+          "username": "Rakshas",
+          "capital": 1999.0,
+          "points": 4837.579999999999,
+          "remaining_boosters": 43,
+          "wallet": 2631.0,
+          "tournament_questions": 42,
+          "has_active_boosters": 1
+        },
+        {
           "username": "MayaCha",
           "capital": 1000.0,
           "points": 4280.0,
           "remaining_boosters": 11,
           "wallet": 404.0,
           "tournament_questions": 80,
+          "has_active_boosters": 1
+        },
+        {
+          "username": "Роман",
+          "capital": 1200.0,
+          "points": 3552.0,
+          "remaining_boosters": 52,
+          "wallet": 113.0,
+          "tournament_questions": 54,
           "has_active_boosters": 1
         },
         {
@@ -462,15 +480,6 @@
           "has_active_boosters": 1
         },
         {
-          "username": "Роман",
-          "capital": 1200.0,
-          "points": 3144.0,
-          "remaining_boosters": 60,
-          "wallet": 113.0,
-          "tournament_questions": 46,
-          "has_active_boosters": 1
-        },
-        {
           "username": "Supremum",
           "capital": 1000.0,
           "points": 2580.0,
@@ -480,13 +489,13 @@
           "has_active_boosters": 1
         },
         {
-          "username": "Rakshas",
-          "capital": 1999.0,
-          "points": 2518.7400000000007,
-          "remaining_boosters": 64,
-          "wallet": 2631.0,
-          "tournament_questions": 21,
-          "has_active_boosters": 1
+          "username": "Inna",
+          "capital": 1155.0,
+          "points": 1847.9999999999982,
+          "remaining_boosters": 0,
+          "wallet": 1344.0,
+          "tournament_questions": 67,
+          "has_active_boosters": 0
         },
         {
           "username": "Alex4561",
@@ -495,15 +504,6 @@
           "remaining_boosters": 0,
           "wallet": 58.0,
           "tournament_questions": 80,
-          "has_active_boosters": 0
-        },
-        {
-          "username": "Inna",
-          "capital": 1155.0,
-          "points": 1744.0499999999984,
-          "remaining_boosters": 0,
-          "wallet": 1344.0,
-          "tournament_questions": 62,
           "has_active_boosters": 0
         },
         {
@@ -731,8 +731,8 @@
       "level": "Эксперт",
       "capital": 1999.0,
       "wallet": 2631.0,
-      "all_questions": 741,
-      "remaining_boosters": 64,
+      "all_questions": 762,
+      "remaining_boosters": 43,
       "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
@@ -796,8 +796,8 @@
       "level": "Эксперт",
       "capital": 1200.0,
       "wallet": 113.0,
-      "all_questions": 695,
-      "remaining_boosters": 60,
+      "all_questions": 703,
+      "remaining_boosters": 52,
       "tickets": 0,
       "referral_rewards20": 200,
       "referral_count20": 1,
@@ -809,7 +809,7 @@
       "level": "Эксперт",
       "capital": 1155.0,
       "wallet": 1344.0,
-      "all_questions": 462,
+      "all_questions": 467,
       "remaining_boosters": 0,
       "tickets": 0,
       "referral_rewards20": 600,
