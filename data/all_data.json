@@ -1,14 +1,14 @@
 {
-  "lastUpdate": "2025-06-03 13:55:01 UTC",
+  "lastUpdate": "2025-06-03 14:00:02 UTC",
   "tournament": {
     "activeTournament": 11,
     "startDate": "2025-06-03 08:00:00",
     "endDate": "2025-06-05 08:00:00",
-    "totalPlayers": 49,
+    "totalPlayers": 51,
     "playersByLevel": {
       "Знаток": 43,
-      "Эксперт": 4,
-      "Мастер": 2,
+      "Эксперт": 5,
+      "Мастер": 3,
       "Босс": 0,
       "Титан": 0,
       "Легенда": 0,
@@ -136,21 +136,21 @@
           "has_active_boosters": 0
         },
         {
+          "username": "732899364",
+          "capital": 100.0,
+          "points": 29.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 23,
+          "has_active_boosters": 0
+        },
+        {
           "username": "7675520807",
           "capital": 100.0,
           "points": 29.0,
           "remaining_boosters": 0,
           "wallet": 0.0,
           "tournament_questions": 80,
-          "has_active_boosters": 0
-        },
-        {
-          "username": "732899364",
-          "capital": 100.0,
-          "points": 26.0,
-          "remaining_boosters": 0,
-          "wallet": 0.0,
-          "tournament_questions": 22,
           "has_active_boosters": 0
         },
         {
@@ -231,7 +231,7 @@
           "points": 3.0,
           "remaining_boosters": 0,
           "wallet": 0.0,
-          "tournament_questions": 45,
+          "tournament_questions": 59,
           "has_active_boosters": 0
         },
         {
@@ -446,10 +446,19 @@
         {
           "username": "MayaCha",
           "capital": 1000.0,
-          "points": 960.0,
-          "remaining_boosters": 75,
+          "points": 1700.0,
+          "remaining_boosters": 62,
           "wallet": 275.0,
-          "tournament_questions": 16,
+          "tournament_questions": 29,
+          "has_active_boosters": 1
+        },
+        {
+          "username": "Supremum",
+          "capital": 1200.0,
+          "points": 168.0,
+          "remaining_boosters": 125,
+          "wallet": 382.0,
+          "tournament_questions": 3,
           "has_active_boosters": 1
         }
       ],
@@ -471,6 +480,15 @@
           "wallet": 944.0,
           "tournament_questions": 30,
           "has_active_boosters": 0
+        },
+        {
+          "username": "LucasTeam",
+          "capital": 3999.0,
+          "points": 399.9,
+          "remaining_boosters": 104,
+          "wallet": 3642.0,
+          "tournament_questions": 2,
+          "has_active_boosters": 1
         }
       ],
       "Босс": [],
@@ -512,9 +530,9 @@
       "username": "LucasTeam",
       "level": "Мастер",
       "capital": 3999.0,
-      "wallet": 3992.0,
-      "all_questions": 800,
-      "remaining_boosters": 26,
+      "wallet": 3642.0,
+      "all_questions": 802,
+      "remaining_boosters": 104,
       "tickets": 0,
       "referral_rewards20": 3220,
       "referral_count20": 18,
@@ -695,9 +713,9 @@
       "level": "Эксперт",
       "capital": 1200.0,
       "wallet": 382.0,
-      "all_questions": 297,
-      "remaining_boosters": 128,
-      "tickets": 7,
+      "all_questions": 300,
+      "remaining_boosters": 125,
+      "tickets": 6,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
@@ -812,8 +830,8 @@
       "level": "Эксперт",
       "capital": 1000.0,
       "wallet": 275.0,
-      "all_questions": 739,
-      "remaining_boosters": 75,
+      "all_questions": 752,
+      "remaining_boosters": 62,
       "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
@@ -994,7 +1012,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 45,
+      "all_questions": 59,
       "remaining_boosters": 0,
       "tickets": 3,
       "referral_rewards20": 0,
@@ -2424,7 +2442,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 22,
+      "all_questions": 23,
       "remaining_boosters": 0,
       "tickets": 3,
       "referral_rewards20": 0,
