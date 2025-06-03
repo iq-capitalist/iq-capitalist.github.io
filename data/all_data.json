@@ -1,12 +1,12 @@
 {
-  "lastUpdate": "2025-06-03 15:35:02 UTC",
+  "lastUpdate": "2025-06-03 15:40:01 UTC",
   "tournament": {
     "activeTournament": 11,
     "startDate": "2025-06-03 08:00:00",
     "endDate": "2025-06-05 08:00:00",
-    "totalPlayers": 56,
+    "totalPlayers": 57,
     "playersByLevel": {
-      "Знаток": 48,
+      "Знаток": 49,
       "Эксперт": 5,
       "Мастер": 3,
       "Босс": 0,
@@ -232,6 +232,15 @@
           "remaining_boosters": 0,
           "wallet": 0.0,
           "tournament_questions": 2,
+          "has_active_boosters": 0
+        },
+        {
+          "username": "77396247",
+          "capital": 100.0,
+          "points": 3.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 1,
           "has_active_boosters": 0
         },
         {
@@ -491,10 +500,10 @@
         {
           "username": "Supremum",
           "capital": 1200.0,
-          "points": 2832.0,
-          "remaining_boosters": 62,
+          "points": 3096.0,
+          "remaining_boosters": 57,
           "wallet": 382.0,
-          "tournament_questions": 70,
+          "tournament_questions": 76,
           "has_active_boosters": 1
         },
         {
@@ -758,8 +767,8 @@
       "level": "Эксперт",
       "capital": 1200.0,
       "wallet": 382.0,
-      "all_questions": 367,
-      "remaining_boosters": 62,
+      "all_questions": 373,
+      "remaining_boosters": 57,
       "tickets": 6,
       "referral_rewards20": 0,
       "referral_count20": 0,
@@ -1086,6 +1095,19 @@
       "all_questions": 3,
       "remaining_boosters": 0,
       "tickets": 0,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
+      "user_id": 77396247,
+      "username": "77396247",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 0.0,
+      "all_questions": 1,
+      "remaining_boosters": 0,
+      "tickets": 3,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
