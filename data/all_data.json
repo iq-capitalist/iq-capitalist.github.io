@@ -1,12 +1,12 @@
 {
-  "lastUpdate": "2025-06-03 08:00:01 UTC",
+  "lastUpdate": "2025-06-03 08:05:02 UTC",
   "tournament": {
     "activeTournament": 11,
     "startDate": "2025-06-03 08:00:00",
     "endDate": "2025-06-05 08:00:00",
-    "totalPlayers": 0,
+    "totalPlayers": 3,
     "playersByLevel": {
-      "Знаток": 0,
+      "Знаток": 3,
       "Эксперт": 0,
       "Мастер": 0,
       "Босс": 0,
@@ -26,7 +26,35 @@
       "IQ Капиталист": 0.0
     },
     "ratings": {
-      "Знаток": [],
+      "Знаток": [
+        {
+          "username": "413886729",
+          "capital": 100.0,
+          "points": 6.0,
+          "remaining_boosters": 0,
+          "wallet": 436.0,
+          "tournament_questions": 4,
+          "has_active_boosters": 0
+        },
+        {
+          "username": "950898630",
+          "capital": 100.0,
+          "points": 0.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 12,
+          "has_active_boosters": 0
+        },
+        {
+          "username": "1369486310",
+          "capital": 100.0,
+          "points": -3.0,
+          "remaining_boosters": 0,
+          "wallet": 42.0,
+          "tournament_questions": 1,
+          "has_active_boosters": 0
+        }
+      ],
       "Эксперт": [],
       "Мастер": [],
       "Босс": [],
@@ -1161,9 +1189,9 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 436.0,
-      "all_questions": 166,
+      "all_questions": 170,
       "remaining_boosters": 0,
-      "tickets": 2,
+      "tickets": 1,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
@@ -2123,9 +2151,9 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 160,
+      "all_questions": 172,
       "remaining_boosters": 0,
-      "tickets": 2,
+      "tickets": 1,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
@@ -2643,9 +2671,9 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 42.0,
-      "all_questions": 80,
+      "all_questions": 81,
       "remaining_boosters": 0,
-      "tickets": 3,
+      "tickets": 2,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
