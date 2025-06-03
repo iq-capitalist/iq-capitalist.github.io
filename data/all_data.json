@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-06-03 13:30:02 UTC",
+  "lastUpdate": "2025-06-03 13:35:01 UTC",
   "tournament": {
     "activeTournament": 11,
     "startDate": "2025-06-03 08:00:00",
@@ -428,6 +428,15 @@
       ],
       "Мастер": [
         {
+          "username": "Archi",
+          "capital": 2001.0,
+          "points": 1160.5799999999997,
+          "remaining_boosters": 69,
+          "wallet": 949.0,
+          "tournament_questions": 15,
+          "has_active_boosters": 1
+        },
+        {
           "username": "Константин",
           "capital": 2000.0,
           "points": 1140.0,
@@ -435,15 +444,6 @@
           "wallet": 944.0,
           "tournament_questions": 30,
           "has_active_boosters": 0
-        },
-        {
-          "username": "Archi",
-          "capital": 2001.0,
-          "points": 1080.5399999999997,
-          "remaining_boosters": 70,
-          "wallet": 949.0,
-          "tournament_questions": 14,
-          "has_active_boosters": 1
         }
       ],
       "Босс": [],
@@ -551,8 +551,8 @@
       "level": "Мастер",
       "capital": 2001.0,
       "wallet": 949.0,
-      "all_questions": 814,
-      "remaining_boosters": 70,
+      "all_questions": 815,
+      "remaining_boosters": 69,
       "tickets": 15,
       "referral_rewards20": 0,
       "referral_count20": 0,
