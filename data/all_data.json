@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-06-04 15:35:02 UTC",
+  "lastUpdate": "2025-06-04 15:40:02 UTC",
   "tournament": {
     "activeTournament": 11,
     "startDate": "2025-06-03 08:00:00",
@@ -716,6 +716,15 @@
           "has_active_boosters": 1
         },
         {
+          "username": "Макс",
+          "capital": 3481.0,
+          "points": 3272.1400000000012,
+          "remaining_boosters": 66,
+          "wallet": 0.0,
+          "tournament_questions": 19,
+          "has_active_boosters": 1
+        },
+        {
           "username": "Константин",
           "capital": 2000.0,
           "points": 2640.0,
@@ -723,15 +732,6 @@
           "wallet": 1144.0,
           "tournament_questions": 65,
           "has_active_boosters": 0
-        },
-        {
-          "username": "Макс",
-          "capital": 3481.0,
-          "points": 556.96,
-          "remaining_boosters": 80,
-          "wallet": 0.0,
-          "tournament_questions": 5,
-          "has_active_boosters": 1
         }
       ],
       "Босс": [
@@ -749,10 +749,10 @@
         {
           "username": "MASK GAME",
           "capital": 10999.0,
-          "points": 4289.6100000000015,
+          "points": 9679.12,
           "remaining_boosters": 86,
           "wallet": 10257.0,
-          "tournament_questions": 18,
+          "tournament_questions": 35,
           "has_active_boosters": 1
         }
       ],
@@ -768,7 +768,7 @@
       "level": "Титан",
       "capital": 10999.0,
       "wallet": 10257.0,
-      "all_questions": 818,
+      "all_questions": 835,
       "remaining_boosters": 86,
       "tickets": 5,
       "referral_rewards20": 11200,
@@ -820,8 +820,8 @@
       "level": "Мастер",
       "capital": 3481.0,
       "wallet": 0.0,
-      "all_questions": 805,
-      "remaining_boosters": 80,
+      "all_questions": 819,
+      "remaining_boosters": 66,
       "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
