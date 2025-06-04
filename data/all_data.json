@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-06-04 14:35:01 UTC",
+  "lastUpdate": "2025-06-04 14:40:02 UTC",
   "tournament": {
     "activeTournament": 11,
     "startDate": "2025-06-03 08:00:00",
@@ -48,10 +48,10 @@
         {
           "username": "91295826",
           "capital": 100.0,
-          "points": 79.0,
+          "points": 80.0,
           "remaining_boosters": 0,
           "wallet": 0.0,
-          "tournament_questions": 47,
+          "tournament_questions": 53,
           "has_active_boosters": 0
         },
         {
@@ -370,6 +370,15 @@
           "has_active_boosters": 0
         },
         {
+          "username": "584133038",
+          "capital": 100.0,
+          "points": 0.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 80,
+          "has_active_boosters": 0
+        },
+        {
           "username": "685644130",
           "capital": 100.0,
           "points": 0.0,
@@ -394,15 +403,6 @@
           "remaining_boosters": 0,
           "wallet": 253.0,
           "tournament_questions": 3,
-          "has_active_boosters": 0
-        },
-        {
-          "username": "584133038",
-          "capital": 100.0,
-          "points": -3.0,
-          "remaining_boosters": 0,
-          "wallet": 0.0,
-          "tournament_questions": 73,
           "has_active_boosters": 0
         },
         {
@@ -615,6 +615,15 @@
           "has_active_boosters": 0
         },
         {
+          "username": "Дон Педро",
+          "capital": 1999.0,
+          "points": 8635.67999999999,
+          "remaining_boosters": 4,
+          "wallet": 2687.0,
+          "tournament_questions": 80,
+          "has_active_boosters": 1
+        },
+        {
           "username": "Andatra",
           "capital": 1999.0,
           "points": 7676.15999999999,
@@ -630,15 +639,6 @@
           "remaining_boosters": 94,
           "wallet": 1801.0,
           "tournament_questions": 80,
-          "has_active_boosters": 1
-        },
-        {
-          "username": "Дон Педро",
-          "capital": 1999.0,
-          "points": 6636.679999999993,
-          "remaining_boosters": 21,
-          "wallet": 2687.0,
-          "tournament_questions": 63,
           "has_active_boosters": 1
         },
         {
@@ -890,8 +890,8 @@
       "level": "Эксперт",
       "capital": 1999.0,
       "wallet": 2687.0,
-      "all_questions": 863,
-      "remaining_boosters": 21,
+      "all_questions": 880,
+      "remaining_boosters": 4,
       "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
@@ -1293,7 +1293,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 47,
+      "all_questions": 53,
       "remaining_boosters": 0,
       "tickets": 3,
       "referral_rewards20": 0,
@@ -2502,7 +2502,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 73,
+      "all_questions": 80,
       "remaining_boosters": 0,
       "tickets": 3,
       "referral_rewards20": 0,
