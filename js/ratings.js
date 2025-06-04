@@ -12,8 +12,7 @@ const levelRanges = {
     'Босс': { min: 4000, max: 6999 },
     'Титан': { min: 7000, max: 10999 },
     'Легенда': { min: 11000, max: 15999 },
-    'Гуру': { min: 16000, max: 22999 },
-    'IQ Капиталист': { min: 23000, max: Infinity }
+    'Гуру': { min: 16000, max: 22999 }
 };
 
 function updateLevelHeader(level) {
