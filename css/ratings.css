@@ -17,7 +17,6 @@
     transition: background-color 0.3s, transform 0.2s;
     border-radius: 5px;
     font-size: 14px;
-    flex-grow: 1;
     text-align: center;
 }
 
@@ -149,10 +148,10 @@ tr:hover {
     }
 
     .level-btn {
-        font-size: 12px;
-        padding: 8px 12px;
+        flex: 0 1 calc(25% - 7.5px); /* По 4 кнопки в первой строке, 3 во второй */
+        min-width: calc(25% - 7.5px);
     }
-
+    
     #searchInput {
         font-size: 14px;
     }
