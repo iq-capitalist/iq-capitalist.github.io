@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-06-05 08:00:01 UTC",
+  "lastUpdate": "2025-06-05 08:05:02 UTC",
   "tournament": {
     "activeTournament": null,
     "startDate": null,
@@ -34,6 +34,19 @@
       "tickets": 3,
       "referral_rewards20": 800,
       "referral_count20": 4,
+      "purchased_coins": 0
+    },
+    {
+      "user_id": 977840664,
+      "username": "Alessa",
+      "level": "Мастер",
+      "capital": 3999.0,
+      "wallet": 219.0,
+      "all_questions": 880,
+      "remaining_boosters": 174,
+      "tickets": 1,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
       "purchased_coins": 0
     },
     {
@@ -128,19 +141,6 @@
       "purchased_coins": 0
     },
     {
-      "user_id": 977840664,
-      "username": "Alessa",
-      "level": "Эксперт",
-      "capital": 1999.0,
-      "wallet": 2319.0,
-      "all_questions": 880,
-      "remaining_boosters": 94,
-      "tickets": 1,
-      "referral_rewards20": 0,
-      "referral_count20": 0,
-      "purchased_coins": 0
-    },
-    {
       "user_id": 5819543689,
       "username": "Йошь",
       "level": "Эксперт",
@@ -197,10 +197,10 @@
       "username": "CAHEK",
       "level": "Эксперт",
       "capital": 1700.0,
-      "wallet": 958.0,
+      "wallet": 608.0,
       "all_questions": 723,
-      "remaining_boosters": 0,
-      "tickets": 0,
+      "remaining_boosters": 80,
+      "tickets": 1,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
@@ -284,19 +284,6 @@
       "purchased_coins": 0
     },
     {
-      "user_id": 511269010,
-      "username": "Zhlm00Z",
-      "level": "Эксперт",
-      "capital": 1100.0,
-      "wallet": 223.0,
-      "all_questions": 256,
-      "remaining_boosters": 0,
-      "tickets": 0,
-      "referral_rewards20": 0,
-      "referral_count20": 0,
-      "purchased_coins": 0
-    },
-    {
       "user_id": 853175665,
       "username": "BAS93",
       "level": "Эксперт",
@@ -307,19 +294,6 @@
       "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
-      "purchased_coins": 0
-    },
-    {
-      "user_id": 1100221925,
-      "username": "Misha",
-      "level": "Эксперт",
-      "capital": 1100.0,
-      "wallet": 79.0,
-      "all_questions": 320,
-      "remaining_boosters": 0,
-      "tickets": 0,
-      "referral_rewards20": 400,
-      "referral_count20": 2,
       "purchased_coins": 0
     },
     {
@@ -375,19 +349,6 @@
       "purchased_coins": 0
     },
     {
-      "user_id": 442028467,
-      "username": "Дмитрий",
-      "level": "Эксперт",
-      "capital": 1000.0,
-      "wallet": 15.0,
-      "all_questions": 24,
-      "remaining_boosters": 0,
-      "tickets": 0,
-      "referral_rewards20": 0,
-      "referral_count20": 0,
-      "purchased_coins": 0
-    },
-    {
       "user_id": 446235601,
       "username": "Анна Силва",
       "level": "Эксперт",
@@ -427,38 +388,12 @@
       "purchased_coins": 0
     },
     {
-      "user_id": 861992615,
-      "username": "Vestnik",
-      "level": "Эксперт",
-      "capital": 1000.0,
-      "wallet": 698.0,
-      "all_questions": 280,
-      "remaining_boosters": 0,
-      "tickets": 0,
-      "referral_rewards20": 0,
-      "referral_count20": 0,
-      "purchased_coins": 0
-    },
-    {
       "user_id": 1489492992,
       "username": "Ольга",
       "level": "Эксперт",
       "capital": 1000.0,
       "wallet": 19.0,
       "all_questions": 60,
-      "remaining_boosters": 0,
-      "tickets": 0,
-      "referral_rewards20": 0,
-      "referral_count20": 0,
-      "purchased_coins": 0
-    },
-    {
-      "user_id": 1642969389,
-      "username": "Люся",
-      "level": "Эксперт",
-      "capital": 1000.0,
-      "wallet": 835.0,
-      "all_questions": 414,
       "remaining_boosters": 0,
       "tickets": 0,
       "referral_rewards20": 0,
@@ -1493,6 +1428,19 @@
       "purchased_coins": 0
     },
     {
+      "user_id": 442028467,
+      "username": "Дмитрий",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 915.0,
+      "all_questions": 24,
+      "remaining_boosters": 0,
+      "tickets": 0,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
       "user_id": 442803749,
       "username": "442803749",
       "level": "Знаток",
@@ -1683,6 +1631,19 @@
       "all_questions": 86,
       "remaining_boosters": 0,
       "tickets": 2,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
+      "user_id": 511269010,
+      "username": "Zhlm00Z",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 1223.0,
+      "all_questions": 256,
+      "remaining_boosters": 0,
+      "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
@@ -2429,6 +2390,19 @@
       "purchased_coins": 0
     },
     {
+      "user_id": 861992615,
+      "username": "Vestnik",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 1598.0,
+      "all_questions": 280,
+      "remaining_boosters": 0,
+      "tickets": 0,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
       "user_id": 869390297,
       "username": "869390297",
       "level": "Знаток",
@@ -2868,6 +2842,19 @@
       "tickets": 3,
       "referral_rewards20": 0,
       "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
+      "user_id": 1100221925,
+      "username": "Misha",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 1079.0,
+      "all_questions": 320,
+      "remaining_boosters": 0,
+      "tickets": 0,
+      "referral_rewards20": 400,
+      "referral_count20": 2,
       "purchased_coins": 0
     },
     {
@@ -3321,6 +3308,19 @@
       "all_questions": 171,
       "remaining_boosters": 0,
       "tickets": 1,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
+      "user_id": 1642969389,
+      "username": "Люся",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 1735.0,
+      "all_questions": 414,
+      "remaining_boosters": 0,
+      "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
