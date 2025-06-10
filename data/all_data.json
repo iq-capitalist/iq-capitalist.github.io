@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-06-10 09:15:01 UTC",
+  "lastUpdate": "2025-06-10 09:20:02 UTC",
   "tournament": {
     "activeTournament": 12,
     "startDate": "2025-06-10 08:00:00",
@@ -39,10 +39,10 @@
         {
           "username": "646191232",
           "capital": 100.0,
-          "points": 63.0,
+          "points": 78.0,
           "remaining_boosters": 0,
           "wallet": 161.0,
-          "tournament_questions": 63,
+          "tournament_questions": 80,
           "has_active_boosters": 0
         },
         {
@@ -73,15 +73,6 @@
           "has_active_boosters": 0
         },
         {
-          "username": "386984722",
-          "capital": 100.0,
-          "points": 12.0,
-          "remaining_boosters": 0,
-          "wallet": 351.0,
-          "tournament_questions": 36,
-          "has_active_boosters": 0
-        },
-        {
           "username": "837186332",
           "capital": 100.0,
           "points": 5.0,
@@ -97,6 +88,15 @@
           "remaining_boosters": 0,
           "wallet": 0.0,
           "tournament_questions": 4,
+          "has_active_boosters": 0
+        },
+        {
+          "username": "386984722",
+          "capital": 100.0,
+          "points": -3.0,
+          "remaining_boosters": 0,
+          "wallet": 351.0,
+          "tournament_questions": 57,
           "has_active_boosters": 0
         },
         {
@@ -118,15 +118,6 @@
           "has_active_boosters": 0
         },
         {
-          "username": "77396247",
-          "capital": 100.0,
-          "points": -4.0,
-          "remaining_boosters": 0,
-          "wallet": 0.0,
-          "tournament_questions": 28,
-          "has_active_boosters": 0
-        },
-        {
           "username": "408441110",
           "capital": 100.0,
           "points": -4.0,
@@ -142,6 +133,15 @@
           "remaining_boosters": 0,
           "wallet": 60.0,
           "tournament_questions": 25,
+          "has_active_boosters": 0
+        },
+        {
+          "username": "77396247",
+          "capital": 100.0,
+          "points": -7.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 33,
           "has_active_boosters": 0
         },
         {
@@ -165,10 +165,10 @@
         {
           "username": "950898630",
           "capital": 100.0,
-          "points": -26.0,
+          "points": -50.0,
           "remaining_boosters": 0,
           "wallet": 0.0,
-          "tournament_questions": 23,
+          "tournament_questions": 37,
           "has_active_boosters": 0
         }
       ],
@@ -185,10 +185,10 @@
         {
           "username": "Andatra",
           "capital": 1999.0,
-          "points": 2798.600000000001,
-          "remaining_boosters": 68,
+          "points": 3478.260000000001,
+          "remaining_boosters": 62,
           "wallet": 1156.0,
-          "tournament_questions": 31,
+          "tournament_questions": 37,
           "has_active_boosters": 1
         },
         {
@@ -387,8 +387,8 @@
       "level": "Эксперт",
       "capital": 1999.0,
       "wallet": 1156.0,
-      "all_questions": 911,
-      "remaining_boosters": 68,
+      "all_questions": 917,
+      "remaining_boosters": 62,
       "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
@@ -725,7 +725,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 58,
+      "all_questions": 63,
       "remaining_boosters": 0,
       "tickets": 2,
       "referral_rewards20": 0,
@@ -1349,7 +1349,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 351.0,
-      "all_questions": 116,
+      "all_questions": 137,
       "remaining_boosters": 0,
       "tickets": 2,
       "referral_rewards20": 0,
@@ -2194,7 +2194,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 161.0,
-      "all_questions": 143,
+      "all_questions": 160,
       "remaining_boosters": 0,
       "tickets": 2,
       "referral_rewards20": 0,
@@ -2753,7 +2753,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 263,
+      "all_questions": 277,
       "remaining_boosters": 0,
       "tickets": 0,
       "referral_rewards20": 0,
