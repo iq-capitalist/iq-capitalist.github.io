@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-06-10 09:00:02 UTC",
+  "lastUpdate": "2025-06-10 09:05:01 UTC",
   "tournament": {
     "activeTournament": 12,
     "startDate": "2025-06-10 08:00:00",
@@ -66,19 +66,10 @@
         {
           "username": "646191232",
           "capital": 100.0,
-          "points": 6.0,
+          "points": 21.0,
           "remaining_boosters": 0,
           "wallet": 161.0,
-          "tournament_questions": 14,
-          "has_active_boosters": 0
-        },
-        {
-          "username": "408441110",
-          "capital": 100.0,
-          "points": 5.0,
-          "remaining_boosters": 0,
-          "wallet": 0.0,
-          "tournament_questions": 38,
+          "tournament_questions": 29,
           "has_active_boosters": 0
         },
         {
@@ -100,6 +91,15 @@
           "has_active_boosters": 0
         },
         {
+          "username": "77396247",
+          "capital": 100.0,
+          "points": -1.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 23,
+          "has_active_boosters": 0
+        },
+        {
           "username": "1007121190",
           "capital": 100.0,
           "points": -3.0,
@@ -118,21 +118,21 @@
           "has_active_boosters": 0
         },
         {
+          "username": "408441110",
+          "capital": 100.0,
+          "points": -4.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 43,
+          "has_active_boosters": 0
+        },
+        {
           "username": "1120770385",
           "capital": 100.0,
           "points": -6.0,
           "remaining_boosters": 0,
           "wallet": 60.0,
           "tournament_questions": 25,
-          "has_active_boosters": 0
-        },
-        {
-          "username": "77396247",
-          "capital": 100.0,
-          "points": -10.0,
-          "remaining_boosters": 0,
-          "wallet": 0.0,
-          "tournament_questions": 18,
           "has_active_boosters": 0
         },
         {
@@ -167,19 +167,19 @@
         {
           "username": "CAHEK",
           "capital": 1700.0,
-          "points": 4114.0,
-          "remaining_boosters": 7,
+          "points": 4216.0,
+          "remaining_boosters": 6,
           "wallet": 608.0,
-          "tournament_questions": 74,
+          "tournament_questions": 76,
           "has_active_boosters": 1
         },
         {
           "username": "Andatra",
           "capital": 1999.0,
-          "points": 2918.540000000001,
-          "remaining_boosters": 71,
+          "points": 2798.600000000001,
+          "remaining_boosters": 70,
           "wallet": 1156.0,
-          "tournament_questions": 28,
+          "tournament_questions": 29,
           "has_active_boosters": 1
         },
         {
@@ -214,10 +214,10 @@
         {
           "username": "Константин",
           "capital": 3100.0,
-          "points": 186.0,
-          "remaining_boosters": 79,
+          "points": 744.0,
+          "remaining_boosters": 75,
           "wallet": 69.0,
-          "tournament_questions": 1,
+          "tournament_questions": 5,
           "has_active_boosters": 1
         }
       ],
@@ -313,8 +313,8 @@
       "level": "Мастер",
       "capital": 3100.0,
       "wallet": 69.0,
-      "all_questions": 136,
-      "remaining_boosters": 79,
+      "all_questions": 140,
+      "remaining_boosters": 75,
       "tickets": 25,
       "referral_rewards20": 2100,
       "referral_count20": 11,
@@ -354,7 +354,7 @@
       "wallet": 1215.0,
       "all_questions": 880,
       "remaining_boosters": 4,
-      "tickets": 15,
+      "tickets": 14,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
@@ -378,8 +378,8 @@
       "level": "Эксперт",
       "capital": 1999.0,
       "wallet": 1156.0,
-      "all_questions": 908,
-      "remaining_boosters": 71,
+      "all_questions": 909,
+      "remaining_boosters": 70,
       "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
@@ -417,8 +417,8 @@
       "level": "Эксперт",
       "capital": 1700.0,
       "wallet": 608.0,
-      "all_questions": 797,
-      "remaining_boosters": 7,
+      "all_questions": 799,
+      "remaining_boosters": 6,
       "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
@@ -716,7 +716,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 48,
+      "all_questions": 53,
       "remaining_boosters": 0,
       "tickets": 2,
       "referral_rewards20": 0,
@@ -1457,7 +1457,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 104,
+      "all_questions": 109,
       "remaining_boosters": 0,
       "tickets": 2,
       "referral_rewards20": 0,
@@ -2185,7 +2185,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 161.0,
-      "all_questions": 94,
+      "all_questions": 109,
       "remaining_boosters": 0,
       "tickets": 2,
       "referral_rewards20": 0,
