@@ -1,13 +1,13 @@
 {
-  "lastUpdate": "2025-06-10 15:10:01 UTC",
+  "lastUpdate": "2025-06-10 15:15:02 UTC",
   "tournament": {
     "activeTournament": 12,
     "startDate": "2025-06-10 08:00:00",
     "endDate": "2025-06-12 08:00:00",
-    "totalPlayers": 37,
+    "totalPlayers": 38,
     "playersByLevel": {
       "Знаток": 28,
-      "Эксперт": 5,
+      "Эксперт": 6,
       "Мастер": 4,
       "Босс": 0,
       "Титан": 0,
@@ -318,6 +318,15 @@
           "has_active_boosters": 0
         },
         {
+          "username": "Роман",
+          "capital": 1200.0,
+          "points": 600.0,
+          "remaining_boosters": 94,
+          "wallet": 44.0,
+          "tournament_questions": 12,
+          "has_active_boosters": 1
+        },
+        {
           "username": "NatalKa",
           "capital": 1000.0,
           "points": 50.0,
@@ -600,8 +609,8 @@
       "level": "Эксперт",
       "capital": 1200.0,
       "wallet": 44.0,
-      "all_questions": 809,
-      "remaining_boosters": 106,
+      "all_questions": 821,
+      "remaining_boosters": 94,
       "tickets": 0,
       "referral_rewards20": 200,
       "referral_count20": 1,
