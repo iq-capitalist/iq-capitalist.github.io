@@ -1,15 +1,15 @@
 {
-  "lastUpdate": "2025-06-11 03:00:02 UTC",
+  "lastUpdate": "2025-06-11 03:05:02 UTC",
   "tournament": {
     "activeTournament": 12,
     "startDate": "2025-06-10 08:00:00",
     "endDate": "2025-06-12 08:00:00",
-    "totalPlayers": 47,
+    "totalPlayers": 49,
     "playersByLevel": {
-      "Знаток": 35,
+      "Знаток": 36,
       "Эксперт": 6,
       "Мастер": 6,
-      "Босс": 0,
+      "Босс": 1,
       "Титан": 0,
       "Легенда": 0,
       "Гуру": 0,
@@ -208,6 +208,15 @@
           "has_active_boosters": 0
         },
         {
+          "username": "543780720",
+          "capital": 100.0,
+          "points": -2.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 1,
+          "has_active_boosters": 0
+        },
+        {
           "username": "6627664073",
           "capital": 100.0,
           "points": -3.0,
@@ -403,10 +412,10 @@
         {
           "username": "Дятел Вуду",
           "capital": 3999.0,
-          "points": 17995.500000000004,
-          "remaining_boosters": 79,
+          "points": 18955.26,
+          "remaining_boosters": 75,
           "wallet": 2601.0,
-          "tournament_questions": 76,
+          "tournament_questions": 80,
           "has_active_boosters": 1
         },
         {
@@ -455,7 +464,17 @@
           "has_active_boosters": 1
         }
       ],
-      "Босс": [],
+      "Босс": [
+        {
+          "username": "Serhio",
+          "capital": 6999.0,
+          "points": 5039.279999999999,
+          "remaining_boosters": 69,
+          "wallet": 5137.0,
+          "tournament_questions": 12,
+          "has_active_boosters": 1
+        }
+      ],
       "Титан": [],
       "Легенда": [],
       "Гуру": [],
@@ -482,9 +501,9 @@
       "level": "Босс",
       "capital": 6999.0,
       "wallet": 5137.0,
-      "all_questions": 800,
-      "remaining_boosters": 81,
-      "tickets": 3,
+      "all_questions": 812,
+      "remaining_boosters": 69,
+      "tickets": 2,
       "referral_rewards20": 800,
       "referral_count20": 4,
       "purchased_coins": 0
@@ -521,8 +540,8 @@
       "level": "Мастер",
       "capital": 3999.0,
       "wallet": 2601.0,
-      "all_questions": 876,
-      "remaining_boosters": 79,
+      "all_questions": 880,
+      "remaining_boosters": 75,
       "tickets": 0,
       "referral_rewards20": 220,
       "referral_count20": 2,
@@ -2173,6 +2192,19 @@
       "capital": 100.0,
       "wallet": 0.0,
       "all_questions": 12,
+      "remaining_boosters": 0,
+      "tickets": 3,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
+      "user_id": 543780720,
+      "username": "543780720",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 0.0,
+      "all_questions": 1,
       "remaining_boosters": 0,
       "tickets": 3,
       "referral_rewards20": 0,
