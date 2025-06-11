@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-06-11 07:30:02 UTC",
+  "lastUpdate": "2025-06-11 07:35:02 UTC",
   "tournament": {
     "activeTournament": 12,
     "startDate": "2025-06-10 08:00:00",
@@ -392,11 +392,11 @@
         {
           "username": "Оля",
           "capital": 1400.0,
-          "points": 5600.0,
-          "remaining_boosters": 9,
+          "points": 6328.0,
+          "remaining_boosters": 0,
           "wallet": 841.0,
-          "tournament_questions": 71,
-          "has_active_boosters": 1
+          "tournament_questions": 80,
+          "has_active_boosters": 0
         },
         {
           "username": "Роман",
@@ -741,8 +741,8 @@
       "level": "Эксперт",
       "capital": 1400.0,
       "wallet": 841.0,
-      "all_questions": 391,
-      "remaining_boosters": 9,
+      "all_questions": 400,
+      "remaining_boosters": 0,
       "tickets": 1,
       "referral_rewards20": 0,
       "referral_count20": 0,
