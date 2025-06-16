@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-06-16 07:25:01 UTC",
+  "lastUpdate": "2025-06-16 07:30:01 UTC",
   "tournament": {
     "activeTournament": null,
     "startDate": null,
@@ -11,6 +11,19 @@
   },
   "players": [
     {
+      "user_id": 471478283,
+      "username": "Serhio",
+      "level": "Титан",
+      "capital": 10999.0,
+      "wallet": 2237.0,
+      "all_questions": 880,
+      "remaining_boosters": 81,
+      "tickets": 2,
+      "referral_rewards20": 800,
+      "referral_count20": 4,
+      "purchased_coins": 0
+    },
+    {
       "user_id": 1877397832,
       "username": "MASK GAME",
       "level": "Титан",
@@ -21,19 +34,6 @@
       "tickets": 4,
       "referral_rewards20": 11780,
       "referral_count20": 64,
-      "purchased_coins": 0
-    },
-    {
-      "user_id": 471478283,
-      "username": "Serhio",
-      "level": "Босс",
-      "capital": 6999.0,
-      "wallet": 6237.0,
-      "all_questions": 880,
-      "remaining_boosters": 81,
-      "tickets": 2,
-      "referral_rewards20": 800,
-      "referral_count20": 4,
       "purchased_coins": 0
     },
     {
@@ -92,10 +92,10 @@
       "user_id": 123063415,
       "username": "Константин",
       "level": "Мастер",
-      "capital": 3100.0,
-      "wallet": 350.0,
+      "capital": 3350.0,
+      "wallet": 0.0,
       "all_questions": 215,
-      "remaining_boosters": 0,
+      "remaining_boosters": 80,
       "tickets": 25,
       "referral_rewards20": 2100,
       "referral_count20": 11,
