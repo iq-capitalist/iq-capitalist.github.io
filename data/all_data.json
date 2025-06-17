@@ -1,12 +1,12 @@
 {
-  "lastUpdate": "2025-06-17 10:40:01 UTC",
+  "lastUpdate": "2025-06-17 10:45:01 UTC",
   "tournament": {
     "activeTournament": 13,
     "startDate": "2025-06-17 08:00:00",
     "endDate": "2025-06-19 08:00:00",
-    "totalPlayers": 33,
+    "totalPlayers": 34,
     "playersByLevel": {
-      "Знаток": 28,
+      "Знаток": 29,
       "Эксперт": 4,
       "Мастер": 0,
       "Босс": 1,
@@ -82,21 +82,21 @@
           "has_active_boosters": 0
         },
         {
+          "username": "386984722",
+          "capital": 100.0,
+          "points": 36.0,
+          "remaining_boosters": 0,
+          "wallet": 432.0,
+          "tournament_questions": 36,
+          "has_active_boosters": 0
+        },
+        {
           "username": "537950335",
           "capital": 100.0,
           "points": 24.0,
           "remaining_boosters": 0,
           "wallet": 353.0,
           "tournament_questions": 80,
-          "has_active_boosters": 0
-        },
-        {
-          "username": "386984722",
-          "capital": 100.0,
-          "points": 21.0,
-          "remaining_boosters": 0,
-          "wallet": 432.0,
-          "tournament_questions": 25,
           "has_active_boosters": 0
         },
         {
@@ -196,6 +196,15 @@
           "remaining_boosters": 0,
           "wallet": 0.0,
           "tournament_questions": 16,
+          "has_active_boosters": 0
+        },
+        {
+          "username": "336718912",
+          "capital": 100.0,
+          "points": 6.0,
+          "remaining_boosters": 0,
+          "wallet": 211.0,
+          "tournament_questions": 4,
           "has_active_boosters": 0
         },
         {
@@ -1292,9 +1301,9 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 211.0,
-      "all_questions": 160,
+      "all_questions": 164,
       "remaining_boosters": 0,
-      "tickets": 2,
+      "tickets": 1,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
@@ -1474,7 +1483,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 432.0,
-      "all_questions": 185,
+      "all_questions": 196,
       "remaining_boosters": 0,
       "tickets": 1,
       "referral_rewards20": 0,
