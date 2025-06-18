@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-06-18 14:00:01 UTC",
+  "lastUpdate": "2025-06-18 14:05:01 UTC",
   "tournament": {
     "activeTournament": 13,
     "startDate": "2025-06-17 08:00:00",
@@ -375,7 +375,7 @@
           "points": 3.0,
           "remaining_boosters": 0,
           "wallet": 0.0,
-          "tournament_questions": 3,
+          "tournament_questions": 7,
           "has_active_boosters": 0
         },
         {
@@ -570,6 +570,15 @@
           "has_active_boosters": 1
         },
         {
+          "username": "MayaCha",
+          "capital": 1000.0,
+          "points": 1200.0,
+          "remaining_boosters": 68,
+          "wallet": 223.0,
+          "tournament_questions": 23,
+          "has_active_boosters": 1
+        },
+        {
           "username": "Arhimed",
           "capital": 1000.0,
           "points": 600.0,
@@ -577,15 +586,6 @@
           "wallet": 707.0,
           "tournament_questions": 80,
           "has_active_boosters": 0
-        },
-        {
-          "username": "MayaCha",
-          "capital": 1000.0,
-          "points": 500.0,
-          "remaining_boosters": 82,
-          "wallet": 223.0,
-          "tournament_questions": 9,
-          "has_active_boosters": 1
         }
       ],
       "Мастер": [
@@ -602,8 +602,8 @@
           "username": "Rakshas",
           "capital": 3999.0,
           "points": 17995.5,
-          "remaining_boosters": 7,
-          "wallet": 1254.0,
+          "remaining_boosters": 87,
+          "wallet": 654.0,
           "tournament_questions": 80,
           "has_active_boosters": 1
         },
@@ -612,7 +612,7 @@
           "capital": 3999.0,
           "points": 17355.66,
           "remaining_boosters": 96,
-          "wallet": 100.0,
+          "wallet": 180.0,
           "tournament_questions": 80,
           "has_active_boosters": 1
         },
@@ -637,10 +637,10 @@
         {
           "username": "Александр",
           "capital": 2716.0,
-          "points": 4454.240000000001,
-          "remaining_boosters": 64,
+          "points": 5432.000000000001,
+          "remaining_boosters": 58,
           "wallet": 0.0,
-          "tournament_questions": 28,
+          "tournament_questions": 34,
           "has_active_boosters": 1
         },
         {
@@ -747,11 +747,11 @@
       "username": "Alessa",
       "level": "Мастер",
       "capital": 3999.0,
-      "wallet": 100.0,
+      "wallet": 180.0,
       "all_questions": 1040,
       "remaining_boosters": 96,
       "tickets": 1,
-      "referral_rewards20": 60,
+      "referral_rewards20": 140,
       "referral_count20": 1,
       "purchased_coins": 0
     },
@@ -760,10 +760,10 @@
       "username": "Rakshas",
       "level": "Мастер",
       "capital": 3999.0,
-      "wallet": 1254.0,
+      "wallet": 654.0,
       "all_questions": 960,
-      "remaining_boosters": 7,
-      "tickets": 0,
+      "remaining_boosters": 87,
+      "tickets": 2,
       "referral_rewards20": 200,
       "referral_count20": 1,
       "purchased_coins": 0
@@ -826,8 +826,8 @@
       "level": "Мастер",
       "capital": 2716.0,
       "wallet": 0.0,
-      "all_questions": 821,
-      "remaining_boosters": 64,
+      "all_questions": 827,
+      "remaining_boosters": 58,
       "tickets": 2,
       "referral_rewards20": 0,
       "referral_count20": 0,
@@ -1008,8 +1008,8 @@
       "level": "Эксперт",
       "capital": 1000.0,
       "wallet": 223.0,
-      "all_questions": 812,
-      "remaining_boosters": 82,
+      "all_questions": 826,
+      "remaining_boosters": 68,
       "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
@@ -4284,7 +4284,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 3,
+      "all_questions": 7,
       "remaining_boosters": 0,
       "tickets": 3,
       "referral_rewards20": 0,
