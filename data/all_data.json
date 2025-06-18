@@ -1,12 +1,12 @@
 {
-  "lastUpdate": "2025-06-18 11:30:01 UTC",
+  "lastUpdate": "2025-06-18 11:35:02 UTC",
   "tournament": {
     "activeTournament": 13,
     "startDate": "2025-06-17 08:00:00",
     "endDate": "2025-06-19 08:00:00",
-    "totalPlayers": 65,
+    "totalPlayers": 66,
     "playersByLevel": {
-      "Знаток": 51,
+      "Знаток": 52,
       "Эксперт": 7,
       "Мастер": 5,
       "Босс": 1,
@@ -322,6 +322,15 @@
           "remaining_boosters": 0,
           "wallet": 0.0,
           "tournament_questions": 80,
+          "has_active_boosters": 0
+        },
+        {
+          "username": "641764792",
+          "capital": 100.0,
+          "points": 4.0,
+          "remaining_boosters": 0,
+          "wallet": 356.0,
+          "tournament_questions": 4,
           "has_active_boosters": 0
         },
         {
@@ -2635,7 +2644,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 356.0,
-      "all_questions": 95,
+      "all_questions": 99,
       "remaining_boosters": 0,
       "tickets": 1,
       "referral_rewards20": 0,
