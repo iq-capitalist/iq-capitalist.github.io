@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-06-18 14:05:01 UTC",
+  "lastUpdate": "2025-06-18 14:10:01 UTC",
   "tournament": {
     "activeTournament": 13,
     "startDate": "2025-06-17 08:00:00",
@@ -552,6 +552,15 @@
           "has_active_boosters": 1
         },
         {
+          "username": "MayaCha",
+          "capital": 1000.0,
+          "points": 2160.0,
+          "remaining_boosters": 52,
+          "wallet": 223.0,
+          "tournament_questions": 39,
+          "has_active_boosters": 1
+        },
+        {
           "username": "Булат",
           "capital": 1100.0,
           "points": 2068.0,
@@ -567,15 +576,6 @@
           "remaining_boosters": 85,
           "wallet": 150.0,
           "tournament_questions": 21,
-          "has_active_boosters": 1
-        },
-        {
-          "username": "MayaCha",
-          "capital": 1000.0,
-          "points": 1200.0,
-          "remaining_boosters": 68,
-          "wallet": 223.0,
-          "tournament_questions": 23,
           "has_active_boosters": 1
         },
         {
@@ -637,10 +637,10 @@
         {
           "username": "Александр",
           "capital": 2716.0,
-          "points": 5432.000000000001,
-          "remaining_boosters": 58,
+          "points": 7224.560000000002,
+          "remaining_boosters": 46,
           "wallet": 0.0,
-          "tournament_questions": 34,
+          "tournament_questions": 46,
           "has_active_boosters": 1
         },
         {
@@ -826,8 +826,8 @@
       "level": "Мастер",
       "capital": 2716.0,
       "wallet": 0.0,
-      "all_questions": 827,
-      "remaining_boosters": 58,
+      "all_questions": 839,
+      "remaining_boosters": 46,
       "tickets": 2,
       "referral_rewards20": 0,
       "referral_count20": 0,
@@ -1008,8 +1008,8 @@
       "level": "Эксперт",
       "capital": 1000.0,
       "wallet": 223.0,
-      "all_questions": 826,
-      "remaining_boosters": 68,
+      "all_questions": 842,
+      "remaining_boosters": 52,
       "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
