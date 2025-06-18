@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-06-18 14:25:02 UTC",
+  "lastUpdate": "2025-06-18 14:30:01 UTC",
   "tournament": {
     "activeTournament": 13,
     "startDate": "2025-06-17 08:00:00",
@@ -190,6 +190,15 @@
           "has_active_boosters": 0
         },
         {
+          "username": "7790746303",
+          "capital": 100.0,
+          "points": 24.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 18,
+          "has_active_boosters": 0
+        },
+        {
           "username": "303182141",
           "capital": 100.0,
           "points": 21.0,
@@ -226,15 +235,6 @@
           "has_active_boosters": 0
         },
         {
-          "username": "594635227",
-          "capital": 100.0,
-          "points": 20.0,
-          "remaining_boosters": 0,
-          "wallet": 159.0,
-          "tournament_questions": 24,
-          "has_active_boosters": 0
-        },
-        {
           "username": "1998199385",
           "capital": 100.0,
           "points": 20.0,
@@ -250,6 +250,15 @@
           "remaining_boosters": 0,
           "wallet": 92.0,
           "tournament_questions": 80,
+          "has_active_boosters": 0
+        },
+        {
+          "username": "594635227",
+          "capital": 100.0,
+          "points": 17.0,
+          "remaining_boosters": 0,
+          "wallet": 159.0,
+          "tournament_questions": 25,
           "has_active_boosters": 0
         },
         {
@@ -406,15 +415,6 @@
           "has_active_boosters": 0
         },
         {
-          "username": "7790746303",
-          "capital": 100.0,
-          "points": -3.0,
-          "remaining_boosters": 0,
-          "wallet": 0.0,
-          "tournament_questions": 1,
-          "has_active_boosters": 0
-        },
-        {
           "username": "679341018",
           "capital": 100.0,
           "points": -9.0,
@@ -563,10 +563,10 @@
         {
           "username": "MayaCha",
           "capital": 1000.0,
-          "points": 4280.0,
-          "remaining_boosters": 13,
+          "points": 4400.0,
+          "remaining_boosters": 11,
           "wallet": 223.0,
-          "tournament_questions": 78,
+          "tournament_questions": 80,
           "has_active_boosters": 1
         },
         {
@@ -668,7 +668,7 @@
           "capital": 6999.0,
           "points": 30795.599999999962,
           "remaining_boosters": 1,
-          "wallet": 43.0,
+          "wallet": 223.0,
           "tournament_questions": 75,
           "has_active_boosters": 1
         },
@@ -743,11 +743,11 @@
       "username": "Дятел Вуду",
       "level": "Босс",
       "capital": 6999.0,
-      "wallet": 43.0,
+      "wallet": 223.0,
       "all_questions": 955,
       "remaining_boosters": 1,
       "tickets": 0,
-      "referral_rewards20": 440,
+      "referral_rewards20": 620,
       "referral_count20": 4,
       "purchased_coins": 0
     },
@@ -1017,8 +1017,8 @@
       "level": "Эксперт",
       "capital": 1000.0,
       "wallet": 223.0,
-      "all_questions": 881,
-      "remaining_boosters": 13,
+      "all_questions": 883,
+      "remaining_boosters": 11,
       "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
@@ -2564,7 +2564,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 159.0,
-      "all_questions": 184,
+      "all_questions": 185,
       "remaining_boosters": 0,
       "tickets": 1,
       "referral_rewards20": 0,
@@ -5580,7 +5580,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 1,
+      "all_questions": 18,
       "remaining_boosters": 0,
       "tickets": 3,
       "referral_rewards20": 0,
