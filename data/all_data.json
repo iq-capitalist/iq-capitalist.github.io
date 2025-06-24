@@ -1,13 +1,13 @@
 {
-  "lastUpdate": "2025-06-24 08:55:02 UTC",
+  "lastUpdate": "2025-06-24 09:00:02 UTC",
   "tournament": {
     "activeTournament": 14,
     "startDate": "2025-06-24 08:00:00",
     "endDate": "2025-06-26 08:00:00",
-    "totalPlayers": 15,
+    "totalPlayers": 16,
     "playersByLevel": {
       "Знаток": 14,
-      "Эксперт": 0,
+      "Эксперт": 1,
       "Мастер": 0,
       "Босс": 1,
       "Титан": 0,
@@ -66,10 +66,10 @@
         {
           "username": "336718912",
           "capital": 100.0,
-          "points": 15.0,
+          "points": 21.0,
           "remaining_boosters": 0,
           "wallet": 345.0,
-          "tournament_questions": 28,
+          "tournament_questions": 40,
           "has_active_boosters": 0
         },
         {
@@ -154,7 +154,17 @@
           "has_active_boosters": 0
         }
       ],
-      "Эксперт": [],
+      "Эксперт": [
+        {
+          "username": "Blackmore",
+          "capital": 1100.0,
+          "points": 176.0,
+          "remaining_boosters": 88,
+          "wallet": 789.0,
+          "tournament_questions": 3,
+          "has_active_boosters": 1
+        }
+      ],
       "Мастер": [],
       "Босс": [
         {
@@ -433,6 +443,19 @@
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
+    },
+    {
+      "user_id": 410562869,
+      "username": "Blackmore",
+      "level": "Эксперт",
+      "capital": 1100.0,
+      "wallet": 789.0,
+      "all_questions": 621,
+      "remaining_boosters": 88,
+      "tickets": 0,
+      "referral_rewards20": 200,
+      "referral_count20": 1,
+      "purchased_coins": 400
     },
     {
       "user_id": 822324885,
@@ -1129,7 +1152,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 345.0,
-      "all_questions": 268,
+      "all_questions": 280,
       "remaining_boosters": 0,
       "tickets": 0,
       "referral_rewards20": 0,
@@ -1421,19 +1444,6 @@
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
-    },
-    {
-      "user_id": 410562869,
-      "username": "Blackmore",
-      "level": "Знаток",
-      "capital": 100.0,
-      "wallet": 2139.0,
-      "all_questions": 618,
-      "remaining_boosters": 11,
-      "tickets": 0,
-      "referral_rewards20": 200,
-      "referral_count20": 1,
-      "purchased_coins": 400
     },
     {
       "user_id": 411948623,
