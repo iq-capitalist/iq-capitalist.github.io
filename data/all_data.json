@@ -1,17 +1,17 @@
 {
-  "lastUpdate": "2025-06-25 10:20:02 UTC",
+  "lastUpdate": "2025-06-25 10:25:02 UTC",
   "tournament": {
     "activeTournament": 14,
     "startDate": "2025-06-24 08:00:00",
     "endDate": "2025-06-26 08:00:00",
-    "totalPlayers": 47,
+    "totalPlayers": 48,
     "playersByLevel": {
       "Знаток": 37,
       "Эксперт": 5,
       "Мастер": 3,
       "Босс": 1,
       "Титан": 1,
-      "Легенда": 0,
+      "Легенда": 1,
       "Гуру": 0,
       "IQ Капиталист": 0
     },
@@ -452,14 +452,24 @@
         {
           "username": "Дятел Вуду",
           "capital": 7099.0,
-          "points": 10151.569999999996,
+          "points": 10364.539999999995,
           "remaining_boosters": 156,
           "wallet": 409.0,
-          "tournament_questions": 49,
+          "tournament_questions": 52,
           "has_active_boosters": 1
         }
       ],
-      "Легенда": [],
+      "Легенда": [
+        {
+          "username": "Serhio",
+          "capital": 11499.0,
+          "points": 4139.640000000001,
+          "remaining_boosters": 81,
+          "wallet": 2937.0,
+          "tournament_questions": 12,
+          "has_active_boosters": 1
+        }
+      ],
       "Гуру": [],
       "IQ Капиталист": []
     }
@@ -484,9 +494,9 @@
       "level": "Легенда",
       "capital": 11499.0,
       "wallet": 2937.0,
-      "all_questions": 960,
+      "all_questions": 972,
       "remaining_boosters": 81,
-      "tickets": 1,
+      "tickets": 0,
       "referral_rewards20": 800,
       "referral_count20": 4,
       "purchased_coins": 0
@@ -497,7 +507,7 @@
       "level": "Титан",
       "capital": 7099.0,
       "wallet": 409.0,
-      "all_questions": 1009,
+      "all_questions": 1012,
       "remaining_boosters": 156,
       "tickets": 0,
       "referral_rewards20": 620,
