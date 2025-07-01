@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-07-01 10:35:02 UTC",
+  "lastUpdate": "2025-07-01 10:40:01 UTC",
   "tournament": {
     "activeTournament": 15,
     "startDate": "2025-07-01 08:00:00",
@@ -136,15 +136,6 @@
           "has_active_boosters": 0
         },
         {
-          "username": "8030514888",
-          "capital": 100.0,
-          "points": 3.0,
-          "remaining_boosters": 0,
-          "wallet": 0.0,
-          "tournament_questions": 3,
-          "has_active_boosters": 0
-        },
-        {
           "username": "61583766",
           "capital": 100.0,
           "points": 0.0,
@@ -169,6 +160,15 @@
           "remaining_boosters": 0,
           "wallet": 0.0,
           "tournament_questions": 14,
+          "has_active_boosters": 0
+        },
+        {
+          "username": "8030514888",
+          "capital": 100.0,
+          "points": -2.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 9,
           "has_active_boosters": 0
         },
         {
@@ -273,10 +273,10 @@
         {
           "username": "Serhio",
           "capital": 11499.0,
-          "points": 6209.460000000003,
+          "points": 7244.3700000000035,
           "remaining_boosters": 81,
           "wallet": 3887.0,
-          "tournament_questions": 18,
+          "tournament_questions": 22,
           "has_active_boosters": 1
         }
       ],
@@ -304,7 +304,7 @@
       "level": "Легенда",
       "capital": 11499.0,
       "wallet": 3887.0,
-      "all_questions": 1058,
+      "all_questions": 1062,
       "remaining_boosters": 81,
       "tickets": 0,
       "referral_rewards20": 800,
@@ -316,11 +316,11 @@
       "username": "LucasTeam",
       "level": "Титан",
       "capital": 9035.0,
-      "wallet": 280.0,
+      "wallet": 340.0,
       "all_questions": 1120,
       "remaining_boosters": 124,
       "tickets": 1,
-      "referral_rewards20": 3900,
+      "referral_rewards20": 3960,
       "referral_count20": 22,
       "purchased_coins": 0
     },
@@ -5465,7 +5465,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 3,
+      "all_questions": 9,
       "remaining_boosters": 0,
       "tickets": 3,
       "referral_rewards20": 0,
