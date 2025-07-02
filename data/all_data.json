@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-07-02 22:50:01 UTC",
+  "lastUpdate": "2025-07-02 22:55:02 UTC",
   "tournament": {
     "activeTournament": 15,
     "startDate": "2025-07-01 08:00:00",
@@ -190,6 +190,15 @@
           "has_active_boosters": 0
         },
         {
+          "username": "6760772551",
+          "capital": 100.0,
+          "points": 7.0,
+          "remaining_boosters": 0,
+          "wallet": 294.0,
+          "tournament_questions": 8,
+          "has_active_boosters": 0
+        },
+        {
           "username": "1000492328",
           "capital": 100.0,
           "points": 3.0,
@@ -235,15 +244,6 @@
           "has_active_boosters": 0
         },
         {
-          "username": "6760772551",
-          "capital": 100.0,
-          "points": 0.0,
-          "remaining_boosters": 0,
-          "wallet": 294.0,
-          "tournament_questions": 4,
-          "has_active_boosters": 0
-        },
-        {
           "username": "396608804",
           "capital": 100.0,
           "points": -3.0,
@@ -285,7 +285,7 @@
           "points": -13.0,
           "remaining_boosters": 0,
           "wallet": 38.0,
-          "tournament_questions": 23,
+          "tournament_questions": 39,
           "has_active_boosters": 0
         },
         {
@@ -1467,7 +1467,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 38.0,
-      "all_questions": 43,
+      "all_questions": 59,
       "remaining_boosters": 0,
       "tickets": 1,
       "referral_rewards20": 0,
@@ -3559,11 +3559,11 @@
       "username": "Misha",
       "level": "Знаток",
       "capital": 100.0,
-      "wallet": 1119.0,
+      "wallet": 1129.0,
       "all_questions": 320,
       "remaining_boosters": 0,
       "tickets": 0,
-      "referral_rewards20": 440,
+      "referral_rewards20": 450,
       "referral_count20": 2,
       "purchased_coins": 0
     },
@@ -5276,7 +5276,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 294.0,
-      "all_questions": 93,
+      "all_questions": 97,
       "remaining_boosters": 0,
       "tickets": 1,
       "referral_rewards20": 0,
