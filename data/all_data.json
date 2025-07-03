@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-07-03 08:00:02 UTC",
+  "lastUpdate": "2025-07-03 08:05:02 UTC",
   "tournament": {
     "activeTournament": null,
     "startDate": null,
@@ -245,19 +245,6 @@
       "purchased_coins": 0
     },
     {
-      "user_id": 345149114,
-      "username": "Inna",
-      "level": "Эксперт",
-      "capital": 1155.0,
-      "wallet": 1449.0,
-      "all_questions": 480,
-      "remaining_boosters": 0,
-      "tickets": 0,
-      "referral_rewards20": 600,
-      "referral_count20": 3,
-      "purchased_coins": 0
-    },
-    {
       "user_id": 206589580,
       "username": "KLMN",
       "level": "Эксперт",
@@ -342,19 +329,6 @@
       "capital": 1100.0,
       "wallet": 122.0,
       "all_questions": 480,
-      "remaining_boosters": 0,
-      "tickets": 0,
-      "referral_rewards20": 0,
-      "referral_count20": 0,
-      "purchased_coins": 0
-    },
-    {
-      "user_id": 255049142,
-      "username": "Alex4561",
-      "level": "Эксперт",
-      "capital": 1000.0,
-      "wallet": 149.0,
-      "all_questions": 640,
       "remaining_boosters": 0,
       "tickets": 0,
       "referral_rewards20": 0,
@@ -843,6 +817,19 @@
       "purchased_coins": 0
     },
     {
+      "user_id": 255049142,
+      "username": "Alex4561",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 1049.0,
+      "all_questions": 640,
+      "remaining_boosters": 0,
+      "tickets": 0,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
       "user_id": 266943246,
       "username": "266943246",
       "level": "Знаток",
@@ -1022,6 +1009,19 @@
       "tickets": 2,
       "referral_rewards20": 0,
       "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
+      "user_id": 345149114,
+      "username": "Inna",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 2504.0,
+      "all_questions": 480,
+      "remaining_boosters": 0,
+      "tickets": 0,
+      "referral_rewards20": 600,
+      "referral_count20": 3,
       "purchased_coins": 0
     },
     {
