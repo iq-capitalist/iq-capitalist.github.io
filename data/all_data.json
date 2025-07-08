@@ -1,17 +1,17 @@
 {
-  "lastUpdate": "2025-07-08 10:00:01 UTC",
+  "lastUpdate": "2025-07-08 10:05:02 UTC",
   "tournament": {
     "activeTournament": 16,
     "startDate": "2025-07-08 08:00:00",
     "endDate": "2025-07-10 08:00:00",
-    "totalPlayers": 14,
+    "totalPlayers": 15,
     "playersByLevel": {
       "Знаток": 9,
       "Эксперт": 3,
       "Мастер": 1,
       "Босс": 0,
       "Титан": 1,
-      "Легенда": 0,
+      "Легенда": 1,
       "Гуру": 0,
       "IQ Капиталист": 0
     },
@@ -57,10 +57,10 @@
         {
           "username": "441029354",
           "capital": 100.0,
-          "points": 42.0,
+          "points": 60.0,
           "remaining_boosters": 0,
           "wallet": 378.0,
-          "tournament_questions": 64,
+          "tournament_questions": 80,
           "has_active_boosters": 0
         },
         {
@@ -161,7 +161,17 @@
           "has_active_boosters": 1
         }
       ],
-      "Легенда": [],
+      "Легенда": [
+        {
+          "username": "Serhio",
+          "capital": 15999.0,
+          "points": 3679.7700000000004,
+          "remaining_boosters": 81,
+          "wallet": 357.0,
+          "tournament_questions": 8,
+          "has_active_boosters": 1
+        }
+      ],
       "Гуру": [],
       "IQ Капиталист": []
     }
@@ -186,9 +196,9 @@
       "level": "Легенда",
       "capital": 15999.0,
       "wallet": 357.0,
-      "all_questions": 1120,
+      "all_questions": 1128,
       "remaining_boosters": 81,
-      "tickets": 1,
+      "tickets": 0,
       "referral_rewards20": 800,
       "referral_count20": 4,
       "purchased_coins": 0
@@ -1733,7 +1743,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 378.0,
-      "all_questions": 244,
+      "all_questions": 260,
       "remaining_boosters": 0,
       "tickets": 0,
       "referral_rewards20": 0,
