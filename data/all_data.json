@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-07-09 09:35:01 UTC",
+  "lastUpdate": "2025-07-09 09:40:02 UTC",
   "tournament": {
     "activeTournament": 16,
     "startDate": "2025-07-08 08:00:00",
@@ -132,7 +132,7 @@
           "points": -3.0,
           "remaining_boosters": 0,
           "wallet": 0.0,
-          "tournament_questions": 11,
+          "tournament_questions": 12,
           "has_active_boosters": 0
         },
         {
@@ -295,21 +295,21 @@
       ],
       "Босс": [
         {
+          "username": "Rakshas",
+          "capital": 6989.0,
+          "points": 31590.280000000013,
+          "remaining_boosters": 9,
+          "wallet": 0.0,
+          "tournament_questions": 80,
+          "has_active_boosters": 1
+        },
+        {
           "username": "Alessa",
           "capital": 6999.0,
           "points": 27296.09999999997,
           "remaining_boosters": 20,
           "wallet": 77.0,
           "tournament_questions": 80,
-          "has_active_boosters": 1
-        },
-        {
-          "username": "Rakshas",
-          "capital": 6989.0,
-          "points": 25020.62000000001,
-          "remaining_boosters": 25,
-          "wallet": 0.0,
-          "tournament_questions": 64,
           "has_active_boosters": 1
         },
         {
@@ -420,8 +420,8 @@
       "level": "Босс",
       "capital": 6989.0,
       "wallet": 0.0,
-      "all_questions": 1184,
-      "remaining_boosters": 25,
+      "all_questions": 1200,
+      "remaining_boosters": 9,
       "tickets": 0,
       "referral_rewards20": 700,
       "referral_count20": 3,
@@ -1824,7 +1824,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 11,
+      "all_questions": 12,
       "remaining_boosters": 0,
       "tickets": 3,
       "referral_rewards20": 0,
