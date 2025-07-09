@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-07-09 07:45:02 UTC",
+  "lastUpdate": "2025-07-09 07:50:01 UTC",
   "tournament": {
     "activeTournament": 16,
     "startDate": "2025-07-08 08:00:00",
@@ -219,6 +219,15 @@
           "has_active_boosters": 0
         },
         {
+          "username": "Alatriste",
+          "capital": 1000.0,
+          "points": 280.0,
+          "remaining_boosters": 74,
+          "wallet": 191.0,
+          "tournament_questions": 8,
+          "has_active_boosters": 1
+        },
+        {
           "username": "Булат",
           "capital": 1100.0,
           "points": 132.0,
@@ -242,15 +251,6 @@
           "points": 88.0,
           "remaining_boosters": 110,
           "wallet": 505.0,
-          "tournament_questions": 2,
-          "has_active_boosters": 1
-        },
-        {
-          "username": "Alatriste",
-          "capital": 1000.0,
-          "points": 20.0,
-          "remaining_boosters": 80,
-          "wallet": 191.0,
           "tournament_questions": 2,
           "has_active_boosters": 1
         }
@@ -779,8 +779,8 @@
       "level": "Эксперт",
       "capital": 1000.0,
       "wallet": 191.0,
-      "all_questions": 482,
-      "remaining_boosters": 80,
+      "all_questions": 488,
+      "remaining_boosters": 74,
       "tickets": 0,
       "referral_rewards20": 200,
       "referral_count20": 1,
