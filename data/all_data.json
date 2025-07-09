@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-07-09 17:55:01 UTC",
+  "lastUpdate": "2025-07-09 18:00:02 UTC",
   "tournament": {
     "activeTournament": 16,
     "startDate": "2025-07-08 08:00:00",
@@ -329,21 +329,21 @@
       ],
       "Мастер": [
         {
+          "username": "Макс",
+          "capital": 3999.0,
+          "points": 17755.56,
+          "remaining_boosters": 16,
+          "wallet": 431.0,
+          "tournament_questions": 80,
+          "has_active_boosters": 1
+        },
+        {
           "username": "Дон Педро",
           "capital": 3999.0,
           "points": 17675.580000000005,
           "remaining_boosters": 4,
           "wallet": 1642.0,
           "tournament_questions": 80,
-          "has_active_boosters": 1
-        },
-        {
-          "username": "Макс",
-          "capital": 3999.0,
-          "points": 17275.680000000004,
-          "remaining_boosters": 18,
-          "wallet": 431.0,
-          "tournament_questions": 78,
           "has_active_boosters": 1
         },
         {
@@ -518,8 +518,8 @@
       "level": "Мастер",
       "capital": 3999.0,
       "wallet": 431.0,
-      "all_questions": 1278,
-      "remaining_boosters": 18,
+      "all_questions": 1280,
+      "remaining_boosters": 16,
       "tickets": 0,
       "referral_rewards20": 250,
       "referral_count20": 1,
