@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-07-10 08:00:01 UTC",
+  "lastUpdate": "2025-07-10 08:05:02 UTC",
   "tournament": {
     "activeTournament": null,
     "startDate": null,
@@ -67,10 +67,10 @@
       "username": "Alessa",
       "level": "Босс",
       "capital": 6999.0,
-      "wallet": 649.0,
+      "wallet": 49.0,
       "all_questions": 1280,
-      "remaining_boosters": 20,
-      "tickets": 0,
+      "remaining_boosters": 100,
+      "tickets": 2,
       "referral_rewards20": 2070,
       "referral_count20": 8,
       "purchased_coins": 0
@@ -106,10 +106,10 @@
       "username": "Макс",
       "level": "Мастер",
       "capital": 3999.0,
-      "wallet": 1242.0,
+      "wallet": 642.0,
       "all_questions": 1280,
-      "remaining_boosters": 16,
-      "tickets": 0,
+      "remaining_boosters": 96,
+      "tickets": 2,
       "referral_rewards20": 250,
       "referral_count20": 1,
       "purchased_coins": 0
@@ -180,6 +180,19 @@
       "purchased_coins": 0
     },
     {
+      "user_id": 1180334171,
+      "username": "Роман",
+      "level": "Эксперт",
+      "capital": 1999.0,
+      "wallet": 548.0,
+      "all_questions": 1209,
+      "remaining_boosters": 31,
+      "tickets": 0,
+      "referral_rewards20": 250,
+      "referral_count20": 1,
+      "purchased_coins": 0
+    },
+    {
       "user_id": 5819543689,
       "username": "Йошь",
       "level": "Эксперт",
@@ -216,19 +229,6 @@
       "tickets": 4,
       "referral_rewards20": 0,
       "referral_count20": 0,
-      "purchased_coins": 0
-    },
-    {
-      "user_id": 1180334171,
-      "username": "Роман",
-      "level": "Эксперт",
-      "capital": 1760.0,
-      "wallet": 787.0,
-      "all_questions": 1209,
-      "remaining_boosters": 31,
-      "tickets": 0,
-      "referral_rewards20": 250,
-      "referral_count20": 1,
       "purchased_coins": 0
     },
     {
@@ -457,10 +457,10 @@
       "username": "Alatriste",
       "level": "Эксперт",
       "capital": 1000.0,
-      "wallet": 421.0,
+      "wallet": 71.0,
       "all_questions": 560,
-      "remaining_boosters": 2,
-      "tickets": 0,
+      "remaining_boosters": 82,
+      "tickets": 1,
       "referral_rewards20": 200,
       "referral_count20": 1,
       "purchased_coins": 0
