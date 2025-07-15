@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-07-15 14:55:02 UTC",
+  "lastUpdate": "2025-07-15 15:00:02 UTC",
   "tournament": {
     "activeTournament": 17,
     "startDate": "2025-07-15 08:00:00",
@@ -156,6 +156,15 @@
           "has_active_boosters": 1
         },
         {
+          "username": "Роман",
+          "capital": 1999.0,
+          "points": 2238.8800000000006,
+          "remaining_boosters": 91,
+          "wallet": 198.0,
+          "tournament_questions": 20,
+          "has_active_boosters": 1
+        },
+        {
           "username": "Sendder",
           "capital": 1100.0,
           "points": 1771.0,
@@ -172,15 +181,6 @@
           "wallet": 119.0,
           "tournament_questions": 80,
           "has_active_boosters": 0
-        },
-        {
-          "username": "Роман",
-          "capital": 1999.0,
-          "points": 1679.1600000000005,
-          "remaining_boosters": 96,
-          "wallet": 198.0,
-          "tournament_questions": 15,
-          "has_active_boosters": 1
         }
       ],
       "Мастер": [
@@ -220,10 +220,10 @@
         {
           "username": "Serhio",
           "capital": 15999.0,
-          "points": 21918.630000000005,
+          "points": 30078.120000000024,
           "remaining_boosters": 161,
           "wallet": 1207.0,
-          "tournament_questions": 46,
+          "tournament_questions": 63,
           "has_active_boosters": 1
         }
       ],
@@ -251,7 +251,7 @@
       "level": "Легенда",
       "capital": 15999.0,
       "wallet": 1207.0,
-      "all_questions": 1246,
+      "all_questions": 1263,
       "remaining_boosters": 161,
       "tickets": 0,
       "referral_rewards20": 800,
@@ -407,8 +407,8 @@
       "level": "Эксперт",
       "capital": 1999.0,
       "wallet": 198.0,
-      "all_questions": 1224,
-      "remaining_boosters": 96,
+      "all_questions": 1229,
+      "remaining_boosters": 91,
       "tickets": 0,
       "referral_rewards20": 250,
       "referral_count20": 1,
