@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-07-15 11:55:01 UTC",
+  "lastUpdate": "2025-07-15 12:00:01 UTC",
   "tournament": {
     "activeTournament": 17,
     "startDate": "2025-07-15 08:00:00",
@@ -93,21 +93,21 @@
       ],
       "Эксперт": [
         {
+          "username": "Sendder",
+          "capital": 1100.0,
+          "points": 1716.0,
+          "remaining_boosters": 0,
+          "wallet": 107.0,
+          "tournament_questions": 73,
+          "has_active_boosters": 0
+        },
+        {
           "username": "Tanoshimi",
           "capital": 1300.0,
           "points": 1716.0,
           "remaining_boosters": 0,
           "wallet": 119.0,
           "tournament_questions": 80,
-          "has_active_boosters": 0
-        },
-        {
-          "username": "Sendder",
-          "capital": 1100.0,
-          "points": 1672.0,
-          "remaining_boosters": 0,
-          "wallet": 107.0,
-          "tournament_questions": 71,
           "has_active_boosters": 0
         }
       ],
@@ -126,10 +126,10 @@
         {
           "username": "Alessa",
           "capital": 6999.0,
-          "points": 3219.54,
-          "remaining_boosters": 92,
+          "points": 5739.1799999999985,
+          "remaining_boosters": 85,
           "wallet": 49.0,
-          "tournament_questions": 8,
+          "tournament_questions": 15,
           "has_active_boosters": 1
         }
       ],
@@ -208,8 +208,8 @@
       "level": "Босс",
       "capital": 6999.0,
       "wallet": 49.0,
-      "all_questions": 1288,
-      "remaining_boosters": 92,
+      "all_questions": 1295,
+      "remaining_boosters": 85,
       "tickets": 1,
       "referral_rewards20": 2070,
       "referral_count20": 8,
@@ -494,7 +494,7 @@
       "level": "Эксперт",
       "capital": 1100.0,
       "wallet": 107.0,
-      "all_questions": 326,
+      "all_questions": 328,
       "remaining_boosters": 0,
       "tickets": 0,
       "referral_rewards20": 0,
