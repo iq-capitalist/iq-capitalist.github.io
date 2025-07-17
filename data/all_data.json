@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-07-17 05:45:02 UTC",
+  "lastUpdate": "2025-07-17 05:50:02 UTC",
   "tournament": {
     "activeTournament": 17,
     "startDate": "2025-07-15 08:00:00",
@@ -448,10 +448,10 @@
         {
           "username": "Макс",
           "capital": 3999.0,
-          "points": 6478.3799999999965,
-          "remaining_boosters": 67,
+          "points": 9037.739999999996,
+          "remaining_boosters": 56,
           "wallet": 642.0,
-          "tournament_questions": 29,
+          "tournament_questions": 40,
           "has_active_boosters": 1
         }
       ],
@@ -486,21 +486,21 @@
       ],
       "Титан": [
         {
+          "username": "LucasTeam",
+          "capital": 10470.0,
+          "points": 43555.19999999998,
+          "remaining_boosters": 54,
+          "wallet": 0.0,
+          "tournament_questions": 80,
+          "has_active_boosters": 1
+        },
+        {
           "username": "Дятел Вуду",
           "capital": 9173.0,
           "points": 43113.09999999997,
           "remaining_boosters": 77,
           "wallet": 0.0,
           "tournament_questions": 80,
-          "has_active_boosters": 1
-        },
-        {
-          "username": "LucasTeam",
-          "capital": 10470.0,
-          "points": 41042.399999999994,
-          "remaining_boosters": 58,
-          "wallet": 0.0,
-          "tournament_questions": 76,
           "has_active_boosters": 1
         }
       ],
@@ -552,8 +552,8 @@
       "level": "Титан",
       "capital": 10470.0,
       "wallet": 0.0,
-      "all_questions": 1356,
-      "remaining_boosters": 58,
+      "all_questions": 1360,
+      "remaining_boosters": 54,
       "tickets": 0,
       "referral_rewards20": 4370,
       "referral_count20": 23,
@@ -617,8 +617,8 @@
       "level": "Мастер",
       "capital": 3999.0,
       "wallet": 642.0,
-      "all_questions": 1309,
-      "remaining_boosters": 67,
+      "all_questions": 1320,
+      "remaining_boosters": 56,
       "tickets": 1,
       "referral_rewards20": 250,
       "referral_count20": 1,
