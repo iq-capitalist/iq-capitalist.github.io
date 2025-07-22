@@ -1,17 +1,17 @@
 {
-  "lastUpdate": "2025-07-22 09:50:02 UTC",
+  "lastUpdate": "2025-07-22 09:55:02 UTC",
   "tournament": {
     "activeTournament": 18,
     "startDate": "2025-07-22 08:00:00",
     "endDate": "2025-07-24 08:00:00",
-    "totalPlayers": 17,
+    "totalPlayers": 18,
     "playersByLevel": {
       "Знаток": 15,
       "Эксперт": 2,
       "Мастер": 0,
       "Босс": 0,
       "Титан": 0,
-      "Легенда": 0,
+      "Легенда": 1,
       "Гуру": 0,
       "IQ Капиталист": 0
     },
@@ -186,7 +186,17 @@
       "Мастер": [],
       "Босс": [],
       "Титан": [],
-      "Легенда": [],
+      "Легенда": [
+        {
+          "username": "Serhio",
+          "capital": 15999.0,
+          "points": 479.97,
+          "remaining_boosters": 161,
+          "wallet": 2157.0,
+          "tournament_questions": 1,
+          "has_active_boosters": 1
+        }
+      ],
       "Гуру": [],
       "IQ Капиталист": []
     }
@@ -211,9 +221,9 @@
       "level": "Легенда",
       "capital": 15999.0,
       "wallet": 2157.0,
-      "all_questions": 1280,
+      "all_questions": 1281,
       "remaining_boosters": 161,
-      "tickets": 1,
+      "tickets": 0,
       "referral_rewards20": 800,
       "referral_count20": 4,
       "purchased_coins": 0
