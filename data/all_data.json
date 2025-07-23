@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-07-23 20:40:01 UTC",
+  "lastUpdate": "2025-07-23 20:45:01 UTC",
   "tournament": {
     "activeTournament": 18,
     "startDate": "2025-07-22 08:00:00",
@@ -417,6 +417,15 @@
           "has_active_boosters": 0
         },
         {
+          "username": "A Drouz",
+          "capital": 1100.0,
+          "points": 1056.0,
+          "remaining_boosters": 45,
+          "wallet": 213.0,
+          "tournament_questions": 38,
+          "has_active_boosters": 1
+        },
+        {
           "username": "Тимон",
           "capital": 1100.0,
           "points": 935.0,
@@ -433,15 +442,6 @@
           "wallet": 744.0,
           "tournament_questions": 78,
           "has_active_boosters": 0
-        },
-        {
-          "username": "A Drouz",
-          "capital": 1100.0,
-          "points": 638.0,
-          "remaining_boosters": 54,
-          "wallet": 213.0,
-          "tournament_questions": 29,
-          "has_active_boosters": 1
         },
         {
           "username": "Sendder",
@@ -906,8 +906,8 @@
       "level": "Эксперт",
       "capital": 1100.0,
       "wallet": 213.0,
-      "all_questions": 434,
-      "remaining_boosters": 54,
+      "all_questions": 443,
+      "remaining_boosters": 45,
       "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
