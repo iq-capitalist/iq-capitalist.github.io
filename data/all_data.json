@@ -1,17 +1,17 @@
 {
-  "lastUpdate": "2025-07-29 09:35:02 UTC",
+  "lastUpdate": "2025-07-29 09:40:01 UTC",
   "tournament": {
     "activeTournament": 19,
     "startDate": "2025-07-29 08:00:00",
     "endDate": "2025-07-31 08:00:00",
-    "totalPlayers": 14,
+    "totalPlayers": 15,
     "playersByLevel": {
       "Знаток": 12,
       "Эксперт": 1,
       "Мастер": 0,
       "Босс": 1,
       "Титан": 0,
-      "Легенда": 0,
+      "Легенда": 1,
       "Гуру": 0,
       "IQ Капиталист": 0
     },
@@ -48,10 +48,10 @@
         {
           "username": "134326147",
           "capital": 100.0,
-          "points": 30.0,
+          "points": 31.0,
           "remaining_boosters": 0,
           "wallet": 0.0,
-          "tournament_questions": 30,
+          "tournament_questions": 34,
           "has_active_boosters": 0
         },
         {
@@ -160,7 +160,17 @@
         }
       ],
       "Титан": [],
-      "Легенда": [],
+      "Легенда": [
+        {
+          "username": "LucasTeam",
+          "capital": 11508.0,
+          "points": 4603.200000000001,
+          "remaining_boosters": 129,
+          "wallet": 0.0,
+          "tournament_questions": 8,
+          "has_active_boosters": 1
+        }
+      ],
       "Гуру": [],
       "IQ Капиталист": []
     }
@@ -196,11 +206,11 @@
       "user_id": 2091908459,
       "username": "LucasTeam",
       "level": "Легенда",
-      "capital": 11258.0,
-      "wallet": 250.0,
-      "all_questions": 1440,
-      "remaining_boosters": 136,
-      "tickets": 1,
+      "capital": 11508.0,
+      "wallet": 0.0,
+      "all_questions": 1448,
+      "remaining_boosters": 129,
+      "tickets": 0,
       "referral_rewards20": 4620,
       "referral_count20": 24,
       "purchased_coins": 0
@@ -874,7 +884,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 30,
+      "all_questions": 34,
       "remaining_boosters": 0,
       "tickets": 3,
       "referral_rewards20": 0,
