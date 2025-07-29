@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-07-29 08:30:02 UTC",
+  "lastUpdate": "2025-07-29 08:35:01 UTC",
   "tournament": {
     "activeTournament": 19,
     "startDate": "2025-07-29 08:00:00",
@@ -43,6 +43,15 @@
           "remaining_boosters": 0,
           "wallet": 284.0,
           "tournament_questions": 38,
+          "has_active_boosters": 0
+        },
+        {
+          "username": "1237371145",
+          "capital": 100.0,
+          "points": 30.0,
+          "remaining_boosters": 0,
+          "wallet": 253.0,
+          "tournament_questions": 46,
           "has_active_boosters": 0
         },
         {
@@ -91,15 +100,6 @@
           "has_active_boosters": 0
         },
         {
-          "username": "1237371145",
-          "capital": 100.0,
-          "points": 6.0,
-          "remaining_boosters": 0,
-          "wallet": 253.0,
-          "tournament_questions": 26,
-          "has_active_boosters": 0
-        },
-        {
           "username": "1368700743",
           "capital": 100.0,
           "points": 5.0,
@@ -114,7 +114,7 @@
           "points": 3.0,
           "remaining_boosters": 0,
           "wallet": 584.0,
-          "tournament_questions": 5,
+          "tournament_questions": 6,
           "has_active_boosters": 0
         }
       ],
@@ -124,10 +124,10 @@
         {
           "username": "Alessa",
           "capital": 6999.0,
-          "points": 699.9,
-          "remaining_boosters": 98,
+          "points": 3079.56,
+          "remaining_boosters": 92,
           "wallet": 817.0,
-          "tournament_questions": 2,
+          "tournament_questions": 9,
           "has_active_boosters": 1
         }
       ],
@@ -196,8 +196,8 @@
       "level": "Босс",
       "capital": 6999.0,
       "wallet": 817.0,
-      "all_questions": 1442,
-      "remaining_boosters": 98,
+      "all_questions": 1449,
+      "remaining_boosters": 92,
       "tickets": 1,
       "referral_rewards20": 2070,
       "referral_count20": 8,
@@ -488,6 +488,19 @@
       "referral_rewards20": 250,
       "referral_count20": 1,
       "purchased_coins": 300
+    },
+    {
+      "user_id": 732899364,
+      "username": "732899364",
+      "level": "Эксперт",
+      "capital": 1100.0,
+      "wallet": 16.0,
+      "all_questions": 145,
+      "remaining_boosters": 0,
+      "tickets": 0,
+      "referral_rewards20": 250,
+      "referral_count20": 1,
+      "purchased_coins": 0
     },
     {
       "user_id": 822324885,
@@ -2029,7 +2042,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 584.0,
-      "all_questions": 165,
+      "all_questions": 166,
       "remaining_boosters": 0,
       "tickets": 2,
       "referral_rewards20": 0,
@@ -2697,19 +2710,6 @@
       "tickets": 2,
       "referral_rewards20": 0,
       "referral_count20": 0,
-      "purchased_coins": 0
-    },
-    {
-      "user_id": 732899364,
-      "username": "732899364",
-      "level": "Знаток",
-      "capital": 100.0,
-      "wallet": 1016.0,
-      "all_questions": 145,
-      "remaining_boosters": 0,
-      "tickets": 0,
-      "referral_rewards20": 250,
-      "referral_count20": 1,
       "purchased_coins": 0
     },
     {
@@ -3771,7 +3771,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 253.0,
-      "all_questions": 186,
+      "all_questions": 206,
       "remaining_boosters": 0,
       "tickets": 2,
       "referral_rewards20": 0,
