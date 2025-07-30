@@ -1,12 +1,12 @@
 {
-  "lastUpdate": "2025-07-30 16:20:02 UTC",
+  "lastUpdate": "2025-07-30 16:25:01 UTC",
   "tournament": {
     "activeTournament": 19,
     "startDate": "2025-07-29 08:00:00",
     "endDate": "2025-07-31 08:00:00",
-    "totalPlayers": 64,
+    "totalPlayers": 65,
     "playersByLevel": {
-      "Знаток": 51,
+      "Знаток": 52,
       "Эксперт": 4,
       "Мастер": 3,
       "Босс": 3,
@@ -307,6 +307,15 @@
           "has_active_boosters": 0
         },
         {
+          "username": "5687362",
+          "capital": 100.0,
+          "points": 9.0,
+          "remaining_boosters": 0,
+          "wallet": 31.0,
+          "tournament_questions": 21,
+          "has_active_boosters": 0
+        },
+        {
           "username": "339100486",
           "capital": 100.0,
           "points": 8.0,
@@ -361,6 +370,15 @@
           "has_active_boosters": 0
         },
         {
+          "username": "443086824",
+          "capital": 100.0,
+          "points": 3.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 5,
+          "has_active_boosters": 0
+        },
+        {
           "username": "486295529",
           "capital": 100.0,
           "points": 3.0,
@@ -411,15 +429,6 @@
           "points": -5.0,
           "remaining_boosters": 0,
           "wallet": 0.0,
-          "tournament_questions": 4,
-          "has_active_boosters": 0
-        },
-        {
-          "username": "5687362",
-          "capital": 100.0,
-          "points": -6.0,
-          "remaining_boosters": 0,
-          "wallet": 31.0,
           "tournament_questions": 4,
           "has_active_boosters": 0
         },
@@ -1080,7 +1089,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 31.0,
-      "all_questions": 60,
+      "all_questions": 77,
       "remaining_boosters": 0,
       "tickets": 2,
       "referral_rewards20": 0,
@@ -2526,6 +2535,19 @@
       "all_questions": 124,
       "remaining_boosters": 0,
       "tickets": 1,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
+      "user_id": 443086824,
+      "username": "443086824",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 0.0,
+      "all_questions": 5,
+      "remaining_boosters": 0,
+      "tickets": 3,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
