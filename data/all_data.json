@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-07-30 14:00:02 UTC",
+  "lastUpdate": "2025-07-30 14:05:01 UTC",
   "tournament": {
     "activeTournament": 19,
     "startDate": "2025-07-29 08:00:00",
@@ -64,7 +64,7 @@
           "has_active_boosters": 0
         },
         {
-          "username": "5592348870",
+          "username": "122431360",
           "capital": 100.0,
           "points": 102.0,
           "remaining_boosters": 0,
@@ -73,12 +73,12 @@
           "has_active_boosters": 0
         },
         {
-          "username": "122431360",
+          "username": "5592348870",
           "capital": 100.0,
-          "points": 99.0,
+          "points": 102.0,
           "remaining_boosters": 0,
           "wallet": 0.0,
-          "tournament_questions": 73,
+          "tournament_questions": 80,
           "has_active_boosters": 0
         },
         {
@@ -235,15 +235,6 @@
           "has_active_boosters": 0
         },
         {
-          "username": "36022608",
-          "capital": 100.0,
-          "points": 13.0,
-          "remaining_boosters": 0,
-          "wallet": 0.0,
-          "tournament_questions": 38,
-          "has_active_boosters": 0
-        },
-        {
           "username": "216434403",
           "capital": 100.0,
           "points": 12.0,
@@ -259,6 +250,15 @@
           "remaining_boosters": 0,
           "wallet": 38.0,
           "tournament_questions": 10,
+          "has_active_boosters": 0
+        },
+        {
+          "username": "36022608",
+          "capital": 100.0,
+          "points": 11.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 42,
           "has_active_boosters": 0
         },
         {
@@ -343,21 +343,21 @@
           "has_active_boosters": 0
         },
         {
-          "username": "888912131",
-          "capital": 100.0,
-          "points": -1.0,
-          "remaining_boosters": 0,
-          "wallet": 0.0,
-          "tournament_questions": 10,
-          "has_active_boosters": 0
-        },
-        {
           "username": "5037927354",
           "capital": 100.0,
           "points": -3.0,
           "remaining_boosters": 0,
           "wallet": 0.0,
           "tournament_questions": 39,
+          "has_active_boosters": 0
+        },
+        {
+          "username": "888912131",
+          "capital": 100.0,
+          "points": -5.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 18,
           "has_active_boosters": 0
         },
         {
@@ -553,10 +553,10 @@
         {
           "username": "LucasTeam",
           "capital": 11758.0,
-          "points": 24742.119999999988,
-          "remaining_boosters": 92,
+          "points": 28974.999999999985,
+          "remaining_boosters": 86,
           "wallet": 0.0,
-          "tournament_questions": 47,
+          "tournament_questions": 53,
           "has_active_boosters": 1
         }
       ],
@@ -597,8 +597,8 @@
       "level": "Легенда",
       "capital": 11758.0,
       "wallet": 0.0,
-      "all_questions": 1487,
-      "remaining_boosters": 92,
+      "all_questions": 1493,
+      "remaining_boosters": 86,
       "tickets": 0,
       "referral_rewards20": 4870,
       "referral_count20": 25,
@@ -1065,7 +1065,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 38,
+      "all_questions": 42,
       "remaining_boosters": 0,
       "tickets": 3,
       "referral_rewards20": 0,
@@ -1260,7 +1260,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 73,
+      "all_questions": 80,
       "remaining_boosters": 0,
       "tickets": 3,
       "referral_rewards20": 0,
@@ -3678,7 +3678,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 22,
+      "all_questions": 30,
       "remaining_boosters": 0,
       "tickets": 2,
       "referral_rewards20": 0,
