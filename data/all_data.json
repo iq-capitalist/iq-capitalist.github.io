@@ -1,12 +1,12 @@
 {
-  "lastUpdate": "2025-08-05 14:55:02 UTC",
+  "lastUpdate": "2025-08-05 15:00:02 UTC",
   "tournament": {
     "activeTournament": 20,
     "startDate": "2025-08-05 08:00:00",
     "endDate": "2025-08-07 08:00:00",
-    "totalPlayers": 40,
+    "totalPlayers": 41,
     "playersByLevel": {
-      "Знаток": 35,
+      "Знаток": 36,
       "Эксперт": 3,
       "Мастер": 0,
       "Босс": 1,
@@ -226,6 +226,15 @@
           "has_active_boosters": 0
         },
         {
+          "username": "477839220",
+          "capital": 100.0,
+          "points": 0.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 4,
+          "has_active_boosters": 0
+        },
+        {
           "username": "830303001",
           "capital": 100.0,
           "points": 0.0,
@@ -389,10 +398,10 @@
         {
           "username": "LucasTeam",
           "capital": 11954.0,
-          "points": 21756.28000000001,
-          "remaining_boosters": 108,
+          "points": 25820.640000000018,
+          "remaining_boosters": 100,
           "wallet": 0.0,
-          "tournament_questions": 32,
+          "tournament_questions": 40,
           "has_active_boosters": 1
         }
       ],
@@ -433,8 +442,8 @@
       "level": "Легенда",
       "capital": 11954.0,
       "wallet": 0.0,
-      "all_questions": 1552,
-      "remaining_boosters": 108,
+      "all_questions": 1560,
+      "remaining_boosters": 100,
       "tickets": 0,
       "referral_rewards20": 4870,
       "referral_count20": 25,
@@ -2555,6 +2564,19 @@
       "all_questions": 9,
       "remaining_boosters": 0,
       "tickets": 2,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
+      "user_id": 477839220,
+      "username": "477839220",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 0.0,
+      "all_questions": 4,
+      "remaining_boosters": 0,
+      "tickets": 3,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
