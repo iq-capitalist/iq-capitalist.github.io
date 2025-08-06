@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-08-06 10:40:02 UTC",
+  "lastUpdate": "2025-08-06 10:45:01 UTC",
   "tournament": {
     "activeTournament": 20,
     "startDate": "2025-08-05 08:00:00",
@@ -515,21 +515,21 @@
       ],
       "Легенда": [
         {
+          "username": "Serhio",
+          "capital": 15999.0,
+          "points": 55676.52000000004,
+          "remaining_boosters": 53,
+          "wallet": 3327.0,
+          "tournament_questions": 58,
+          "has_active_boosters": 1
+        },
+        {
           "username": "LucasTeam",
           "capital": 12204.0,
           "points": 42174.00000000001,
           "remaining_boosters": 77,
           "wallet": 0.0,
           "tournament_questions": 67,
-          "has_active_boosters": 1
-        },
-        {
-          "username": "Serhio",
-          "capital": 15999.0,
-          "points": 28798.19999999999,
-          "remaining_boosters": 81,
-          "wallet": 3327.0,
-          "tournament_questions": 30,
           "has_active_boosters": 1
         }
       ],
@@ -557,8 +557,8 @@
       "level": "Легенда",
       "capital": 15999.0,
       "wallet": 3327.0,
-      "all_questions": 1470,
-      "remaining_boosters": 81,
+      "all_questions": 1498,
+      "remaining_boosters": 53,
       "tickets": 0,
       "referral_rewards20": 800,
       "referral_count20": 4,
