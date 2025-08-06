@@ -1,12 +1,12 @@
 {
-  "lastUpdate": "2025-08-06 16:05:02 UTC",
+  "lastUpdate": "2025-08-06 16:10:01 UTC",
   "tournament": {
     "activeTournament": 20,
     "startDate": "2025-08-05 08:00:00",
     "endDate": "2025-08-07 08:00:00",
-    "totalPlayers": 73,
+    "totalPlayers": 74,
     "playersByLevel": {
-      "Знаток": 58,
+      "Знаток": 59,
       "Эксперт": 6,
       "Мастер": 3,
       "Босс": 3,
@@ -68,7 +68,7 @@
           "capital": 100.0,
           "points": 102.0,
           "remaining_boosters": 0,
-          "wallet": 470.0,
+          "wallet": 640.0,
           "tournament_questions": 80,
           "has_active_boosters": 0
         },
@@ -217,6 +217,15 @@
           "has_active_boosters": 0
         },
         {
+          "username": "616951648",
+          "capital": 100.0,
+          "points": 24.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 66,
+          "has_active_boosters": 0
+        },
+        {
           "username": "337811305",
           "capital": 100.0,
           "points": 23.0,
@@ -289,15 +298,6 @@
           "has_active_boosters": 0
         },
         {
-          "username": "913478964",
-          "capital": 100.0,
-          "points": 9.0,
-          "remaining_boosters": 0,
-          "wallet": 0.0,
-          "tournament_questions": 5,
-          "has_active_boosters": 0
-        },
-        {
           "username": "574341140",
           "capital": 100.0,
           "points": 6.0,
@@ -334,6 +334,15 @@
           "has_active_boosters": 0
         },
         {
+          "username": "913478964",
+          "capital": 100.0,
+          "points": 3.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 21,
+          "has_active_boosters": 0
+        },
+        {
           "username": "1237371145",
           "capital": 100.0,
           "points": 3.0,
@@ -358,15 +367,6 @@
           "remaining_boosters": 0,
           "wallet": 226.0,
           "tournament_questions": 17,
-          "has_active_boosters": 0
-        },
-        {
-          "username": "616951648",
-          "capital": 100.0,
-          "points": 0.0,
-          "remaining_boosters": 0,
-          "wallet": 0.0,
-          "tournament_questions": 46,
           "has_active_boosters": 0
         },
         {
@@ -439,6 +439,15 @@
           "remaining_boosters": 0,
           "wallet": 0.0,
           "tournament_questions": 2,
+          "has_active_boosters": 0
+        },
+        {
+          "username": "309399261",
+          "capital": 100.0,
+          "points": -3.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 1,
           "has_active_boosters": 0
         },
         {
@@ -1864,6 +1873,19 @@
       "capital": 100.0,
       "wallet": 0.0,
       "all_questions": 9,
+      "remaining_boosters": 0,
+      "tickets": 3,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
+      "user_id": 309399261,
+      "username": "309399261",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 0.0,
+      "all_questions": 1,
       "remaining_boosters": 0,
       "tickets": 3,
       "referral_rewards20": 0,
@@ -3423,7 +3445,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 46,
+      "all_questions": 66,
       "remaining_boosters": 0,
       "tickets": 3,
       "referral_rewards20": 0,
@@ -4151,7 +4173,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 5,
+      "all_questions": 21,
       "remaining_boosters": 0,
       "tickets": 3,
       "referral_rewards20": 0,
@@ -5931,12 +5953,12 @@
       "username": "5185639977",
       "level": "Знаток",
       "capital": 100.0,
-      "wallet": 470.0,
+      "wallet": 640.0,
       "all_questions": 80,
       "remaining_boosters": 0,
       "tickets": 3,
-      "referral_rewards20": 470,
-      "referral_count20": 4,
+      "referral_rewards20": 640,
+      "referral_count20": 5,
       "purchased_coins": 0
     },
     {
