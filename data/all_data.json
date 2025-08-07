@@ -1,12 +1,12 @@
 {
-  "lastUpdate": "2025-08-07 07:05:02 UTC",
+  "lastUpdate": "2025-08-07 07:10:01 UTC",
   "tournament": {
     "activeTournament": 20,
     "startDate": "2025-08-05 08:00:00",
     "endDate": "2025-08-07 08:00:00",
-    "totalPlayers": 88,
+    "totalPlayers": 89,
     "playersByLevel": {
-      "Знаток": 73,
+      "Знаток": 74,
       "Эксперт": 6,
       "Мастер": 3,
       "Босс": 3,
@@ -457,6 +457,15 @@
           "remaining_boosters": 0,
           "wallet": 0.0,
           "tournament_questions": 15,
+          "has_active_boosters": 0
+        },
+        {
+          "username": "381158002",
+          "capital": 100.0,
+          "points": 3.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 9,
           "has_active_boosters": 0
         },
         {
@@ -2443,6 +2452,19 @@
       "all_questions": 5,
       "remaining_boosters": 0,
       "tickets": 2,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
+      "user_id": 381158002,
+      "username": "381158002",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 0.0,
+      "all_questions": 9,
+      "remaining_boosters": 0,
+      "tickets": 3,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
@@ -6252,8 +6274,8 @@
       "all_questions": 80,
       "remaining_boosters": 0,
       "tickets": 3,
-      "referral_rewards20": 3520,
-      "referral_count20": 17,
+      "referral_rewards20": 3610,
+      "referral_count20": 18,
       "purchased_coins": 0
     },
     {
