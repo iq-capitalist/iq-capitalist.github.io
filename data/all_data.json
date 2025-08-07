@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-08-07 08:00:02 UTC",
+  "lastUpdate": "2025-08-07 08:05:01 UTC",
   "tournament": {
     "activeTournament": null,
     "startDate": null,
@@ -28,10 +28,10 @@
       "username": "Serhio",
       "level": "Легенда",
       "capital": 15999.0,
-      "wallet": 4180.0,
+      "wallet": 3930.0,
       "all_questions": 1520,
       "remaining_boosters": 31,
-      "tickets": 0,
+      "tickets": 1,
       "referral_rewards20": 800,
       "referral_count20": 4,
       "purchased_coins": 0
@@ -76,14 +76,27 @@
       "purchased_coins": 0
     },
     {
+      "user_id": 7788402227,
+      "username": "Дон Педро",
+      "level": "Босс",
+      "capital": 6999.0,
+      "wallet": 698.0,
+      "all_questions": 1520,
+      "remaining_boosters": 164,
+      "tickets": 1,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
       "user_id": 7749812005,
       "username": "Rakshas",
       "level": "Босс",
       "capital": 6989.0,
-      "wallet": 2129.0,
+      "wallet": 1879.0,
       "all_questions": 1520,
       "remaining_boosters": 10,
-      "tickets": 0,
+      "tickets": 1,
       "referral_rewards20": 700,
       "referral_count20": 3,
       "purchased_coins": 0
@@ -128,19 +141,6 @@
       "purchased_coins": 0
     },
     {
-      "user_id": 7788402227,
-      "username": "Дон Педро",
-      "level": "Мастер",
-      "capital": 3999.0,
-      "wallet": 3798.0,
-      "all_questions": 1520,
-      "remaining_boosters": 84,
-      "tickets": 1,
-      "referral_rewards20": 0,
-      "referral_count20": 0,
-      "purchased_coins": 0
-    },
-    {
       "user_id": 123063415,
       "username": "Константин",
       "level": "Мастер",
@@ -151,19 +151,6 @@
       "tickets": 23,
       "referral_rewards20": 3510,
       "referral_count20": 16,
-      "purchased_coins": 0
-    },
-    {
-      "user_id": 693187128,
-      "username": "Александр",
-      "level": "Мастер",
-      "capital": 2099.0,
-      "wallet": 318.0,
-      "all_questions": 873,
-      "remaining_boosters": 94,
-      "tickets": 2,
-      "referral_rewards20": 0,
-      "referral_count20": 0,
       "purchased_coins": 0
     },
     {
@@ -245,45 +232,6 @@
       "purchased_coins": 700
     },
     {
-      "user_id": 303182141,
-      "username": "Alexxard",
-      "level": "Эксперт",
-      "capital": 1200.0,
-      "wallet": 2.0,
-      "all_questions": 242,
-      "remaining_boosters": 0,
-      "tickets": 0,
-      "referral_rewards20": 0,
-      "referral_count20": 0,
-      "purchased_coins": 0
-    },
-    {
-      "user_id": 5144942323,
-      "username": "EVMa",
-      "level": "Эксперт",
-      "capital": 1200.0,
-      "wallet": 106.0,
-      "all_questions": 320,
-      "remaining_boosters": 0,
-      "tickets": 0,
-      "referral_rewards20": 0,
-      "referral_count20": 0,
-      "purchased_coins": 0
-    },
-    {
-      "user_id": 206589580,
-      "username": "KLMN",
-      "level": "Эксперт",
-      "capital": 1100.0,
-      "wallet": 84.0,
-      "all_questions": 561,
-      "remaining_boosters": 0,
-      "tickets": 0,
-      "referral_rewards20": 0,
-      "referral_count20": 0,
-      "purchased_coins": 0
-    },
-    {
       "user_id": 360859906,
       "username": "Булат",
       "level": "Эксперт",
@@ -336,19 +284,6 @@
       "purchased_coins": 0
     },
     {
-      "user_id": 479033963,
-      "username": "NatalKa",
-      "level": "Эксперт",
-      "capital": 1100.0,
-      "wallet": 59.0,
-      "all_questions": 69,
-      "remaining_boosters": 0,
-      "tickets": 0,
-      "referral_rewards20": 0,
-      "referral_count20": 0,
-      "purchased_coins": 0
-    },
-    {
       "user_id": 641764792,
       "username": "Sendder",
       "level": "Эксперт",
@@ -385,32 +320,6 @@
       "tickets": 0,
       "referral_rewards20": 250,
       "referral_count20": 1,
-      "purchased_coins": 0
-    },
-    {
-      "user_id": 822324885,
-      "username": "Гастер",
-      "level": "Эксперт",
-      "capital": 1100.0,
-      "wallet": 130.0,
-      "all_questions": 320,
-      "remaining_boosters": 0,
-      "tickets": 0,
-      "referral_rewards20": 0,
-      "referral_count20": 0,
-      "purchased_coins": 0
-    },
-    {
-      "user_id": 853175665,
-      "username": "BAS93",
-      "level": "Эксперт",
-      "capital": 1100.0,
-      "wallet": 122.0,
-      "all_questions": 480,
-      "remaining_boosters": 0,
-      "tickets": 0,
-      "referral_rewards20": 0,
-      "referral_count20": 0,
       "purchased_coins": 0
     },
     {
@@ -1012,6 +921,19 @@
       "purchased_coins": 0
     },
     {
+      "user_id": 206589580,
+      "username": "KLMN",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 1084.0,
+      "all_questions": 561,
+      "remaining_boosters": 0,
+      "tickets": 0,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
       "user_id": 211997769,
       "username": "211997769",
       "level": "Знаток",
@@ -1189,6 +1111,19 @@
       "all_questions": 4,
       "remaining_boosters": 0,
       "tickets": 3,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
+      "user_id": 303182141,
+      "username": "Alexxard",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 1102.0,
+      "all_questions": 242,
+      "remaining_boosters": 0,
+      "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
@@ -2351,6 +2286,19 @@
       "purchased_coins": 0
     },
     {
+      "user_id": 479033963,
+      "username": "NatalKa",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 1059.0,
+      "all_questions": 69,
+      "remaining_boosters": 0,
+      "tickets": 0,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
       "user_id": 486295529,
       "username": "486295529",
       "level": "Знаток",
@@ -3001,6 +2949,19 @@
       "purchased_coins": 0
     },
     {
+      "user_id": 693187128,
+      "username": "Александр",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 2317.0,
+      "all_questions": 873,
+      "remaining_boosters": 94,
+      "tickets": 0,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
       "user_id": 693333500,
       "username": "693333500",
       "level": "Знаток",
@@ -3365,6 +3326,19 @@
       "purchased_coins": 0
     },
     {
+      "user_id": 822324885,
+      "username": "Гастер",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 1130.0,
+      "all_questions": 320,
+      "remaining_boosters": 0,
+      "tickets": 0,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
       "user_id": 823073015,
       "username": "Als",
       "level": "Знаток",
@@ -3464,6 +3438,19 @@
       "all_questions": 176,
       "remaining_boosters": 0,
       "tickets": 2,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
+      "user_id": 853175665,
+      "username": "BAS93",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 1122.0,
+      "all_questions": 480,
+      "remaining_boosters": 0,
+      "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
@@ -5336,6 +5323,19 @@
       "all_questions": 80,
       "remaining_boosters": 0,
       "tickets": 3,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
+      "user_id": 5144942323,
+      "username": "EVMa",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 1206.0,
+      "all_questions": 320,
+      "remaining_boosters": 0,
+      "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
