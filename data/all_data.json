@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-08-07 10:25:02 UTC",
+  "lastUpdate": "2025-08-07 10:30:01 UTC",
   "tournament": {
     "activeTournament": null,
     "startDate": null,
@@ -320,6 +320,19 @@
       "tickets": 0,
       "referral_rewards20": 250,
       "referral_count20": 1,
+      "purchased_coins": 0
+    },
+    {
+      "user_id": 5185639977,
+      "username": "5185639977",
+      "level": "Эксперт",
+      "capital": 1100.0,
+      "wallet": 450.0,
+      "all_questions": 80,
+      "remaining_boosters": 0,
+      "tickets": 3,
+      "referral_rewards20": 3770,
+      "referral_count20": 18,
       "purchased_coins": 0
     },
     {
@@ -5429,19 +5442,6 @@
       "tickets": 1,
       "referral_rewards20": 0,
       "referral_count20": 0,
-      "purchased_coins": 0
-    },
-    {
-      "user_id": 5185639977,
-      "username": "5185639977",
-      "level": "Знаток",
-      "capital": 100.0,
-      "wallet": 1450.0,
-      "all_questions": 80,
-      "remaining_boosters": 0,
-      "tickets": 3,
-      "referral_rewards20": 3770,
-      "referral_count20": 18,
       "purchased_coins": 0
     },
     {
