@@ -1,12 +1,12 @@
 {
-  "lastUpdate": "2025-08-12 15:30:02 UTC",
+  "lastUpdate": "2025-08-12 15:35:01 UTC",
   "tournament": {
     "activeTournament": 21,
     "startDate": "2025-08-12 08:00:00",
     "endDate": "2025-08-14 08:00:00",
-    "totalPlayers": 43,
+    "totalPlayers": 44,
     "playersByLevel": {
-      "Знаток": 36,
+      "Знаток": 37,
       "Эксперт": 4,
       "Мастер": 0,
       "Босс": 1,
@@ -280,6 +280,15 @@
           "has_active_boosters": 0
         },
         {
+          "username": "774619317",
+          "capital": 100.0,
+          "points": -3.0,
+          "remaining_boosters": 0,
+          "wallet": 52.0,
+          "tournament_questions": 1,
+          "has_active_boosters": 0
+        },
+        {
           "username": "888912131",
           "capital": 100.0,
           "points": -5.0,
@@ -365,10 +374,10 @@
         {
           "username": "Andatra",
           "capital": 1999.0,
-          "points": 6676.659999999993,
-          "remaining_boosters": 46,
+          "points": 7036.479999999991,
+          "remaining_boosters": 43,
           "wallet": 4325.0,
-          "tournament_questions": 58,
+          "tournament_questions": 61,
           "has_active_boosters": 1
         },
         {
@@ -383,10 +392,10 @@
         {
           "username": "Pier Dun",
           "capital": 1100.0,
-          "points": 1166.0,
+          "points": 1287.0,
           "remaining_boosters": 0,
           "wallet": 1650.0,
-          "tournament_questions": 72,
+          "tournament_questions": 76,
           "has_active_boosters": 0
         }
       ],
@@ -617,8 +626,8 @@
       "level": "Эксперт",
       "capital": 1999.0,
       "wallet": 4325.0,
-      "all_questions": 1658,
-      "remaining_boosters": 46,
+      "all_questions": 1661,
+      "remaining_boosters": 43,
       "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
@@ -747,7 +756,7 @@
       "level": "Эксперт",
       "capital": 1100.0,
       "wallet": 1650.0,
-      "all_questions": 152,
+      "all_questions": 156,
       "remaining_boosters": 0,
       "tickets": 2,
       "referral_rewards20": 4060,
@@ -3607,9 +3616,9 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 52.0,
-      "all_questions": 80,
+      "all_questions": 81,
       "remaining_boosters": 0,
-      "tickets": 3,
+      "tickets": 2,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
