@@ -1,10 +1,10 @@
 {
-  "lastUpdate": "2025-08-12 16:25:01 UTC",
+  "lastUpdate": "2025-08-12 16:30:01 UTC",
   "tournament": {
     "activeTournament": 21,
     "startDate": "2025-08-12 08:00:00",
     "endDate": "2025-08-14 08:00:00",
-    "totalPlayers": 45,
+    "totalPlayers": 46,
     "playersByLevel": {
       "Знаток": 38,
       "Эксперт": 4,
@@ -12,7 +12,7 @@
       "Босс": 1,
       "Титан": 1,
       "Легенда": 1,
-      "Гуру": 0,
+      "Гуру": 1,
       "IQ Капиталист": 0
     },
     "prizePools": {
@@ -442,7 +442,17 @@
           "has_active_boosters": 1
         }
       ],
-      "Гуру": [],
+      "Гуру": [
+        {
+          "username": "Serhio",
+          "capital": 19929.0,
+          "points": 1195.74,
+          "remaining_boosters": 30,
+          "wallet": 0.0,
+          "tournament_questions": 1,
+          "has_active_boosters": 1
+        }
+      ],
       "IQ Капиталист": []
     }
   },
@@ -466,9 +476,9 @@
       "level": "Гуру",
       "capital": 19929.0,
       "wallet": 0.0,
-      "all_questions": 1520,
-      "remaining_boosters": 31,
-      "tickets": 1,
+      "all_questions": 1521,
+      "remaining_boosters": 30,
+      "tickets": 0,
       "referral_rewards20": 800,
       "referral_count20": 4,
       "purchased_coins": 0
