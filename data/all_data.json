@@ -1,13 +1,13 @@
 {
-  "lastUpdate": "2025-08-12 17:40:02 UTC",
+  "lastUpdate": "2025-08-12 17:45:01 UTC",
   "tournament": {
     "activeTournament": 21,
     "startDate": "2025-08-12 08:00:00",
     "endDate": "2025-08-14 08:00:00",
-    "totalPlayers": 48,
+    "totalPlayers": 49,
     "playersByLevel": {
       "Знаток": 40,
-      "Эксперт": 4,
+      "Эксперт": 5,
       "Мастер": 0,
       "Босс": 1,
       "Титан": 1,
@@ -424,6 +424,15 @@
           "wallet": 1650.0,
           "tournament_questions": 80,
           "has_active_boosters": 0
+        },
+        {
+          "username": "Tanoshimi",
+          "capital": 1300.0,
+          "points": 468.0,
+          "remaining_boosters": 146,
+          "wallet": 19.0,
+          "tournament_questions": 14,
+          "has_active_boosters": 1
         }
       ],
       "Мастер": [],
@@ -688,9 +697,9 @@
       "username": "Tanoshimi",
       "level": "Эксперт",
       "capital": 1300.0,
-      "wallet": 469.0,
-      "all_questions": 720,
-      "remaining_boosters": 0,
+      "wallet": 19.0,
+      "all_questions": 734,
+      "remaining_boosters": 146,
       "tickets": 0,
       "referral_rewards20": 250,
       "referral_count20": 1,
