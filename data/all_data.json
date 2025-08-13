@@ -1,14 +1,14 @@
 {
-  "lastUpdate": "2025-08-13 12:45:02 UTC",
+  "lastUpdate": "2025-08-13 12:50:01 UTC",
   "tournament": {
     "activeTournament": 21,
     "startDate": "2025-08-12 08:00:00",
     "endDate": "2025-08-14 08:00:00",
-    "totalPlayers": 55,
+    "totalPlayers": 56,
     "playersByLevel": {
       "Знаток": 44,
       "Эксперт": 6,
-      "Мастер": 0,
+      "Мастер": 1,
       "Босс": 2,
       "Титан": 1,
       "Легенда": 1,
@@ -480,7 +480,17 @@
           "has_active_boosters": 0
         }
       ],
-      "Мастер": [],
+      "Мастер": [
+        {
+          "username": "Макс",
+          "capital": 3999.0,
+          "points": -239.94,
+          "remaining_boosters": 79,
+          "wallet": 1827.0,
+          "tournament_questions": 1,
+          "has_active_boosters": 1
+        }
+      ],
       "Босс": [
         {
           "username": "Дон Педро",
@@ -661,9 +671,9 @@
       "level": "Мастер",
       "capital": 3999.0,
       "wallet": 1827.0,
-      "all_questions": 1600,
-      "remaining_boosters": 80,
-      "tickets": 1,
+      "all_questions": 1601,
+      "remaining_boosters": 79,
+      "tickets": 0,
       "referral_rewards20": 250,
       "referral_count20": 1,
       "purchased_coins": 0
