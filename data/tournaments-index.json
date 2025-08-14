@@ -1,6 +1,38 @@
 {
-  "generated_at": "2025-08-07 08:00:02 UTC",
+  "generated_at": "2025-08-14 08:00:03 UTC",
   "tournaments": [
+    {
+      "id": 21,
+      "start_date": "2025-08-12 08:00:00",
+      "end_date": "2025-08-14 08:00:00",
+      "total_questions": 80,
+      "total_answers": 4275,
+      "total_players": 77,
+      "total_prize": 15201.0,
+      "players_by_level": {
+        "Босс": 2,
+        "Гуру": 1,
+        "Знаток": 60,
+        "Легенда": 2,
+        "Мастер": 2,
+        "Титан": 2,
+        "Эксперт": 8
+      },
+      "answers_stats": {
+        "correct_answers": {
+          "fast": 2680,
+          "medium": 294,
+          "slow": 24
+        },
+        "wrong_answers": {
+          "fast": 1090,
+          "medium": 130,
+          "slow": 12
+        },
+        "timeouts": 45
+      },
+      "status": "completed"
+    },
     {
       "id": 20,
       "start_date": "2025-08-05 08:00:00",
