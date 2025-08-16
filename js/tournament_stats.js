@@ -267,7 +267,7 @@ function displayStatsTable(data) {
     currentPagePlayers.forEach(player => {
         html += `
             <tr>
-                <td>${player.username}</td>
+                <td>${player.level === 'Знаток' ? player.username : `<a href="user.html?id=${player.user_id}">${player.username}</a>`}</td>
                 <td class="correct-fast answer-cell" style="padding-left: 2px; padding-right: 2px;">${player.correct_answers.fast}</td>
                 <td class="correct-medium answer-cell" style="padding-left: 2px; padding-right: 2px;">${player.correct_answers.medium}</td>
                 <td class="correct-slow answer-cell" style="padding-left: 2px; padding-right: 2px;">${player.correct_answers.slow}</td>
