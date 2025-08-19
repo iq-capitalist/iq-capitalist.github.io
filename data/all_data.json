@@ -1,13 +1,40 @@
 {
-  "lastUpdate": "2025-08-19 07:55:02 UTC",
+  "lastUpdate": "2025-08-19 08:00:01 UTC",
   "tournament": {
-    "activeTournament": null,
-    "startDate": null,
-    "endDate": null,
+    "activeTournament": 22,
+    "startDate": "2025-08-19 08:00:00",
+    "endDate": "2025-08-21 08:00:00",
     "totalPlayers": 0,
-    "playersByLevel": {},
-    "prizePools": {},
-    "ratings": {}
+    "playersByLevel": {
+      "Знаток": 0,
+      "Эксперт": 0,
+      "Мастер": 0,
+      "Босс": 0,
+      "Титан": 0,
+      "Легенда": 0,
+      "Гуру": 0,
+      "IQ Капиталист": 0
+    },
+    "prizePools": {
+      "Знаток": 6000.0,
+      "Эксперт": 2400.0,
+      "Мастер": 1600.0,
+      "Босс": 1400.0,
+      "Титан": 1400.0,
+      "Легенда": 1400.0,
+      "Гуру": 1200.0,
+      "IQ Капиталист": 0.0
+    },
+    "ratings": {
+      "Знаток": [],
+      "Эксперт": [],
+      "Мастер": [],
+      "Босс": [],
+      "Титан": [],
+      "Легенда": [],
+      "Гуру": [],
+      "IQ Капиталист": []
+    }
   },
   "players": [
     {
@@ -184,7 +211,7 @@
       "username": "Joe Peach",
       "level": "Эксперт",
       "capital": 1999.0,
-      "wallet": 720.0,
+      "wallet": 1920.0,
       "all_questions": 160,
       "remaining_boosters": 0,
       "tickets": 2,
