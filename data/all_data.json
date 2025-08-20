@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-08-20 11:05:01 UTC",
+  "lastUpdate": "2025-08-20 11:10:02 UTC",
   "tournament": {
     "activeTournament": 22,
     "startDate": "2025-08-19 08:00:00",
@@ -367,21 +367,21 @@
       ],
       "Босс": [
         {
+          "username": "Дон Педро",
+          "capital": 6999.0,
+          "points": 25616.33999999998,
+          "remaining_boosters": 104,
+          "wallet": 1199.0,
+          "tournament_questions": 61,
+          "has_active_boosters": 1
+        },
+        {
           "username": "Archi",
           "capital": 5518.0,
           "points": 25397.570000000043,
           "remaining_boosters": 2,
           "wallet": 0.0,
           "tournament_questions": 80,
-          "has_active_boosters": 1
-        },
-        {
-          "username": "Дон Педро",
-          "capital": 6999.0,
-          "points": 17637.480000000003,
-          "remaining_boosters": 123,
-          "wallet": 1199.0,
-          "tournament_questions": 42,
           "has_active_boosters": 1
         }
       ],
@@ -515,8 +515,8 @@
       "level": "Босс",
       "capital": 6999.0,
       "wallet": 1199.0,
-      "all_questions": 1642,
-      "remaining_boosters": 123,
+      "all_questions": 1661,
+      "remaining_boosters": 104,
       "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
