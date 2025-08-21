@@ -1,0 +1,1324 @@
+{
+  "tournament": {
+    "id": 22,
+    "start_date": "2025-08-19 08:00:00",
+    "end_date": "2025-08-21 08:00:00",
+    "total_questions": 80
+  },
+  "stats": {
+    "total_players": 51,
+    "total_prize_pool": 15400.0,
+    "players_by_level": {
+      "Легенда": 2,
+      "Титан": 2,
+      "Босс": 3,
+      "Мастер": 2,
+      "Гуру": 1,
+      "Эксперт": 2,
+      "Знаток": 39
+    },
+    "prize_by_level": {
+      "Легенда": 1400.0,
+      "Титан": 1400.0,
+      "Босс": 1400.0,
+      "Мастер": 1600.0,
+      "Гуру": 1200.0,
+      "Эксперт": 2400.0,
+      "Знаток": 6000.0
+    }
+  },
+  "players": [
+    {
+      "user_id": 7048289770,
+      "username": "Дятел Вуду",
+      "level": "Легенда",
+      "answers": 80,
+      "total_points": 68655.36000000003,
+      "prize": 799.0,
+      "correct_answers": {
+        "fast": 76,
+        "medium": 1,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 0,
+        "medium": 1,
+        "slow": 0
+      },
+      "timeouts": 2
+    },
+    {
+      "user_id": 2091908459,
+      "username": "LucasTeam",
+      "level": "Легенда",
+      "answers": 80,
+      "total_points": 51642.71999999993,
+      "prize": 601.0,
+      "correct_answers": {
+        "fast": 59,
+        "medium": 13,
+        "slow": 2
+      },
+      "wrong_answers": {
+        "fast": 2,
+        "medium": 0,
+        "slow": 0
+      },
+      "timeouts": 4
+    },
+    {
+      "user_id": 7749812005,
+      "username": "Rakshas",
+      "level": "Титан",
+      "answers": 80,
+      "total_points": 43477.840000000055,
+      "prize": 732.0,
+      "correct_answers": {
+        "fast": 78,
+        "medium": 2,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 0,
+        "medium": 0,
+        "slow": 0
+      },
+      "timeouts": 0
+    },
+    {
+      "user_id": 977840664,
+      "username": "Alessa",
+      "level": "Титан",
+      "answers": 80,
+      "total_points": 39716.3,
+      "prize": 668.0,
+      "correct_answers": {
+        "fast": 71,
+        "medium": 6,
+        "slow": 1
+      },
+      "wrong_answers": {
+        "fast": 0,
+        "medium": 1,
+        "slow": 1
+      },
+      "timeouts": 0
+    },
+    {
+      "user_id": 7788402227,
+      "username": "Дон Педро",
+      "level": "Босс",
+      "answers": 80,
+      "total_points": 33455.21999999996,
+      "prize": 562.0,
+      "correct_answers": {
+        "fast": 79,
+        "medium": 1,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 0,
+        "medium": 0,
+        "slow": 0
+      },
+      "timeouts": 0
+    },
+    {
+      "user_id": 1802192306,
+      "username": "Archi",
+      "level": "Босс",
+      "answers": 80,
+      "total_points": 25397.570000000043,
+      "prize": 426.0,
+      "correct_answers": {
+        "fast": 77,
+        "medium": 2,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 1,
+        "medium": 0,
+        "slow": 0
+      },
+      "timeouts": 0
+    },
+    {
+      "user_id": 5176768913,
+      "username": "Макс",
+      "level": "Босс",
+      "answers": 80,
+      "total_points": 24550.14000000002,
+      "prize": 412.0,
+      "correct_answers": {
+        "fast": 63,
+        "medium": 8,
+        "slow": 2
+      },
+      "wrong_answers": {
+        "fast": 2,
+        "medium": 2,
+        "slow": 0
+      },
+      "timeouts": 3
+    },
+    {
+      "user_id": 5819543689,
+      "username": "Йошь",
+      "level": "Мастер",
+      "answers": 80,
+      "total_points": 18155.46,
+      "prize": 1211.0,
+      "correct_answers": {
+        "fast": 77,
+        "medium": 1,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 2,
+        "medium": 0,
+        "slow": 0
+      },
+      "timeouts": 0
+    },
+    {
+      "user_id": 471478283,
+      "username": "Serhio",
+      "level": "Гуру",
+      "answers": 18,
+      "total_points": 9973.920000000002,
+      "prize": 1200.0,
+      "correct_answers": {
+        "fast": 16,
+        "medium": 0,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 0,
+        "medium": 0,
+        "slow": 0
+      },
+      "timeouts": 2
+    },
+    {
+      "user_id": 5185639977,
+      "username": "Joe Peach",
+      "level": "Эксперт",
+      "answers": 80,
+      "total_points": 6596.699999999996,
+      "prize": 1579.0,
+      "correct_answers": {
+        "fast": 44,
+        "medium": 25,
+        "slow": 1
+      },
+      "wrong_answers": {
+        "fast": 3,
+        "medium": 4,
+        "slow": 1
+      },
+      "timeouts": 2
+    },
+    {
+      "user_id": 130651807,
+      "username": "CAHEK",
+      "level": "Мастер",
+      "answers": 80,
+      "total_points": 5840.0,
+      "prize": 389.0,
+      "correct_answers": {
+        "fast": 49,
+        "medium": 13,
+        "slow": 5
+      },
+      "wrong_answers": {
+        "fast": 9,
+        "medium": 2,
+        "slow": 1
+      },
+      "timeouts": 1
+    },
+    {
+      "user_id": 885269703,
+      "username": "Tanoshimi",
+      "level": "Эксперт",
+      "answers": 80,
+      "total_points": 3432.0,
+      "prize": 821.0,
+      "correct_answers": {
+        "fast": 62,
+        "medium": 0,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 18,
+        "medium": 0,
+        "slow": 0
+      },
+      "timeouts": 0
+    },
+    {
+      "user_id": 8463793680,
+      "username": "8463793680",
+      "level": "Знаток",
+      "answers": 80,
+      "total_points": 189.0,
+      "prize": 848.0,
+      "correct_answers": {
+        "fast": 71,
+        "medium": 0,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 8,
+        "medium": 0,
+        "slow": 0
+      },
+      "timeouts": 1
+    },
+    {
+      "user_id": 134326147,
+      "username": "134326147",
+      "level": "Знаток",
+      "answers": 80,
+      "total_points": 158.0,
+      "prize": 709.0,
+      "correct_answers": {
+        "fast": 22,
+        "medium": 50,
+        "slow": 3
+      },
+      "wrong_answers": {
+        "fast": 3,
+        "medium": 0,
+        "slow": 2
+      },
+      "timeouts": 0
+    },
+    {
+      "user_id": 244499238,
+      "username": "244499238",
+      "level": "Знаток",
+      "answers": 80,
+      "total_points": 101.0,
+      "prize": 453.0,
+      "correct_answers": {
+        "fast": 56,
+        "medium": 1,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 23,
+        "medium": 0,
+        "slow": 0
+      },
+      "timeouts": 0
+    },
+    {
+      "user_id": 486295529,
+      "username": "486295529",
+      "level": "Знаток",
+      "answers": 80,
+      "total_points": 96.0,
+      "prize": 431.0,
+      "correct_answers": {
+        "fast": 42,
+        "medium": 6,
+        "slow": 2
+      },
+      "wrong_answers": {
+        "fast": 12,
+        "medium": 4,
+        "slow": 0
+      },
+      "timeouts": 14
+    },
+    {
+      "user_id": 461684934,
+      "username": "461684934",
+      "level": "Знаток",
+      "answers": 80,
+      "total_points": 90.0,
+      "prize": 404.0,
+      "correct_answers": {
+        "fast": 52,
+        "medium": 3,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 22,
+        "medium": 3,
+        "slow": 0
+      },
+      "timeouts": 0
+    },
+    {
+      "user_id": 573281450,
+      "username": "573281450",
+      "level": "Знаток",
+      "answers": 80,
+      "total_points": 79.0,
+      "prize": 355.0,
+      "correct_answers": {
+        "fast": 52,
+        "medium": 0,
+        "slow": 1
+      },
+      "wrong_answers": {
+        "fast": 26,
+        "medium": 0,
+        "slow": 0
+      },
+      "timeouts": 1
+    },
+    {
+      "user_id": 364579578,
+      "username": "364579578",
+      "level": "Знаток",
+      "answers": 80,
+      "total_points": 78.0,
+      "prize": 350.0,
+      "correct_answers": {
+        "fast": 53,
+        "medium": 0,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 27,
+        "medium": 0,
+        "slow": 0
+      },
+      "timeouts": 0
+    },
+    {
+      "user_id": 162066129,
+      "username": "162066129",
+      "level": "Знаток",
+      "answers": 80,
+      "total_points": 77.0,
+      "prize": 346.0,
+      "correct_answers": {
+        "fast": 52,
+        "medium": 1,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 27,
+        "medium": 0,
+        "slow": 0
+      },
+      "timeouts": 0
+    },
+    {
+      "user_id": 347126406,
+      "username": "347126406",
+      "level": "Знаток",
+      "answers": 80,
+      "total_points": 70.0,
+      "prize": 314.0,
+      "correct_answers": {
+        "fast": 47,
+        "medium": 4,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 21,
+        "medium": 8,
+        "slow": 0
+      },
+      "timeouts": 0
+    },
+    {
+      "user_id": 5373851453,
+      "username": "5373851453",
+      "level": "Знаток",
+      "answers": 76,
+      "total_points": 66.0,
+      "prize": 296.0,
+      "correct_answers": {
+        "fast": 49,
+        "medium": 0,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 27,
+        "medium": 0,
+        "slow": 0
+      },
+      "timeouts": 0
+    },
+    {
+      "user_id": 5140811273,
+      "username": "5140811273",
+      "level": "Знаток",
+      "answers": 80,
+      "total_points": 59.0,
+      "prize": 265.0,
+      "correct_answers": {
+        "fast": 49,
+        "medium": 0,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 28,
+        "medium": 2,
+        "slow": 0
+      },
+      "timeouts": 1
+    },
+    {
+      "user_id": 334010278,
+      "username": "334010278",
+      "level": "Знаток",
+      "answers": 35,
+      "total_points": 57.0,
+      "prize": 256.0,
+      "correct_answers": {
+        "fast": 9,
+        "medium": 16,
+        "slow": 5
+      },
+      "wrong_answers": {
+        "fast": 1,
+        "medium": 2,
+        "slow": 0
+      },
+      "timeouts": 2
+    },
+    {
+      "user_id": 309399261,
+      "username": "309399261",
+      "level": "Знаток",
+      "answers": 80,
+      "total_points": 55.0,
+      "prize": 247.0,
+      "correct_answers": {
+        "fast": 48,
+        "medium": 1,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 29,
+        "medium": 2,
+        "slow": 0
+      },
+      "timeouts": 0
+    },
+    {
+      "user_id": 122431360,
+      "username": "122431360",
+      "level": "Знаток",
+      "answers": 80,
+      "total_points": 32.0,
+      "prize": 144.0,
+      "correct_answers": {
+        "fast": 45,
+        "medium": 0,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 33,
+        "medium": 2,
+        "slow": 0
+      },
+      "timeouts": 0
+    },
+    {
+      "user_id": 474375394,
+      "username": "474375394",
+      "level": "Знаток",
+      "answers": 14,
+      "total_points": 23.0,
+      "prize": 103.0,
+      "correct_answers": {
+        "fast": 4,
+        "medium": 6,
+        "slow": 2
+      },
+      "wrong_answers": {
+        "fast": 0,
+        "medium": 1,
+        "slow": 1
+      },
+      "timeouts": 0
+    },
+    {
+      "user_id": 616951648,
+      "username": "616951648",
+      "level": "Знаток",
+      "answers": 40,
+      "total_points": 18.0,
+      "prize": 81.0,
+      "correct_answers": {
+        "fast": 23,
+        "medium": 0,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 17,
+        "medium": 0,
+        "slow": 0
+      },
+      "timeouts": 0
+    },
+    {
+      "user_id": 913478964,
+      "username": "913478964",
+      "level": "Знаток",
+      "answers": 31,
+      "total_points": 17.0,
+      "prize": 76.0,
+      "correct_answers": {
+        "fast": 17,
+        "medium": 1,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 11,
+        "medium": 1,
+        "slow": 1
+      },
+      "timeouts": 0
+    },
+    {
+      "user_id": 262439804,
+      "username": "262439804",
+      "level": "Знаток",
+      "answers": 17,
+      "total_points": 16.0,
+      "prize": 72.0,
+      "correct_answers": {
+        "fast": 11,
+        "medium": 0,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 5,
+        "medium": 1,
+        "slow": 0
+      },
+      "timeouts": 0
+    },
+    {
+      "user_id": 275120283,
+      "username": "275120283",
+      "level": "Знаток",
+      "answers": 10,
+      "total_points": 15.0,
+      "prize": 67.0,
+      "correct_answers": {
+        "fast": 2,
+        "medium": 5,
+        "slow": 2
+      },
+      "wrong_answers": {
+        "fast": 1,
+        "medium": 0,
+        "slow": 0
+      },
+      "timeouts": 0
+    },
+    {
+      "user_id": 435218981,
+      "username": "435218981",
+      "level": "Знаток",
+      "answers": 80,
+      "total_points": 12.0,
+      "prize": 54.0,
+      "correct_answers": {
+        "fast": 42,
+        "medium": 0,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 38,
+        "medium": 0,
+        "slow": 0
+      },
+      "timeouts": 0
+    },
+    {
+      "user_id": 5030304213,
+      "username": "5030304213",
+      "level": "Знаток",
+      "answers": 80,
+      "total_points": 11.0,
+      "prize": 49.0,
+      "correct_answers": {
+        "fast": 30,
+        "medium": 9,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 20,
+        "medium": 17,
+        "slow": 3
+      },
+      "timeouts": 1
+    },
+    {
+      "user_id": 774619317,
+      "username": "774619317",
+      "level": "Знаток",
+      "answers": 80,
+      "total_points": 10.0,
+      "prize": 45.0,
+      "correct_answers": {
+        "fast": 39,
+        "medium": 2,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 33,
+        "medium": 6,
+        "slow": 0
+      },
+      "timeouts": 0
+    },
+    {
+      "user_id": 216434403,
+      "username": "216434403",
+      "level": "Знаток",
+      "answers": 15,
+      "total_points": 3.0,
+      "prize": 13.0,
+      "correct_answers": {
+        "fast": 8,
+        "medium": 0,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 7,
+        "medium": 0,
+        "slow": 0
+      },
+      "timeouts": 0
+    },
+    {
+      "user_id": 263777999,
+      "username": "263777999",
+      "level": "Знаток",
+      "answers": 1,
+      "total_points": 3.0,
+      "prize": 13.0,
+      "correct_answers": {
+        "fast": 1,
+        "medium": 0,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 0,
+        "medium": 0,
+        "slow": 0
+      },
+      "timeouts": 0
+    },
+    {
+      "user_id": 1196250569,
+      "username": "1196250569",
+      "level": "Знаток",
+      "answers": 2,
+      "total_points": 2.0,
+      "prize": 9.0,
+      "correct_answers": {
+        "fast": 0,
+        "medium": 1,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 0,
+        "medium": 0,
+        "slow": 0
+      },
+      "timeouts": 1
+    },
+    {
+      "user_id": 443086824,
+      "username": "443086824",
+      "level": "Знаток",
+      "answers": 5,
+      "total_points": -2.0,
+      "prize": 0.0,
+      "correct_answers": {
+        "fast": 2,
+        "medium": 0,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 2,
+        "medium": 1,
+        "slow": 0
+      },
+      "timeouts": 0
+    },
+    {
+      "user_id": 462293226,
+      "username": "462293226",
+      "level": "Знаток",
+      "answers": 9,
+      "total_points": -2.0,
+      "prize": 0.0,
+      "correct_answers": {
+        "fast": 4,
+        "medium": 0,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 4,
+        "medium": 1,
+        "slow": 0
+      },
+      "timeouts": 0
+    },
+    {
+      "user_id": 574341140,
+      "username": "574341140",
+      "level": "Знаток",
+      "answers": 1,
+      "total_points": -2.0,
+      "prize": 0.0,
+      "correct_answers": {
+        "fast": 0,
+        "medium": 0,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 0,
+        "medium": 1,
+        "slow": 0
+      },
+      "timeouts": 0
+    },
+    {
+      "user_id": 497793972,
+      "username": "497793972",
+      "level": "Знаток",
+      "answers": 4,
+      "total_points": -3.0,
+      "prize": 0.0,
+      "correct_answers": {
+        "fast": 1,
+        "medium": 0,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 2,
+        "medium": 0,
+        "slow": 0
+      },
+      "timeouts": 1
+    },
+    {
+      "user_id": 1222998350,
+      "username": "1222998350",
+      "level": "Знаток",
+      "answers": 19,
+      "total_points": -3.0,
+      "prize": 0.0,
+      "correct_answers": {
+        "fast": 7,
+        "medium": 1,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 4,
+        "medium": 7,
+        "slow": 0
+      },
+      "timeouts": 0
+    },
+    {
+      "user_id": 8305911933,
+      "username": "8305911933",
+      "level": "Знаток",
+      "answers": 2,
+      "total_points": -3.0,
+      "prize": 0.0,
+      "correct_answers": {
+        "fast": 0,
+        "medium": 0,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 1,
+        "medium": 0,
+        "slow": 0
+      },
+      "timeouts": 1
+    },
+    {
+      "user_id": 2063764108,
+      "username": "2063764108",
+      "level": "Знаток",
+      "answers": 54,
+      "total_points": -6.0,
+      "prize": 0.0,
+      "correct_answers": {
+        "fast": 26,
+        "medium": 0,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 28,
+        "medium": 0,
+        "slow": 0
+      },
+      "timeouts": 0
+    },
+    {
+      "user_id": 1399592491,
+      "username": "1399592491",
+      "level": "Знаток",
+      "answers": 18,
+      "total_points": -8.0,
+      "prize": 0.0,
+      "correct_answers": {
+        "fast": 6,
+        "medium": 1,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 8,
+        "medium": 2,
+        "slow": 0
+      },
+      "timeouts": 1
+    },
+    {
+      "user_id": 729907829,
+      "username": "729907829",
+      "level": "Знаток",
+      "answers": 80,
+      "total_points": -12.0,
+      "prize": 0.0,
+      "correct_answers": {
+        "fast": 34,
+        "medium": 4,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 38,
+        "medium": 4,
+        "slow": 0
+      },
+      "timeouts": 0
+    },
+    {
+      "user_id": 553050755,
+      "username": "553050755",
+      "level": "Знаток",
+      "answers": 10,
+      "total_points": -16.0,
+      "prize": 0.0,
+      "correct_answers": {
+        "fast": 2,
+        "medium": 0,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 6,
+        "medium": 2,
+        "slow": 0
+      },
+      "timeouts": 0
+    },
+    {
+      "user_id": 6416788961,
+      "username": "6416788961",
+      "level": "Знаток",
+      "answers": 80,
+      "total_points": -29.0,
+      "prize": 0.0,
+      "correct_answers": {
+        "fast": 35,
+        "medium": 0,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 44,
+        "medium": 1,
+        "slow": 0
+      },
+      "timeouts": 0
+    },
+    {
+      "user_id": 8211354545,
+      "username": "8211354545",
+      "level": "Знаток",
+      "answers": 26,
+      "total_points": -30.0,
+      "prize": 0.0,
+      "correct_answers": {
+        "fast": 8,
+        "medium": 0,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 18,
+        "medium": 0,
+        "slow": 0
+      },
+      "timeouts": 0
+    },
+    {
+      "user_id": 8404600475,
+      "username": "8404600475",
+      "level": "Знаток",
+      "answers": 26,
+      "total_points": -37.0,
+      "prize": 0.0,
+      "correct_answers": {
+        "fast": 6,
+        "medium": 0,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 18,
+        "medium": 0,
+        "slow": 1
+      },
+      "timeouts": 1
+    },
+    {
+      "user_id": 7852194,
+      "username": "7852194",
+      "level": "Знаток",
+      "answers": 80,
+      "total_points": -44.0,
+      "prize": 0.0,
+      "correct_answers": {
+        "fast": 31,
+        "medium": 2,
+        "slow": 0
+      },
+      "wrong_answers": {
+        "fast": 47,
+        "medium": 0,
+        "slow": 0
+      },
+      "timeouts": 0
+    }
+  ],
+  "ratings": {
+    "Легенда": [
+      {
+        "username": "Дятел Вуду",
+        "total_points": 68655.36000000003,
+        "answers": 80,
+        "prize": 799.0
+      },
+      {
+        "username": "LucasTeam",
+        "total_points": 51642.71999999993,
+        "answers": 80,
+        "prize": 601.0
+      }
+    ],
+    "Титан": [
+      {
+        "username": "Rakshas",
+        "total_points": 43477.840000000055,
+        "answers": 80,
+        "prize": 732.0
+      },
+      {
+        "username": "Alessa",
+        "total_points": 39716.3,
+        "answers": 80,
+        "prize": 668.0
+      }
+    ],
+    "Босс": [
+      {
+        "username": "Дон Педро",
+        "total_points": 33455.21999999996,
+        "answers": 80,
+        "prize": 562.0
+      },
+      {
+        "username": "Archi",
+        "total_points": 25397.570000000043,
+        "answers": 80,
+        "prize": 426.0
+      },
+      {
+        "username": "Макс",
+        "total_points": 24550.14000000002,
+        "answers": 80,
+        "prize": 412.0
+      }
+    ],
+    "Мастер": [
+      {
+        "username": "Йошь",
+        "total_points": 18155.46,
+        "answers": 80,
+        "prize": 1211.0
+      },
+      {
+        "username": "CAHEK",
+        "total_points": 5840.0,
+        "answers": 80,
+        "prize": 389.0
+      }
+    ],
+    "Гуру": [
+      {
+        "username": "Serhio",
+        "total_points": 9973.920000000002,
+        "answers": 18,
+        "prize": 1200.0
+      }
+    ],
+    "Эксперт": [
+      {
+        "username": "Joe Peach",
+        "total_points": 6596.699999999996,
+        "answers": 80,
+        "prize": 1579.0
+      },
+      {
+        "username": "Tanoshimi",
+        "total_points": 3432.0,
+        "answers": 80,
+        "prize": 821.0
+      }
+    ],
+    "Знаток": [
+      {
+        "username": "8463793680",
+        "total_points": 189.0,
+        "answers": 80,
+        "prize": 848.0
+      },
+      {
+        "username": "134326147",
+        "total_points": 158.0,
+        "answers": 80,
+        "prize": 709.0
+      },
+      {
+        "username": "244499238",
+        "total_points": 101.0,
+        "answers": 80,
+        "prize": 453.0
+      },
+      {
+        "username": "486295529",
+        "total_points": 96.0,
+        "answers": 80,
+        "prize": 431.0
+      },
+      {
+        "username": "461684934",
+        "total_points": 90.0,
+        "answers": 80,
+        "prize": 404.0
+      },
+      {
+        "username": "573281450",
+        "total_points": 79.0,
+        "answers": 80,
+        "prize": 355.0
+      },
+      {
+        "username": "364579578",
+        "total_points": 78.0,
+        "answers": 80,
+        "prize": 350.0
+      },
+      {
+        "username": "162066129",
+        "total_points": 77.0,
+        "answers": 80,
+        "prize": 346.0
+      },
+      {
+        "username": "347126406",
+        "total_points": 70.0,
+        "answers": 80,
+        "prize": 314.0
+      },
+      {
+        "username": "5373851453",
+        "total_points": 66.0,
+        "answers": 76,
+        "prize": 296.0
+      },
+      {
+        "username": "5140811273",
+        "total_points": 59.0,
+        "answers": 80,
+        "prize": 265.0
+      },
+      {
+        "username": "334010278",
+        "total_points": 57.0,
+        "answers": 35,
+        "prize": 256.0
+      },
+      {
+        "username": "309399261",
+        "total_points": 55.0,
+        "answers": 80,
+        "prize": 247.0
+      },
+      {
+        "username": "122431360",
+        "total_points": 32.0,
+        "answers": 80,
+        "prize": 144.0
+      },
+      {
+        "username": "474375394",
+        "total_points": 23.0,
+        "answers": 14,
+        "prize": 103.0
+      },
+      {
+        "username": "616951648",
+        "total_points": 18.0,
+        "answers": 40,
+        "prize": 81.0
+      },
+      {
+        "username": "913478964",
+        "total_points": 17.0,
+        "answers": 31,
+        "prize": 76.0
+      },
+      {
+        "username": "262439804",
+        "total_points": 16.0,
+        "answers": 17,
+        "prize": 72.0
+      },
+      {
+        "username": "275120283",
+        "total_points": 15.0,
+        "answers": 10,
+        "prize": 67.0
+      },
+      {
+        "username": "435218981",
+        "total_points": 12.0,
+        "answers": 80,
+        "prize": 54.0
+      },
+      {
+        "username": "5030304213",
+        "total_points": 11.0,
+        "answers": 80,
+        "prize": 49.0
+      },
+      {
+        "username": "774619317",
+        "total_points": 10.0,
+        "answers": 80,
+        "prize": 45.0
+      },
+      {
+        "username": "216434403",
+        "total_points": 3.0,
+        "answers": 15,
+        "prize": 13.0
+      },
+      {
+        "username": "263777999",
+        "total_points": 3.0,
+        "answers": 1,
+        "prize": 13.0
+      },
+      {
+        "username": "1196250569",
+        "total_points": 2.0,
+        "answers": 2,
+        "prize": 9.0
+      },
+      {
+        "username": "443086824",
+        "total_points": -2.0,
+        "answers": 5,
+        "prize": 0.0
+      },
+      {
+        "username": "462293226",
+        "total_points": -2.0,
+        "answers": 9,
+        "prize": 0.0
+      },
+      {
+        "username": "574341140",
+        "total_points": -2.0,
+        "answers": 1,
+        "prize": 0.0
+      },
+      {
+        "username": "497793972",
+        "total_points": -3.0,
+        "answers": 4,
+        "prize": 0.0
+      },
+      {
+        "username": "1222998350",
+        "total_points": -3.0,
+        "answers": 19,
+        "prize": 0.0
+      },
+      {
+        "username": "8305911933",
+        "total_points": -3.0,
+        "answers": 2,
+        "prize": 0.0
+      },
+      {
+        "username": "2063764108",
+        "total_points": -6.0,
+        "answers": 54,
+        "prize": 0.0
+      },
+      {
+        "username": "1399592491",
+        "total_points": -8.0,
+        "answers": 18,
+        "prize": 0.0
+      },
+      {
+        "username": "729907829",
+        "total_points": -12.0,
+        "answers": 80,
+        "prize": 0.0
+      },
+      {
+        "username": "553050755",
+        "total_points": -16.0,
+        "answers": 10,
+        "prize": 0.0
+      },
+      {
+        "username": "6416788961",
+        "total_points": -29.0,
+        "answers": 80,
+        "prize": 0.0
+      },
+      {
+        "username": "8211354545",
+        "total_points": -30.0,
+        "answers": 26,
+        "prize": 0.0
+      },
+      {
+        "username": "8404600475",
+        "total_points": -37.0,
+        "answers": 26,
+        "prize": 0.0
+      },
+      {
+        "username": "7852194",
+        "total_points": -44.0,
+        "answers": 80,
+        "prize": 0.0
+      }
+    ]
+  },
+  "generated_at": "2025-08-21 08:00:00 UTC"
+}
