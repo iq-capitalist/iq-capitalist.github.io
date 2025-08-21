@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-08-21 08:00:02 UTC",
+  "lastUpdate": "2025-08-21 08:05:02 UTC",
   "tournament": {
     "activeTournament": null,
     "startDate": null,
@@ -27,11 +27,11 @@
       "user_id": 471478283,
       "username": "Serhio",
       "level": "Гуру",
-      "capital": 20779.0,
-      "wallet": 1200.0,
+      "capital": 21729.0,
+      "wallet": 0.0,
       "all_questions": 1572,
       "remaining_boosters": 84,
-      "tickets": 0,
+      "tickets": 1,
       "referral_rewards20": 800,
       "referral_count20": 4,
       "purchased_coins": 0
@@ -271,19 +271,6 @@
       "purchased_coins": 400
     },
     {
-      "user_id": 423380634,
-      "username": "Шмельхан",
-      "level": "Эксперт",
-      "capital": 1100.0,
-      "wallet": 88.0,
-      "all_questions": 400,
-      "remaining_boosters": 0,
-      "tickets": 0,
-      "referral_rewards20": 500,
-      "referral_count20": 2,
-      "purchased_coins": 0
-    },
-    {
       "user_id": 641764792,
       "username": "Sendder",
       "level": "Эксперт",
@@ -308,19 +295,6 @@
       "referral_rewards20": 250,
       "referral_count20": 1,
       "purchased_coins": 300
-    },
-    {
-      "user_id": 732899364,
-      "username": "732899364",
-      "level": "Эксперт",
-      "capital": 1100.0,
-      "wallet": 16.0,
-      "all_questions": 145,
-      "remaining_boosters": 0,
-      "tickets": 0,
-      "referral_rewards20": 250,
-      "referral_count20": 1,
-      "purchased_coins": 0
     },
     {
       "user_id": 5923994828,
@@ -1974,6 +1948,19 @@
       "purchased_coins": 0
     },
     {
+      "user_id": 423380634,
+      "username": "Шмельхан",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 1088.0,
+      "all_questions": 400,
+      "remaining_boosters": 0,
+      "tickets": 0,
+      "referral_rewards20": 500,
+      "referral_count20": 2,
+      "purchased_coins": 0
+    },
+    {
       "user_id": 424974449,
       "username": "424974449",
       "level": "Знаток",
@@ -3180,6 +3167,19 @@
       "tickets": 1,
       "referral_rewards20": 0,
       "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
+      "user_id": 732899364,
+      "username": "732899364",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 1016.0,
+      "all_questions": 145,
+      "remaining_boosters": 0,
+      "tickets": 0,
+      "referral_rewards20": 250,
+      "referral_count20": 1,
       "purchased_coins": 0
     },
     {
