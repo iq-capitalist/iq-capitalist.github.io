@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-08-27 16:20:01 UTC",
+  "lastUpdate": "2025-08-27 16:25:02 UTC",
   "tournament": {
     "activeTournament": 23,
     "startDate": "2025-08-26 08:00:00",
@@ -84,10 +84,10 @@
         {
           "username": "555179886",
           "capital": 100.0,
-          "points": 53.0,
+          "points": 59.0,
           "remaining_boosters": 0,
           "wallet": 186.0,
-          "tournament_questions": 49,
+          "tournament_questions": 57,
           "has_active_boosters": 0
         },
         {
@@ -271,21 +271,21 @@
           "has_active_boosters": 0
         },
         {
-          "username": "293304312",
-          "capital": 100.0,
-          "points": -43.0,
-          "remaining_boosters": 0,
-          "wallet": 0.0,
-          "tournament_questions": 20,
-          "has_active_boosters": 0
-        },
-        {
           "username": "8305911933",
           "capital": 100.0,
           "points": -47.0,
           "remaining_boosters": 0,
           "wallet": 0.0,
           "tournament_questions": 37,
+          "has_active_boosters": 0
+        },
+        {
+          "username": "293304312",
+          "capital": 100.0,
+          "points": -58.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 35,
           "has_active_boosters": 0
         },
         {
@@ -1550,7 +1550,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 20,
+      "all_questions": 35,
       "remaining_boosters": 0,
       "tickets": 3,
       "referral_rewards20": 0,
@@ -3084,7 +3084,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 186.0,
-      "all_questions": 146,
+      "all_questions": 154,
       "remaining_boosters": 0,
       "tickets": 1,
       "referral_rewards20": 0,
