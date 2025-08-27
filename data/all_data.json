@@ -1,16 +1,16 @@
 {
-  "lastUpdate": "2025-08-27 13:55:02 UTC",
+  "lastUpdate": "2025-08-27 14:00:01 UTC",
   "tournament": {
     "activeTournament": 23,
     "startDate": "2025-08-26 08:00:00",
     "endDate": "2025-08-28 08:00:00",
-    "totalPlayers": 37,
+    "totalPlayers": 38,
     "playersByLevel": {
       "Знаток": 27,
       "Эксперт": 3,
       "Мастер": 2,
       "Босс": 1,
-      "Титан": 1,
+      "Титан": 2,
       "Легенда": 2,
       "Гуру": 1,
       "IQ Капиталист": 0
@@ -340,6 +340,15 @@
           "wallet": 0.0,
           "tournament_questions": 80,
           "has_active_boosters": 1
+        },
+        {
+          "username": "Alessa",
+          "capital": 9223.0,
+          "points": 3873.6600000000003,
+          "remaining_boosters": 95,
+          "wallet": 0.0,
+          "tournament_questions": 7,
+          "has_active_boosters": 1
         }
       ],
       "Легенда": [
@@ -448,9 +457,9 @@
       "level": "Титан",
       "capital": 9223.0,
       "wallet": 0.0,
-      "all_questions": 1760,
-      "remaining_boosters": 102,
-      "tickets": 1,
+      "all_questions": 1767,
+      "remaining_boosters": 95,
+      "tickets": 0,
       "referral_rewards20": 2070,
       "referral_count20": 8,
       "purchased_coins": 0
