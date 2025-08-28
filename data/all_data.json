@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-08-28 08:00:01 UTC",
+  "lastUpdate": "2025-08-28 08:05:02 UTC",
   "tournament": {
     "activeTournament": null,
     "startDate": null,
@@ -232,24 +232,11 @@
       "purchased_coins": 0
     },
     {
-      "user_id": 139124871,
-      "username": "Supremum",
-      "level": "Эксперт",
-      "capital": 1800.0,
-      "wallet": 743.0,
-      "all_questions": 589,
-      "remaining_boosters": 23,
-      "tickets": 4,
-      "referral_rewards20": 0,
-      "referral_count20": 0,
-      "purchased_coins": 0
-    },
-    {
       "user_id": 134326147,
       "username": "Craftbeer",
       "level": "Эксперт",
-      "capital": 1100.0,
-      "wallet": 587.0,
+      "capital": 1687.0,
+      "wallet": 0.0,
       "all_questions": 320,
       "remaining_boosters": 80,
       "tickets": 1,
@@ -284,27 +271,14 @@
       "purchased_coins": 400
     },
     {
-      "user_id": 426773971,
-      "username": "Тимур",
+      "user_id": 573281450,
+      "username": "573281450",
       "level": "Эксперт",
       "capital": 1100.0,
-      "wallet": 64.0,
-      "all_questions": 94,
+      "wallet": 20.0,
+      "all_questions": 282,
       "remaining_boosters": 0,
       "tickets": 0,
-      "referral_rewards20": 0,
-      "referral_count20": 0,
-      "purchased_coins": 0
-    },
-    {
-      "user_id": 641764792,
-      "username": "Sendder",
-      "level": "Эксперт",
-      "capital": 1100.0,
-      "wallet": 33.0,
-      "all_questions": 353,
-      "remaining_boosters": 0,
-      "tickets": 1,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
@@ -344,19 +318,6 @@
       "all_questions": 1043,
       "remaining_boosters": 16,
       "tickets": 0,
-      "referral_rewards20": 0,
-      "referral_count20": 0,
-      "purchased_coins": 0
-    },
-    {
-      "user_id": 375155317,
-      "username": "Arhimed",
-      "level": "Эксперт",
-      "capital": 1000.0,
-      "wallet": 803.0,
-      "all_questions": 558,
-      "remaining_boosters": 0,
-      "tickets": 9,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
@@ -695,6 +656,19 @@
       "all_questions": 23,
       "remaining_boosters": 0,
       "tickets": 3,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
+      "user_id": 139124871,
+      "username": "Supremum",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 2443.0,
+      "all_questions": 589,
+      "remaining_boosters": 23,
+      "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
@@ -1597,6 +1571,19 @@
       "purchased_coins": 0
     },
     {
+      "user_id": 375155317,
+      "username": "Arhimed",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 1703.0,
+      "all_questions": 558,
+      "remaining_boosters": 0,
+      "tickets": 0,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
       "user_id": 377338570,
       "username": "377338570",
       "level": "Знаток",
@@ -2047,6 +2034,19 @@
       "all_questions": 62,
       "remaining_boosters": 0,
       "tickets": 3,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
+      "user_id": 426773971,
+      "username": "Тимур",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 1064.0,
+      "all_questions": 94,
+      "remaining_boosters": 0,
+      "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
@@ -2741,19 +2741,6 @@
       "purchased_coins": 0
     },
     {
-      "user_id": 573281450,
-      "username": "573281450",
-      "level": "Знаток",
-      "capital": 100.0,
-      "wallet": 1020.0,
-      "all_questions": 282,
-      "remaining_boosters": 0,
-      "tickets": 0,
-      "referral_rewards20": 0,
-      "referral_count20": 0,
-      "purchased_coins": 0
-    },
-    {
       "user_id": 574341140,
       "username": "574341140",
       "level": "Знаток",
@@ -3022,6 +3009,19 @@
       "all_questions": 12,
       "remaining_boosters": 0,
       "tickets": 2,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
+      "user_id": 641764792,
+      "username": "Sendder",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 1033.0,
+      "all_questions": 353,
+      "remaining_boosters": 0,
+      "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
