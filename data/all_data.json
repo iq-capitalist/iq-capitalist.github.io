@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-09-03 15:00:02 UTC",
+  "lastUpdate": "2025-09-03 15:05:01 UTC",
   "tournament": {
     "activeTournament": 24,
     "startDate": "2025-09-02 08:00:00",
@@ -280,15 +280,6 @@
           "has_active_boosters": 0
         },
         {
-          "username": "8203032478",
-          "capital": 100.0,
-          "points": -15.0,
-          "remaining_boosters": 0,
-          "wallet": 0.0,
-          "tournament_questions": 23,
-          "has_active_boosters": 0
-        },
-        {
           "username": "1709518",
           "capital": 100.0,
           "points": -19.0,
@@ -304,6 +295,15 @@
           "remaining_boosters": 0,
           "wallet": 325.0,
           "tournament_questions": 22,
+          "has_active_boosters": 0
+        },
+        {
+          "username": "8203032478",
+          "capital": 100.0,
+          "points": -21.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 25,
           "has_active_boosters": 0
         },
         {
@@ -462,10 +462,10 @@
         },
         {
           "username": "LucasTeam",
-          "capital": 14941.0,
+          "capital": 15391.0,
           "points": 30065.22999999998,
           "remaining_boosters": 121,
-          "wallet": 450.0,
+          "wallet": 0.0,
           "tournament_questions": 39,
           "has_active_boosters": 1
         }
@@ -528,12 +528,12 @@
       "user_id": 2091908459,
       "username": "LucasTeam",
       "level": "Легенда",
-      "capital": 14941.0,
-      "wallet": 450.0,
+      "capital": 15391.0,
+      "wallet": 0.0,
       "all_questions": 1879,
       "remaining_boosters": 121,
       "tickets": 0,
-      "referral_rewards20": 7350,
+      "referral_rewards20": 7370,
       "referral_count20": 35,
       "purchased_coins": 0
     },
@@ -7693,7 +7693,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 23,
+      "all_questions": 25,
       "remaining_boosters": 0,
       "tickets": 3,
       "referral_rewards20": 0,
