@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-09-03 09:55:02 UTC",
+  "lastUpdate": "2025-09-03 10:00:01 UTC",
   "tournament": {
     "activeTournament": 24,
     "startDate": "2025-09-02 08:00:00",
@@ -91,6 +91,15 @@
           "has_active_boosters": 0
         },
         {
+          "username": "8287106353",
+          "capital": 100.0,
+          "points": 45.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 19,
+          "has_active_boosters": 0
+        },
+        {
           "username": "5140811273",
           "capital": 100.0,
           "points": 28.0,
@@ -160,15 +169,6 @@
           "remaining_boosters": 0,
           "wallet": 3.0,
           "tournament_questions": 30,
-          "has_active_boosters": 0
-        },
-        {
-          "username": "8287106353",
-          "capital": 100.0,
-          "points": 3.0,
-          "remaining_boosters": 0,
-          "wallet": 0.0,
-          "tournament_questions": 1,
           "has_active_boosters": 0
         },
         {
@@ -460,11 +460,11 @@
       "username": "Rakshas",
       "level": "Титан",
       "capital": 10945.0,
-      "wallet": 260.0,
+      "wallet": 440.0,
       "all_questions": 1760,
       "remaining_boosters": 90,
       "tickets": 1,
-      "referral_rewards20": 1960,
+      "referral_rewards20": 2140,
       "referral_count20": 9,
       "purchased_coins": 0
     },
@@ -7650,7 +7650,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 1,
+      "all_questions": 19,
       "remaining_boosters": 0,
       "tickets": 3,
       "referral_rewards20": 0,
