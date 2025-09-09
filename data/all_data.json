@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-09-09 10:15:01 UTC",
+  "lastUpdate": "2025-09-09 10:20:01 UTC",
   "tournament": {
     "activeTournament": 25,
     "startDate": "2025-09-09 08:00:00",
@@ -111,21 +111,21 @@
       ],
       "Эксперт": [
         {
+          "username": "Joe Peach",
+          "capital": 1999.0,
+          "points": 4117.940000000001,
+          "remaining_boosters": 47,
+          "wallet": 5561.0,
+          "tournament_questions": 40,
+          "has_active_boosters": 1
+        },
+        {
           "username": "Craftbeer",
           "capital": 1999.0,
           "points": 3998.0000000000014,
           "remaining_boosters": 41,
           "wallet": 116.0,
           "tournament_questions": 40,
-          "has_active_boosters": 1
-        },
-        {
-          "username": "Joe Peach",
-          "capital": 1999.0,
-          "points": 3198.400000000001,
-          "remaining_boosters": 55,
-          "wallet": 5561.0,
-          "tournament_questions": 32,
           "has_active_boosters": 1
         }
       ],
@@ -352,8 +352,8 @@
       "level": "Эксперт",
       "capital": 1999.0,
       "wallet": 5561.0,
-      "all_questions": 432,
-      "remaining_boosters": 55,
+      "all_questions": 440,
+      "remaining_boosters": 47,
       "tickets": 0,
       "referral_rewards20": 4610,
       "referral_count20": 21,
