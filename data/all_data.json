@@ -1,12 +1,12 @@
 {
-  "lastUpdate": "2025-09-16 11:10:01 UTC",
+  "lastUpdate": "2025-09-16 11:15:01 UTC",
   "tournament": {
     "activeTournament": 26,
     "startDate": "2025-09-16 08:00:00",
     "endDate": "2025-09-18 08:00:00",
-    "totalPlayers": 7,
+    "totalPlayers": 8,
     "playersByLevel": {
-      "Знаток": 6,
+      "Знаток": 7,
       "Эксперт": 1,
       "Мастер": 0,
       "Босс": 0,
@@ -52,6 +52,15 @@
           "remaining_boosters": 0,
           "wallet": 291.0,
           "tournament_questions": 18,
+          "has_active_boosters": 0
+        },
+        {
+          "username": "1077924714",
+          "capital": 100.0,
+          "points": 0.0,
+          "remaining_boosters": 0,
+          "wallet": 78.0,
+          "tournament_questions": 4,
           "has_active_boosters": 0
         },
         {
@@ -129,6 +138,19 @@
       "purchased_coins": 0
     },
     {
+      "user_id": 2091908459,
+      "username": "LucasTeam",
+      "level": "Гуру",
+      "capital": 16209.0,
+      "wallet": 0.0,
+      "all_questions": 1895,
+      "remaining_boosters": 106,
+      "tickets": 0,
+      "referral_rewards20": 7620,
+      "referral_count20": 36,
+      "purchased_coins": 0
+    },
+    {
       "user_id": 7048289770,
       "username": "Дятел Вуду",
       "level": "Легенда",
@@ -139,19 +161,6 @@
       "tickets": 1,
       "referral_rewards20": 2620,
       "referral_count20": 12,
-      "purchased_coins": 0
-    },
-    {
-      "user_id": 2091908459,
-      "username": "LucasTeam",
-      "level": "Легенда",
-      "capital": 15959.0,
-      "wallet": 250.0,
-      "all_questions": 1895,
-      "remaining_boosters": 106,
-      "tickets": 0,
-      "referral_rewards20": 7620,
-      "referral_count20": 36,
       "purchased_coins": 0
     },
     {
@@ -315,11 +324,11 @@
       "username": "Joe Peach",
       "level": "Эксперт",
       "capital": 1999.0,
-      "wallet": 6821.0,
+      "wallet": 6841.0,
       "all_questions": 480,
       "remaining_boosters": 8,
       "tickets": 0,
-      "referral_rewards20": 4650,
+      "referral_rewards20": 4670,
       "referral_count20": 21,
       "purchased_coins": 0
     },
@@ -4372,9 +4381,9 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 78.0,
-      "all_questions": 24,
+      "all_questions": 28,
       "remaining_boosters": 0,
-      "tickets": 2,
+      "tickets": 1,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
