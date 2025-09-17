@@ -1,13 +1,13 @@
 {
-  "lastUpdate": "2025-09-17 12:30:01 UTC",
+  "lastUpdate": "2025-09-17 12:35:02 UTC",
   "tournament": {
     "activeTournament": 26,
     "startDate": "2025-09-16 08:00:00",
     "endDate": "2025-09-18 08:00:00",
-    "totalPlayers": 28,
+    "totalPlayers": 29,
     "playersByLevel": {
       "Знаток": 20,
-      "Эксперт": 2,
+      "Эксперт": 3,
       "Мастер": 3,
       "Босс": 1,
       "Титан": 1,
@@ -225,6 +225,15 @@
           "remaining_boosters": 0,
           "wallet": 74.0,
           "tournament_questions": 22,
+          "has_active_boosters": 0
+        },
+        {
+          "username": "Terepuu",
+          "capital": 1100.0,
+          "points": -66.0,
+          "remaining_boosters": 0,
+          "wallet": 64.0,
+          "tournament_questions": 10,
           "has_active_boosters": 0
         }
       ],
@@ -586,13 +595,13 @@
       "username": "Terepuu",
       "level": "Эксперт",
       "capital": 1100.0,
-      "wallet": 214.0,
-      "all_questions": 400,
+      "wallet": 64.0,
+      "all_questions": 410,
       "remaining_boosters": 0,
       "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
-      "purchased_coins": 1000
+      "purchased_coins": 1100
     },
     {
       "user_id": 5923994828,
