@@ -1,13 +1,13 @@
 {
-  "lastUpdate": "2025-09-17 21:30:02 UTC",
+  "lastUpdate": "2025-09-17 21:35:01 UTC",
   "tournament": {
     "activeTournament": 26,
     "startDate": "2025-09-16 08:00:00",
     "endDate": "2025-09-18 08:00:00",
-    "totalPlayers": 31,
+    "totalPlayers": 32,
     "playersByLevel": {
       "Знаток": 21,
-      "Эксперт": 3,
+      "Эксперт": 4,
       "Мастер": 3,
       "Босс": 1,
       "Титан": 1,
@@ -225,6 +225,15 @@
           "remaining_boosters": 2,
           "wallet": 746.0,
           "tournament_questions": 80,
+          "has_active_boosters": 1
+        },
+        {
+          "username": "Joe Peach",
+          "capital": 1999.0,
+          "points": 719.6400000000001,
+          "remaining_boosters": 82,
+          "wallet": 6491.0,
+          "tournament_questions": 6,
           "has_active_boosters": 1
         },
         {
@@ -537,9 +546,9 @@
       "level": "Эксперт",
       "capital": 1999.0,
       "wallet": 6491.0,
-      "all_questions": 480,
-      "remaining_boosters": 88,
-      "tickets": 1,
+      "all_questions": 486,
+      "remaining_boosters": 82,
+      "tickets": 0,
       "referral_rewards20": 4670,
       "referral_count20": 21,
       "purchased_coins": 0
