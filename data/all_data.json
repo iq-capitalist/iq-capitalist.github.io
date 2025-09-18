@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-09-18 08:00:02 UTC",
+  "lastUpdate": "2025-09-18 08:05:02 UTC",
   "tournament": {
     "activeTournament": null,
     "startDate": null,
@@ -258,19 +258,6 @@
       "purchased_coins": 0
     },
     {
-      "user_id": 410562869,
-      "username": "Blackmore",
-      "level": "Эксперт",
-      "capital": 1100.0,
-      "wallet": 115.0,
-      "all_questions": 847,
-      "remaining_boosters": 106,
-      "tickets": 1,
-      "referral_rewards20": 200,
-      "referral_count20": 1,
-      "purchased_coins": 400
-    },
-    {
       "user_id": 435218981,
       "username": "Atanvarno",
       "level": "Эксперт",
@@ -333,19 +320,6 @@
       "tickets": 0,
       "referral_rewards20": 500,
       "referral_count20": 2,
-      "purchased_coins": 0
-    },
-    {
-      "user_id": 268536143,
-      "username": "MayaCha",
-      "level": "Эксперт",
-      "capital": 1000.0,
-      "wallet": 540.0,
-      "all_questions": 1043,
-      "remaining_boosters": 16,
-      "tickets": 0,
-      "referral_rewards20": 0,
-      "referral_count20": 0,
       "purchased_coins": 0
     },
     {
@@ -1111,6 +1085,19 @@
       "all_questions": 239,
       "remaining_boosters": 0,
       "tickets": 1,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
+      "user_id": 268536143,
+      "username": "MayaCha",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 1440.0,
+      "all_questions": 1043,
+      "remaining_boosters": 16,
+      "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
@@ -1933,6 +1920,19 @@
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
+    },
+    {
+      "user_id": 410562869,
+      "username": "Blackmore",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 1115.0,
+      "all_questions": 847,
+      "remaining_boosters": 106,
+      "tickets": 0,
+      "referral_rewards20": 200,
+      "referral_count20": 1,
+      "purchased_coins": 400
     },
     {
       "user_id": 411948623,
