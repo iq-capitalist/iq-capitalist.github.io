@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-09-18 07:20:01 UTC",
+  "lastUpdate": "2025-09-18 07:25:01 UTC",
   "tournament": {
     "activeTournament": 26,
     "startDate": "2025-09-16 08:00:00",
@@ -239,10 +239,10 @@
         {
           "username": "Shamass",
           "capital": 1100.0,
-          "points": 88.0,
+          "points": 198.0,
           "remaining_boosters": 0,
           "wallet": 74.0,
-          "tournament_questions": 29,
+          "tournament_questions": 42,
           "has_active_boosters": 0
         },
         {
@@ -563,6 +563,19 @@
       "purchased_coins": 0
     },
     {
+      "user_id": 5923994828,
+      "username": "A Drouz",
+      "level": "Эксперт",
+      "capital": 1200.0,
+      "wallet": 107.0,
+      "all_questions": 725,
+      "remaining_boosters": 80,
+      "tickets": 0,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
       "user_id": 244499238,
       "username": "Ленингриб",
       "level": "Эксперт",
@@ -641,25 +654,12 @@
       "purchased_coins": 1100
     },
     {
-      "user_id": 5923994828,
-      "username": "A Drouz",
-      "level": "Эксперт",
-      "capital": 1100.0,
-      "wallet": 207.0,
-      "all_questions": 725,
-      "remaining_boosters": 80,
-      "tickets": 0,
-      "referral_rewards20": 0,
-      "referral_count20": 0,
-      "purchased_coins": 0
-    },
-    {
       "user_id": 7049867130,
       "username": "Shamass",
       "level": "Эксперт",
       "capital": 1100.0,
       "wallet": 74.0,
-      "all_questions": 224,
+      "all_questions": 237,
       "remaining_boosters": 0,
       "tickets": 0,
       "referral_rewards20": 500,
