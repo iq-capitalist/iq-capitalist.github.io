@@ -1,16 +1,16 @@
 {
-  "lastUpdate": "2025-09-23 08:40:02 UTC",
+  "lastUpdate": "2025-09-23 08:45:01 UTC",
   "tournament": {
     "activeTournament": 27,
     "startDate": "2025-09-23 08:00:00",
     "endDate": "2025-09-25 08:00:00",
-    "totalPlayers": 5,
+    "totalPlayers": 6,
     "playersByLevel": {
       "Знаток": 4,
       "Эксперт": 0,
       "Мастер": 1,
       "Босс": 0,
-      "Титан": 0,
+      "Титан": 1,
       "Легенда": 0,
       "Гуру": 0,
       "IQ Капиталист": 0
@@ -69,15 +69,25 @@
         {
           "username": "Andatra",
           "capital": 3999.0,
-          "points": 7758.059999999994,
-          "remaining_boosters": 77,
+          "points": 9677.579999999996,
+          "remaining_boosters": 69,
           "wallet": 3447.0,
-          "tournament_questions": 33,
+          "tournament_questions": 41,
           "has_active_boosters": 1
         }
       ],
       "Босс": [],
-      "Титан": [],
+      "Титан": [
+        {
+          "username": "Rakshas",
+          "capital": 10945.0,
+          "points": 0.0,
+          "remaining_boosters": 90,
+          "wallet": 3750.0,
+          "tournament_questions": 1,
+          "has_active_boosters": 1
+        }
+      ],
       "Легенда": [],
       "Гуру": [],
       "IQ Капиталист": []
@@ -141,8 +151,8 @@
       "username": "Rakshas",
       "level": "Титан",
       "capital": 10945.0,
-      "wallet": 4000.0,
-      "all_questions": 1921,
+      "wallet": 3750.0,
+      "all_questions": 1922,
       "remaining_boosters": 90,
       "tickets": 0,
       "referral_rewards20": 2200,
@@ -246,8 +256,8 @@
       "level": "Мастер",
       "capital": 3999.0,
       "wallet": 3447.0,
-      "all_questions": 2030,
-      "remaining_boosters": 77,
+      "all_questions": 2038,
+      "remaining_boosters": 69,
       "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
