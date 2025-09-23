@@ -1,14 +1,14 @@
 {
-  "lastUpdate": "2025-09-23 08:10:02 UTC",
+  "lastUpdate": "2025-09-23 08:15:02 UTC",
   "tournament": {
     "activeTournament": 27,
     "startDate": "2025-09-23 08:00:00",
     "endDate": "2025-09-25 08:00:00",
-    "totalPlayers": 3,
+    "totalPlayers": 4,
     "playersByLevel": {
       "Знаток": 3,
       "Эксперт": 0,
-      "Мастер": 0,
+      "Мастер": 1,
       "Босс": 0,
       "Титан": 0,
       "Легенда": 0,
@@ -56,7 +56,17 @@
         }
       ],
       "Эксперт": [],
-      "Мастер": [],
+      "Мастер": [
+        {
+          "username": "Andatra",
+          "capital": 3999.0,
+          "points": 239.94,
+          "remaining_boosters": 109,
+          "wallet": 3447.0,
+          "tournament_questions": 1,
+          "has_active_boosters": 1
+        }
+      ],
       "Босс": [],
       "Титан": [],
       "Легенда": [],
@@ -226,9 +236,9 @@
       "username": "Andatra",
       "level": "Мастер",
       "capital": 3999.0,
-      "wallet": 3797.0,
-      "all_questions": 1997,
-      "remaining_boosters": 30,
+      "wallet": 3447.0,
+      "all_questions": 1998,
+      "remaining_boosters": 109,
       "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
