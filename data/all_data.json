@@ -1,14 +1,14 @@
 {
-  "lastUpdate": "2025-09-24 01:10:02 UTC",
+  "lastUpdate": "2025-09-24 01:15:01 UTC",
   "tournament": {
     "activeTournament": 27,
     "startDate": "2025-09-23 08:00:00",
     "endDate": "2025-09-25 08:00:00",
-    "totalPlayers": 14,
+    "totalPlayers": 15,
     "playersByLevel": {
       "Знаток": 10,
       "Эксперт": 0,
-      "Мастер": 1,
+      "Мастер": 2,
       "Босс": 1,
       "Титан": 1,
       "Легенда": 1,
@@ -127,6 +127,15 @@
           "remaining_boosters": 34,
           "wallet": 3447.0,
           "tournament_questions": 76,
+          "has_active_boosters": 1
+        },
+        {
+          "username": "Йошь",
+          "capital": 3999.0,
+          "points": 1439.64,
+          "remaining_boosters": 74,
+          "wallet": 6038.0,
+          "tournament_questions": 8,
           "has_active_boosters": 1
         }
       ],
@@ -317,9 +326,9 @@
       "level": "Мастер",
       "capital": 3999.0,
       "wallet": 6038.0,
-      "all_questions": 1520,
-      "remaining_boosters": 82,
-      "tickets": 1,
+      "all_questions": 1528,
+      "remaining_boosters": 74,
+      "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
