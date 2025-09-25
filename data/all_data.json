@@ -1,13 +1,13 @@
 {
-  "lastUpdate": "2025-09-25 06:45:01 UTC",
+  "lastUpdate": "2025-09-25 06:50:01 UTC",
   "tournament": {
     "activeTournament": 27,
     "startDate": "2025-09-23 08:00:00",
     "endDate": "2025-09-25 08:00:00",
-    "totalPlayers": 22,
+    "totalPlayers": 23,
     "playersByLevel": {
       "Знаток": 14,
-      "Эксперт": 1,
+      "Эксперт": 2,
       "Мастер": 3,
       "Босс": 1,
       "Титан": 1,
@@ -163,6 +163,15 @@
           "wallet": 13.0,
           "tournament_questions": 80,
           "has_active_boosters": 0
+        },
+        {
+          "username": "Craftbeer",
+          "capital": 1999.0,
+          "points": -39.97999999999999,
+          "remaining_boosters": 79,
+          "wallet": 1174.0,
+          "tournament_questions": 3,
+          "has_active_boosters": 1
         }
       ],
       "Мастер": [
@@ -443,9 +452,9 @@
       "level": "Эксперт",
       "capital": 1999.0,
       "wallet": 1174.0,
-      "all_questions": 560,
-      "remaining_boosters": 82,
-      "tickets": 1,
+      "all_questions": 563,
+      "remaining_boosters": 79,
+      "tickets": 0,
       "referral_rewards20": 250,
       "referral_count20": 1,
       "purchased_coins": 0
