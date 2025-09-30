@@ -1,12 +1,12 @@
 {
-  "lastUpdate": "2025-09-30 10:50:02 UTC",
+  "lastUpdate": "2025-09-30 10:55:02 UTC",
   "tournament": {
     "activeTournament": 28,
     "startDate": "2025-09-30 08:00:00",
     "endDate": "2025-10-02 08:00:00",
-    "totalPlayers": 1,
+    "totalPlayers": 2,
     "playersByLevel": {
-      "Знаток": 1,
+      "Знаток": 2,
       "Эксперт": 0,
       "Мастер": 0,
       "Босс": 0,
@@ -33,7 +33,16 @@
           "points": -3.0,
           "remaining_boosters": 0,
           "wallet": 0.0,
-          "tournament_questions": 1,
+          "tournament_questions": 4,
+          "has_active_boosters": 0
+        },
+        {
+          "username": "543780720",
+          "capital": 100.0,
+          "points": -6.0,
+          "remaining_boosters": 0,
+          "wallet": 70.0,
+          "tournament_questions": 4,
           "has_active_boosters": 0
         }
       ],
@@ -162,6 +171,19 @@
       "tickets": 0,
       "referral_rewards20": 250,
       "referral_count20": 1,
+      "purchased_coins": 0
+    },
+    {
+      "user_id": 1802192306,
+      "username": "Archi",
+      "level": "Босс",
+      "capital": 5844.0,
+      "wallet": 0.0,
+      "all_questions": 1680,
+      "remaining_boosters": 82,
+      "tickets": 0,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
       "purchased_coins": 0
     },
     {
@@ -2744,9 +2766,9 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 70.0,
-      "all_questions": 200,
+      "all_questions": 204,
       "remaining_boosters": 0,
-      "tickets": 1,
+      "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
@@ -3654,7 +3676,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 1,
+      "all_questions": 4,
       "remaining_boosters": 0,
       "tickets": 3,
       "referral_rewards20": 0,
@@ -5217,19 +5239,6 @@
       "all_questions": 160,
       "remaining_boosters": 0,
       "tickets": 2,
-      "referral_rewards20": 0,
-      "referral_count20": 0,
-      "purchased_coins": 0
-    },
-    {
-      "user_id": 1802192306,
-      "username": "Archi",
-      "level": "Знаток",
-      "capital": 100.0,
-      "wallet": 5744.0,
-      "all_questions": 1680,
-      "remaining_boosters": 82,
-      "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
