@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-10-07 16:25:02 UTC",
+  "lastUpdate": "2025-10-07 16:30:01 UTC",
   "tournament": {
     "activeTournament": 29,
     "startDate": "2025-10-07 08:00:00",
@@ -169,6 +169,19 @@
   },
   "players": [
     {
+      "user_id": 471478283,
+      "username": "Serhio",
+      "level": "IQ Капиталист",
+      "capital": 23000.0,
+      "wallet": 0.0,
+      "all_questions": 1854,
+      "remaining_boosters": 0,
+      "tickets": 999,
+      "referral_rewards20": 850,
+      "referral_count20": 4,
+      "purchased_coins": 0
+    },
+    {
       "user_id": 1877397832,
       "username": "MASK GAME",
       "level": "IQ Капиталист",
@@ -179,19 +192,6 @@
       "tickets": 999,
       "referral_rewards20": 11900,
       "referral_count20": 65,
-      "purchased_coins": 0
-    },
-    {
-      "user_id": 471478283,
-      "username": "Serhio",
-      "level": "Гуру",
-      "capital": 22679.0,
-      "wallet": 1950.0,
-      "all_questions": 1854,
-      "remaining_boosters": 4,
-      "tickets": 0,
-      "referral_rewards20": 850,
-      "referral_count20": 4,
       "purchased_coins": 0
     },
     {
@@ -319,7 +319,7 @@
       "wallet": 3802.0,
       "all_questions": 705,
       "remaining_boosters": 103,
-      "tickets": 1,
+      "tickets": 0,
       "referral_rewards20": 250,
       "referral_count20": 1,
       "purchased_coins": 0
