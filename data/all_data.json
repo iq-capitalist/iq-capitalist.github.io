@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-10-07 16:10:01 UTC",
+  "lastUpdate": "2025-10-07 16:15:01 UTC",
   "tournament": {
     "activeTournament": 29,
     "startDate": "2025-10-07 08:00:00",
@@ -46,6 +46,15 @@
           "has_active_boosters": 0
         },
         {
+          "username": "8338332421",
+          "capital": 100.0,
+          "points": 69.0,
+          "remaining_boosters": 0,
+          "wallet": 0.0,
+          "tournament_questions": 25,
+          "has_active_boosters": 0
+        },
+        {
           "username": "104822782",
           "capital": 100.0,
           "points": 8.0,
@@ -61,15 +70,6 @@
           "remaining_boosters": 0,
           "wallet": 72.0,
           "tournament_questions": 11,
-          "has_active_boosters": 0
-        },
-        {
-          "username": "8338332421",
-          "capital": 100.0,
-          "points": 3.0,
-          "remaining_boosters": 0,
-          "wallet": 0.0,
-          "tournament_questions": 1,
           "has_active_boosters": 0
         },
         {
@@ -190,11 +190,11 @@
       "username": "Дятел Вуду",
       "level": "Гуру",
       "capital": 21999.0,
-      "wallet": 572.0,
+      "wallet": 812.0,
       "all_questions": 1925,
       "remaining_boosters": 3,
       "tickets": 1,
-      "referral_rewards20": 5130,
+      "referral_rewards20": 5370,
       "referral_count20": 23,
       "purchased_coins": 0
     },
@@ -7718,7 +7718,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 1,
+      "all_questions": 25,
       "remaining_boosters": 0,
       "tickets": 3,
       "referral_rewards20": 0,
