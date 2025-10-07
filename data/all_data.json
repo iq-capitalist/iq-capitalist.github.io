@@ -1,14 +1,14 @@
 {
-  "lastUpdate": "2025-10-07 08:05:01 UTC",
+  "lastUpdate": "2025-10-07 08:10:02 UTC",
   "tournament": {
     "activeTournament": 29,
     "startDate": "2025-10-07 08:00:00",
     "endDate": "2025-10-09 08:00:00",
-    "totalPlayers": 1,
+    "totalPlayers": 2,
     "playersByLevel": {
       "Знаток": 1,
       "Эксперт": 0,
-      "Мастер": 0,
+      "Мастер": 1,
       "Босс": 0,
       "Титан": 0,
       "Легенда": 0,
@@ -30,15 +30,25 @@
         {
           "username": "5229720757",
           "capital": 100.0,
-          "points": 6.0,
+          "points": 3.0,
           "remaining_boosters": 0,
           "wallet": 0.0,
-          "tournament_questions": 8,
+          "tournament_questions": 17,
           "has_active_boosters": 0
         }
       ],
       "Эксперт": [],
-      "Мастер": [],
+      "Мастер": [
+        {
+          "username": "Tanoshimi",
+          "capital": 2000.0,
+          "points": 360.0,
+          "remaining_boosters": 75,
+          "wallet": 77.0,
+          "tournament_questions": 5,
+          "has_active_boosters": 1
+        }
+      ],
       "Босс": [],
       "Титан": [],
       "Легенда": [],
@@ -182,9 +192,9 @@
       "username": "Tanoshimi",
       "level": "Мастер",
       "capital": 2000.0,
-      "wallet": 427.0,
-      "all_questions": 1200,
-      "remaining_boosters": 0,
+      "wallet": 77.0,
+      "all_questions": 1205,
+      "remaining_boosters": 75,
       "tickets": 0,
       "referral_rewards20": 250,
       "referral_count20": 1,
@@ -5851,7 +5861,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 9,
+      "all_questions": 18,
       "remaining_boosters": 0,
       "tickets": 2,
       "referral_rewards20": 0,
