@@ -1,16 +1,16 @@
 {
-  "lastUpdate": "2025-10-07 12:05:01 UTC",
+  "lastUpdate": "2025-10-07 12:10:02 UTC",
   "tournament": {
     "activeTournament": 29,
     "startDate": "2025-10-07 08:00:00",
     "endDate": "2025-10-09 08:00:00",
-    "totalPlayers": 6,
+    "totalPlayers": 7,
     "playersByLevel": {
       "Знаток": 5,
       "Эксперт": 0,
       "Мастер": 1,
       "Босс": 0,
-      "Титан": 0,
+      "Титан": 1,
       "Легенда": 0,
       "Гуру": 0,
       "IQ Капиталист": 0
@@ -86,7 +86,17 @@
         }
       ],
       "Босс": [],
-      "Титан": [],
+      "Титан": [
+        {
+          "username": "Дон Педро",
+          "capital": 10999.0,
+          "points": 329.97,
+          "remaining_boosters": 86,
+          "wallet": 3982.0,
+          "tournament_questions": 1,
+          "has_active_boosters": 1
+        }
+      ],
       "Легенда": [],
       "Гуру": [],
       "IQ Капиталист": []
@@ -163,8 +173,8 @@
       "username": "Дон Педро",
       "level": "Титан",
       "capital": 10999.0,
-      "wallet": 4232.0,
-      "all_questions": 1930,
+      "wallet": 3982.0,
+      "all_questions": 1931,
       "remaining_boosters": 86,
       "tickets": 0,
       "referral_rewards20": 0,
