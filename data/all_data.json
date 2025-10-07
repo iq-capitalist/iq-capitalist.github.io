@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-10-07 08:20:01 UTC",
+  "lastUpdate": "2025-10-07 08:25:01 UTC",
   "tournament": {
     "activeTournament": 29,
     "startDate": "2025-10-07 08:00:00",
@@ -30,10 +30,10 @@
         {
           "username": "5229720757",
           "capital": 100.0,
-          "points": 0.0,
+          "points": -9.0,
           "remaining_boosters": 0,
           "wallet": 0.0,
-          "tournament_questions": 30,
+          "tournament_questions": 43,
           "has_active_boosters": 0
         }
       ],
@@ -42,10 +42,10 @@
         {
           "username": "Tanoshimi",
           "capital": 2000.0,
-          "points": 1360.0,
-          "remaining_boosters": 41,
+          "points": 1840.0,
+          "remaining_boosters": 17,
           "wallet": 77.0,
-          "tournament_questions": 39,
+          "tournament_questions": 63,
           "has_active_boosters": 1
         }
       ],
@@ -193,8 +193,8 @@
       "level": "Мастер",
       "capital": 2000.0,
       "wallet": 77.0,
-      "all_questions": 1239,
-      "remaining_boosters": 41,
+      "all_questions": 1263,
+      "remaining_boosters": 17,
       "tickets": 0,
       "referral_rewards20": 250,
       "referral_count20": 1,
@@ -5861,7 +5861,7 @@
       "level": "Знаток",
       "capital": 100.0,
       "wallet": 0.0,
-      "all_questions": 31,
+      "all_questions": 44,
       "remaining_boosters": 0,
       "tickets": 2,
       "referral_rewards20": 0,
