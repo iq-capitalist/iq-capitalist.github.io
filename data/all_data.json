@@ -1,14 +1,14 @@
 {
-  "lastUpdate": "2025-10-08 03:30:02 UTC",
+  "lastUpdate": "2025-10-08 03:35:01 UTC",
   "tournament": {
     "activeTournament": 29,
     "startDate": "2025-10-07 08:00:00",
     "endDate": "2025-10-09 08:00:00",
-    "totalPlayers": 16,
+    "totalPlayers": 17,
     "playersByLevel": {
       "Знаток": 10,
       "Эксперт": 1,
-      "Мастер": 2,
+      "Мастер": 3,
       "Босс": 1,
       "Титан": 1,
       "Легенда": 1,
@@ -147,6 +147,15 @@
           "wallet": 77.0,
           "tournament_questions": 80,
           "has_active_boosters": 0
+        },
+        {
+          "username": "A Drouz",
+          "capital": 2000.0,
+          "points": 640.0,
+          "remaining_boosters": 74,
+          "wallet": 5.0,
+          "tournament_questions": 6,
+          "has_active_boosters": 1
         }
       ],
       "Босс": [
@@ -331,6 +340,19 @@
       "purchased_coins": 1700
     },
     {
+      "user_id": 5923994828,
+      "username": "A Drouz",
+      "level": "Мастер",
+      "capital": 2000.0,
+      "wallet": 5.0,
+      "all_questions": 855,
+      "remaining_boosters": 74,
+      "tickets": 0,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 400
+    },
+    {
       "user_id": 134326147,
       "username": "Craftbeer",
       "level": "Эксперт",
@@ -355,19 +377,6 @@
       "referral_rewards20": 4680,
       "referral_count20": 21,
       "purchased_coins": 0
-    },
-    {
-      "user_id": 5923994828,
-      "username": "A Drouz",
-      "level": "Эксперт",
-      "capital": 1800.0,
-      "wallet": 5.0,
-      "all_questions": 849,
-      "remaining_boosters": 80,
-      "tickets": 1,
-      "referral_rewards20": 0,
-      "referral_count20": 0,
-      "purchased_coins": 200
     },
     {
       "user_id": 5175554815,
