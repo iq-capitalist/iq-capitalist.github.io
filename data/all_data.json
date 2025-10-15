@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-10-15 15:10:02 UTC",
+  "lastUpdate": "2025-10-15 15:15:01 UTC",
   "tournament": {
     "activeTournament": 30,
     "startDate": "2025-10-14 08:00:00",
@@ -78,10 +78,10 @@
         {
           "username": "Роман",
           "capital": 3999.0,
-          "points": 15916.020000000013,
-          "remaining_boosters": 39,
+          "points": 16155.960000000014,
+          "remaining_boosters": 38,
           "wallet": 1444.0,
-          "tournament_questions": 79,
+          "tournament_questions": 80,
           "has_active_boosters": 1
         },
         {
@@ -221,6 +221,19 @@
       "purchased_coins": 0
     },
     {
+      "user_id": 1142615609,
+      "username": "Оля",
+      "level": "Босс",
+      "capital": 6999.0,
+      "wallet": 562.0,
+      "all_questions": 1360,
+      "remaining_boosters": 11,
+      "tickets": 0,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
       "user_id": 5819543689,
       "username": "Йошь",
       "level": "Босс",
@@ -247,26 +260,13 @@
       "purchased_coins": 0
     },
     {
-      "user_id": 1142615609,
-      "username": "Оля",
-      "level": "Мастер",
-      "capital": 3999.0,
-      "wallet": 3562.0,
-      "all_questions": 1360,
-      "remaining_boosters": 11,
-      "tickets": 0,
-      "referral_rewards20": 0,
-      "referral_count20": 0,
-      "purchased_coins": 0
-    },
-    {
       "user_id": 1180334171,
       "username": "Роман",
       "level": "Мастер",
       "capital": 3999.0,
       "wallet": 1444.0,
-      "all_questions": 1928,
-      "remaining_boosters": 39,
+      "all_questions": 1929,
+      "remaining_boosters": 38,
       "tickets": 0,
       "referral_rewards20": 250,
       "referral_count20": 1,
