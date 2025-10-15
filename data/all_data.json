@@ -1,14 +1,14 @@
 {
-  "lastUpdate": "2025-10-15 04:50:02 UTC",
+  "lastUpdate": "2025-10-15 04:55:02 UTC",
   "tournament": {
     "activeTournament": 30,
     "startDate": "2025-10-14 08:00:00",
     "endDate": "2025-10-16 08:00:00",
-    "totalPlayers": 8,
+    "totalPlayers": 9,
     "playersByLevel": {
       "Знаток": 4,
       "Эксперт": 0,
-      "Мастер": 1,
+      "Мастер": 2,
       "Босс": 0,
       "Титан": 1,
       "Легенда": 1,
@@ -66,6 +66,15 @@
       ],
       "Эксперт": [],
       "Мастер": [
+        {
+          "username": "Роман",
+          "capital": 3999.0,
+          "points": 2639.34,
+          "remaining_boosters": 106,
+          "wallet": 1444.0,
+          "tournament_questions": 12,
+          "has_active_boosters": 1
+        },
         {
           "username": "Tanoshimi",
           "capital": 2000.0,
@@ -237,8 +246,8 @@
       "level": "Мастер",
       "capital": 3999.0,
       "wallet": 1444.0,
-      "all_questions": 1849,
-      "remaining_boosters": 117,
+      "all_questions": 1861,
+      "remaining_boosters": 106,
       "tickets": 0,
       "referral_rewards20": 250,
       "referral_count20": 1,
