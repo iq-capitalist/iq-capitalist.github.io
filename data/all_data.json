@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-10-16 08:00:01 UTC",
+  "lastUpdate": "2025-10-16 08:05:01 UTC",
   "tournament": {
     "activeTournament": null,
     "startDate": null,
@@ -204,19 +204,6 @@
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 1500
-    },
-    {
-      "user_id": 435218981,
-      "username": "Atanvarno",
-      "level": "Эксперт",
-      "capital": 1100.0,
-      "wallet": 280.0,
-      "all_questions": 370,
-      "remaining_boosters": 0,
-      "tickets": 0,
-      "referral_rewards20": 0,
-      "referral_count20": 0,
-      "purchased_coins": 0
     },
     {
       "user_id": 7049867130,
@@ -2086,6 +2073,19 @@
       "all_questions": 83,
       "remaining_boosters": 0,
       "tickets": 2,
+      "referral_rewards20": 0,
+      "referral_count20": 0,
+      "purchased_coins": 0
+    },
+    {
+      "user_id": 435218981,
+      "username": "Atanvarno",
+      "level": "Знаток",
+      "capital": 100.0,
+      "wallet": 1280.0,
+      "all_questions": 370,
+      "remaining_boosters": 0,
+      "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
       "purchased_coins": 0
