@@ -1,5 +1,5 @@
 {
-  "lastUpdate": "2025-10-16 06:20:02 UTC",
+  "lastUpdate": "2025-10-16 06:25:01 UTC",
   "tournament": {
     "activeTournament": 30,
     "startDate": "2025-10-14 08:00:00",
@@ -77,10 +77,10 @@
         {
           "username": "Terepuu",
           "capital": 1200.0,
-          "points": 180.0,
+          "points": 360.0,
           "remaining_boosters": 0,
           "wallet": 2.0,
-          "tournament_questions": 19,
+          "tournament_questions": 40,
           "has_active_boosters": 0
         }
       ],
@@ -97,10 +97,10 @@
         {
           "username": "Craftbeer",
           "capital": 3999.0,
-          "points": 7518.119999999997,
-          "remaining_boosters": 58,
+          "points": 8557.859999999995,
+          "remaining_boosters": 53,
           "wallet": 3452.0,
-          "tournament_questions": 46,
+          "tournament_questions": 51,
           "has_active_boosters": 1
         },
         {
@@ -280,8 +280,8 @@
       "level": "Мастер",
       "capital": 3999.0,
       "wallet": 3452.0,
-      "all_questions": 831,
-      "remaining_boosters": 58,
+      "all_questions": 836,
+      "remaining_boosters": 53,
       "tickets": 0,
       "referral_rewards20": 250,
       "referral_count20": 1,
@@ -358,7 +358,7 @@
       "level": "Эксперт",
       "capital": 1200.0,
       "wallet": 2.0,
-      "all_questions": 579,
+      "all_questions": 600,
       "remaining_boosters": 0,
       "tickets": 0,
       "referral_rewards20": 0,
