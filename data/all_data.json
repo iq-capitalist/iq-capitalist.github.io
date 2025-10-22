@@ -1,10 +1,10 @@
 {
-  "lastUpdate": "2025-10-22 13:00:01 UTC",
+  "lastUpdate": "2025-10-22 13:05:02 UTC",
   "tournament": {
     "activeTournament": 31,
     "startDate": "2025-10-21 08:00:00",
     "endDate": "2025-10-23 08:00:00",
-    "totalPlayers": 11,
+    "totalPlayers": 12,
     "playersByLevel": {
       "Знаток": 6,
       "Эксперт": 0,
@@ -12,7 +12,7 @@
       "Босс": 1,
       "Титан": 1,
       "Легенда": 1,
-      "Гуру": 0,
+      "Гуру": 1,
       "IQ Капиталист": 0
     },
     "prizePools": {
@@ -96,10 +96,10 @@
         {
           "username": "A Drouz",
           "capital": 2000.0,
-          "points": 5200.0,
-          "remaining_boosters": 18,
+          "points": 6080.0,
+          "remaining_boosters": 9,
           "wallet": 81.0,
-          "tournament_questions": 67,
+          "tournament_questions": 76,
           "has_active_boosters": 1
         }
       ],
@@ -136,7 +136,17 @@
           "has_active_boosters": 1
         }
       ],
-      "Гуру": [],
+      "Гуру": [
+        {
+          "username": "LucasTeam",
+          "capital": 21199.0,
+          "points": 847.96,
+          "remaining_boosters": 92,
+          "wallet": 0.0,
+          "tournament_questions": 2,
+          "has_active_boosters": 1
+        }
+      ],
       "IQ Капиталист": []
     }
   },
@@ -186,9 +196,9 @@
       "level": "Гуру",
       "capital": 21199.0,
       "wallet": 0.0,
-      "all_questions": 1915,
-      "remaining_boosters": 93,
-      "tickets": 1,
+      "all_questions": 1917,
+      "remaining_boosters": 92,
+      "tickets": 0,
       "referral_rewards20": 8860,
       "referral_count20": 41,
       "purchased_coins": 0
@@ -303,8 +313,8 @@
       "level": "Мастер",
       "capital": 2000.0,
       "wallet": 81.0,
-      "all_questions": 996,
-      "remaining_boosters": 18,
+      "all_questions": 1005,
+      "remaining_boosters": 9,
       "tickets": 0,
       "referral_rewards20": 0,
       "referral_count20": 0,
